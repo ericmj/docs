@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Session.Store</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a> &rarr; <a href="Plug.Session.Store.html">Store</a></div>
+
+      <h1>
+        Plug.Session.Store
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Removes the session associated with given session id from the store.</p>
+
+        </div>
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:sid/0">
+    <a href="#t:sid/0">sid</a> :: binary
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(<a href="#t:sid/0">sid</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: :ok</li>
+      
+    </ul>
+  
+  <div class="docstring"></div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get/2">
+    <span class="signature"><strong>get/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#get/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get(<a href="#t:sid/0">sid</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: {<a href="#t:sid/0">sid</a>, any}</li>
+      
+    </ul>
+  
+  <div class="docstring"></div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init/1</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#init/1" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>init(<a href="Plug.html#t:opts/0">Plug.opts</a>) :: <a href="Plug.html#t:opts/0">Plug.opts</a></li>
+      
+    </ul>
+  
+  <div class="docstring"></div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put/3">
+    <span class="signature"><strong>put/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#put/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put(<a href="#t:sid/0">sid</a> | nil, any, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: <a href="#t:sid/0">sid</a></li>
+      
+    </ul>
+  
+  <div class="docstring"></div>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

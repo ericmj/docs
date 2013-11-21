@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Session</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a></div>
+
+      <h1>
+        Plug.Session
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>A plug to handle session cookies and session stores.</p>
+
+<p>The session is accessed via functions on <a href="Plug.Conn.html"><code>Plug.Conn</code></a>. Cookies and
+session have to be fetched with <a href="Plug.Conn.html#fetch_session/1"><code>Plug.Conn.fetch_session/1</code></a> before the
+session can be accessed.</p>
+
+<h2>Session stores</h2>
+
+<p>See <a href="Plug.Session.Store.html"><code>Plug.Session.Store</code></a> for the specification session stores are required to
+implement.</p>
+
+<p>Plug ships with the following session stores:</p>
+
+<ul>
+<li><a href="Plug.Session.ETS.html"><code>Plug.Session.ETS</code></a></li>
+</ul>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:store</code> - session store module (required);</li>
+<li><code>:key</code> - session cookie key (required);</li>
+<li><code>:domain</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
+<li><code>:max_age</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
+<li><code>:path</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
+<li><code>:secure</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
+</ul>
+
+<p>Additional options can be given to the session store, see the store&#39;s
+documentation for the options it accepts.</p>
+
+<h2>Examples</h2>
+
+<pre><code>plug Plug.Session, store: :ets, key: &quot;sid&quot;, secure: true, table: :session
+</code></pre>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#call/2">call(conn, config)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.html#call/2"><code>Plug.call/2</code></a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.html#init/1"><code>Plug.init/1</code></a></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="call/2">
+    <span class="signature"><strong>call(conn, config)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#call/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Callback implementation of <a href="Plug.html#call/2"><code>Plug.call/2</code></a>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Callback implementation of <a href="Plug.html#init/1"><code>Plug.init/1</code></a>.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

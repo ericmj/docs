@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Builder</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Builder.html">Builder</a></div>
+
+      <h1>
+        Plug.Builder
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+          <li><a href="#macros_details">Macros</a></li>
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Conveniences for building plugs.</p>
+
+<p>This module can be used into a module in order to build
+a plug stack:</p>
+
+<pre><code>defmodule MyApp do
+  use Plug.Builder
+
+  plug :hello, upper: true
+
+  def hello(conn, opts) do
+    body = if opts[:upper], do: &quot;WORLD&quot;, else: &quot;world&quot;
+    send_resp(conn, 200, body)
+  end
+end
+</code></pre>
+
+<p><a href="Plug.Builder.html"><code>Plug.Builder</code></a> will define a <code>init/1</code> function (which is overridable)
+and a <code>call/2</code> function with the compiled stack. By implementing the
+Plug API, <a href="Plug.Builder.html"><code>Plug.Builder</code></a> guarantees this module can be handed to a web
+server or used as part of another stack.</p>
+
+<p>Note this module also exports a <a href="#compile/1"><code>compile/1</code></a> function for those willing
+to collect and compile their plugs manually.</p>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#compile/1">compile(stack)</a></td>
+  
+    <td class="summary_synopsis"><p>Compiles a plug stack</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#plug/2">plug(plug, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>A macro that stores a new plug</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:plug/0">
+    <a href="#t:plug/0">plug</a> :: module | atom
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="compile/1">
+    <span class="signature"><strong>compile(stack)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#compile/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>compile([{<a href="#t:plug/0">plug</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>}]) :: {<a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>, <a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Compiles a plug stack.</p>
+
+<p>It expects a reversed stack (with the last plug coming first)
+and returns a tuple containing the reference to the connection
+as first argument and the compiled quote stack.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="macros_details" class="details_list">
+          <h2>Macros</h2>
+          <div class="detail">
+  <div class="detail_header" id="plug/2">
+    <span class="signature"><strong>plug(plug, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#plug/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A macro that stores a new plug.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+    </div>
+  </body>
+</html>

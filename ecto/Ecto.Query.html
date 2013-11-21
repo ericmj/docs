@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Query</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a></div>
+
+      <h1>
+        Ecto.Query
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#macros_details">Macros</a></li>
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Provides the Query DSL.</p>
+
+<p>Queries are used to retrieve and manipulate data in a repository
+(see <a href="Ecto.Repo.html"><code>Ecto.Repo</code></a>). Although this module provides a complete API,
+supporting expressions like <a href="#where/3"><code>where/3</code></a>, <a href="#select/3"><code>select/3</code></a> and so forth,
+most of the times developers need to import only the <a href="#from/2"><code>from/2</code></a>
+macro.</p>
+
+<pre><code># Imports only from/1 and from/2 from Ecto.Query
+import Ecto.Query, only: [from: 2]
+
+# Create a query
+query = from w in Weather,
+      where: w.prcp &gt; 0,
+     select: w.city
+
+# Send the query to the repository
+Repo.all(query)
+</code></pre>
+
+<h2>Composition</h2>
+
+<p>Ecto queries are composable. For example, the query above can
+actually be defined in two parts:</p>
+
+<pre><code># Create a query
+query = from w in Weather, where: w.prcp &gt; 0
+
+# Extend the query
+query = from w in query, select: w.city
+</code></pre>
+
+<p>Keep in mind though the variable names used on the left-hand
+side of <code>in</code> are just a convenience, they are not taken into
+account in the query generation.</p>
+
+<p>Any value can be used on the right-side of <code>in</code> as long as it
+implements the <a href="Ecto.Queryable.html"><code>Ecto.Queryable</code></a> protocol.</p>
+
+<h2>Data security</h2>
+
+<p>External values and elixir expressions can be injected into a query
+expression with <code>^</code>. Anything that isn&#39;t inside a <code>^</code> expression
+is treated as a query expression.</p>
+
+<p>This allows one to create dynamic queries:</p>
+
+<pre><code>def with_minimum(age, height_ft) do
+    from u in User,
+  where: u.age &gt; ^age and u.height &gt; ^(height_ft * 3.28)
+end
+</code></pre>
+
+<p>In the example above, we will compare against the <code>age</code> and <code>height</code>
+given as arguments, appropriately converting the height. Note all
+external values will be quoted to avoid SQL injection attacks in
+the underlying repository.</p>
+
+<p>Notice the <code>select</code> clause is optional, Ecto will automatically infers
+and returns the user record (similar to <code>select: u</code>) from the query above.</p>
+
+<h2>Type safety</h2>
+
+<p>Ecto queries are also type-safe. For example, the following query:</p>
+
+<pre><code>from u in User, where: u.age == &quot;zero&quot;
+</code></pre>
+
+<p>will return an error with the following message:</p>
+
+<pre><code>** (Ecto.Query.TypeCheckError) the following expression does not type check:
+
+    &amp;0.age() == &quot;zero&quot;
+
+Allowed types for ==/2:
+
+    number == number
+    var == var
+    nil == _
+    _ == nil
+
+Got: integer == string
+</code></pre>
+
+<p>The types above mean:</p>
+
+<ul>
+<li><code>number == number</code> - any number (be it float, integer, etc) can be compared
+with any other number;</li>
+<li><code>var == var</code> - the comparison operator also works if both operands are of
+the same type (i.e. <code>var</code> represents a variable type);</li>
+<li><code>nil == _</code> and <code>_ == nil</code> - the comparison operator also type checks if any
+of the operands are nil;</li>
+</ul>
+
+<p>All operations allowed in a query with their respective type are defined
+in <a href="Ecto.Query.API.html"><code>Ecto.Query.API</code></a>.</p>
+
+<h2>Query expansion</h2>
+
+<p>In all examples so far, we have used the <strong>keywords query syntax</strong> to create
+a query. Our first example:</p>
+
+<pre><code>import Ecto.Query
+
+   from w in Weather,
+ where: w.prcp &gt; 0,
+select: w.city
+</code></pre>
+
+<p>Simply expands to the following <strong>query expressions</strong>:</p>
+
+<pre><code>from(w in Weather) |&gt; where([w], w.prcp &gt; 0) |&gt; select([w], w.city)
+</code></pre>
+
+<p>Which then expands to:</p>
+
+<pre><code>select(where(from(w in Weather), [w], w.prcp &gt; 0), [w], w.city)
+</code></pre>
+
+<p>This module documents each of those macros, providing examples both
+in the keywords query and in the query expression formats.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#limit/2">limit(query, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A limit query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lock/2">lock(query, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A lock query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#offset/2">offset(query, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>An offset query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#from/2">from(expr, kw)</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a query</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#preload/2">preload(query, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>Mark associations to be pre-loaded</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#distinct/3">distinct(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A distinct query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#group_by/3">group_by(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A group by query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#having/3">having(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A having query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#select/3">select(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A select query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#where/3">where(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A where query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#order_by/3">order_by(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>An order by query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#join/5">join(query, qual, binding, expr, on \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>A join query expression</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %Ecto.Query{sources: term, from: term, joins: term, wheres: term, select: term, order_bys: term, limit: term, offset: term, group_bys: term, havings: term, preloads: term, distincts: term, lock: term}
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+        <div id="macros_details" class="details_list">
+          <h2>Macros</h2>
+          <div class="detail">
+  <div class="detail_header" id="distinct/3">
+    <span class="signature"><strong>distinct(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#distinct/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A distinct query expression.</p>
+
+<p>Only keep one row for each combination of values in the <code>distinct</code> query
+expression.</p>
+
+<p>The row that is being kept depends on the ordering of the rows. To ensure
+results are consistent, if an <code>order_by</code> expression is also added to the
+query, its leftmost part must first reference all the fields in the
+<code>distinct</code> expression before referencing another field.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code># Returns the list of different categories in the Post model
+from(p in Post, distinct: p.category)
+
+# Returns the first (by date) for each different categories of Post
+from(p in Post,
+   distinct: p.category,
+   order_by: [p.category, p.date])
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>Post
+|&gt; distinct([p], p.category)
+|&gt; order_by([p], [p.category, p.author])
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L313" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="from/2">
+    <span class="signature"><strong>from(expr, kw)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#from/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Creates a query.</p>
+
+<p>It can either be a keyword query or a query expression. If it is a
+keyword query the first argument should be an <code>in</code> expression and
+the second argument a keyword query where they keys are expression
+types and the values are expressions.</p>
+
+<p>If it is a query expression the first argument is the original query
+and the second argument the expression.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(City, select: c)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(City) |&gt; select([c], c)
+</code></pre>
+
+<h2>Examples</h2>
+
+<pre><code>def paginate(query, page, size) do
+  from query,
+    limit: size,
+    offset: (page-1) * size
+end
+</code></pre>
+
+<p>The example above does not use <code>in</code> because none of <code>limit</code> and <code>offset</code>
+requires such. However, extending a query with where expression would
+require so:</p>
+
+<pre><code>def published(query) do
+  from p in query, where: p.published_at != nil
+end
+</code></pre>
+
+<p>Notice we have created a <code>p</code> variable to represent each item in the query.
+In case the given query has more than one <code>from</code> expression, each of them
+must be given in the order they were bound:</p>
+
+<pre><code>def published_multi(query) do
+  from [p,o] in query,
+  where: p.published_at != nil and o.published_at != nil
+end
+</code></pre>
+
+<p>Note the variables <code>p</code> and <code>q</code> must be named as you find more convenient
+as they have no importance in the query sent to the database.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L190" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="group_by/3">
+    <span class="signature"><strong>group_by(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#group_by/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A group by query expression.</p>
+
+<p>Groups together rows from the model that have the same values in the given
+fields. Using <code>group_by</code> &quot;groups&quot; the query giving it different semantics
+in the <code>select</code> expression. If a query is grouped only fields that were
+referenced in the <code>group_by</code> can be used in the <code>select</code> or if the field
+is given as an argument to an aggregate function.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code># Returns the number of posts in each category
+from(p in Post,
+  group_by: p.category,
+  select: {p.category, count(p.id)})
+
+# Group on all fields on the Post model
+from(p in Post,
+  group_by: p,
+  select: p)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>Post |&gt; group_by([p], p.category) |&gt; select([p], count(p.id))
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L453" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="having/3">
+    <span class="signature"><strong>having(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#having/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A having query expression.</p>
+
+<p>Like <code>where</code> <code>having</code> filters rows from the model, but after the grouping is
+performed giving it the same semantics as <code>select</code> for a grouped query
+(see <a href="#group_by/3"><code>group_by/3</code></a>). <code>having</code> groups the query even if the query has no
+<code>group_by</code> expression.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code># Returns the number of posts in each category where the
+# average number of comments is above ten
+from(p in Post,
+  group_by: p.category,
+  having: avg(p.num_comments) &gt; 10,
+  select: {p.category, count(p.id)})
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>Post
+|&gt; group_by([p], p.category)
+|&gt; having([p], avg(p.num_comments) &gt; 10)
+|&gt; select([p], count(p.id))
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L481" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="join/5">
+    <span class="signature"><strong>join(query, qual, binding, expr, on \\ nil)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#join/5" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A join query expression.</p>
+
+<p>Receives a model that is to be joined to the query and a condition to
+do the joining on. The join condition can be any expression that evaluates
+to a boolean value. The join is by default an inner join, the qualifier
+can be changed by giving the atoms: <code>:inner</code>, <code>:left</code>, <code>:right</code> or
+<code>:full</code>. For a keyword query the <code>:join</code> keyword can be changed to:
+<code>:inner_join</code>, <code>:left_join</code>, <code>:right_join</code> or <code>:full_join</code>.</p>
+
+<p>The join condition can be automatically set when doing an association
+join. An association join can be done on any association field
+(<code>has_many</code>, <code>has_one</code>, <code>belong_to</code>).</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>   from c in Comment,
+  join: p in Post, on: c.post_id == p.id,
+select: {p.title, c.text}
+
+   from p in Post,
+  left_join: c in p.comments,
+select: {p, c}
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(Comment)
+|&gt; join(:inner, [c], p in Post, c.post_id == p.id)
+|&gt; select([c, p], {p.title, c.text})
+
+Post
+|&gt; join(:left, [p], c in p.comments)
+|&gt; select([p, c], {p, c})
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L233" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="limit/2">
+    <span class="signature"><strong>limit(query, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#limit/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A limit query expression.</p>
+
+<p>Limits the number of rows selected from the result. Can be any expression but
+have to evaluate to an integer value and it can&#39;t include any field.</p>
+
+<p>If <code>limit</code> is given twice, it overrides the previous value.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(u in User, where: u.id == current_user, limit: 1)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(u in User) |&gt; where(u.id == current_user) |&gt; limit(1)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L376" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="lock/2">
+    <span class="signature"><strong>lock(query, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#lock/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A lock query expression.</p>
+
+<p>Provides support for row-level pessimistic locking using
+SELECT ... FOR UPDATE or other, database-specific, locking clauses.
+Can be any expression but have to evaluate to a boolean value or a
+string and it can&#39;t include any field.</p>
+
+<p>If <code>lock</code> is given twice, it overrides the previous value.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(u in User, where: u.id == current_user, lock: true)
+from(u in User, where: u.id == current_user, lock: &quot;FOR SHARE NOWAIT&quot;)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(u in User) |&gt; where(u.id == current_user) |&gt; lock(true)
+from(u in User) |&gt; where(u.id == current_user) |&gt; lock(&quot;FOR SHARE NOWAIT&quot;)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L423" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="offset/2">
+    <span class="signature"><strong>offset(query, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#offset/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>An offset query expression.</p>
+
+<p>Offsets the number of rows selected from the result. Can be any expression
+but have to evaluate to an integer value and it can&#39;t include any field.</p>
+
+<p>If <code>offset</code> is given twice, it overrides the previous value.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code># Get all posts on page 4
+from(p in Post, limit: 10, offset: 30)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(p in Post) |&gt; limit(10) |&gt; offset(30)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L398" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="order_by/3">
+    <span class="signature"><strong>order_by(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#order_by/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>An order by query expression.</p>
+
+<p>Orders the fields based on one or more fields. It accepts a single field
+or a list field, the direction can be specified in a keyword list as shown
+in the examples. There can be several order by expressions in a query.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(c in City, order_by: c.name, order_by: c.population)
+from(c in City, order_by: [c.name, c.population])
+from(c in City, order_by: [asc: c.name, desc: c.population])
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(c in City) |&gt; order_by([c], asc: c.name, desc: c.population)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L355" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="preload/2">
+    <span class="signature"><strong>preload(query, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#preload/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Mark associations to be pre-loaded.</p>
+
+<p>Pre-loading allow developers to specify associations that should be pre-
+loaded once the first result set is retrieved. Consider this example:</p>
+
+<pre><code>Repo.all from p in Post, preload: [:comments]
+</code></pre>
+
+<p>The example above will fetch all posts from the database and then do
+a separate query returning all comments associated to the given posts.</p>
+
+<p>Nested associations can also be preloaded as seen in the examples below.
+One query per association to be preloaded will be issued to the database.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code># Returns all posts and their associated comments
+from(p in Post,
+  preload: [:comments],
+  select: p)
+
+# Returns all posts and their associated comments
+# with the associated author
+from(p in Post,
+  preload: [user: [], comments: [:user]],
+  select: p)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>Post |&gt; preload(:comments) |&gt; select([p], p)
+
+Post |&gt; preload([:user, {:comments, [:user]}]) |&gt; select([p], p)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L518" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="select/3">
+    <span class="signature"><strong>select(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#select/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A select query expression.</p>
+
+<p>Selects which fields will be selected from the model and any transformations
+that should be performed on the fields. Any expression that is accepted in a
+query can be a select field.</p>
+
+<p>There can only be one select expression in a query, if the select expression
+is omitted, the query will by default select the full model.</p>
+
+<p>The sub-expressions in the query can be wrapped in lists or tuples as shown in
+the examples. A full model can also be selected.</p>
+
+<p>The <code>assoc/2</code> selector can be used to embed an association on a parent model
+as shown in the examples below. The first argument to <code>assoc</code> has to be a
+variable bound in the <code>from</code> query expression, the second has to be the field
+of the association and a variable bound in an association join.</p>
+
+<p>Nested `assoc/2 expressions are also allowed when there are multiple
+association joins in the query.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(c in City, select: c) # selects the entire model
+from(c in City, select: {c.name, c.population})
+from(c in City, select: [c.name, c.county])
+from(c in City, select: {c.name, to_binary(40 + 2), 43})
+
+from(p in Post, join: c in p.comments, select: assoc(p, comments: c))
+
+# Fetch all posts, their comments and the posts&#39; and comments&#39; authors
+      from p in Post,
+left_join: p_u in p.author,
+left_join: c in p.comments,
+left_join: c_u in c.author,
+   select: assoc(p, author: p_u, comments: assoc(c, author: c_u))
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(c in City) |&gt; select([c], c)
+from(c in City) |&gt; select([c], {c.name, c.country})
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L281" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="where/3">
+    <span class="signature"><strong>where(query, binding, expr)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#where/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>A where query expression.</p>
+
+<p><code>where</code> expressions are used to filter the result set. If there is more
+than one where expression, they are combined with <code>and</code> operator. All
+where expression have to evaluate to a boolean value.</p>
+
+<h2>Keywords examples</h2>
+
+<pre><code>from(c in City, where: c.state == &quot;Sweden&quot;)
+</code></pre>
+
+<h2>Expressions examples</h2>
+
+<pre><code>from(c in City) |&gt; where([c], c.state == &quot;Sweden&quot;)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query.ex#L333" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+    </div>
+  </body>
+</html>

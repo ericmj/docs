@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Conn</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a></div>
+
+      <h1>
+        Plug.Conn
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>The Plug connection.</p>
+
+<p>This module defines a struct and the main functions for working
+with Plug connections.</p>
+
+<p>All the struct fields are defined below. Note both request and
+response headers are expected to have lower-case keys.</p>
+
+<h2>Request fields</h2>
+
+<p>Those fields contain request information:</p>
+
+<ul>
+<li><code>host</code> - the requested host as a binary, example: <code>&quot;www.example.com&quot;</code></li>
+<li><code>method</code> - the request method as a binary, example: <code>&quot;GET&quot;</code></li>
+<li><code>path_info</code> - the path split into segments, example: <code>[&quot;hello&quot;, &quot;world&quot;]</code></li>
+<li><code>port</code> - the requested port as an integer, example: <code>80</code></li>
+<li><code>req_headers</code> - the request headers as a list, example: <code>[{&quot;content-type&quot;, &quot;text/plain&quot;}]</code></li>
+<li><code>scheme</code> - the request scheme as an atom, example: <code>:http</code></li>
+<li><code>query_string</code> - the request query string as a binary, example: <code>&quot;foo=bar&quot;</code></li>
+</ul>
+
+<h2>Fetchable fields</h2>
+
+<p>Those fields contain request information and they need to be explicitly fetched.
+Before fetching those fields return a <a href="Plug.Conn.Unfetched.html"><code>Plug.Conn.Unfetched</code></a> record.</p>
+
+<ul>
+<li><code>cookies</code>- the request cookies with the response cookies</li>
+<li><code>params</code> - the request params</li>
+<li><code>req_cookies</code> - the request cookies (without the response ones)</li>
+</ul>
+
+<h2>Response fields</h2>
+
+<p>Those fields contain response information:</p>
+
+<ul>
+<li><code>resp_body</code> - the response body, by default is an empty string.
+            It it set to nil after the response is set, except for test connections.</li>
+<li><code>resp_charset</code> - the response charset, defaults to &quot;utf-8&quot;</li>
+<li><code>resp_content_type</code> - the response content-type, by default is nil</li>
+<li><code>resp_cookies</code> - the response cookies with their name and options</li>
+<li><code>resp_headers</code> - the response headers as a dict,
+               by default <code>cache-control</code> is set to <code>&quot;max-age=0, private, must-revalidate&quot;</code></li>
+<li><code>status</code> - the response status</li>
+</ul>
+
+<p>Furthermore, the <code>before_send</code> field stores callbacks that are invoked
+before the connection is sent. Callbacks are invoked in the reverse order
+they are registered (callbacks registered first are invoked last) in order
+to mimic a Plug stack behaviour.</p>
+
+<h2>Connection fields</h2>
+
+<ul>
+<li><code>assigns</code> - shared user data as a dict</li>
+<li><code>state</code> - the connection state</li>
+</ul>
+
+<p>The connection state is used to track the connection lifecycle. It starts
+as <code>:unset</code> but is changed to <code>:set</code> (via <a href="Plug.Conn.html#resp/3"><code>Plug.Conn.resp/3</code></a>) or <code>:file</code>
+(when invoked via <a href="Plug.Conn.html#send_file/3"><code>Plug.Conn.send_file/3</code></a>). Its final result is
+<code>:sent</code> or <code>:chunked</code> depending on the response model.</p>
+
+<h2>Private fields</h2>
+
+<p>Those fields are reserved for libraries/framework usage.</p>
+
+<ul>
+<li><code>adapter</code> - holds the adapter information in a tuple</li>
+<li><code>private</code> - shared library data as a dict</li>
+</ul>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#assign/3">assign(conn, key, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Assigns a new key and value in the connection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#assign_private/3">assign_private(conn, key, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Assigns a new private key and value in the connection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#chunk/2">chunk(conn, chunk)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a chunk as part of a chunked response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#configure_session/2">configure_session(conn, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Configures session</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_resp_cookie/3">delete_resp_cookie(conn, key, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Deletes a response cookie</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_resp_header/2">delete_resp_header(conn, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Deletes a response header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_session/2">delete_session(conn, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Deletes session for given key</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#fetch_cookies/1">fetch_cookies(conn)</a></td>
+  
+    <td class="summary_synopsis"><p>Fetches cookies from the request headers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#fetch_params/1">fetch_params(conn)</a></td>
+  
+    <td class="summary_synopsis"><p>Fetches parameters from the query string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#fetch_session/1">fetch_session(conn)</a></td>
+  
+    <td class="summary_synopsis"><p>Fetches session from session store. Will also fetch cookies</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_req_header/2">get_req_header(conn, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a request header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_resp_header/2">get_resp_header(conn, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a response header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_session/2">get_session(conn, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns session value for given key</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_resp_content_type/3">put_resp_content_type(conn, content_type, charset \\ &quot;utf-8&quot;)</a></td>
+  
+    <td class="summary_synopsis"><p>Puts the content-type response header taking into
+account the charset</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_resp_cookie/4">put_resp_cookie(conn, key, value, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Puts a response cookie</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_resp_header/3">put_resp_header(conn, key, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Puts a new response header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_session/3">put_session(conn, key, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Puts specified value in session for given key</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#register_before_send/2">register_before_send(conn, callback)</a></td>
+  
+    <td class="summary_synopsis"><p>Registers a callback to be invoked before the response is sent</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#resp/3">resp(conn, status, body)</a></td>
+  
+    <td class="summary_synopsis"><p>Sets the response to given status and body</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_chunked/2">send_chunked(conn, status)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends the response headers as a chunked response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_file/3">send_file(conn, status, file)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a file as the response body with the given <code>status</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_resp/1">send_resp(conn)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a response to the client</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#send_resp/3">send_resp(conn, status, body)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a response with given status and body</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:adapter/0">
+    <a href="#t:adapter/0">adapter</a> :: {module, term}
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:assigns/0">
+    <a href="#t:assigns/0">assigns</a> :: %{atom => any}
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:before_send/0">
+    <a href="#t:before_send/0">before_send</a> :: [(<a href="#t:t/0">t</a> -> <a href="#t:t/0">t</a>)]
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:body/0">
+    <a href="#t:body/0">body</a> :: iodata | nil
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:cookies/0">
+    <a href="#t:cookies/0">cookies</a> :: %{binary => binary} | <a href="Plug.Conn.Unfetched.html#t:t/0">Plug.Conn.Unfetched.t</a>
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:headers/0">
+    <a href="#t:headers/0">headers</a> :: [{binary, binary}]
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:host/0">
+    <a href="#t:host/0">host</a> :: binary
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:method/0">
+    <a href="#t:method/0">method</a> :: binary
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:scheme/0">
+    <a href="#t:scheme/0">scheme</a> :: :http | :https
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:segments/0">
+    <a href="#t:segments/0">segments</a> :: [binary]
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:state/0">
+    <a href="#t:state/0">state</a> :: :unset | :set | :file | :chunked | :sent
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:status/0">
+    <a href="#t:status/0">status</a> :: non_neg_integer | nil
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:param/0">
+    <a href="#t:param/0">param</a> :: binary | %{binary => <a href="#t:param/0">param</a>} | [<a href="#t:param/0">param</a>]
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:params/0">
+    <a href="#t:params/0">params</a> :: %{binary => <a href="#t:param/0">param</a>}
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:query_string/0">
+    <a href="#t:query_string/0">query_string</a> :: <a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a>
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:resp_cookies/0">
+    <a href="#t:resp_cookies/0">resp_cookies</a> :: %{binary => %{}}
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %Plug.Conn{adapter: <a href="#t:adapter/0">adapter</a>, assigns: <a href="#t:assigns/0">assigns</a>, before_send: <a href="#t:before_send/0">before_send</a>, cookies: <a href="#t:cookies/0">cookies</a> | <a href="Plug.Conn.Unfetched.html#t:t/0">Plug.Conn.Unfetched.t</a>, host: <a href="#t:host/0">host</a>, method: <a href="#t:method/0">method</a>, params: <a href="#t:params/0">params</a> | <a href="Plug.Conn.Unfetched.html#t:t/0">Plug.Conn.Unfetched.t</a>, path_info: <a href="#t:segments/0">segments</a>, port: 0 .. 65335, private: <a href="#t:assigns/0">assigns</a>, query_string: <a href="#t:query_string/0">query_string</a>, req_cookies: <a href="#t:cookies/0">cookies</a> | <a href="Plug.Conn.Unfetched.html#t:t/0">Plug.Conn.Unfetched.t</a>, req_headers: <a href="#t:headers/0">headers</a>, resp_body: <a href="#t:body/0">body</a>, resp_cookies: <a href="#t:resp_cookies/0">resp_cookies</a>, resp_headers: <a href="#t:headers/0">headers</a>, scheme: <a href="#t:scheme/0">scheme</a>, script_name: <a href="#t:segments/0">segments</a>, state: <a href="#t:state/0">state</a>, status: <a href="#t:status/0">status</a>}
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="assign/3">
+    <span class="signature"><strong>assign(conn, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#assign/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>assign(<a href="#t:t/0">t</a>, atom, term) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Assigns a new key and value in the connection.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; conn.assigns[:hello]
+nil
+iex&gt; conn = assign(conn, :hello, :world)
+iex&gt; conn.assigns[:hello]
+:world
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="assign_private/3">
+    <span class="signature"><strong>assign_private(conn, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#assign_private/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>assign_private(<a href="#t:t/0">t</a>, atom, term) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Assigns a new private key and value in the connection.</p>
+
+<p>This storage is meant to be used by libraries and frameworks
+to avoid writing to the user storage (assigns). It is recommended
+for libraries/framework to prefix the keys by the library name.</p>
+
+<p>For example, if plug some plug needs to store a <code>:hello</code> key, it
+should do so as <code>:plug_hello</code>:</p>
+
+<pre><code>iex&gt; conn.private[:plug_hello]
+nil
+iex&gt; conn = assign_private(conn, :plug_hello, :world)
+iex&gt; conn.private[:plug_hello]
+:world
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="chunk/2">
+    <span class="signature"><strong>chunk(conn, chunk)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#chunk/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>chunk(<a href="#t:t/0">t</a>, <a href="#t:body/0">body</a>) :: {:ok, <a href="#t:t/0">t</a>} | {:error, term} | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sends a chunk as part of a chunked response.</p>
+
+<p>It expects a connection with state <code>:chunked</code> as set by
+<a href="#send_chunked/2"><code>send_chunked/2</code></a>, returns <code>{:ok, conn}</code> in case of success,
+otherwise <code>{:error, reason}</code>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="configure_session/2">
+    <span class="signature"><strong>configure_session(conn, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#configure_session/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>configure_session(<a href="#t:t/0">t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Configures session.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:renew</code> - generates a new session id for the cookie;</li>
+<li><code>:drop</code> - drops the session, a session cookie will not be included in the
+        response;</li>
+</ul>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="delete_resp_cookie/3">
+    <span class="signature"><strong>delete_resp_cookie(conn, key, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_resp_cookie/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete_resp_cookie(<a href="#t:t/0">t</a>, binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Deletes a response cookie.</p>
+
+<p>Deleting a cookie requires the same options as to when the cookie was put.
+Check <a href="#put_resp_cookie/4"><code>put_resp_cookie/4</code></a> for more information.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="delete_resp_header/2">
+    <span class="signature"><strong>delete_resp_header(conn, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_resp_header/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete_resp_header(<a href="#t:t/0">t</a>, binary) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Deletes a response header.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="delete_session/2">
+    <span class="signature"><strong>delete_session(conn, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#delete_session/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete_session(<a href="#t:t/0">t</a>, any) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Deletes session for given key.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="fetch_cookies/1">
+    <span class="signature"><strong>fetch_cookies(conn)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#fetch_cookies/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_cookies(<a href="#t:t/0">t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Fetches cookies from the request headers.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="fetch_params/1">
+    <span class="signature"><strong>fetch_params(conn)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#fetch_params/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_params(<a href="#t:t/0">t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Fetches parameters from the query string.</p>
+
+<p>This function does not fetch parameters from the body. To fetch
+parameters from the body, use the <a href="Plug.Parsers.html"><code>Plug.Parsers</code></a> plug.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="fetch_session/1">
+    <span class="signature"><strong>fetch_session(conn)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#fetch_session/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>fetch_session(<a href="#t:t/0">t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Fetches session from session store. Will also fetch cookies.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_req_header/2">
+    <span class="signature"><strong>get_req_header(conn, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_req_header/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_req_header(<a href="#t:t/0">t</a>, binary) :: [binary]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Gets a request header.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_resp_header/2">
+    <span class="signature"><strong>get_resp_header(conn, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_resp_header/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_resp_header(<a href="#t:t/0">t</a>, binary) :: [binary]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Gets a response header.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_session/2">
+    <span class="signature"><strong>get_session(conn, key)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_session/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_session(<a href="#t:t/0">t</a>, any) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Returns session value for given key.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_resp_content_type/3">
+    <span class="signature"><strong>put_resp_content_type(conn, content_type, charset \\ &quot;utf-8&quot;)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put_resp_content_type/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put_resp_content_type(<a href="#t:t/0">t</a>, binary, binary | nil) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Puts the content-type response header taking into
+account the charset.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_resp_cookie/4">
+    <span class="signature"><strong>put_resp_cookie(conn, key, value, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put_resp_cookie/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put_resp_cookie(<a href="#t:t/0">t</a>, binary, binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Puts a response cookie.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:domain</code> - the domain the cookie applies to;</li>
+<li><code>:max_age</code> - the cookie max-age;</li>
+<li><code>:path</code> - the path the cookie applies to;</li>
+<li><code>:secure</code> - if the cookie must be sent only over https;</li>
+</ul>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_resp_header/3">
+    <span class="signature"><strong>put_resp_header(conn, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put_resp_header/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put_resp_header(<a href="#t:t/0">t</a>, binary, binary) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Puts a new response header.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_session/3">
+    <span class="signature"><strong>put_session(conn, key, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put_session/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put_session(<a href="#t:t/0">t</a>, any, any) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Puts specified value in session for given key.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="register_before_send/2">
+    <span class="signature"><strong>register_before_send(conn, callback)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#register_before_send/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>register_before_send(<a href="#t:t/0">t</a>, (<a href="#t:t/0">t</a> -> <a href="#t:t/0">t</a>)) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Registers a callback to be invoked before the response is sent.</p>
+
+<p>Callbacks are invoked in the reverse order they are defined (callbacks
+defined first are invoked last).</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="resp/3">
+    <span class="signature"><strong>resp(conn, status, body)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#resp/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>resp(<a href="#t:t/0">t</a>, <a href="#t:status/0">status</a>, <a href="#t:body/0">body</a>) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sets the response to given status and body.</p>
+
+<p>It sets the connection state to <code>:set</code> (if not yet <code>:set</code>)
+and raises <a href="Plug.Conn.AlreadySentError.html"><code>Plug.Conn.AlreadySentError</code></a> if it was already sent.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="send_chunked/2">
+    <span class="signature"><strong>send_chunked(conn, status)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_chunked/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_chunked(<a href="#t:t/0">t</a>, <a href="#t:status/0">status</a>) :: <a href="#t:t/0">t</a> | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sends the response headers as a chunked response.</p>
+
+<p>It expects a connection that was not yet <code>:sent</code> and sets its
+state to <code>:chunked</code> afterwards. Otherwise raises
+<a href="Plug.Conn.AlreadySentError.html"><code>Plug.Conn.AlreadySentError</code></a>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="send_file/3">
+    <span class="signature"><strong>send_file(conn, status, file)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_file/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_file(<a href="#t:t/0">t</a>, <a href="#t:status/0">status</a>, filename :: binary) :: <a href="#t:t/0">t</a> | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sends a file as the response body with the given <code>status</code>.</p>
+
+<p>If available, the file is sent directly over the socket using
+the operating system <code>sendfile</code> operation.</p>
+
+<p>It expects a connection that was not yet <code>:sent</code> and sets its
+state to <code>:sent</code> afterwards. Otherwise raises
+<a href="Plug.Conn.AlreadySentError.html"><code>Plug.Conn.AlreadySentError</code></a>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="send_resp/1">
+    <span class="signature"><strong>send_resp(conn)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_resp/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_resp(<a href="#t:t/0">t</a>) :: <a href="#t:t/0">t</a> | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sends a response to the client.</p>
+
+<p>It expects the connection state is to be <code>:set</code>,
+otherwise raises ArgumentError for <code>:unset</code> connections
+or <a href="Plug.Conn.AlreadySentError.html"><code>Plug.Conn.AlreadySentError</code></a> if it was already sent.</p>
+
+<p>At the end sets the connection state to <code>:sent</code>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="send_resp/3">
+    <span class="signature"><strong>send_resp(conn, status, body)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#send_resp/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>send_resp(<a href="#t:t/0">t</a>, <a href="#t:status/0">status</a>, <a href="#t:body/0">body</a>) :: <a href="#t:t/0">t</a> | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Sends a response with given status and body.</p>
+
+<p>See <a href="#send_resp/1"><code>send_resp/1</code></a> for more information.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

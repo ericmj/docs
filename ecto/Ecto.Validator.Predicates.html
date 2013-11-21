@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Validator.Predicates</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Validator.html">Validator</a> &rarr; <a href="Ecto.Validator.Predicates.html">Predicates</a></div>
+
+      <h1>
+        Ecto.Validator.Predicates
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>A handful of predicates to be used in validations.</p>
+
+<p>The examples in this module use the syntax made
+available via <a href="Ecto.Model.Validations.html"><code>Ecto.Model.Validations</code></a> in your
+model.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#absent/3">absent(attr, value, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute is absent (i.e. nil,
+an empty list or an empty string)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#present/3">present(attr, value, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute is present (i.e. not nil,
+nor an empty list nor an empty string)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#has_format/4">has_format(attr, value, match_on, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute has a given format.
+Nil values are not matched against (skipped)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#has_length/4">has_length(attr, value, match_on, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute has a given length according to Unicode
+(i.e. it uses <code>String.length</code> under the scenes). That said, this
+function should not be used to validate binary fields</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#member_of/4">member_of(attr, value, enum, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute is member of the given enumerable</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not_member_of/4">not_member_of(attr, value, enum, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the attribute is not a member of the given enumerable</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#between/4">between(attr, value, arg3, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is between the value.
+Expects a range as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#greater_than_or_equal_to/4">greater_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is greater than or equal to the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#greater_than/4">greater_than(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is greater than the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#less_than_or_equal_to/4">less_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is less than or equal to the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#less_than/4">less_than(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is less than the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:maybe_error/0">
+    <a href="#t:maybe_error/0">maybe_error</a> :: nil | <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="absent/3">
+    <span class="signature"><strong>absent(attr, value, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#absent/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>absent(atom, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute is absent (i.e. nil,
+an empty list or an empty string).</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be blank&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  honeypot: absent()
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L53" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="between/4">
+    <span class="signature"><strong>between(attr, value, arg3, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#between/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Validates the given number is between the value.
+Expects a range as value, raises otherwise.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be between X and Y&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validates user,
+    age: between(18..21)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L255" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="greater_than/4">
+    <span class="signature"><strong>greater_than(attr, value, check, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#greater_than/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Validates the given number is greater than the given value.
+Expects numbers as value, raises otherwise.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be greater than X&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validates user,
+    age: greater_than(18)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L175" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="greater_than_or_equal_to/4">
+    <span class="signature"><strong>greater_than_or_equal_to(attr, value, check, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#greater_than_or_equal_to/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Validates the given number is greater than or equal to the given value.
+Expects numbers as value, raises otherwise.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be greater than or equal to X&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validates user,
+    age: greater_than_or_equal_to(18)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L195" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="has_format/4">
+    <span class="signature"><strong>has_format(attr, value, match_on, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#has_format/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>has_format(atom, term, <a href="http://elixir-lang.org/docs/master/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute has a given format.
+Nil values are not matched against (skipped).</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;is invalid&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  email: has_format(~r/@/)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L78" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="has_length/4">
+    <span class="signature"><strong>has_length(attr, value, match_on, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#has_length/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>has_length(atom, term, <a href="http://elixir-lang.org/docs/master/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute has a given length according to Unicode
+(i.e. it uses <code>String.length</code> under the scenes). That said, this
+function should not be used to validate binary fields.</p>
+
+<p>The length can be given as a range (indicating min and max),
+as an integer (indicating exact match) or as keyword options,
+indicating, min and max values.</p>
+
+<p>Raises if the given argument is not a binary.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:too_long</code>  - message when the length is too long
+             (defaults to &quot;is too long (maximum is X characters)&quot;)</li>
+<li><code>:too_short</code> - message when the length is too short
+             (defaults to &quot;is too short (minimum is X characters)&quot;)</li>
+<li><code>:no_match</code> - message when the length does not match
+            (defaults to &quot;must be X characters&quot;)</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  password: has_length(6..100)
+
+validate user,
+  password: has_length(min: 6, too_short: &quot;requires a minimum length&quot;)
+
+validate user,
+  code: has_length(3, no_match: &quot;needs to be 3 characters&quot;)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L119" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="less_than/4">
+    <span class="signature"><strong>less_than(attr, value, check, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#less_than/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Validates the given number is less than the given value.
+Expects numbers as value, raises otherwise.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be less than X&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validates user,
+    age: less_than(18)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L215" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="less_than_or_equal_to/4">
+    <span class="signature"><strong>less_than_or_equal_to(attr, value, check, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#less_than_or_equal_to/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Validates the given number is less than or equal to the given value.
+Expects numbers as value, raises otherwise.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;must be less than or equal to X&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validates user,
+    age: less_than_or_equal_to(18)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L235" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="member_of/4">
+    <span class="signature"><strong>member_of(attr, value, enum, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#member_of/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>member_of(atom, term, <a href="http://elixir-lang.org/docs/master/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute is member of the given enumerable.</p>
+
+<p>This validator has the same semantics as calling <code>Enum.member?/2</code>
+with the given enumerable and value.</p>
+
+<p>Nil values are not matched against (skipped).</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;is not included in the list&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  gender: member_of(~w(male female other))
+
+validate user,
+  age: member_of(0..99)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L283" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="not_member_of/4">
+    <span class="signature"><strong>not_member_of(attr, value, enum, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#not_member_of/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>not_member_of(atom, term, <a href="http://elixir-lang.org/docs/master/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute is not a member of the given enumerable.</p>
+
+<p>This validator has the same semantics as calling
+<code>not Enum.member?/2</code> with the given enumerable and value.</p>
+
+<p>Nil values are not matched against (skipped).</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;is reserved&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  username: not_member_of(~w(admin superuser))
+
+validate user,
+  password: not_member_of([user.username, user.name],
+                          message: &quot;cannot be the same as username or first name&quot;)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L314" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="present/3">
+    <span class="signature"><strong>present(attr, value, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#present/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>present(atom, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Validates the attribute is present (i.e. not nil,
+nor an empty list nor an empty string).</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:message</code> - defaults to &quot;can&#39;t be blank&quot;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>validate user,
+  name: present()
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/validator/predicates.ex#L28" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

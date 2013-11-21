@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Adapter.Migrations</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.Migrations.html">Migrations</a></div>
+
+      <h1>
+        Ecto.Adapter.Migrations
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Specifies the adapter migrations API.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/migrations.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="migrate_down/3">
+    <span class="signature"><strong>migrate_down/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#migrate_down/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>migrate_down(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, binary) :: :ok | :missing_up | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Runs a down migration.</p>
+
+<p>It expects a repository, the migration version and the migration code.</p>
+
+<h2>Examples</h2>
+
+<p>migrate_down(Repo, 20080906120000, &quot;DROP TABLE users&quot;)</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/migrations.ex#L30" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="migrate_up/3">
+    <span class="signature"><strong>migrate_up/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#migrate_up/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>migrate_up(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, binary) :: :ok | :already_up | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Runs an up migration.</p>
+
+<p>It expects a repository, the migration version and the migration code.</p>
+
+<h2>Examples</h2>
+
+<p>migrate_up(Repo, 20080906120000, &quot;CREATE TABLE users(id serial, name text)&quot;)</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/migrations.ex#L18" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="migrated_versions/1">
+    <span class="signature"><strong>migrated_versions/1</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#migrated_versions/1" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>migrated_versions(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>) :: [integer] | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Returns all migrated versions as integers.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/migrations.ex#L35" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

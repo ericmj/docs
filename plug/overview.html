@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Overview</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a></div>
+
+      <h1>plug v0.4.0</h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#modules_summary">Modules</a></li>
+        
+        
+          <li><a href="#records_summary">Records</a></li>
+        
+        
+          <li><a href="#protocols_summary">Protocols</a></li>
+        
+      </ul>
+
+      
+        <h2 id="modules_summary">Modules summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="Plug.html">Plug</a></td>
+  
+    <td class="summary_synopsis"><p>The plug specification</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Adapters.Cowboy.html">Plug.Adapters.Cowboy</a></td>
+  
+    <td class="summary_synopsis"><p>Adapter interface to the Cowboy webserver</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Builder.html">Plug.Builder</a></td>
+  
+    <td class="summary_synopsis"><p>Conveniences for building plugs</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.html">Plug.Conn</a></td>
+  
+    <td class="summary_synopsis"><p>The Plug connection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.Adapter.html">Plug.Conn.Adapter</a></td>
+  
+    <td class="summary_synopsis"><p>Specification of the connection adapter API implemented by webservers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.Cookies.html">Plug.Conn.Cookies</a></td>
+  
+    <td class="summary_synopsis"><p>Conveniences for encoding and decoding cookies</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.Query.html">Plug.Conn.Query</a></td>
+  
+    <td class="summary_synopsis"><p>Conveniences for decoding and encoding url encoded queries</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.Unfetched.html">Plug.Conn.Unfetched</a></td>
+  
+    <td class="summary_synopsis"><p>A struct used as default on unfetched fields</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.Utils.html">Plug.Conn.Utils</a></td>
+  
+    <td class="summary_synopsis"><p>Utilities for working with connection data</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Head.html">Plug.Head</a></td>
+  
+    <td class="summary_synopsis"><p>A Plug to convert &quot;HEAD&quot; requests to &quot;GET&quot;</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.MethodOverride.html">Plug.MethodOverride</a></td>
+  
+    <td class="summary_synopsis"><p>A plug to overwrite &quot;POST&quot; method with the one defined in _method parameter
+or x-http-method-override header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Parsers.html">Plug.Parsers</a></td>
+  
+    <td class="summary_synopsis"><p>A plug for parsing the request body</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Router.html">Plug.Router</a></td>
+  
+    <td class="summary_synopsis"><p>A DSL to define a routing algorithm that works with Plug</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Session.html">Plug.Session</a></td>
+  
+    <td class="summary_synopsis"><p>A plug to handle session cookies and session stores</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Session.ETS.html">Plug.Session.ETS</a></td>
+  
+    <td class="summary_synopsis"><p>Stores the session in an in-memory ETS table</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Session.Store.html">Plug.Session.Store</a></td>
+  
+    <td class="summary_synopsis"><p>Removes the session associated with given session id from the store</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Static.html">Plug.Static</a></td>
+  
+    <td class="summary_synopsis"><p>A plug for serving static assets</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Test.html">Plug.Test</a></td>
+  
+    <td class="summary_synopsis"><p>Conveniences for testing plugs</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Upload.html">Plug.Upload</a></td>
+  
+    <td class="summary_synopsis"><p>A server that manages uploaded files</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Wrapper.html">Plug.Wrapper</a></td>
+  
+    <td class="summary_synopsis"><p>Definition of a plug wrapper</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <h2 id="records_summary">Records summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="Plug.Conn.AlreadySentError.html">Plug.Conn.AlreadySentError</a></td>
+  
+    <td class="summary_synopsis"><p>Error raised when trying to modify or send an already sent response</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Conn.NotSentError.html">Plug.Conn.NotSentError</a></td>
+  
+    <td class="summary_synopsis"><p>Error raised when no response is sent in a request</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Parsers.RequestTooLargeError.html">Plug.Parsers.RequestTooLargeError</a></td>
+  
+    <td class="summary_synopsis"><p>Error raised when the request is too large</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Parsers.UnsupportedMediaTypeError.html">Plug.Parsers.UnsupportedMediaTypeError</a></td>
+  
+    <td class="summary_synopsis"><p>Error raised when the request body cannot be parsed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Plug.Router.InvalidSpecError.html">Plug.Router.InvalidSpecError</a></td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <h2 id="protocols_summary">Protocols summary <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="Plug.Exception.html">Plug.Exception</a></td>
+  
+    <td class="summary_synopsis"><p>A protocol that extends exceptions to be status code aware</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>README</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="readme.html">README</a></div>
+      <h1>Plug</h1>
+
+<p><a href="https://travis-ci.org/elixir-lang/plug"><img src="https://travis-ci.org/elixir-lang/plug.png?branch=master" alt="Build Status"></a></p>
+
+<p>Plug is:</p>
+
+<ol>
+<li>A specification for composable modules in between web applications</li>
+<li>Connection adapters for different web servers in the Erlang VM</li>
+</ol>
+
+<p><a href="http://elixir-lang.org/docs/plug/">Documentation for Plug is available online</a>.</p>
+
+<h2>Hello world</h2>
+
+<pre><code class="elixir">defmodule MyPlug do
+  import Plug.Conn
+
+  def init(options) do
+    # initialize options
+
+    options
+  end
+
+  def call(conn, _opts) do
+    conn
+    |&gt; put_resp_content_type(&quot;text/plain&quot;)
+    |&gt; send_resp(200, &quot;Hello world&quot;)
+  end
+end
+
+IO.puts &quot;Running MyPlug with Cowboy on http://localhost:4000&quot;
+Plug.Adapters.Cowboy.http MyPlug, []
+</code></pre>
+
+<p>The snippet above shows a very simple example on how to use Plug. Save that snippet to a file and run it inside the plug application with:</p>
+
+<pre class="codeblock"><code>mix run --no-halt path/to/file.exs
+</code></pre>
+
+<p>Access &quot;http://localhost:4000&quot; and we are done!</p>
+
+<h2>Installation</h2>
+
+<p>In practice, you want to use plugs in your existing projects. You can do that in two steps:</p>
+
+<ol>
+<li><p>Add plug and your webserver of choice (currently cowboy) to your <code>mix.exs</code> dependencies:</p>
+
+<pre><code class="elixir">def deps do
+  [ {:cowboy, github: &quot;extend/cowboy&quot;},
+    {:plug, PLUG_VERSION, github: &quot;elixir-lang/plug&quot;} ]
+end
+</code></pre></li>
+<li><p>List both <code>:cowboy</code> and <code>:plug</code> as your application dependencies:</p>
+
+<pre><code class="elixir">def application do
+  [ applications: [:cowboy, :plug] ]
+end
+</code></pre></li>
+</ol>
+
+<h2>The Plug.Conn</h2>
+
+<p>In the hello world example, we defined our first plug. What is a plug after all?</p>
+
+<p>A plug takes two shapes. It is a function that receives a connection and a set of options as arguments and returns the connection or it is a module that provides an <code>init/1</code> function to initialize options and implement the <code>call/2</code> function, receiving the connection and the initialized options, and returning the connection.</p>
+
+<p>As per the specification above, a connection is represented by the <code>Plug.Conn</code> record (<a href="http://elixir-lang.org/docs/plug/Plug.Conn.html">docs</a>):</p>
+
+<pre><code class="elixir">%Plug.Conn{host: &quot;www.example.com&quot;,
+           path_info: [&quot;bar&quot;, &quot;baz&quot;],
+           ...}
+</code></pre>
+
+<p>Data can be read directly from the record and also pattern matched on. However, whenever you need to manipulate the record, you must use the functions defined in the <code>Plug.Conn</code> module (<a href="http://elixir-lang.org/docs/plug/Plug.Conn.html">docs</a>). In our example, both <code>put_resp_content_type/2</code> and <code>send_resp/3</code> are defined in <code>Plug.Conn</code>.</p>
+
+<p>Remember that, as everything else in Elixir, <strong>a connection is immutable</strong>, so every manipulation returns a new copy of the connection:</p>
+
+<pre><code class="elixir">conn = put_resp_content_type(conn, &quot;text/plain&quot;)
+conn = send_resp(conn, 200, &quot;ok&quot;)
+conn
+</code></pre>
+
+<p>Finally, keep in mind that a connection is a <strong>direct interface to the underlying web server</strong>. When you call <code>send_resp/3</code> above, it will immediately send the given status and body back to the client. This makes features like streaming a breeze to work with.</p>
+
+<h2>Testing plugs and applications</h2>
+
+<p>Plug ships with a <code>Plug.Test</code> module (<a href="http://elixir-lang.org/docs/plug/Plug.Test.html">docs</a>) that makes testing your plugs easy. Here is how we can test our hello world example:</p>
+
+<pre><code class="elixir">defmodule MyPlugTest do
+  use ExUnit.Case, async: true
+  use Plug.Test
+
+  @opts MyPlug.init([])
+
+  test &quot;returns hello world&quot; do
+    # Create a test connection
+    conn = conn(:get, &quot;/&quot;)
+
+    # Invoke the plug
+    conn = MyPlug.call(conn, @opts)
+
+    # Assert the response and status
+    assert conn.state == :sent
+    assert conn.status == 200
+    assert conn.resp_body == &quot;Hello world&quot;
+  end
+end
+</code></pre>
+
+<h2>The Plug Router</h2>
+
+<p>The Plug router allows developers to quickly match on incoming requests and perform some action:</p>
+
+<pre><code class="elixir">defmodule AppRouter do
+  import Plug.Conn
+  use Plug.Router
+
+  plug :match
+  plug :dispatch
+
+  get &quot;/hello&quot; do
+    send_resp(conn, 200, &quot;world&quot;)
+  end
+
+  match _ do
+    send_resp(conn, 404, &quot;oops&quot;)
+  end
+end
+</code></pre>
+
+<p>The router is a plug, which means it can be invoked as:</p>
+
+<pre><code class="elixir">AppRouter.call(conn, AppRouter.init([]))
+</code></pre>
+
+<p>Each route needs to return the connection as per the Plug specification.</p>
+
+<p>Note <code>Plug.Router</code> compiles all of your routes into a single function and relies on the Erlang VM to optimize the underlying routes into a tree lookup, instead of a linear lookup that would instead match route-per-route. This means route lookups are extremely fast in Plug!</p>
+
+<p>This also means that a catch all <code>match</code> is recommended to be defined, as in the example above, otherwise routing fails with a function clause error (as it would in any regular Elixir function).</p>
+
+<h3>Available Plugs</h3>
+
+<p>This project aims to ship with different plugs that can be re-used accross applications:</p>
+
+<ul>
+<li><code>Plug.Head</code> (<a href="http://elixir-lang.org/docs/plug/Plug.Head.html">docs</a>) - converts HEAD requests to GET requests;</li>
+<li><code>Plug.MethodOverride</code> (<a href="http://elixir-lang.org/docs/plug/Plug.MethodOverride.html">docs</a>) - overrides a request method with one specified in headers;</li>
+<li><code>Plug.Parsers</code> (<a href="http://elixir-lang.org/docs/plug/Plug.Parsers.html">docs</a>) - responsible for parsing the request body given its content-type;</li>
+<li><code>Plug.Session</code> (<a href="http://elixir-lang.org/docs/plug/Plug.Session.html">docs</a>) - handles session management and storage;</li>
+<li><code>Plug.Static</code> (<a href="http://elixir-lang.org/docs/plug/Plug.Static.html">docs</a>) - serves static files;</li>
+</ul>
+
+<h2>License</h2>
+
+<p>Plug source code is released under Apache 2 License.
+Check LICENSE file for more information.</p>
+
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Repo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Repo.html">Repo</a></div>
+
+      <h1>
+        Ecto.Repo
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>This module is used to define a repository. A repository maps to a data
+store, for example an SQL database. A repository must implement <a href="#conf/0"><code>conf/0</code></a> and
+set an adapter (see <a href="Ecto.Adapter.html"><code>Ecto.Adapter</code></a>) to be used for the repository.</p>
+
+<p>When used, the following options are allowed:</p>
+
+<ul>
+<li><p><code>:adapter</code> - the adapter to be used for the repository</p></li>
+<li><p><code>:env</code> - configures the repository to support environments</p></li>
+</ul>
+
+<h2>Example</h2>
+
+<pre><code>defmodule MyRepo do
+  use Ecto.Repo, adapter: Ecto.Adapters.Postgres
+
+  def conf do
+    parse_url &quot;ecto://postgres:postgres@localhost/postgres&quot;
+  end
+end
+</code></pre>
+
+<p>Most of the time, we want the repository to work with different
+environments. In such cases, we can pass an <code>:env</code> option:</p>
+
+<pre><code>defmodule MyRepo do
+  use Ecto.Repo, adapter: Ecto.Adapters.Postgres, env: Mix.env
+
+  def conf(env), do: parse_url url(env)
+
+  defp url(:dev),  do: &quot;ecto://postgres:postgres@localhost/postgres_dev&quot;
+  defp url(:test), do: &quot;ecto://postgres:postgres@localhost/postgres_test?size=1&quot;
+  defp url(:prod), do: &quot;ecto://postgres:postgres@localhost/postgres_prod&quot;
+end
+</code></pre>
+
+<p>Notice that, when using the environment, developers should implement
+<code>conf/1</code> which automatically passes the environment instead of <a href="#conf/0"><code>conf/0</code></a>.</p>
+
+<p>Note the environment is only used at compilation time. That said, don&#39;t
+forget to set the <code>:build_per_environment</code> option to true in your Mix
+project definition.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: module
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="adapter/0">
+    <span class="signature"><strong>adapter/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#adapter/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>adapter :: <a href="Ecto.Adapter.html#t:t/0">Ecto.Adapter.t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Returns the adapter tied to the repository.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L340" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="all/2">
+    <span class="signature"><strong>all/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#all/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>all(<a href="Ecto.Query.html#t:t/0">Ecto.Query.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: [<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>] | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Fetches all results from the data store based on the given query. May raise
+<a href="Ecto.QueryError.html"><code>Ecto.QueryError</code></a> if query validation fails. <code>Ecto.AdapterError</code> will be
+raised if there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Example</h2>
+
+<pre><code># Fetch all post titles
+query = from p in Post,
+     select: p.title
+MyRepo.all(query)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L200" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="conf/0">
+    <span class="signature"><strong>conf/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#conf/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>conf :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Should return the database options that will be given to the adapter. Often
+used in conjunction with <code>parse_url/1</code>. This function must be implemented by
+the user.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L153" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Deletes an model using the primary key as key. If the model has no primary
+key <a href="Ecto.NoPrimaryKey.html"><code>Ecto.NoPrimaryKey</code></a> will be raised. <code>Ecto.AdapterError</code> will be raised if
+there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Example</h2>
+
+<pre><code>[post] = MyRepo.all(from(p in Post, where: p.id == 42))
+MyRepo.delete(post)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L267" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="delete_all/2">
+    <span class="signature"><strong>delete_all/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#delete_all/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>delete_all(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: integer | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Deletes all entities matching the given query with the given values.
+<code>Ecto.AdapterError</code> will be raised if there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Examples</h2>
+
+<pre><code>MyRepo.delete_all(Post)
+
+from(p in Post, where: p.id &lt; 10) |&gt; MyRepo.delete_all
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L283" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get/3">
+    <span class="signature"><strong>get/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#get/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | nil | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Fetches a single model from the data store where the primary key matches the
+given id. Returns <code>nil</code> if no result was found. If the model in the queryable
+has no primary key <a href="Ecto.NoPrimaryKey.html"><code>Ecto.NoPrimaryKey</code></a> will be raised. <code>Ecto.AdapterError</code>
+will be raised if there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L182" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="insert/2">
+    <span class="signature"><strong>insert/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#insert/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>insert(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Stores a single new model in the data store and returns its stored
+representation. May raise <code>Ecto.AdapterError</code> if there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Example</h2>
+
+<pre><code>post = %Post{title: &quot;Ecto is great&quot;, text: &quot;really, it is&quot;}
+       |&gt; MyRepo.insert
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L215" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="log/2">
+    <span class="signature"><strong>log/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#log/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>log(any, (() -> any)) :: any</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Enables logging and debugging of adapter actions such as sending queries to
+the database. Should be overridden to customize behaviour.</p>
+
+<h2>Examples</h2>
+
+<pre><code>def log({:query, sql}, fun) do
+  {time, result} = :timer.tc(fun)
+  Logger.log({sql, time})
+  result
+end
+
+def log(_arg, fun), do: fun.()
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L357" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="query_apis/0">
+    <span class="signature"><strong>query_apis/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#query_apis/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>query_apis :: [module]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Returns the supported query APIs. Should be overridden to customize.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L362" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rollback/0">
+    <span class="signature"><strong>rollback/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#rollback/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>rollback :: no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Rolls back the current transaction. See <a href="#rollback/1"><code>rollback/1</code></a>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L329" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rollback/1">
+    <span class="signature"><strong>rollback/1</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#rollback/1" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>rollback(any) :: no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Rolls back the current transaction. The transaction will return the value
+given as <code>{:error, value}</code>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L335" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>start_link :: {:ok, pid} | :ok | {:error, {:already_started, pid}} | {:error, term}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Starts any connection pooling or supervision and return <code>{:ok, pid}</code>
+or just <code>:ok</code> if nothing needs to be done.</p>
+
+<p>Returns <code>{:error, {:already_started, pid}}</code> if the repo already
+started or <code>{:error, term}</code> in case anything else goes wrong.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L163" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="stop/0">
+    <span class="signature"><strong>stop/0</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#stop/0" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>stop :: :ok</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Stops any connection pooling or supervision started with <code>start_link/1</code>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L170" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="transaction/2">
+    <span class="signature"><strong>transaction/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#transaction/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>transaction(<a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, any} | {:error, any}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Runs the given function inside a transaction. If an unhandled error occurs the
+transaction will be rolled back. If no error occurred the transaction will be
+commited when the function returns. A transaction can be explicitly rolled
+back by calling <code>rollback!</code>, this will immediately leave the function and
+return the value given to <code>rollback!</code> as <code>{:error, value}</code>. A successful
+transaction returns the value returned by the function wrapped in a tuple as
+<code>{:ok, value}</code>. Transactions can be nested.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Examples</h2>
+
+<pre><code>MyRepo.transaction(fn -&gt;
+  MyRepo.update(alice.update_balance(&amp;(&amp;1 - 10))
+  MyRepo.update(bob.update_balance(&amp;(&amp;1 + 10))
+end)
+
+# In the following example only the comment will be rolled back
+MyRepo.transaction(fn -&gt;
+  MyRepo.insert(%Post{})
+
+  MyRepo.transaction(fn -&gt;
+    MyRepo.insert(%Comment{})
+    raise &quot;error&quot;
+  end)
+end)
+
+# Roll back a transaction explicitly
+MyRepo.transaction(fn -&gt;
+  p = MyRepo.insert(%Post{})
+  if not Editor.post_allowed?(p) do
+    MyRepo.rollback!
+  end
+end)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L324" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="update/2">
+    <span class="signature"><strong>update/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#update/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Updates an model using the primary key as key. If the model has no primary
+key <a href="Ecto.NoPrimaryKey.html"><code>Ecto.NoPrimaryKey</code></a> will be raised. <code>Ecto.AdapterError</code> will be raised if
+there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Example</h2>
+
+<pre><code>[post] = from p in Post, where: p.id == 42
+post = post.title(&quot;New title&quot;)
+MyRepo.update(post)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L232" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="update_all/3">
+    <span class="signature"><strong>update_all/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#update_all/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Updates all entities matching the given query with the given values.
+<code>Ecto.AdapterError</code> will be raised if there is an adapter error.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Examples</h2>
+
+<pre><code>MyRepo.update_all(Post, title: &quot;New title&quot;)
+
+MyRepo.update_all(p in Post, visits: p.visits + 1)
+
+from(p in Post, where: p.id &lt; 10)
+|&gt; MyRepo.update_all(title: &quot;New title&quot;)
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/repo.ex#L251" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Adapter.Transactions</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.Transactions.html">Transactions</a></div>
+
+      <h1>
+        Ecto.Adapter.Transactions
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Specifies the adapter transactions API.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/transactions.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="rollback/2">
+    <span class="signature"><strong>rollback/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#rollback/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>rollback(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, any) :: no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Rolls back the current transaction. The transaction will return the value
+given as <code>{:error, value}</code>.</p>
+
+<p>See <a href="Ecto.Repo.html#rollback/1"><code>Ecto.Repo.rollback/1</code></a>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/transactions.ex#L24" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="transaction/3">
+    <span class="signature"><strong>transaction/3</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#transaction/3" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, any} | {:error, any}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Runs the given function inside a transaction. Returns <code>{:ok, value}</code> if the
+transaction was successful where <code>value</code> is the value return by the function
+or <code>{:error, value}</code> if the transaction was rolled back where <code>value</code> is the
+value given to <code>rollback/1</code>.</p>
+
+<p>See <code>Ecto.Repo.transaction/1</code>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/transactions.ex#L16" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Router</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Router.html">Router</a></div>
+
+      <h1>
+        Plug.Router
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#macros_details">Macros</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>A DSL to define a routing algorithm that works with Plug.</p>
+
+<p>It provides a set of macros to generate routes. For example:</p>
+
+<pre><code>defmodule AppRouter do
+  use Plug.Router
+  import Plug.Conn
+
+  plug :match
+  plug :dispatch
+
+  get &quot;/hello&quot; do
+    send_resp(conn, 200, &quot;world&quot;)
+  end
+
+  match _ do
+    send_resp(conn, 404, &quot;oops&quot;)
+  end
+end
+</code></pre>
+
+<p>Each route needs to return a connection, as per the Plug spec.
+A catch all <code>match</code> is recommended to be defined, as in the example
+above, otherwise routing fails with a function clause error.</p>
+
+<p>The router is a plug, which means it can be invoked as:</p>
+
+<pre><code>AppRouter.call(conn, [])
+</code></pre>
+
+<p>Notice the router contains a plug stack and by default it requires
+two plugs: <code>match</code> and <code>dispatch</code>. <code>match</code> is responsible for
+finding a matching route which is then forwarded to <code>dispatch</code>.
+This means users can easily hook into the router mechanism and add
+behaviour before match, before dispatch or after both.</p>
+
+<h2>Routes</h2>
+
+<pre><code>get &quot;/hello&quot; do
+  send_resp(conn, 200, &quot;world&quot;)
+end
+</code></pre>
+
+<p>In the example above, a request will only match if it is
+a <code>GET</code> request and the route &quot;/hello&quot;. The supported
+HTTP methods are <code>get</code>, <code>post</code>, <code>put</code>, <code>patch</code>, <code>delete</code>
+and <code>options</code>.</p>
+
+<p>A route can also specify parameters which will then be
+available in the function body:</p>
+
+<pre><code>get &quot;/hello/:name&quot; do
+  send_resp(conn, 200, &quot;hello #{name}&quot;)
+end
+</code></pre>
+
+<p>Routes allow for globbing which will match the remaining parts
+of a route and can be available as a parameter in the function
+body, also note that a glob can&#39;t be followed by other segments:</p>
+
+<pre><code>get &quot;/hello/*_rest&quot; do
+  send_resp(conn, 200, &quot;matches all routes starting with /hello&quot;)
+end
+
+get &quot;/hello/*glob&quot; do
+  send_resp(conn, 200, &quot;route after /hello: #{inspect glob}&quot;)
+end
+</code></pre>
+
+<p>Finally, a general <code>match</code> function is also supported:</p>
+
+<pre><code>match &quot;/hello&quot; do
+  send_resp(conn, 200, &quot;world&quot;)
+end
+</code></pre>
+
+<p>A <code>match</code> will match any route regardless of the HTTP method.
+Check <a href="#match/3"><code>match/3</code></a> for more information on how route compilation
+works and a list of supported options.</p>
+
+<h2>Routes compilation</h2>
+
+<p>All routes are compiled to a match function that receives
+three arguments: the method, the request path split on &quot;/&quot;
+and the connection. Consider this example:</p>
+
+<pre><code>match &quot;/foo/bar&quot;, via: :get do
+  send_resp(conn, 200, &quot;hello world&quot;)
+end
+</code></pre>
+
+<p>It is compiled to:</p>
+
+<pre><code>defp match(&quot;GET&quot;, [&quot;foo&quot;, &quot;bar&quot;], conn) do
+  send_resp(conn, 200, &quot;hello world&quot;)
+end
+</code></pre>
+
+<p>This opens up a few possibilities. First, guards can be given
+to match:</p>
+
+<pre><code>match &quot;/foo/:bar&quot; when size(bar) &lt;= 3, via: :get do
+  send_resp(conn, 200, &quot;hello world&quot;)
+end
+</code></pre>
+
+<p>Second, a list of splitten paths (which is the compiled result)
+is also allowed:</p>
+
+<pre><code>match [&quot;foo&quot;, bar], via: :get do
+  send_resp(conn, 200, &quot;hello world&quot;)
+end
+</code></pre>
+
+<p>After a match is found, the block given as <code>do/end</code> is stored
+as a function in the connection. This function is then retrieved
+and invoked in the <code>dispatch</code> plug.</p>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#delete/2">delete(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is delete request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#forward/2">forward(path, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Forwards requests to another Plug. The path_info of the forwarded
+connection will exclude the portion of the path specified in the
+call to <code>forward</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/2">get(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is get request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#match/3">match(expression, options, contents \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Main API to define routes. It accepts an expression representing
+the path and many options allowing the match to be configured</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#options/2">options(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is options request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#patch/2">patch(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is patch request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#post/2">post(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is post request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put/2">put(path, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Dispatches to the path only if it is put request.
+See <a href="#match/3"><code>match/3</code></a> for more examples</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+
+      
+        <div id="macros_details" class="details_list">
+          <h2>Macros</h2>
+          <div class="detail">
+  <div class="detail_header" id="delete/2">
+    <span class="signature"><strong>delete(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#delete/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is delete request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="forward/2">
+    <span class="signature"><strong>forward(path, options)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#forward/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Forwards requests to another Plug. The path_info of the forwarded
+connection will exclude the portion of the path specified in the
+call to <code>forward</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code>forward &quot;/users&quot;, to: UserRouter
+</code></pre>
+
+<h2>Options</h2>
+
+<p><code>forward</code> accepts the following options:</p>
+
+<ul>
+<li><code>:to</code> - a Plug where the requests will be forwarded</li>
+</ul>
+
+<p>All remaining options are passed to the underlying plug.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get/2">
+    <span class="signature"><strong>get(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#get/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is get request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="match/3">
+    <span class="signature"><strong>match(expression, options, contents \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#match/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Main API to define routes. It accepts an expression representing
+the path and many options allowing the match to be configured.</p>
+
+<h2>Examples</h2>
+
+<pre><code>match &quot;/foo/bar&quot;, via: :get do
+  send_resp(conn, 200, &quot;hello world&quot;)
+end
+</code></pre>
+
+<h2>Options</h2>
+
+<p><code>match</code> accepts the following options:</p>
+
+<ul>
+<li><code>:via</code> - matches the route against some specific HTTP methods</li>
+<li><code>:do</code> - contains the implementation to be invoked in case
+      the route matches</li>
+</ul>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="options/2">
+    <span class="signature"><strong>options(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#options/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is options request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="patch/2">
+    <span class="signature"><strong>patch(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#patch/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is patch request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="post/2">
+    <span class="signature"><strong>post(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#post/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is post request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put/2">
+    <span class="signature"><strong>put(path, contents)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#put/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Dispatches to the path only if it is put request.
+See <a href="#match/3"><code>match/3</code></a> for more examples.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+    </div>
+  </body>
+</html>

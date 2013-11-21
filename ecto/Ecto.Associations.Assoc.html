@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Associations.Assoc</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; Associations &rarr; <a href="Ecto.Associations.Assoc.html">Assoc</a></div>
+
+      <h1>
+        Ecto.Associations.Assoc
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>This module provides the assoc selector merger and utilities around it.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/associations/assoc.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#decompose_assoc/1">decompose_assoc(var)</a></td>
+  
+    <td class="summary_synopsis"><p>Decomposes an <code>assoc(var, fields)</code> or <code>var</code> into <code>{var, fields}</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#run/2">run(results, query)</a></td>
+  
+    <td class="summary_synopsis"><p>Transforms a result set based on the assoc selector, loading the associations
+onto their parent model. See <a href="Ecto.Query.html#select/3"><code>Ecto.Query.select/3</code></a></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="decompose_assoc/1">
+    <span class="signature"><strong>decompose_assoc(var)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decompose_assoc/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>decompose_assoc(<a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>) :: {<a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>, [<a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>]}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Decomposes an <code>assoc(var, fields)</code> or <code>var</code> into <code>{var, fields}</code>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/associations/assoc.ex#L29" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="run/2">
+    <span class="signature"><strong>run(results, query)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#run/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>run([<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>], <a href="Ecto.Query.html#t:t/0">Ecto.Query.t</a>) :: [<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Transforms a result set based on the assoc selector, loading the associations
+onto their parent model. See <a href="Ecto.Query.html#select/3"><code>Ecto.Query.select/3</code></a>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/associations/assoc.ex#L14" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

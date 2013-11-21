@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Query.API</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a> &rarr; <a href="Ecto.Query.API.html">API</a></div>
+
+      <h1>
+        Ecto.Query.API
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>The Query API available by default in Ecto queries.</p>
+
+<p>All queries in Ecto are typesafe and this module defines all
+database functions based on their type. Note that this module defines
+only the API, each database adapter still needs to support the
+functions outlined here.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#random/0">random()</a></td>
+  
+    <td class="summary_synopsis"><p>Random float number from 0.0 to 1.0 including</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#now/0">now()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the current date and time</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#localtimestamp/0">localtimestamp()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the current local date and time</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#avg/1">avg(numbers)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, averages the given field over the current group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#count/1">count(arg)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, counts the number of occurrences of the given field
+in the current group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sum/1">sum(numbers)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, sums the given field over the current group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#max/1">max(numbers)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, the maximum number of the given field in the current
+group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#min/1">min(numbers)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, the minimum number of the given field in the current
+group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not/1">not arg</a></td>
+  
+    <td class="summary_synopsis"><p>Boolean not</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#binary/1">binary(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Casts a binary literal to a binary type. By default a
+binary literal is of the string type</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#downcase/1">downcase(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Downcase string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#date/1">date(datetime)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract date from datetime</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time/1">time(datetime)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract time from datetime</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#-/1">-arg</a></td>
+  
+    <td class="summary_synopsis"><p>Negate number</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#+/1">+arg</a></td>
+  
+    <td class="summary_synopsis"><p>Positive number</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#round/1">round(number)</a></td>
+  
+    <td class="summary_synopsis"><p>Round number to closest integer</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#upcase/1">upcase(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Upcase string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#round/2">round(x0, x1)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time_add/2">time_add(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Addition of datetime&#39;s with interval&#39;s</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#+/2">left + right</a></td>
+  
+    <td class="summary_synopsis"><p>Addition of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;&gt;/2">left &lt;&gt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Binary and string concatenation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#and/2">left and right</a></td>
+  
+    <td class="summary_synopsis"><p>Boolean and</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#or/2">left or right</a></td>
+  
+    <td class="summary_synopsis"><p>Boolean or</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ilike/2">ilike(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Case-insensitive pattern match</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#like/2">like(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Case-sensitive pattern match</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#datetime/2">datetime(date, time)</a></td>
+  
+    <td class="summary_synopsis"><p>Create a datetime from a date and a time</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#//2">left / right</a></td>
+  
+    <td class="summary_synopsis"><p>Division of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#==/2">left == right</a></td>
+  
+    <td class="summary_synopsis"><p>Equality</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#!=/2">left != right</a></td>
+  
+    <td class="summary_synopsis"><p>Inequality</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#div/2">div(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Integer division</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rem/2">rem(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Integer remainder of division</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;=/2">left &gt;= right</a></td>
+  
+    <td class="summary_synopsis"><p>Left greater than or equal to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;/2">left &gt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Left greater than right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;=/2">left &lt;= right</a></td>
+  
+    <td class="summary_synopsis"><p>Left less than or equal to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;/2">left &lt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Left less than right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#++/2">left ++ right</a></td>
+  
+    <td class="summary_synopsis"><p>List concatenation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#*/2">left * right</a></td>
+  
+    <td class="summary_synopsis"><p>Multiplication of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#../2">left .. right</a></td>
+  
+    <td class="summary_synopsis"><p>Range from left to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#field/2">field(var, atom)</a></td>
+  
+    <td class="summary_synopsis"><p>References a field. This can be used when a field needs
+to be dynamically referenced</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#in/2">left in right</a></td>
+  
+    <td class="summary_synopsis"><p>Return <code>true</code> if <code>left</code> is in <code>right</code> array, <code>false</code>
+otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#time_sub/2">time_sub(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Subtraction of datetime&#39;s with interval&#39;s</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#-/2">left - right</a></td>
+  
+    <td class="summary_synopsis"><p>Subtraction of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pow/2">pow(base, exp)</a></td>
+  
+    <td class="summary_synopsis"><p>base to the power of exp</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="!=/2">
+    <span class="signature"><strong>left != right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#!=/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Inequality.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L84" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="*/2">
+    <span class="signature"><strong>left * right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#*/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Multiplication of numbers.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L65" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="+/1">
+    <span class="signature"><strong>+arg</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#+/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Positive number.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L33" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="+/2">
+    <span class="signature"><strong>left + right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#+/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Addition of numbers.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L49" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="++/2">
+    <span class="signature"><strong>left ++ right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#++/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>List concatenation.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L135" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="-/1">
+    <span class="signature"><strong>-arg</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#-/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Negate number.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L39" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="-/2">
+    <span class="signature"><strong>left - right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#-/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Subtraction of numbers.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L57" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="../2">
+    <span class="signature"><strong>left .. right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#../2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Range from left to right.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L126" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="//2">
+    <span class="signature"><strong>left / right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#//2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Division of numbers.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L73" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="&lt;/2">
+    <span class="signature"><strong>left &lt; right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#&lt;/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Left less than right.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L101" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="&lt;=/2">
+    <span class="signature"><strong>left &lt;= right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#&lt;=/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Left less than or equal to right.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L91" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="&lt;&gt;/2">
+    <span class="signature"><strong>left &lt;&gt; right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#&lt;&gt;/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Binary and string concatenation.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L130" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="==/2">
+    <span class="signature"><strong>left == right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#==/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Equality.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L77" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="&gt;/2">
+    <span class="signature"><strong>left &gt; right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#&gt;/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Left greater than right.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L106" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="&gt;=/2">
+    <span class="signature"><strong>left &gt;= right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#&gt;=/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Left greater than or equal to right.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L96" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="and/2">
+    <span class="signature"><strong>left and right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#and/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Boolean and.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L111" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="avg/1">
+    <span class="signature"><strong>avg(numbers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#avg/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Aggregate function, averages the given field over the current group.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L241" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="binary/1">
+    <span class="signature"><strong>binary(string)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#binary/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Casts a binary literal to a binary type. By default a
+binary literal is of the string type.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L156" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="count/1">
+    <span class="signature"><strong>count(arg)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#count/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Aggregate function, counts the number of occurrences of the given field
+in the current group.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L249" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="date/1">
+    <span class="signature"><strong>date(datetime)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#date/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Extract date from datetime.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L218" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="datetime/2">
+    <span class="signature"><strong>datetime(date, time)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#datetime/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Create a datetime from a date and a time</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L226" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="div/2">
+    <span class="signature"><strong>div(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#div/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Integer division.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L185" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="downcase/1">
+    <span class="signature"><strong>downcase(string)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#downcase/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Downcase string.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L202" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="field/2">
+    <span class="signature"><strong>field(var, atom)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#field/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>References a field. This can be used when a field needs
+to be dynamically referenced.</p>
+
+<h2>Examples</h2>
+
+<pre><code>x = :title
+from(p in Post, select: field(p, ^x))
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L150" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="ilike/2">
+    <span class="signature"><strong>ilike(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#ilike/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Case-insensitive pattern match.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L230" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="in/2">
+    <span class="signature"><strong>left in right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#in/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Return <code>true</code> if <code>left</code> is in <code>right</code> array, <code>false</code>
+otherwise.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L122" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="like/2">
+    <span class="signature"><strong>like(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#like/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Case-sensitive pattern match.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L234" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="localtimestamp/0">
+    <span class="signature"><strong>localtimestamp()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#localtimestamp/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Returns the current local date and time.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L214" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="max/1">
+    <span class="signature"><strong>max(numbers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#max/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Aggregate function, the maximum number of the given field in the current
+group.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L257" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="min/1">
+    <span class="signature"><strong>min(numbers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#min/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Aggregate function, the minimum number of the given field in the current
+group.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L269" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="not/1">
+    <span class="signature"><strong>not arg</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#not/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Boolean not.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L45" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="now/0">
+    <span class="signature"><strong>now()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#now/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Returns the current date and time.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L210" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="or/2">
+    <span class="signature"><strong>left or right</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#or/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Boolean or.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L115" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="pow/2">
+    <span class="signature"><strong>pow(base, exp)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#pow/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>base to the power of exp.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L179" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="random/0">
+    <span class="signature"><strong>random()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#random/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Random float number from 0.0 to 1.0 including.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L193" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rem/2">
+    <span class="signature"><strong>rem(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#rem/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Integer remainder of division.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L189" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="round/1">
+    <span class="signature"><strong>round(number)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#round/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Round number to closest integer.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L197" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="round/2">
+    <span class="signature"><strong>round(x0, x1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#round/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L2" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="sum/1">
+    <span class="signature"><strong>sum(numbers)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#sum/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Aggregate function, sums the given field over the current group.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L278" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="time/1">
+    <span class="signature"><strong>time(datetime)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Extract time from datetime.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L222" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="time_add/2">
+    <span class="signature"><strong>time_add(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time_add/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Addition of datetime&#39;s with interval&#39;s</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L159" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="time_sub/2">
+    <span class="signature"><strong>time_sub(left, right)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#time_sub/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Subtraction of datetime&#39;s with interval&#39;s</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L169" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="upcase/1">
+    <span class="signature"><strong>upcase(string)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#upcase/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Upcase string.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/query/api.ex#L206" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

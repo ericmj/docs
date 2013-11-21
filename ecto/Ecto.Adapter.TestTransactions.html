@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Adapter.TestTransactions</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.TestTransactions.html">TestTransactions</a></div>
+
+      <h1>
+        Ecto.Adapter.TestTransactions
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Specifies the adapter test transactions API.</p>
+
+<p>These adapter functions work by starting a transaction and storing
+the connection back in the pool with an open transaction. At the end
+of the test, the transaction is rolled back, reverting all data added
+during tests.</p>
+
+<p>Note this approach only works if the connection pool has size of 1
+and does not support any overflow.</p>
+
+<h2>Postgres test example</h2>
+
+<pre><code>defmodule TestRepo do
+  use Ecto.Repo, adapter: Ecto.Adapters.Postgres
+
+  # When testing it is important to set `size=1&amp;max_overflow=0` so that
+  # the repo will only have one connection
+  def conf do
+    parse_url &quot;ecto://postgres:postgres@localhost/test?size=1&amp;max_overflow=0&quot;
+  end
+end
+
+# All tests in this module will be wrapped in transactions
+defmodule PostTest do
+  # Tests that use the shared repository should be sync
+  use ExUnit.Case, async: false
+  alias Ecto.Adapters.Postgres
+
+  setup do
+    Postgres.begin_test_transaction(TestRepo)
+  end
+
+  teardown do
+    Postgres.rollback_test_transaction(TestRepo)
+  end
+
+  test &quot;create comment&quot; do
+    assert %Post{} = TestRepo.insert(%Post{})
+  end
+end
+</code></pre>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/test_transactions.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="begin_test_transaction/2">
+    <span class="signature"><strong>begin_test_transaction/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#begin_test_transaction/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>begin_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Starts a test transaction, see example above for usage.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/test_transactions.ex#L50" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="rollback_test_transaction/2">
+    <span class="signature"><strong>rollback_test_transaction/2</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#rollback_test_transaction/2" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>rollback_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Ends a test transaction, see example above for usage.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/test_transactions.ex#L55" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Adapters.Postgres</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; Adapters &rarr; <a href="Ecto.Adapters.Postgres.html">Postgres</a></div>
+
+      <h1>
+        Ecto.Adapters.Postgres
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>This is the adapter module for PostgreSQL. It handles and pools the
+connections to the postgres database with poolboy.</p>
+
+<h2>Options</h2>
+
+<p>The options should be given via <a href="Ecto.Repo.html#conf/0"><code>Ecto.Repo.conf/0</code></a>.</p>
+
+<p><code>:hostname</code> - Server hostname;
+<code>:port</code> - Server port (default: 5432);
+<code>:username</code> - Username;
+<code>:password</code> - User password;
+<code>:size</code> - The number of connections to keep in the pool;
+<code>:max_overflow</code> - The maximum overflow of connections (see poolboy docs);
+<code>:parameters</code> - Keyword list of connection parameters;
+<code>:ssl</code> - Set to true if ssl should be used (default: false);
+<code>:ssl_opts</code> - A list of ssl options, see ssl docs;
+<code>:lazy</code> - If false all connections will be started immediately on Repo startup (default: true)</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapters/postgres.ex#L2" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#query/4">query(repo, sql, params, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Run custom SQL query on given repo</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="query/4">
+    <span class="signature"><strong>query(repo, sql, params, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#query/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Run custom SQL query on given repo.</p>
+
+<h2>Options</h2>
+
+<p><code>:timeout</code> - The time in milliseconds to wait for the call to finish,
+               <code>:infinity</code> will wait indefinitely (default: 5000);</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; Postgres.query(MyRepo, &quot;SELECT $1 + $2&quot;, [40, 2])
+Postgrex.Result[command: :select, columns: [&quot;?column?&quot;], rows: [{42}], num_rows: 1]
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapters/postgres.ex#L131" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

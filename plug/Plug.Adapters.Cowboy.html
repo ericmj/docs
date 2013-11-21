@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Adapters.Cowboy</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; Adapters &rarr; <a href="Plug.Adapters.Cowboy.html">Cowboy</a></div>
+
+      <h1>
+        Plug.Adapters.Cowboy
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Adapter interface to the Cowboy webserver.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><p><code>:ip</code> - the ip to bind the server to.
+Must be a tuple in the format <code>{x, y, z, w}</code>.</p></li>
+<li><p><code>:port</code> - the port to run the server.
+Defaults to 4000 (http) and 4040 (https).</p></li>
+<li><p><code>:acceptors</code> - the number of acceptors for the listener.
+Defaults to 100.</p></li>
+<li><p><code>:max_connections</code> - max number of connections supported.
+Defaults to <code>:infinity</code>.</p></li>
+<li><p><code>:dispatch</code> - manually configure Cowboy&#39;s dispatch.
+If this option is used, the plug given plug won&#39;t be initialized
+nor dispatched to (and doing so becomes the user responsibility).</p></li>
+<li><p><code>:ref</code> - the reference name to be used.
+Defaults to <code>plug.HTTP</code> (http) and <code>plug.HTTPS</code> (https).
+This is the value that needs to be given on shutdown.</p></li>
+<li><p><code>:compress</code> - Cowboy will attempt to compress the response body.</p></li>
+</ul>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#child_spec/4">child_spec(scheme, plug, opts, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a child_spec to be supervised by your application</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#http/3">http(plug, opts, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Run cowboy under http</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#https/3">https(plug, opts, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Run cowboy under https</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#shutdown/1">shutdown(ref)</a></td>
+  
+    <td class="summary_synopsis"><p>Shutdowns the given reference</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="child_spec/4">
+    <span class="signature"><strong>child_spec(scheme, plug, opts, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#child_spec/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Returns a child_spec to be supervised by your application.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="http/3">
+    <span class="signature"><strong>http(plug, opts, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#http/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Run cowboy under http.</p>
+
+<h2>Example</h2>
+
+<pre><code># Starts a new interface
+Plug.Adapters.Cowboy.http MyPlug, [], port: 80
+
+# The interface above can be shutdown with
+Plug.Adapters.Cowboy.shutdown MyPlug.HTTP
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="https/3">
+    <span class="signature"><strong>https(plug, opts, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#https/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Run cowboy under https.</p>
+
+<p>Besides the options described in the module documentation,
+this module also accepts all options defined in <a href="http://www.erlang.org/doc/man/ssl.html">the <code>ssl</code>
+erlang module</a>,
+like keyfile, certfile, cacertfile and others.</p>
+
+<p>The certificate files can be given as a relative path.
+For such, the <code>:otp_app</code> option must also be given and
+certificates will be looked from the priv directory of
+the given application.</p>
+
+<h2>Example</h2>
+
+<pre><code># Starts a new interface
+Plug.Adapters.Cowboy.https MyPlug, [],
+  port: 443,
+  password: &quot;SECRET&quot;,
+  otp_app: :my_app,
+  keyfile: &quot;ssl/key.pem&quot;,
+  certfile: &quot;ssl/cert.pem&quot;
+
+# The interface above can be shutdown with
+Plug.Adapters.Cowboy.shutdown MyPlug.HTTPS
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="shutdown/1">
+    <span class="signature"><strong>shutdown(ref)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#shutdown/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Shutdowns the given reference.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

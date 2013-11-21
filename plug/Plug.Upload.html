@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Upload</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Upload.html">Upload</a></div>
+
+      <h1>
+        Plug.Upload
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>A server that manages uploaded files.</p>
+
+<p>Uploaded files are stored in a temporary directory
+and removed from the directory after the process that
+requested the file dies.</p>
+
+<p>During the request, those files are represented with
+the Plug.Upload struct that contains three fields:</p>
+
+<ul>
+<li><code>:path</code> - the path to the uploaded file on the filesystem</li>
+<li><code>:content_type</code> - the content type of the uploaded file</li>
+<li><code>:filename</code> - the filename of the uploaded file given in the request</li>
+</ul>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#random_file!/1">random_file!(prefix)</a></td>
+  
+    <td class="summary_synopsis"><p>Requests a random file to be created in the upload directory
+with the given prefix. Raises on failure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#random_file/1">random_file(prefix)</a></td>
+  
+    <td class="summary_synopsis"><p>Requests a random file to be created in the upload directory
+with the given prefix</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/0">start_link()</a></td>
+  
+    <td class="summary_synopsis"><p>Starts the upload handling server</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %Plug.Upload{path: term, content_type: term, filename: term}
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="random_file/1">
+    <span class="signature"><strong>random_file(prefix)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#random_file/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>random_file(binary) :: {:ok, binary} | {:too_many_attempts, binary, pos_integer} | {:no_tmp, [binary]}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Requests a random file to be created in the upload directory
+with the given prefix.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="random_file!/1">
+    <span class="signature"><strong>random_file!(prefix)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#random_file!/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>random_file!(binary) :: binary | no_return</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Requests a random file to be created in the upload directory
+with the given prefix. Raises on failure.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="start_link/0">
+    <span class="signature"><strong>start_link()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#start_link/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Starts the upload handling server.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Conn.Utils</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Utils.html">Utils</a></div>
+
+      <h1>
+        Plug.Conn.Utils
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+          <li><a href="#types_details">Types</a></li>
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Utilities for working with connection data</p>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#content_type/1">content_type(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses the request content type header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/1">list(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses a comma-separated header list</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#params/1">params(t)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses headers parameters</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#token/1">token(token)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses a value as defined in <a href="1">RFC-1341</a>.
+For convenience, trims whitespace at the end of the token.
+Returns false is the token is invalid</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+        <div id="types_details" class="details_list">
+          <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
+          <div class="type_detail">
+  <p class="typespec" id="t:params/0">
+    <a href="#t:params/0">params</a> :: [{binary, binary}]
+  </p>
+  
+</div>
+
+        </div>
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="content_type/1">
+    <span class="signature"><strong>content_type(binary)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#content_type/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>content_type(binary) :: {:ok, type :: binary, subtype :: binary, <a href="#t:params/0">params</a>} | :error</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Parses the request content type header.</p>
+
+<p>Type and subtype are case insensitive while the
+sensitiveness of params depends on its key and
+therefore are not handled by this parser.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; content_type &quot;text/plain&quot;
+{:ok, &quot;text&quot;, &quot;plain&quot;, %{}}
+
+iex&gt; content_type &quot;APPLICATION/vnd.ms-data+XML&quot;
+{:ok, &quot;application&quot;, &quot;vnd.ms-data+xml&quot;, %{}}
+
+iex&gt; content_type &quot;x-sample/json; charset=utf-8&quot;
+{:ok, &quot;x-sample&quot;, &quot;json&quot;, %{&quot;charset&quot; =&gt; &quot;utf-8&quot;}}
+
+iex&gt; content_type &quot;x-sample/json  ; charset=utf-8  ; foo=bar&quot;
+{:ok, &quot;x-sample&quot;, &quot;json&quot;, %{&quot;charset&quot; =&gt; &quot;utf-8&quot;, &quot;foo&quot; =&gt; &quot;bar&quot;}}
+
+iex&gt; content_type &quot;x y&quot;
+:error
+
+iex&gt; content_type &quot;/&quot;
+:error
+
+iex&gt; content_type &quot;x/y z&quot;
+:error
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="list/1">
+    <span class="signature"><strong>list(binary)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#list/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>list(binary) :: [binary]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Parses a comma-separated header list.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; list(&quot;foo, bar&quot;)
+[&quot;foo&quot;, &quot;bar&quot;]
+
+iex&gt; list(&quot;foobar&quot;)
+[&quot;foobar&quot;]
+
+iex&gt; list(&quot;&quot;)
+[]
+
+iex&gt; list(&quot;empties, , are,, filtered&quot;)
+[&quot;empties&quot;, &quot;are&quot;, &quot;filtered&quot;]
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="params/1">
+    <span class="signature"><strong>params(t)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#params/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>params(binary) :: <a href="#t:params/0">params</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Parses headers parameters.</p>
+
+<p>Keys are case insensitive and downcased,
+invalid key-value pairs are discarded.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; params(&quot;foo=bar&quot;)
+%{&quot;foo&quot; =&gt; &quot;bar&quot;}
+
+iex&gt; params(&quot;  foo=bar  &quot;)
+%{&quot;foo&quot; =&gt; &quot;bar&quot;}
+
+iex&gt; params(&quot;FOO=bar&quot;)
+%{&quot;foo&quot; =&gt; &quot;bar&quot;}
+
+iex&gt; params(&quot;foo=BAR ; wat&quot;)
+%{&quot;foo&quot; =&gt; &quot;BAR&quot;}
+
+iex&gt; params(&quot;=&quot;)
+%{}
+</code></pre>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="token/1">
+    <span class="signature"><strong>token(token)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#token/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>token(binary) :: binary | false</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Parses a value as defined in <a href="1">RFC-1341</a>.
+For convenience, trims whitespace at the end of the token.
+Returns false is the token is invalid.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; token(&quot;foo&quot;)
+&quot;foo&quot;
+
+iex&gt; token(&quot;foo-bar&quot;)
+&quot;foo-bar&quot;
+
+iex&gt; token(&quot;&lt;foo&gt;&quot;)
+false
+
+iex&gt; token(~s[&quot;&lt;foo&gt;&quot;])
+&quot;&lt;foo&gt;&quot;
+
+iex&gt; token(~S[&quot;&lt;f\oo&gt;\&quot;&lt;b\ar&gt;&quot;])
+&quot;&lt;foo&gt;\&quot;&lt;bar&gt;&quot;
+
+iex&gt; token(&quot;foo  &quot;)
+&quot;foo&quot;
+
+iex&gt; token(&quot;foo bar&quot;)
+false
+</code></pre>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

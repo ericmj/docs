@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Associations.Preloader</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; Associations &rarr; <a href="Ecto.Associations.Preloader.html">Preloader</a></div>
+
+      <h1>
+        Ecto.Associations.Preloader
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>This module provides assoc selector merger.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/associations/preloader.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#run/4">run(original, repo, fields, pos \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Loads all associations on the result set according to the given fields.
+<code>fields</code> is a list of fields that can be nested in rose tree structure:
+<code>node :: {atom, [node | atom]}</code> (see <code>Ecto.Query.PreloadBuilder.normalize/1</code>).
+<code>pos</code> is a list of indices into tuples and lists that locate the concerned
+model</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="run/4">
+    <span class="signature"><strong>run(original, repo, fields, pos \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#run/4" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>run([<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>], atom, [atom | tuple], [non_neg_integer]) :: [<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Loads all associations on the result set according to the given fields.
+<code>fields</code> is a list of fields that can be nested in rose tree structure:
+<code>node :: {atom, [node | atom]}</code> (see <code>Ecto.Query.PreloadBuilder.normalize/1</code>).
+<code>pos</code> is a list of indices into tuples and lists that locate the concerned
+model.</p>
+
+<p>See <a href="Ecto.Query.html#preload/2"><code>Ecto.Query.preload/2</code></a>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/associations/preloader.ex#L19" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>

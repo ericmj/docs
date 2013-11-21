@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Model.Schema</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a> &rarr; <a href="Ecto.Model.Schema.html">Schema</a></div>
+
+      <h1>
+        Ecto.Model.Schema
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#macros_details">Macros</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Defines a schema for a model.</p>
+
+<p>A schema is a struct with associated metadata that is persisted to a
+repository. Every schema model is also a struct, that means that you work
+with models just like you would work with structs.</p>
+
+<h2>Example</h2>
+
+<pre><code>defmodule User do
+  use Ecto.Model.Schema
+
+  schema &quot;users&quot; do
+    field :name, :string
+    field :age, :integer, default: 0
+    has_many :posts, Post
+  end
+end
+</code></pre>
+
+<p>This module also automatically imports <code>from/2</code> from <a href="Ecto.Query.html"><code>Ecto.Query</code></a>
+as a convenience.</p>
+
+<h2>Schema defaults</h2>
+
+<p>When using the block syntax, the created model uses the default
+of a primary key named <code>:id</code>, of type <code>:integer</code>. This can be
+customized by passing <code>primary_key: false</code> to schema:</p>
+
+<pre><code>schema &quot;weather&quot;, primary_key: false do
+  ...
+end
+</code></pre>
+
+<p>Or by passing a tuple in the format <code>{field, type, opts}</code>:</p>
+
+<pre><code>schema &quot;weather&quot;, primary_key: {:custom_field, :string, []} do
+  ...
+end
+</code></pre>
+
+<p>Implicit defaults can be specified via the <code>@schema_defaults</code> attribute.
+This is useful if you want to use a different default primary key
+through your entire application.</p>
+
+<p>The supported options are:</p>
+
+<ul>
+<li><code>primary_key</code> - either <code>false</code>, or a <code>{field, type, opts}</code> tuple</li>
+<li><code>foreign_key_type</code> - sets the type for any belongs_to associations.
+                   This can be overrided using the <code>:type</code> option
+                   to the <code>belongs_to</code> statement. Defaults to
+                   type <code>:integer</code></li>
+</ul>
+
+<h2>Example</h2>
+
+<pre><code>defmodule MyApp.Model do
+  defmacro __using__(_) do
+    quote do
+      @schema_defaults primary_key: {:uuid, :string, []},
+                       foreign_key_type: :string
+      use Ecto.Model
+    end
+  end
+end
+
+defmodule MyApp.Post do
+  use MyApp.Model
+  schema &quot;posts&quot; do
+    has_many :comments, MyApp.Comment
+  end
+end
+
+defmodule MyApp.Comment do
+  use MyApp.Model
+  schema &quot;comments&quot; do
+    belongs_to :post, MyApp.Comment
+  end
+end
+</code></pre>
+
+<p>Any models using <code>MyApp.Model will get the</code>:uuid<code>field, with type
+</code>:string` as the primary key.</p>
+
+<p>The <code>belongs_to</code> association on <code>MyApp.Comment</code> will also now require
+that <code>:post_id</code> be of <code>:string</code> type to reference the <code>:uuid</code> of a
+<code>MyApp.Post</code> model.</p>
+
+<h2>Setting Primary Keys with Schema Defaults</h2>
+
+<p>In the example above, the <code>:uuid</code> primary key field needs to be
+explicitly set by the developer before the Model can be inserted
+or updated in a database.</p>
+
+<p>To set a primary key, the developer <strong>must</strong> call the function
+<a href="Ecto.Model.html#put_primary_key/2"><code>Ecto.Model.put_primary_key/2</code></a>.</p>
+
+<p>Example:</p>
+
+<pre><code>uuid = &quot;some_uuid&quot;
+
+# Don&#39;t do this
+post = %MyApp.Post{uuid: uuid}
+
+# Do this instead
+post = Ecto.Model.put_primary_key(%MyApp.Post{}, uuid)
+</code></pre>
+
+<p>This must be done in order to ensure that any associations of the Model
+are appropriately updated.</p>
+
+<h2>Reflection</h2>
+
+<p>Any schema module will generate the <code>__schema__</code> function that can be used for
+runtime introspection of the schema.</p>
+
+<ul>
+<li><code>__schema__(:source)</code> - Returns the source as given to <code>schema/2</code>;</li>
+<li><code>__schema__(:field, field)</code> - Returns the options for the given field;</li>
+<li><code>__schema__(:field_type, field)</code> - Returns the type of the given field;</li>
+<li><code>__schema__(:field_names)</code> - Returns a list of all field names;</li>
+<li><code>__schema__(:associations)</code> - Returns a list of all association field names;</li>
+<li><code>__schema__(:association, field)</code> - Returns the given field&#39;s association
+                                  reflection;</li>
+<li><code>__schema__(:primary_key)</code> - Returns the field that is the primary key or
+                           <code>nil</code> if there is none;</li>
+<li><code>__schema__(:allocate, values)</code> - Creates a new model struct from the given
+                                field values;</li>
+<li><code>__schema__(:keywords, model)</code> - Return a keyword list of all non-virtual
+                               fields and their values;</li>
+</ul>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#field/3">field(name, type \\ :string, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a field on the model schema with given name and type, will also create
+a struct field. If the type is <code>:virtual</code> it wont be persisted</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#schema/3">schema(source, opts \\ [], list3)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a schema with a source name and field definitions</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#has_many/3">has_many(name, queryable, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Indicates a one-to-many association with another model, where the current
+model has zero or more records of the other model. The other model often
+has a <code>belongs_to</code> field with the reverse association</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#belongs_to/3">belongs_to(name, queryable, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Indicates a one-to-one association with another model, the current model
+belongs to zero or one records of the other model. The other model
+often has a <code>has_one</code> or a <code>has_many</code> field with the reverse association.
+Compared to <code>has_one</code> this association should be used where you would place
+the foreign key on an SQL table</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#has_one/3">has_one(name, queryable, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Indicates a one-to-one association with another model, where the current model
+has zero or one records of the other model. The other model often has a
+<code>belongs_to</code> field with the reverse association</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+
+      
+        <div id="macros_details" class="details_list">
+          <h2>Macros</h2>
+          <div class="detail">
+  <div class="detail_header" id="belongs_to/3">
+    <span class="signature"><strong>belongs_to(name, queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#belongs_to/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Indicates a one-to-one association with another model, the current model
+belongs to zero or one records of the other model. The other model
+often has a <code>has_one</code> or a <code>has_many</code> field with the reverse association.
+Compared to <code>has_one</code> this association should be used where you would place
+the foreign key on an SQL table.</p>
+
+<p>Creates a virtual field called <code>name</code>. The association can be accessed via
+this field, see <code>Ecto.Associations.BelongsTo</code> for more information. Check the
+examples to see how to perform queries on the association and
+<code>Ecto.Query.join/3</code> for joins.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:foreign_key</code> - Sets the foreign key field name, defaults to:
+                 <code>:&quot;#{other_model}_id&quot;</code>;</li>
+<li><code>:references</code>  - Sets the key on the other model to be used for the
+                 association, defaults to: <code>:id</code>;</li>
+<li><code>:type</code>        - Sets the type of <code>:foreign_key</code>. Defaults to: <code>:integer</code>;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>defmodule Comment do
+  schema &quot;comments&quot; do
+    belongs_to :post, Post
+  end
+end
+
+# The post can come preloaded on the comment record
+[comment] = Repo.all(from(c in Comment, where: c.id == 42, preload: :post))
+comment.post.get #=&gt; %Post{...}
+
+# Or via an association join
+[comment] = Repo.all(from(c in Comment,
+                   where: c.id == 42,
+               left_join: p in c.post,
+                  select: assoc(c, p)))
+comment.post.get #=&gt; %Post{...}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L336" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="field/3">
+    <span class="signature"><strong>field(name, type \\ :string, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#field/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Defines a field on the model schema with given name and type, will also create
+a struct field. If the type is <code>:virtual</code> it wont be persisted.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:default</code> - Sets the default value on the schema and the struct;</li>
+<li><code>:primary_key</code> - Sets the field to be the primary key, the default
+primary key have to be overridden by setting its name to <code>nil</code>;</li>
+</ul>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L203" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="has_many/3">
+    <span class="signature"><strong>has_many(name, queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#has_many/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Indicates a one-to-many association with another model, where the current
+model has zero or more records of the other model. The other model often
+has a <code>belongs_to</code> field with the reverse association.</p>
+
+<p>Creates a virtual field called <code>name</code>. The association can be accessed via
+this field, see <code>Ecto.Associations.HasMany</code> for more information. See the
+examples to see how to perform queries on the association and
+<code>Ecto.Query.join/3</code> for joins.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:foreign_key</code> - Sets the foreign key, this should map to a field on the
+                 other model, defaults to: <code>:&quot;#{model}_id&quot;</code>;</li>
+<li><code>:references</code>  - Sets the key on the current model to be used for the
+                 association, defaults to the primary key on the model;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>defmodule Post do
+  schema &quot;posts&quot; do
+    has_many :comments, Comment
+  end
+end
+
+# Get all comments for a given post
+post = Repo.get(Post, 42)
+comments = Repo.all(post.comments)
+
+# The comments can come preloaded on the post struct
+[post] = Repo.all(from(p in Post, where: p.id == 42, preload: :comments))
+post.comments.all #=&gt; [ %Comment{...}, ... ]
+
+# Or via an association join
+[post] = Repo.all(from(p in Post,
+                where: p.id == 42,
+            left_join: c in p.comments,
+               select: assoc(p, c)))
+post.comments.all #=&gt; [ %Comment{...}, ... ]
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L249" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="has_one/3">
+    <span class="signature"><strong>has_one(name, queryable, opts \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#has_one/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Indicates a one-to-one association with another model, where the current model
+has zero or one records of the other model. The other model often has a
+<code>belongs_to</code> field with the reverse association.</p>
+
+<p>Creates a virtual field called <code>name</code>. The association can be accessed via
+this field, see <code>Ecto.Associations.HasOne</code> for more information. Check the
+examples to see how to perform queries on the association and
+<code>Ecto.Query.join/3</code> for joins.</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><code>:foreign_key</code> - Sets the foreign key, this should map to a field on the
+                 other model, defaults to: <code>:&quot;#{model}_id&quot;</code>;</li>
+<li><code>:references</code>  - Sets the key on the current model to be used for the
+                 association, defaults to the primary key on the model;</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>defmodule Post do
+  schema &quot;posts&quot; do
+    has_one :permalink, Permalink
+  end
+end
+
+# The permalink can come preloaded on the post record
+[post] = Repo.all(from(p in Post, where: p.id == 42, preload: :permalink))
+post.permalink.get #=&gt; %Permalink{...}
+
+# Or via an association join
+[post] = Repo.all(from(p in Post,
+                where: p.id == 42,
+            left_join: pl in p.permalink,
+               select: assoc(p, pl)))
+post.permalink.get #=&gt; %Permalink{...}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L291" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="schema/3">
+    <span class="signature"><strong>schema(source, opts \\ [], list3)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#schema/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Defines a schema with a source name and field definitions.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/model/schema.ex#L143" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+    </div>
+  </body>
+</html>

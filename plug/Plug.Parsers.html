@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plug.Parsers</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Parsers.html">Parsers</a></div>
+
+      <h1>
+        Plug.Parsers
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>A plug for parsing the request body</p>
+
+<h2>Options</h2>
+
+<ul>
+<li><p><code>:parsers</code> - a set of modules to be invoked for parsing.
+           These modules need to implement the behaviour
+           outlined in this module.</p></li>
+<li><p><code>:limit</code> - the request size limit we accept to parse.
+         Defaults to 8,000,000 bytes.</p></li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>plug Plug.Parsers, parsers: [:urlencoded, :multipart]
+</code></pre>
+
+<h2>Built-in parsers</h2>
+
+<p>Plug ships with the following parsers:</p>
+
+<ul>
+<li><code>Plug.Parsers.URLENCODED</code> - parses &quot;application/x-www-form-urlencoded&quot; requests</li>
+<li><code>Plug.Parsers.MULTIPART</code> - parses &quot;multipart/form-data&quot; and &quot;multipart/mixed&quot; requests</li>
+</ul>
+
+<p>This plug will raise <a href="Plug.Parsers.UnsupportedMediaTypeError.html"><code>Plug.Parsers.UnsupportedMediaTypeError</code></a> if
+the request cannot be parsed by any of the given types and raise
+<a href="Plug.Parsers.RequestTooLargeError.html"><code>Plug.Parsers.RequestTooLargeError</code></a> if the request goes over the
+given limit.</p>
+
+<h2>File handling</h2>
+
+<p>If a file is uploaded via any of the parsers, Plug will
+stream the uploaded contents to a file in a temporary directory,
+avoiding loading the whole file into memory. For such, it is
+required that the <code>:plug</code> application is started.</p>
+
+<p>In those cases, the parameter will return a <a href="Plug.Upload.html"><code>Plug.Upload</code></a>
+struct with information about the file and its content type.</p>
+
+<p>You can customize the temporary directory by setting the <code>PLUG_TMPDIR</code>
+environment variable in your system.</p>
+
+        </div>
+      
+
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#call/2">call(conn, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.html#call/2"><code>Plug.call/2</code></a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#init/1">init(opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.html#init/1"><code>Plug.init/1</code></a></p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="call/2">
+    <span class="signature"><strong>call(conn, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#call/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Callback implementation of <a href="Plug.html#call/2"><code>Plug.call/2</code></a>.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="init/1">
+    <span class="signature"><strong>init(opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#init/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Callback implementation of <a href="Plug.html#init/1"><code>Plug.init/1</code></a>.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="parse/5">
+    <span class="signature"><strong>parse/5</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#parse/5" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>parse(<a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>, type :: binary, subtype :: binary, headers :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, opts :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:too_large, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:skip, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Attempt to parse the connection request body given the type,
+subtype and headers. Returns <code>{:ok, conn}</code> if the parser can
+handle the given content type, <code>{:halt, conn}</code> otherwise.</p>
+</div>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ecto.Adapter.Storage</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.Storage.html">Storage</a></div>
+
+      <h1>
+        Ecto.Adapter.Storage
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+        
+        
+        
+          <li><a href="#callbacks_details">Callbacks</a></li>
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Specifies the adapter storage API.</p>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/storage.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <div id="callbacks_details" class="details_list">
+          <h2>Callbacks</h2>
+          <div class="detail">
+  <div class="detail_header" id="storage_down/1">
+    <span class="signature"><strong>storage_down/1</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#storage_down/1" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>storage_down(<a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | {:error, :already_down} | {:error, term}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Drop the storage in the data store and return <code>:ok</code> if it was dropped
+successfully.</p>
+
+<p>Returns <code>{:error, :already_down}</code> if the storage has already been dropped or
+<code>{:error, term}</code> in case anything else goes wrong.</p>
+
+<h2>Examples</h2>
+
+<p>storage<em>down(username: postgres,
+               database: &#39;ecto</em>test&#39;,
+               hostname: &#39;localhost&#39;)</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/storage.ex#L38" target="_blank" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="storage_up/1">
+    <span class="signature"><strong>storage_up/1</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(callback)</span>
+      <a href="#storage_up/1" class="detail_link" title="Link to this callback">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>storage_up(<a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | {:error, :already_up} | {:error, term}</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Create the storage in the data store and return <code>:ok</code> if it was created
+successfully.</p>
+
+<p>Returns <code>{:error, :already_up}</code> if the storage has already been created or
+<code>{:error, term}</code> in case anything else goes wrong.</p>
+
+<h2>Examples</h2>
+
+<p>storage<em>up(username: postgres,
+             database: &#39;ecto</em>test&#39;,
+             hostname: &#39;localhost&#39;)</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/ecto/adapter/storage.ex#L22" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+    </div>
+  </body>
+</html>

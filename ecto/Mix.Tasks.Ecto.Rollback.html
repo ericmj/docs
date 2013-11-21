@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mix.Tasks.Ecto.Rollback</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <div id="content">
+      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Mix &rarr; Tasks &rarr; Ecto &rarr; <a href="Mix.Tasks.Ecto.Rollback.html">Rollback</a></div>
+
+      <h1>
+        Mix.Tasks.Ecto.Rollback
+        
+      </h1>
+
+      
+
+      <ul class="summary_links">
+        
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+        
+      </ul>
+
+      
+        <div id="moduledoc" class="docstring">
+          <p>Reverts applied migrations in the given repository.</p>
+
+<p>Migrations are expected to be found inside the migrations
+directory returned by the priv function defined in the
+repository.</p>
+
+<p>Runs the latest applied migration by default. To roll back to
+to a version number, supply <code>--to version_number</code>.
+To roll back a specific number of times, use <code>--step n</code>.
+To undo all applied migrations, provide <code>--all</code>.</p>
+
+<h2>Command line options</h2>
+
+<ul>
+<li><code>--all</code> - revert all applied migrations</li>
+<li><code>--step</code> / <code>-n</code> - rever n number of applied migrations</li>
+<li><code>--to</code> / <code>-v</code> - revert all migrations down to and including version</li>
+<li><code>--no-start</code> - do not start applications</li>
+</ul>
+
+<h2>Examples</h2>
+
+<pre><code>mix ecto.rollback MyApp.Repo
+
+mix ecto.rollback MyApp.Repo -n 3
+mix ecto.rollback MyApp.Repo --step 3
+
+mix ecto.rollback MyApp.Repo -v 20080906120000
+mix ecto.rollback MyApp.Repo --to 20080906120000
+</code></pre>
+
+        </div>
+      
+
+      
+        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/mix/tasks/ecto.rollback.ex#L1" target="_blank" class="view_source">Source</a>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#run/2">run(args, migrator \\ :erlang.make_fun(Ecto.Migrator, :run, 4))</a></td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <div id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <div class="detail">
+  <div class="detail_header" id="run/2">
+    <span class="signature"><strong>run(args, migrator \\ :erlang.make_fun(Ecto.Migrator, :run, 4))</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#run/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"></div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
+/lib/mix/tasks/ecto.rollback.ex#L37" target="_blank" class="view_source">Source</a>
+  
+</div>
+
+        </div>
+      
+
+      
+
+      
+    </div>
+  </body>
+</html>
