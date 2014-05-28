@@ -45,12 +45,14 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>The Access protocol is the underlying protocol invoked
-when the brackets syntax is used. For instance, <code>foo[bar]</code>
-is translated to <code>access foo, bar</code> which, by default,
-invokes the <code>Access.access</code> protocol.</p>
+          <p>The Access protocol is used by <code>foo[bar]</code> and also
+empowers the nested update functions in Kernel.</p>
 
-<p>This protocol is implemented by default for Lists, Maps
+<p>For instance, <code>foo[bar]</code> translates <code>Access.get(foo, bar)</code>.
+<a href="Kernel.html#get_in/2"><code>Kernel.get_in/2</code></a>, <a href="Kernel.html#put_in/3"><code>Kernel.put_in/3</code></a> and <a href="Kernel.html#update_in/3"><code>Kernel.update_in/3</code></a>
+are also all powered by the Access protocol.</p>
+
+<p>This protocol is implemented by default for keywords, maps
 and dictionary like types:</p>
 
 <pre><code>iex&gt; keywords = [a: 1, b: 2]
@@ -66,15 +68,13 @@ iex&gt; star_ratings[1.5]
 &quot;★☆&quot;
 </code></pre>
 
-<p>The key access must be implemented using the <code>===</code> operator.
-This protocol is limited and is implemented only for the
-following built-in types: keywords, maps and functions.</p>
+<p>The key access must be implemented using the <code>===</code> operator.</p>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/access.ex#L3" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/access.ex#L1" class="view_source">Source</a>
       
 
       
@@ -83,7 +83,14 @@ following built-in types: keywords, maps and functions.</p>
           <tr>
   <td class="summary_signature"><a href="#get/2">get(container, key)</a></td>
   
-    <td class="summary_synopsis"><p>Receives the element being accessed and the access item</p>
+    <td class="summary_synopsis"><p>Accesses the given key in the container</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_and_update/3">get_and_update(container, key, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a value and updates the given key in one pass</p>
 </td>
   
 </tr>
@@ -117,10 +124,28 @@ following built-in types: keywords, maps and functions.</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Receives the element being accessed and the access item.</p>
+  <div class="docstring"><p>Accesses the given key in the container.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/access.ex#L33" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/access.ex#L31" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_and_update/3">
+    <span class="signature"><strong>get_and_update(container, key, fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_and_update/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Gets a value and updates the given key in one pass.</p>
+
+<p>In case the key is not set, invokes the function passing nil.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/access.ex#L38" class="view_source">Source</a>
   
 </div>
 

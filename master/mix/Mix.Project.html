@@ -71,55 +71,13 @@ defined.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#get/0">get()</a></td>
-  
-    <td class="summary_synopsis"><p>Retrieves the current project if there is one</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#umbrella?/0">umbrella?()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if project is an umbrella project</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#config_files/0">config_files()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a list of project configuration files for this project</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#load_paths/0">load_paths()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns all load paths for this project</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#config/0">config()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the project configuration</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get!/0">get!()</a></td>
-  
-    <td class="summary_synopsis"><p>Same as <a href="#get/0"><code>get/0</code></a>, but raises an exception if there is no current project</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#app_path/1">app_path(config \\ config())</a></td>
   
     <td class="summary_synopsis"><p>Returns the application path inside the build</p>
@@ -134,9 +92,9 @@ defined.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#deps_path/1">deps_path(config \\ config())</a></td>
+  <td class="summary_signature"><a href="#build_structure/2">build_structure(config \\ config(), opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Returns the path to store dependencies for this project</p>
+    <td class="summary_synopsis"><p>Builds the project structure for the current application</p>
 </td>
   
 </tr>
@@ -148,16 +106,37 @@ defined.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#manifest_path/1">manifest_path(config \\ config())</a></td>
+  <td class="summary_signature"><a href="#config/0">config()</a></td>
   
-    <td class="summary_synopsis"><p>The path to store manifests</p>
+    <td class="summary_synopsis"><p>Returns the project configuration</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#build_structure/2">build_structure(config \\ config(), opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#config_files/0">config_files()</a></td>
   
-    <td class="summary_synopsis"><p>Builds the project structure for the current application</p>
+    <td class="summary_synopsis"><p>Returns a list of project configuration files for this project</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deps_path/1">deps_path(config \\ config())</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the path to store dependencies for this project</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get!/0">get!()</a></td>
+  
+    <td class="summary_synopsis"><p>Same as <a href="#get/0"><code>get/0</code></a>, but raises an exception if there is no current project</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get/0">get()</a></td>
+  
+    <td class="summary_synopsis"><p>Retrieves the current project if there is one</p>
 </td>
   
 </tr>
@@ -165,6 +144,27 @@ defined.</p>
   <td class="summary_signature"><a href="#in_project/4">in_project(app, path, post_config \\ [], fun)</a></td>
   
     <td class="summary_synopsis"><p>Runs the given <code>fun</code> inside the given project</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#load_paths/0">load_paths()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns all load paths for this project</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#manifest_path/1">manifest_path(config \\ config())</a></td>
+  
+    <td class="summary_synopsis"><p>The path to store manifests</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#umbrella?/0">umbrella?()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if project is an umbrella project</p>
 </td>
   
 </tr>
@@ -198,7 +198,7 @@ defined.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L261" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L261" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -231,7 +231,7 @@ Mix.Project.build_path
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L223" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L223" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -253,7 +253,7 @@ Mix.Project.build_path
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L297" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L297" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -277,7 +277,7 @@ Mix.Project.build_path
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L285" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L285" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -305,7 +305,7 @@ Use it only to configure aspects of your project (like
 compilation directories) and not your application runtime.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L123" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L123" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -327,7 +327,7 @@ a full recompilation whenever such configuration files change.</p>
 all config files in the <code>config</code> directory.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L139" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L139" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -351,7 +351,7 @@ all config files in the <code>config</code> directory.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L200" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L200" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -374,7 +374,7 @@ requirement of the current task, you should call
 <a href="#get!/0"><code>get!/0</code></a> instead.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L88" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L88" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -396,7 +396,7 @@ function raises <a href="Mix.NoProjectError.html"><code>Mix.NoProjectError</code
 is available.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L104" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L104" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -419,7 +419,7 @@ stack.</p>
 the project configuration.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L171" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L171" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -435,7 +435,7 @@ the project configuration.</p>
   <div class="docstring"><p>Returns all load paths for this project.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L321" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -463,7 +463,7 @@ in future releases.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L246" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L246" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -479,7 +479,7 @@ in future releases.</p>
   <div class="docstring"><p>Returns <code>true</code> if project is an umbrella project.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/project.ex#L157" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/project.ex#L157" class="view_source">Source</a>
   
 </div>
 

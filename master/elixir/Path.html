@@ -58,26 +58,49 @@ that require it (like <a href="#wildcard/1"><code>wildcard/1</code></a> and <a h
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#relative_to_cwd/1">relative_to_cwd(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Convenience to get the path relative to the current working
-directory. If, for some reason, the current working directory
-cannot be retrieved, returns the full path</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#absname/1">absname(path)</a></td>
   
     <td class="summary_synopsis"><p>Converts the given path to an absolute one. Unlike
 <a href="#expand/1"><code>expand/1</code></a>, no attempt is made to resolve <code>..</code>, <code>.</code> or <code>~</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#absname/2">absname(path, relative_to)</a></td>
+  
+    <td class="summary_synopsis"><p>Builds a path from <code>relative_to</code> to <code>path</code>. If <code>path</code> is already
+an absolute path, <code>relative_to</code> is ignored. See also <a href="#relative_to/2"><code>relative_to/2</code></a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#basename/1">basename(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the last component of the path or the path
+itself if it does not contain any directory separators</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#basename/2">basename(path, extension)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the last component of <code>path</code> with the <code>extension</code>
+stripped. This function should be used to remove a specific
+extension which may, or may not, be there</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#dirname/1">dirname(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the directory component of <code>path</code></p>
 </td>
   
 </tr>
@@ -90,38 +113,11 @@ any <code>.</code> and <code>..</code> characters and a leading <code>~</code></
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#relative/1">relative(name)</a></td>
+  <td class="summary_signature"><a href="#expand/2">expand(path, relative_to)</a></td>
   
-    <td class="summary_synopsis"><p>Forces the path to be a relative path</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#split/1">split(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a list with the path split by the path separator.
-If an empty string is given, returns the root path</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#join/1">join(list1)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a string with one or more path components joined by the path separator</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#rootname/1">rootname(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the <code>path</code> with the <code>extension</code> stripped</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#dirname/1">dirname(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the directory component of <code>path</code></p>
+    <td class="summary_synopsis"><p>Expands the path relative to the path given as the second argument
+expanding any <code>.</code> and <code>..</code> characters. If the path is already an
+absolute path, <code>relative_to</code> is ignored</p>
 </td>
   
 </tr>
@@ -133,10 +129,63 @@ If an empty string is given, returns the root path</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#basename/1">basename(path)</a></td>
+  <td class="summary_signature"><a href="#join/1">join(list1)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the last component of the path or the path
-itself if it does not contain any directory separators</p>
+    <td class="summary_synopsis"><p>Returns a string with one or more path components joined by the path separator</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#join/2">join(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Joins two paths</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#relative/1">relative(name)</a></td>
+  
+    <td class="summary_synopsis"><p>Forces the path to be a relative path</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#relative_to/2">relative_to(path, from)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the given <code>path</code> relative to the given <code>from</code> path.
+In other words, it tries to strip the <code>from</code> prefix from <code>path</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#relative_to_cwd/1">relative_to_cwd(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Convenience to get the path relative to the current working
+directory. If, for some reason, the current working directory
+cannot be retrieved, returns the full path</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rootname/1">rootname(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the <code>path</code> with the <code>extension</code> stripped</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#rootname/2">rootname(path, extension)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the <code>path</code> with the <code>extension</code> stripped. This function should be used to
+remove a specific extension which might, or might not, be there</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#split/1">split(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a list with the path split by the path separator.
+If an empty string is given, returns the root path</p>
 </td>
   
 </tr>
@@ -151,55 +200,6 @@ itself if it does not contain any directory separators</p>
   <td class="summary_signature"><a href="#wildcard/1">wildcard(glob)</a></td>
   
     <td class="summary_synopsis"><p>Traverses paths according to the given <code>glob</code> expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#absname/2">absname(path, relative_to)</a></td>
-  
-    <td class="summary_synopsis"><p>Builds a path from <code>relative_to</code> to <code>path</code>. If <code>path</code> is already
-an absolute path, <code>relative_to</code> is ignored. See also <a href="#relative_to/2"><code>relative_to/2</code></a></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#expand/2">expand(path, relative_to)</a></td>
-  
-    <td class="summary_synopsis"><p>Expands the path relative to the path given as the second argument
-expanding any <code>.</code> and <code>..</code> characters. If the path is already an
-absolute path, <code>relative_to</code> is ignored</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#join/2">join(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Joins two paths</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#rootname/2">rootname(path, extension)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the <code>path</code> with the <code>extension</code> stripped. This function should be used to
-remove a specific extension which might, or might not, be there</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#relative_to/2">relative_to(path, from)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the given <code>path</code> relative to the given <code>from</code> path.
-In other words, it tries to strip the <code>from</code> prefix from <code>path</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#basename/2">basename(path, extension)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the last component of <code>path</code> with the <code>extension</code>
-stripped. This function should be used to remove a specific
-extension which may, or may not, be there</p>
 </td>
   
 </tr>
@@ -261,7 +261,7 @@ Path.absname(&quot;../x&quot;).
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L39" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -297,7 +297,7 @@ iex&gt; Path.absname(&quot;../x&quot;, &quot;bar&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L60" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L60" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -333,7 +333,7 @@ iex&gt; Path.basename(&quot;/&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L294" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L294" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -370,7 +370,7 @@ iex&gt; Path.basename(&quot;~/foo/bar.old.ex&quot;, &quot;.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L316" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L316" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -401,7 +401,7 @@ Path.dirname(&quot;/foo/bar/baz.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L332" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L332" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +431,7 @@ any <code>.</code> and <code>..</code> characters and a leading <code>~</code>.<
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L105" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L105" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -473,7 +473,7 @@ Path.expand(&quot;/foo/bar/../bar&quot;, &quot;/baz&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L132" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L132" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -505,7 +505,7 @@ iex&gt; Path.extname(&quot;~/foo/bar&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L349" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L349" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -543,7 +543,7 @@ iex&gt; Path.join([&quot;/&quot;, &quot;foo&quot;, &quot;bar/&quot;])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L407" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L407" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -572,7 +572,7 @@ iex&gt; Path.join([&quot;/&quot;, &quot;foo&quot;, &quot;bar/&quot;])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L422" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L422" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -610,7 +610,7 @@ Path.relative(&quot;/bar/foo.ex&quot;)      #=&gt; &quot;bar/foo.ex&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L180" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L180" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -652,7 +652,7 @@ iex&gt; Path.relative_to(&quot;/usr/local/foo&quot;, &quot;/etc&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L247" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L247" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -677,7 +677,7 @@ directory. If, for some reason, the current working directory
 cannot be retrieved, returns the full path.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L270" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L270" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -709,7 +709,7 @@ iex&gt; Path.rootname(&quot;/foo/bar.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L366" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L366" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -742,7 +742,7 @@ iex&gt; Path.rootname(&quot;/foo/bar.erl&quot;, &quot;.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L384" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L384" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -778,7 +778,7 @@ If an empty string is given, returns the root path.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L476" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L476" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -817,7 +817,7 @@ Path.type(&quot;/bar/foo.ex&quot;)      #=&gt; :volumerelative
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L155" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L155" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -873,7 +873,7 @@ inside the <code>ebin</code> directory of each project as follows:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/path.ex#L516" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/path.ex#L516" class="view_source">Source</a>
   
 </div>
 

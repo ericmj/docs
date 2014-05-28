@@ -49,128 +49,16 @@ with the VM or the host system.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#cwd!/0">cwd!()</a></td>
-  
-    <td class="summary_synopsis"><p>Current working directory, exception on error</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cwd/0">cwd()</a></td>
-  
-    <td class="summary_synopsis"><p>Current working directory</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#build_info/0">build_info()</a></td>
-  
-    <td class="summary_synopsis"><p>Elixir build information</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#version/0">version()</a></td>
-  
-    <td class="summary_synopsis"><p>Elixir version information</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_pid/0">get_pid()</a></td>
-  
-    <td class="summary_synopsis"><p>Erlang VM process identifier</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stacktrace/0">stacktrace()</a></td>
-  
-    <td class="summary_synopsis"><p>Last exception stacktrace</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#argv/0">argv()</a></td>
   
     <td class="summary_synopsis"><p>List command line arguments</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_env/0">get_env()</a></td>
-  
-    <td class="summary_synopsis"><p>System environment variables</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#user_home!/0">user_home!()</a></td>
-  
-    <td class="summary_synopsis"><p>User home directory, exception on error</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#user_home/0">user_home()</a></td>
-  
-    <td class="summary_synopsis"><p>User home directory</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#tmp_dir!/0">tmp_dir!()</a></td>
-  
-    <td class="summary_synopsis"><p>Writable temporary directory, exception on error</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#tmp_dir/0">tmp_dir()</a></td>
-  
-    <td class="summary_synopsis"><p>Writable temporary directory</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#delete_env/1">delete_env(varname)</a></td>
-  
-    <td class="summary_synopsis"><p>Deletes an environment variable</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_env/1">get_env(varname)</a></td>
-  
-    <td class="summary_synopsis"><p>Environment variable value</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cmd/1">cmd(command)</a></td>
-  
-    <td class="summary_synopsis"><p>Execute a system command</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#halt/1">halt(status \\ 0)</a></td>
-  
-    <td class="summary_synopsis"><p>Halt the Erlang runtime system</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#find_executable/1">find_executable(program)</a></td>
-  
-    <td class="summary_synopsis"><p>Locate an executable on the system</p>
 </td>
   
 </tr>
@@ -189,6 +77,76 @@ with the VM or the host system.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#build_info/0">build_info()</a></td>
+  
+    <td class="summary_synopsis"><p>Elixir build information</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cmd/1">cmd(command)</a></td>
+  
+    <td class="summary_synopsis"><p>Execute a system command</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cwd!/0">cwd!()</a></td>
+  
+    <td class="summary_synopsis"><p>Current working directory, exception on error</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cwd/0">cwd()</a></td>
+  
+    <td class="summary_synopsis"><p>Current working directory</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_env/1">delete_env(varname)</a></td>
+  
+    <td class="summary_synopsis"><p>Deletes an environment variable</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_executable/1">find_executable(program)</a></td>
+  
+    <td class="summary_synopsis"><p>Locate an executable on the system</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_env/0">get_env()</a></td>
+  
+    <td class="summary_synopsis"><p>System environment variables</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_env/1">get_env(varname)</a></td>
+  
+    <td class="summary_synopsis"><p>Environment variable value</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_pid/0">get_pid()</a></td>
+  
+    <td class="summary_synopsis"><p>Erlang VM process identifier</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#halt/1">halt(status \\ 0)</a></td>
+  
+    <td class="summary_synopsis"><p>Halt the Erlang runtime system</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#put_env/1">put_env(dict)</a></td>
   
     <td class="summary_synopsis"><p>Set multiple environment variables</p>
@@ -199,6 +157,48 @@ with the VM or the host system.</p>
   <td class="summary_signature"><a href="#put_env/2">put_env(varname, value)</a></td>
   
     <td class="summary_synopsis"><p>Set an environment variable value</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stacktrace/0">stacktrace()</a></td>
+  
+    <td class="summary_synopsis"><p>Last exception stacktrace</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#tmp_dir!/0">tmp_dir!()</a></td>
+  
+    <td class="summary_synopsis"><p>Writable temporary directory, exception on error</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#tmp_dir/0">tmp_dir()</a></td>
+  
+    <td class="summary_synopsis"><p>Writable temporary directory</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#user_home!/0">user_home!()</a></td>
+  
+    <td class="summary_synopsis"><p>User home directory, exception on error</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#user_home/0">user_home()</a></td>
+  
+    <td class="summary_synopsis"><p>User home directory</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#version/0">version()</a></td>
+  
+    <td class="summary_synopsis"><p>Elixir version information</p>
 </td>
   
 </tr>
@@ -233,7 +233,7 @@ with the VM or the host system.</p>
 <p>Returns the list of command line arguments passed to the program.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L74" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L74" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -259,7 +259,7 @@ with the VM or the host system.</p>
 as it destroys any previous argv information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L85" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L85" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -282,7 +282,7 @@ invoking a hook in &quot;script&quot; mode.</p>
 as an argument.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L214" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L214" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -307,7 +307,7 @@ as an argument.</p>
 <p>Returns a keyword list with Elixir version, git tag info and compilation date.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L64" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L64" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -339,7 +339,7 @@ the result as a binary.</p>
 Otherwise a string, correctly encoded in UTF-8, is expected.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L231" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L231" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -358,7 +358,7 @@ Otherwise a string, correctly encoded in UTF-8, is expected.</p>
 is not available.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L95" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L95" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -376,7 +376,7 @@ is not available.</p>
 <p>Returns the current working directory or raises <a href="RuntimeError.html"><code>RuntimeError</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L107" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L107" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -401,7 +401,7 @@ is not available.</p>
 <p>Removes the variable <code>varname</code> from the environment.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L334" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L334" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -435,7 +435,7 @@ lookup files with <code>.com</code>, <code>.cmd</code> or similar extensions.</p
 Returns a binary otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L254" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L254" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -461,7 +461,7 @@ Returns a binary otherwise.</p>
 <code>{name, value}</code> tuple where both <code>name</code> and <code>value</code> are strings.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L272" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L272" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -488,7 +488,7 @@ Returns a binary otherwise.</p>
 variable is undefined.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L288" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L288" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -516,7 +516,7 @@ in the format most commonly used by the operating system environment.</p>
 <p>See <a href="http://www.erlang.org/doc/man/os.html#getpid-0">http://www.erlang.org/doc/man/os.html#getpid-0</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L304" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L304" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -563,7 +563,7 @@ System.halt(:abort)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L381" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L381" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -589,7 +589,7 @@ System.halt(:abort)
 to each key in <code>dict</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L324" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L324" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -614,7 +614,7 @@ to each key in <code>dict</code>.</p>
 <p>Sets a new <code>value</code> for the environment variable <code>varname</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L312" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L312" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -636,7 +636,7 @@ latest exception.</p>
 <p>Inlined by the compiler into <a href="http://www.erlang.org/doc/man/erlang.html#get_stacktrace-0"><code>:erlang.get_stacktrace/0</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L348" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L348" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -665,7 +665,7 @@ Searches for directories in the following order:</p>
 <p>Returns <code>nil</code> if none of the above are writable.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L164" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L164" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -684,7 +684,7 @@ Searches for directories in the following order:</p>
 instead of returning <code>nil</code> if no temp dir is set.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L178" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L178" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -703,7 +703,7 @@ instead of returning <code>nil</code> if no temp dir is set.</p>
 Returns <code>nil</code> if no user home is set.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L118" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L118" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -722,7 +722,7 @@ Returns <code>nil</code> if no user home is set.</p>
 instead of returning <code>nil</code> if no user home is set.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L131" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L131" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -747,7 +747,7 @@ instead of returning <code>nil</code> if no user home is set.</p>
 <p>Returns Elixir&#39;s version as binary.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/system.ex#L56" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/system.ex#L56" class="view_source">Source</a>
   
 </div>
 

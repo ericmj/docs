@@ -78,27 +78,13 @@ configure them in Mix:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#clear/0">clear()</a></td>
-  
-    <td class="summary_synopsis"><p>Clears all invoked tasks, allowing them to be reinvoked</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#load_all/0">load_all()</a></td>
-  
-    <td class="summary_synopsis"><p>Loads all tasks in all code paths</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#all_modules/0">all_modules()</a></td>
   
     <td class="summary_synopsis"><p>Returns all loaded tasks</p>
@@ -106,33 +92,9 @@ configure them in Mix:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#recursive/1">recursive(module)</a></td>
+  <td class="summary_signature"><a href="#clear/0">clear()</a></td>
   
-    <td class="summary_synopsis"><p>Checks if the task should be run recursively for all sub-apps in
-umbrella projects. Returns <code>true</code>, <code>false</code> or <code>:both</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#moduledoc/1">moduledoc(module)</a></td>
-  
-    <td class="summary_synopsis"><p>Gets the moduledoc for the given task <code>module</code>.
-Returns the moduledoc or <code>nil</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#shortdoc/1">shortdoc(module)</a></td>
-  
-    <td class="summary_synopsis"><p>Gets the shortdoc for the given task <code>module</code>.
-Returns the shortdoc or <code>nil</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#load_tasks/1">load_tasks(paths)</a></td>
-  
-    <td class="summary_synopsis"><p>Loads all tasks in the given <code>paths</code></p>
+    <td class="summary_synopsis"><p>Clears all invoked tasks, allowing them to be reinvoked</p>
 </td>
   
 </tr>
@@ -152,6 +114,43 @@ Returns nil if the task cannot be found</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#is_task?/1">is_task?(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if given module is a task</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#load_all/0">load_all()</a></td>
+  
+    <td class="summary_synopsis"><p>Loads all tasks in all code paths</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#load_tasks/1">load_tasks(paths)</a></td>
+  
+    <td class="summary_synopsis"><p>Loads all tasks in the given <code>paths</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#moduledoc/1">moduledoc(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets the moduledoc for the given task <code>module</code>.
+Returns the moduledoc or <code>nil</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#recursive/1">recursive(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if the task should be run recursively for all sub-apps in
+umbrella projects. Returns <code>true</code>, <code>false</code> or <code>:both</code></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#reenable/1">reenable(task)</a></td>
   
     <td class="summary_synopsis"><p>Reenables a given task so it can be executed again down the stack. If
@@ -160,9 +159,17 @@ an umbrella project reenables a task it is reenabled for all sub projects</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#is_task?/1">is_task?(module)</a></td>
+  <td class="summary_signature"><a href="#run/2">run(task, args \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if given module is a task</p>
+    <td class="summary_synopsis"><p>Runs a <code>task</code> with the given <code>args</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#shortdoc/1">shortdoc(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets the shortdoc for the given task <code>module</code>.
+Returns the shortdoc or <code>nil</code></p>
 </td>
   
 </tr>
@@ -170,13 +177,6 @@ an umbrella project reenables a task it is reenabled for all sub projects</p>
   <td class="summary_signature"><a href="#task_name/1">task_name(module)</a></td>
   
     <td class="summary_synopsis"><p>Returns the task name for the given <code>module</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#run/2">run(task, args \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Runs a <code>task</code> with the given <code>args</code></p>
 </td>
   
 </tr>
@@ -205,7 +205,7 @@ an umbrella project reenables a task it is reenabled for all sub projects</p>
 Check <a href="#load_all/0"><code>load_all/0</code></a> if you want to preload all tasks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L81" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L81" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -221,7 +221,7 @@ Check <a href="#load_all/0"><code>load_all/0</code></a> if you want to preload a
   <div class="docstring"><p>Clears all invoked tasks, allowing them to be reinvoked.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L194" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L194" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -238,7 +238,7 @@ Check <a href="#load_all/0"><code>load_all/0</code></a> if you want to preload a
 Returns nil if the task cannot be found.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L136" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L136" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -261,7 +261,7 @@ Returns nil if the task cannot be found.</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L152" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L152" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -277,7 +277,7 @@ Returns nil if the task cannot be found.</p>
   <div class="docstring"><p>Returns <code>true</code> if given module is a task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L230" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -293,7 +293,7 @@ Returns nil if the task cannot be found.</p>
   <div class="docstring"><p>Loads all tasks in all code paths.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L52" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L52" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -309,7 +309,7 @@ Returns nil if the task cannot be found.</p>
   <div class="docstring"><p>Loads all tasks in the given <code>paths</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L57" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L57" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -326,7 +326,7 @@ Returns nil if the task cannot be found.</p>
 Returns the moduledoc or <code>nil</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L96" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L96" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -343,7 +343,7 @@ Returns the moduledoc or <code>nil</code>.</p>
 umbrella projects. Returns <code>true</code>, <code>false</code> or <code>:both</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L118" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L118" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -360,7 +360,7 @@ umbrella projects. Returns <code>true</code>, <code>false</code> or <code>:both<
 an umbrella project reenables a task it is reenabled for all sub projects.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L202" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L202" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -385,7 +385,7 @@ again and simply aborts with <code>:noop</code>.</p>
 or it is invalid. Check <a href="#get!/1"><code>get!/1</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L176" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L176" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -402,7 +402,7 @@ or it is invalid. Check <a href="#get!/1"><code>get!/1</code></a> for more infor
 Returns the shortdoc or <code>nil</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L107" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L107" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -418,7 +418,7 @@ Returns the shortdoc or <code>nil</code>.</p>
   <div class="docstring"><p>Returns the task name for the given <code>module</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L128" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L128" class="view_source">Source</a>
   
 </div>
 
@@ -451,7 +451,7 @@ Returns the shortdoc or <code>nil</code>.</p>
 a list of command line args.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/task.ex#L37" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/task.ex#L37" class="view_source">Source</a>
   
 </div>
 

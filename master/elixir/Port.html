@@ -47,16 +47,16 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#list/0">list()</a></td>
+  <td class="summary_signature"><a href="#call/3">call(port, operation, data)</a></td>
   
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#ports-0">http://www.erlang.org/doc/man/erlang.html#ports-0</a></p>
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_call-3">http://www.erlang.org/doc/man/erlang.html#port_call-3</a></p>
 </td>
   
 </tr>
@@ -68,16 +68,9 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#info/1">info(port)</a></td>
+  <td class="summary_signature"><a href="#command/3">command(port, data, options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_info-1">http://www.erlang.org/doc/man/erlang.html#port_info-1</a></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#open/2">open(name, settings)</a></td>
-  
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#open_port-2">http://www.erlang.org/doc/man/erlang.html#open_port-2</a></p>
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_command-2">http://www.erlang.org/doc/man/erlang.html#port_command-2</a></p>
 </td>
   
 </tr>
@@ -89,6 +82,20 @@
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#control/3">control(port, operation, data)</a></td>
+  
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_control-3">http://www.erlang.org/doc/man/erlang.html#port_control-3</a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#info/1">info(port)</a></td>
+  
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_info-1">http://www.erlang.org/doc/man/erlang.html#port_info-1</a></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#info/2">info(port, item)</a></td>
   
     <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_info-2">http://www.erlang.org/doc/man/erlang.html#port_info-2</a></p>
@@ -96,23 +103,16 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#call/3">call(port, operation, data)</a></td>
+  <td class="summary_signature"><a href="#list/0">list()</a></td>
   
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_call-3">http://www.erlang.org/doc/man/erlang.html#port_call-3</a></p>
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#ports-0">http://www.erlang.org/doc/man/erlang.html#ports-0</a></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#command/3">command(port, data, options \\ [])</a></td>
+  <td class="summary_signature"><a href="#open/2">open(name, settings)</a></td>
   
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_command-2">http://www.erlang.org/doc/man/erlang.html#port_command-2</a></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#control/3">control(port, operation, data)</a></td>
-  
-    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_control-3">http://www.erlang.org/doc/man/erlang.html#port_control-3</a></p>
+    <td class="summary_synopsis"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#open_port-2">http://www.erlang.org/doc/man/erlang.html#open_port-2</a></p>
 </td>
   
 </tr>
@@ -138,7 +138,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_call-3">http://www.erlang.org/doc/man/erlang.html#port_call-3</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L44" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L44" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -154,7 +154,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_close-1">http://www.erlang.org/doc/man/erlang.html#port_close-1</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L16" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L16" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -170,7 +170,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_command-2">http://www.erlang.org/doc/man/erlang.html#port_command-2</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L23" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L23" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -186,7 +186,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_connect-2">http://www.erlang.org/doc/man/erlang.html#port_connect-2</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L30" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L30" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -202,7 +202,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_control-3">http://www.erlang.org/doc/man/erlang.html#port_control-3</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L37" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L37" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -218,7 +218,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_info-1">http://www.erlang.org/doc/man/erlang.html#port_info-1</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L51" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L51" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -234,7 +234,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#port_info-2">http://www.erlang.org/doc/man/erlang.html#port_info-2</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L58" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -250,7 +250,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#ports-0">http://www.erlang.org/doc/man/erlang.html#ports-0</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L65" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L65" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -266,7 +266,7 @@
   <div class="docstring"><p>See <a href="http://www.erlang.org/doc/man/erlang.html#open_port-2">http://www.erlang.org/doc/man/erlang.html#open_port-2</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/port.ex#L9" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/port.ex#L9" class="view_source">Source</a>
   
 </div>
 

@@ -60,23 +60,30 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#children/1">children(supervisor)</a></td>
+  <td class="summary_signature"><a href="#async/2">async(supervisor, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns all children pids</p>
+    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#start_link/1">start_link(opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#async/4">async(supervisor, module, fun, args)</a></td>
   
-    <td class="summary_synopsis"><p>Starts a new supervisor</p>
+    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#children/1">children(supervisor)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns all children pids</p>
 </td>
   
 </tr>
@@ -88,20 +95,6 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#async/2">async(supervisor, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#terminate_child/2">terminate_child(supervisor, pid)</a></td>
-  
-    <td class="summary_synopsis"><p>Terminates the given child at pid</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#start_child/4">start_child(supervisor, module, fun, args)</a></td>
   
     <td class="summary_synopsis"><p>Starts a task as child of the given <code>supervisor</code></p>
@@ -109,9 +102,16 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#async/4">async(supervisor, module, fun, args)</a></td>
+  <td class="summary_signature"><a href="#start_link/1">start_link(opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
+    <td class="summary_synopsis"><p>Starts a new supervisor</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate_child/2">terminate_child(supervisor, pid)</a></td>
+  
+    <td class="summary_synopsis"><p>Terminates the given child at pid</p>
 </td>
   
 </tr>
@@ -147,7 +147,7 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
 For more information on tasks, check the <a href="Task.html"><code>Task</code></a> module.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L46" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L46" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -173,7 +173,7 @@ For more information on tasks, check the <a href="Task.html"><code>Task</code></
 For more information on tasks, check the <a href="Task.html"><code>Task</code></a> module.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L57" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L57" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -196,7 +196,7 @@ For more information on tasks, check the <a href="Task.html"><code>Task</code></
   <div class="docstring"><p>Returns all children pids.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L76" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L76" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -224,7 +224,7 @@ task needs to emit side-effects (like I/O) and does not need
 to report back to the caller.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L89" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L89" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -250,7 +250,7 @@ to report back to the caller.</p>
 by the given <code>module</code>, <code>fun</code> and <code>args</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -283,7 +283,7 @@ or an integer indicating the timeout value, defaults to 5000 miliseconds;</p></l
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L32" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L32" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -306,7 +306,7 @@ or an integer indicating the timeout value, defaults to 5000 miliseconds;</p></l
   <div class="docstring"><p>Terminates the given child at pid.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/task/supervisor.ex#L68" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/task/supervisor.ex#L68" class="view_source">Source</a>
   
 </div>
 

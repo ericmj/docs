@@ -204,7 +204,7 @@ in Erlang can also provide extra insight.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L1" class="view_source">Source</a>
       
 
       
@@ -214,69 +214,6 @@ in Erlang can also provide extra insight.</p>
   <td class="summary_signature"><a href="#__struct__/0">__struct__()</a></td>
   
     <td class="summary_synopsis"><p>Defines a <a href="GenEvent.html"><code>GenEvent</code></a> stream</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cancel_streams/1">cancel_streams(genevent)</a></td>
-  
-    <td class="summary_synopsis"><p>Cancels all streams currently running with the given <code>:id</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#which_handlers/1">which_handlers(manager)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a list of all event handlers installed in the <code>manager</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_link/1">start_link(options \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Starts an event manager linked to the current process</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start/1">start(options \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Starts an event manager process without links (outside of a supervision tree)</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stop/1">stop(manager)</a></td>
-  
-    <td class="summary_synopsis"><p>Terminates the event <code>manager</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stream/2">stream(manager, options \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a stream that consumes and notifies events to the <code>manager</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#sync_notify/2">sync_notify(manager, event)</a></td>
-  
-    <td class="summary_synopsis"><p>Sends a sync event notification to the event <code>manager</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#notify/2">notify(manager, event)</a></td>
-  
-    <td class="summary_synopsis"><p>Sends an event notification to the event <code>manager</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#remove_handler/3">remove_handler(manager, handler, args)</a></td>
-  
-    <td class="summary_synopsis"><p>Removes an event handler from the event <code>manager</code></p>
 </td>
   
 </tr>
@@ -295,9 +232,72 @@ in Erlang can also provide extra insight.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#cancel_streams/1">cancel_streams(genevent)</a></td>
+  
+    <td class="summary_synopsis"><p>Cancels all streams currently running with the given <code>:id</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#notify/2">notify(manager, event)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends an event notification to the event <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#remove_handler/3">remove_handler(manager, handler, args)</a></td>
+  
+    <td class="summary_synopsis"><p>Removes an event handler from the event <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start/1">start(options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Starts an event manager process without links (outside of a supervision tree)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start_link/1">start_link(options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Starts an event manager linked to the current process</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop/1">stop(manager)</a></td>
+  
+    <td class="summary_synopsis"><p>Terminates the event <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stream/2">stream(manager, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a stream that consumes and notifies events to the <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#swap_handler/6">swap_handler(manager, handler1, args1, handler2, args2, options \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Replaces an old event handler with a new one in the event <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sync_notify/2">sync_notify(manager, event)</a></td>
+  
+    <td class="summary_synopsis"><p>Sends a sync event notification to the event <code>manager</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#which_handlers/1">which_handlers(manager)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a list of all event handlers installed in the <code>manager</code></p>
 </td>
   
 </tr>
@@ -396,7 +396,7 @@ contains the following fields:</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L176" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L176" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -451,7 +451,7 @@ depends on the error;</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L314" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L314" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -482,7 +482,7 @@ If the specified event handler is not installed, the function returns
 <code>{:error, :bad_module}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L356" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L356" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -509,7 +509,7 @@ when the stream is created via <a href="#stream/2"><code>stream/2</code></a>. Pa
 an id leads to an argument error.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L368" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L368" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -538,7 +538,7 @@ sent. <code>notify</code> will not fail even if the specified event manager does
 unless it is specified as <code>name</code> (atom).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L331" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L331" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -565,7 +565,7 @@ and return the callback value. If the specified event handler is not
 installed, the function returns <code>{:error, :module_not_found}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L391" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L391" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -590,7 +590,7 @@ installed, the function returns <code>{:error, :module_not_found}</code>.</p>
 <p>See <a href="#start_link/1"><code>start_link/1</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L242" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L242" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -623,7 +623,7 @@ exists a process with the specified server name, the function returns
 <code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L232" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L232" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -649,7 +649,7 @@ exists a process with the specified server name, the function returns
 for each installed event handler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L437" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L437" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -676,7 +676,7 @@ from the streaming start;</li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L269" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -717,7 +717,7 @@ giving <code>link: true</code> as option. See <a href="#add_handler/4"><code>add
 returns <code>:ok</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L417" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L417" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -745,7 +745,7 @@ invokes the <code>handle_event/2</code> on each installed event handler.</p>
 <p>See <a href="#notify/2"><code>notify/2</code></a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L342" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L342" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -768,7 +768,7 @@ invokes the <code>handle_event/2</code> on each installed event handler.</p>
   <div class="docstring"><p>Returns a list of all event handlers installed in the <code>manager</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_event.ex#L428" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_event.ex#L428" class="view_source">Source</a>
   
 </div>
 

@@ -48,7 +48,7 @@ It simply prints messages to stdio and stderr.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L1" class="view_source">Source</a>
       
 
       
@@ -63,11 +63,16 @@ to stdout as it comes</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#yes?/1">yes?(message)</a></td>
+  <td class="summary_signature"><a href="#error/1">error(message)</a></td>
   
-    <td class="summary_synopsis"><p>Receives a message and asks the user if he wants to proceed.
-He must press enter or type anything that matches the a &quot;yes&quot;
-regex <code>~r/^Y(es)?$/i</code></p>
+    <td class="summary_synopsis"><p>Writes an error message to the shell followed by new line</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#info/1">info(message)</a></td>
+  
+    <td class="summary_synopsis"><p>Writes a message to the shell followed by new line</p>
 </td>
   
 </tr>
@@ -80,16 +85,11 @@ input. Input will be consumed until enter is pressed</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#info/1">info(message)</a></td>
+  <td class="summary_signature"><a href="#yes?/1">yes?(message)</a></td>
   
-    <td class="summary_synopsis"><p>Writes a message to the shell followed by new line</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#error/1">error(message)</a></td>
-  
-    <td class="summary_synopsis"><p>Writes an error message to the shell followed by new line</p>
+    <td class="summary_synopsis"><p>Receives a message and asks the user if he wants to proceed.
+He must press enter or type anything that matches the a &quot;yes&quot;
+regex <code>~r/^Y(es)?$/i</code></p>
 </td>
   
 </tr>
@@ -116,7 +116,7 @@ input. Input will be consumed until enter is pressed</p>
 to stdout as it comes.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L13" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L13" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -132,7 +132,7 @@ to stdout as it comes.</p>
   <div class="docstring"><p>Writes an error message to the shell followed by new line.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L29" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L29" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -148,7 +148,7 @@ to stdout as it comes.</p>
   <div class="docstring"><p>Writes a message to the shell followed by new line.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L21" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L21" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -165,7 +165,7 @@ to stdout as it comes.</p>
 input. Input will be consumed until enter is pressed.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L38" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L38" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -183,7 +183,7 @@ He must press enter or type anything that matches the a &quot;yes&quot;
 regex <code>~r/^Y(es)?$/i</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/shell/io.ex#L48" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/shell/io.ex#L48" class="view_source">Source</a>
   
 </div>
 

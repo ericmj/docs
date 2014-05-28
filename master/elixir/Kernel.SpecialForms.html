@@ -63,13 +63,55 @@ in Elixir&#39;s constructs.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#%/2">%</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a struct</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#%{}/1">%{}</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a map</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&amp;/1">&amp;expr</a></td>
+  
+    <td class="summary_synopsis"><p>Captures or creates an anonymous function</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#./2">left . right</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a remote call or an alias</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;&lt;&gt;&gt;/1">&lt;&lt;args&gt;&gt;</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a new bitstring</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#^/1">^var</a></td>
+  
+    <td class="summary_synopsis"><p>Accesses an already bound variable in match clauses</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#__DIR__/0">__DIR__</a></td>
   
     <td class="summary_synopsis"><p>Returns the current directory as a binary</p>
@@ -91,61 +133,30 @@ in Elixir&#39;s constructs.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#^/1">^var</a></td>
+  <td class="summary_signature"><a href="#__aliases__/1">__aliases__(args)</a></td>
   
-    <td class="summary_synopsis"><p>Accesses an already bound variable in match clauses</p>
+    <td class="summary_synopsis"><p>Internal special form to hold aliases information</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#super/1">super(args)</a></td>
+  <td class="summary_signature"><a href="#__block__/1">__block__(args)</a></td>
   
-    <td class="summary_synopsis"><p>Calls the overriden function when overriding it with <code>defoverridable</code>.
-See <code>Kernel.defoverridable</code> for more information and documentation</p>
+    <td class="summary_synopsis"><p>Internal special form for block expressions</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&amp;/1">&amp;expr</a></td>
+  <td class="summary_signature"><a href="#alias/2">alias(module, opts)</a></td>
   
-    <td class="summary_synopsis"><p>Captures or creates an anonymous function</p>
+    <td class="summary_synopsis"><p><code>alias</code> is used to setup aliases, often useful with modules names</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#receive/1">receive(args)</a></td>
+  <td class="summary_signature"><a href="#case/2">case(condition, blocks)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if there is a message matching the given clauses
-in the current process mailbox</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#for/1">for(args)</a></td>
-  
-    <td class="summary_synopsis"><p>Comprehensions allow you to quickly build a data structure from
-an enumerable or a bitstring</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#%{}/1">%{}</a></td>
-  
-    <td class="summary_synopsis"><p>Creates a map</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#{}/1">{args}</a></td>
-  
-    <td class="summary_synopsis"><p>Creates a tuple</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#&lt;&lt;&gt;&gt;/1">&lt;&lt;args&gt;&gt;</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a new bitstring</p>
+    <td class="summary_synopsis"><p>Matches the given expression against the given clauses</p>
 </td>
   
 </tr>
@@ -159,24 +170,55 @@ end</a></td>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#for/1">for(args)</a></td>
+  
+    <td class="summary_synopsis"><p>Comprehensions allow you to quickly build a data structure from
+an enumerable or a bitstring</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#import/2">import(module, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Imports function and macros from other modules</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#quote/2">quote(opts, block)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets the representation of any expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#receive/1">receive(args)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if there is a message matching the given clauses
+in the current process mailbox</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#require/2">require(module, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Requires a given module to be compiled and loaded</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#super/1">super(args)</a></td>
+  
+    <td class="summary_synopsis"><p>Calls the overriden function when overriding it with <code>defoverridable</code>.
+See <code>Kernel.defoverridable</code> for more information and documentation</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#try/1">try(args)</a></td>
   
     <td class="summary_synopsis"><p>Evaluate the given expressions and handle any error, exit
 or throw that may have happened</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#__block__/1">__block__(args)</a></td>
-  
-    <td class="summary_synopsis"><p>Internal special form for block expressions</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#__aliases__/1">__aliases__(args)</a></td>
-  
-    <td class="summary_synopsis"><p>Internal special form to hold aliases information</p>
 </td>
   
 </tr>
@@ -196,51 +238,9 @@ to unquote</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#%/2">%</a></td>
+  <td class="summary_signature"><a href="#{}/1">{args}</a></td>
   
-    <td class="summary_synopsis"><p>Creates a struct</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#./2">left . right</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a remote call or an alias</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#quote/2">quote(opts, block)</a></td>
-  
-    <td class="summary_synopsis"><p>Gets the representation of any expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#import/2">import(module, opts)</a></td>
-  
-    <td class="summary_synopsis"><p>Imports function and macros from other modules</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#case/2">case(condition, blocks)</a></td>
-  
-    <td class="summary_synopsis"><p>Matches the given expression against the given clauses</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#require/2">require(module, opts)</a></td>
-  
-    <td class="summary_synopsis"><p>Requires a given module to be compiled and loaded</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#alias/2">alias(module, opts)</a></td>
-  
-    <td class="summary_synopsis"><p><code>alias</code> is used to setup aliases, often useful with modules names</p>
+    <td class="summary_synopsis"><p>Creates a tuple</p>
 </td>
   
 </tr>
@@ -281,12 +281,20 @@ function in a module:</p>
 end
 </code></pre>
 
+<p>In practice though, structs are usually defined with the
+<code>Kernel.defstruct/2</code> macro:</p>
+
+<pre><code>defmodule User do
+  defstruct name: &quot;josé&quot;, age: 27
+end
+</code></pre>
+
 <p>Now a struct can be created as follow:</p>
 
 <pre><code>%User{}
 </code></pre>
 
-<p>Underneath, a struct is just a map with a <code>__struct__</code> field
+<p>Underneath a struct is just a map with a <code>__struct__</code> field
 pointing to the User module:</p>
 
 <pre><code>%User{} == %{__struct__: User, name: &quot;josé&quot;, age: 27}
@@ -316,13 +324,15 @@ Map.put(user, :a_non_struct_key, :value)
 compilation time and it will guarantee at runtime the given
 argument is a struct, failing with <a href="BadStructError.html"><code>BadStructError</code></a> otherwise.</p>
 
-<p>Check <a href="Kernel.html#defprotocol/2"><code>Kernel.defprotocol/2</code></a> for more information on how structs
-can be used with protocols for polymorphic dispatch. Also,
+<p>Alhought structs are maps, by default structs do not implement
+any of the protocols implemented for maps. Check
+<a href="Kernel.html#defprotocol/2"><code>Kernel.defprotocol/2</code></a> for more information on how structs
+can be used with protocols for polymorphic dispatch. Also
 see <a href="Kernel.html#struct/2"><code>Kernel.struct/2</code></a> for examples on how to create and update
 structs dynamically.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L156" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L165" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -398,7 +408,7 @@ for simplicity:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -484,7 +494,7 @@ least one placeholder must be present, i.e. it must contain at least
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1286" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1295" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -623,7 +633,7 @@ iex&gt; quote do: Module.concat(String, unquote(x))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L411" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -785,7 +795,7 @@ binaries, it is 8.</p>
 to binary32 and binary64, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L293" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L302" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -829,7 +839,7 @@ iex&gt; x
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L635" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L644" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -848,7 +858,7 @@ iex&gt; x
 this macro is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L604" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L613" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -867,7 +877,7 @@ this macro is a convenient shortcut.</p>
 line numbers, set up aliases, the current function and others.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L588" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L597" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -886,7 +896,7 @@ line numbers, set up aliases, the current function and others.</p>
 is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L596" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L605" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -939,7 +949,7 @@ in the list is an atom.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1325" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1334" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -963,7 +973,7 @@ and should not be invoked directly:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1217" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1226" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1028,7 +1038,7 @@ was not explicitly defined.</p>
 setting the <code>:warn</code> option to true or false.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L461" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L470" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1089,7 +1099,7 @@ case, clauses that do not explicitly bind a value have the variable
 bound to nil.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1378" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1387" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1114,7 +1124,7 @@ iex&gt; add.(1, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1204" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1213" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1199,7 +1209,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1192" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1201" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1307,7 +1317,7 @@ if an ambiguous call to <code>foo/1</code> is actually made; that is, the
 errors are emitted lazily, not eagerly.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L580" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L589" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1803,7 +1813,7 @@ end
 one desires to inject a value into the quote.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1086" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1095" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1866,7 +1876,7 @@ will occur immediately.</p></li>
 special macro. For more information, check the docs for <a href="#case/2"><code>case/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1648" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1657" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1905,7 +1915,7 @@ end
 up an alias. Please check <code>alias</code> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L489" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L498" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1922,7 +1932,7 @@ up an alias. Please check <code>alias</code> for more information.</p>
 See <code>Kernel.defoverridable</code> for more information and documentation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1331" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1340" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2165,7 +2175,7 @@ is to return the variables defined inside <code>try</code>:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1599" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1608" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2203,7 +2213,7 @@ quote do: sum(1, unquote(value), 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1111" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1120" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2227,7 +2237,7 @@ quote do: sum(1, unquote_splicing(values), 5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L1124" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L1133" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2261,7 +2271,7 @@ iex&gt; quote do: {1, 2, 3}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
   
 </div>
 

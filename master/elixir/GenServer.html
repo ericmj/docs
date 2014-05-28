@@ -261,27 +261,13 @@ in Erlang can also provide extra insight.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#reply/2">reply(client, reply)</a></td>
-  
-    <td class="summary_synopsis"><p>Replies to a client</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cast/2">cast(server, request)</a></td>
-  
-    <td class="summary_synopsis"><p>Sends an asynchronous request to the <code>server</code></p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#abcast/3">abcast(nodes \\ nodes(), name, request)</a></td>
   
     <td class="summary_synopsis"><p>Casts all servers locally registered as <code>name</code> at the specified nodes</p>
@@ -296,9 +282,23 @@ in Erlang can also provide extra insight.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#start_link/3">start_link(module, args, options \\ [])</a></td>
+  <td class="summary_signature"><a href="#cast/2">cast(server, request)</a></td>
   
-    <td class="summary_synopsis"><p>Starts a <a href="GenServer.html"><code>GenServer</code></a> process linked to the current process</p>
+    <td class="summary_synopsis"><p>Sends an asynchronous request to the <code>server</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#multi_call/4">multi_call(nodes \\ nodes(), name, request, timeout \\ :infinity)</a></td>
+  
+    <td class="summary_synopsis"><p>Calls all servers locally registered as <code>name</code> at the specified <code>nodes</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reply/2">reply(client, reply)</a></td>
+  
+    <td class="summary_synopsis"><p>Replies to a client</p>
 </td>
   
 </tr>
@@ -310,9 +310,9 @@ in Erlang can also provide extra insight.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#multi_call/4">multi_call(nodes \\ nodes(), name, request, timeout \\ :infinity)</a></td>
+  <td class="summary_signature"><a href="#start_link/3">start_link(module, args, options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Calls all servers locally registered as <code>name</code> at the specified <code>nodes</code></p>
+    <td class="summary_synopsis"><p>Starts a <a href="GenServer.html"><code>GenServer</code></a> process linked to the current process</p>
 </td>
   
 </tr>
@@ -400,7 +400,7 @@ server name does not exist.</p>
 <p>See <a href="#multi_call/4"><code>multi_call/4</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L368" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L368" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,7 +441,7 @@ must in this case be prepared for this and discard any such garbage messages
 that are two element tuples with a reference as the first element.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L345" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L345" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -468,7 +468,7 @@ destination node or server does exists. <code>handle_cast/2</code> will be calle
 server to handle the request.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L357" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L357" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -504,7 +504,7 @@ queue, a middleman process is used to do the actual calls. Late answers will
 then be discarded when they arrive to a terminated process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L390" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L390" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -537,7 +537,7 @@ given back to the client as the return value of the call.</p>
 <p>This function always returns <code>:ok</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L408" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L408" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -562,7 +562,7 @@ given back to the client as the return value of the call.</p>
 <p>See <a href="#start_link/3"><code>start_link/3</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L308" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L308" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -616,7 +616,7 @@ or <code>:ignore</code>, the process is terminated and the function returns
 <code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/gen_server.ex#L298" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L298" class="view_source">Source</a>
   
 </div>
 

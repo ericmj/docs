@@ -47,16 +47,53 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#mix_paths/0">mix_paths()</a></td>
+  <td class="summary_signature"><a href="#camelize/1">camelize(arg1)</a></td>
   
-    <td class="summary_synopsis"><p>Get all paths defined in the MIX_PATH env variable</p>
+    <td class="summary_synopsis"><p>Converts the given string to CamelCase format</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#command_to_module/2">command_to_module(command, at \\ Elixir)</a></td>
+  
+    <td class="summary_synopsis"><p>Take a <code>command</code> name and attempts to load a module
+with the command name converted to a module name
+in the given <code>at</code> scope</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#command_to_module_name/1">command_to_module_name(s)</a></td>
+  
+    <td class="summary_synopsis"><p>Takes a command and converts it to the module name format</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#extract_files/2">extract_files(paths, exts_or_pattern)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract files from a list of paths</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#extract_stale/2">extract_stale(sources, targets)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract all stale <code>sources</code> compared to the given <code>targets</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#last_modified/1">last_modified(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the date the given path was last modified</p>
 </td>
   
 </tr>
@@ -68,23 +105,16 @@
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#underscore/1">underscore(atom)</a></td>
+  <td class="summary_signature"><a href="#mix_paths/0">mix_paths()</a></td>
   
-    <td class="summary_synopsis"><p>Converts the given atom or binary to underscore format</p>
+    <td class="summary_synopsis"><p>Get all paths defined in the MIX_PATH env variable</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#camelize/1">camelize(arg1)</a></td>
+  <td class="summary_signature"><a href="#module_name_to_command/2">module_name_to_command(module, nesting \\ 0)</a></td>
   
-    <td class="summary_synopsis"><p>Converts the given string to CamelCase format</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#read_path!/1">read_path!(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Opens and reads content from either a URL or a local filesystem path</p>
+    <td class="summary_synopsis"><p>Takes a module and converts it to a command</p>
 </td>
   
 </tr>
@@ -97,30 +127,9 @@ as a list</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#last_modified/1">last_modified(path)</a></td>
+  <td class="summary_signature"><a href="#read_path!/1">read_path!(path)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the date the given path was last modified</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#command_to_module_name/1">command_to_module_name(s)</a></td>
-  
-    <td class="summary_synopsis"><p>Takes a command and converts it to the module name format</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#extract_stale/2">extract_stale(sources, targets)</a></td>
-  
-    <td class="summary_synopsis"><p>Extract all stale <code>sources</code> compared to the given <code>targets</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#extract_files/2">extract_files(paths, exts_or_pattern)</a></td>
-  
-    <td class="summary_synopsis"><p>Extract files from a list of paths</p>
+    <td class="summary_synopsis"><p>Opens and reads content from either a URL or a local filesystem path</p>
 </td>
   
 </tr>
@@ -141,18 +150,9 @@ in case symlink fails</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#command_to_module/2">command_to_module(command, at \\ Elixir)</a></td>
+  <td class="summary_signature"><a href="#underscore/1">underscore(atom)</a></td>
   
-    <td class="summary_synopsis"><p>Take a <code>command</code> name and attempts to load a module
-with the command name converted to a module name
-in the given <code>at</code> scope</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#module_name_to_command/2">module_name_to_command(module, nesting \\ 0)</a></td>
-  
-    <td class="summary_synopsis"><p>Takes a module and converts it to a command</p>
+    <td class="summary_synopsis"><p>Converts the given atom or binary to underscore format</p>
 </td>
   
 </tr>
@@ -191,7 +191,7 @@ in the given <code>at</code> scope</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L231" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L231" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -218,7 +218,7 @@ exists and is loaded, <code>{:error, reason}</code> otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L51" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L51" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -240,7 +240,7 @@ exists and is loaded, <code>{:error, reason}</code> otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L300" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L300" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -266,7 +266,7 @@ the given patterns.</p>
 <p>Any file starting with <code>&quot;.&quot;</code> is ignored.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L139" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L139" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -282,7 +282,7 @@ the given patterns.</p>
   <div class="docstring"><p>Extract all stale <code>sources</code> compared to the given <code>targets</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L67" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L67" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -301,7 +301,7 @@ the given patterns.</p>
 (1970-01-01 00:00:00).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L88" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L88" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -320,7 +320,7 @@ the given patterns.</p>
 environment variable is set.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L12" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L12" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -339,7 +339,7 @@ environment variable is set.</p>
 paths should be separated by <code>;</code>, if on unix systems, use <code>:</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L22" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L22" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -367,7 +367,7 @@ iex&gt; Mix.Utils.module_name_to_command(&quot;Mix.Tasks.Compile.Elixir&quot;, 2
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L280" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L280" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -390,7 +390,7 @@ entry must always be a path to a compiled artifact.</p>
 <p>In case there is no manifest file, returns an empty list.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L111" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L111" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -412,7 +412,7 @@ installation either from a URL or a local file.</p>
 file or url are invalid.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L381" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L381" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -429,7 +429,7 @@ file or url are invalid.</p>
 compared to the given <code>targets</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L60" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L60" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -449,7 +449,7 @@ in case symlink fails.</p>
 a relative symlink.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L325" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L325" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -487,7 +487,7 @@ Mix.Utils.camelize   &quot;sap_example&quot; #=&gt; &quot;SapExample&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L181" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L181" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -503,7 +503,7 @@ Mix.Utils.camelize   &quot;sap_example&quot; #=&gt; &quot;SapExample&quot;
   <div class="docstring"><p>Writes a manifest file with the given <code>entries</code> list.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/mix/lib/mix/utils.ex#L121" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/utils.ex#L121" class="view_source">Source</a>
   
 </div>
 

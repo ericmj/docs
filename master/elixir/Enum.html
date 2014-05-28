@@ -74,16 +74,55 @@ forever. For example:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L143" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L143" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#to_list/1">to_list(collection)</a></td>
+  <td class="summary_signature"><a href="#all?/2">all?(collection, fun \\ fn x -&gt; x end)</a></td>
   
-    <td class="summary_synopsis"><p>Convert <code>collection</code> to a list</p>
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code> and returns <code>false</code>
+if at least one invocation returns <code>false</code>. Otherwise returns <code>true</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#any?/2">any?(collection, fun \\ fn x -&gt; x end)</a></td>
+  
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code> and returns <code>true</code> if
+at least one invocation returns <code>true</code>. Returns <code>false</code> otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#at/3">at(collection, n, default \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Finds the element at the given index (zero-based).
+Returns <code>default</code> if index is out of bounds</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#chunk/2">chunk(coll, n)</a></td>
+  
+    <td class="summary_synopsis"><p>Shortcut to <code>chunk(coll, n, n)</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#chunk/4">chunk(coll, n, step, pad \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a collection of lists containing <code>n</code> items each, where
+each new chunk starts <code>step</code> elements into the collection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#chunk_by/2">chunk_by(coll, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Splits <code>coll</code> on every element for which <code>fun</code> returns a new value</p>
 </td>
   
 </tr>
@@ -95,24 +134,9 @@ forever. For example:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#empty?/1">empty?(collection)</a></td>
+  <td class="summary_signature"><a href="#concat/2">concat(left, right)</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if the collection is empty, otherwise <code>false</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#shuffle/1">shuffle(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a list of collection elements shuffled</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#with_index/1">with_index(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the collection with each element wrapped in a tuple
-alongside its index</p>
+    <td class="summary_synopsis"><p>Concatenates the enumerable on the right with the enumerable on the left</p>
 </td>
   
 </tr>
@@ -124,69 +148,10 @@ alongside its index</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#max/1">max(collection)</a></td>
+  <td class="summary_signature"><a href="#count/2">count(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the maximum value.
-Raises <code>EmptyError</code> if the collection is empty</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#min/1">min(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the minimum value.
-Raises <code>EmptyError</code> if the collection is empty</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#sum/1">sum(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the sum of all values</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reverse/1">reverse(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Reverses the collection</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#sort/1">sort(collection)</a></td>
-  
-    <td class="summary_synopsis"><p>Sorts the collection according to Elixir&#39;s term ordering</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#scan/2">scan(enum, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Applies the given function to each element in the collection,
-storing the result in a list and passing it as the accumulator
-for the next computation</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#member?/2">member?(collection, value)</a></td>
-  
-    <td class="summary_synopsis"><p>Checks if <code>value</code> exists within the <code>collection</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#concat/2">concat(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Concatenates the enumerable on the right with the enumerable on the left</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#drop_while/2">drop_while(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Drops items at the beginning of <code>collection</code> while <code>fun</code> returns <code>true</code></p>
+    <td class="summary_synopsis"><p>Returns the count of items in the collection for which
+<code>fun</code> returns <code>true</code></p>
 </td>
   
 </tr>
@@ -198,17 +163,24 @@ for the next computation</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#uniq/2">uniq(collection, fun \\ fn x -&gt; x end)</a></td>
+  <td class="summary_signature"><a href="#drop_while/2">drop_while(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Enumerates the collection, removing all duplicated items</p>
+    <td class="summary_synopsis"><p>Drops items at the beginning of <code>collection</code> while <code>fun</code> returns <code>true</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#filter/2">filter(collection, fun)</a></td>
+  <td class="summary_signature"><a href="#each/2">each(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Filters the collection, i.e. returns only those elements
-for which <code>fun</code> returns <code>true</code></p>
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code>.
+Returns <code>:ok</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#empty?/1">empty?(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if the collection is empty, otherwise <code>false</code></p>
 </td>
   
 </tr>
@@ -230,9 +202,63 @@ Returns <code>{:ok, element}</code> if found, otherwise <code>:error</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#into/2">into(collection, list)</a></td>
+  <td class="summary_signature"><a href="#filter/2">filter(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Inserts the given enumerable into a collectable</p>
+    <td class="summary_synopsis"><p>Filters the collection, i.e. returns only those elements
+for which <code>fun</code> returns <code>true</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#filter_map/3">filter_map(collection, filter, mapper)</a></td>
+  
+    <td class="summary_synopsis"><p>Filters the collection and maps its values in one pass</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find/3">find(collection, ifnone \\ nil, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the first item for which <code>fun</code> returns a truthy value. If no such
+item is found, returns <code>ifnone</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_index/2">find_index(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Similar to <a href="#find/3"><code>find/3</code></a>, but returns the index (zero-based)
+of the element instead of the element itself</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#find_value/3">find_value(collection, ifnone \\ nil, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Similar to <a href="#find/3"><code>find/3</code></a>, but returns the value of the function
+invocation instead of the element itself</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flat_map/2">flat_map(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a new collection appending the result of invoking <code>fun</code>
+on each corresponding item of <code>collection</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#flat_map_reduce/3">flat_map_reduce(collection, acc, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Maps and reduces a collection, flattening the given results</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#group_by/3">group_by(collection, dict \\ %{}, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Splits <code>collection</code> into groups based on <code>fun</code></p>
 </td>
   
 </tr>
@@ -244,36 +270,17 @@ Returns <code>{:ok, element}</code> if found, otherwise <code>:error</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#reduce/2">reduce(collection, fun)</a></td>
+  <td class="summary_signature"><a href="#into/2">into(collection, list)</a></td>
   
-    <td class="summary_synopsis"><p>Invokes <code>fun</code> for each element in the collection passing that element and the
-accumulator <code>acc</code> as arguments. <code>fun</code>&#39;s return value is stored in <code>acc</code>.
-The first element of the collection is used as the initial value of <code>acc</code>.
-Returns the accumulator</p>
+    <td class="summary_synopsis"><p>Inserts the given enumerable into a collectable</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#all?/2">all?(collection, fun \\ fn x -&gt; x end)</a></td>
+  <td class="summary_signature"><a href="#into/3">into(collection, list, transform)</a></td>
   
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code> and returns <code>false</code>
-if at least one invocation returns <code>false</code>. Otherwise returns <code>true</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#any?/2">any?(collection, fun \\ fn x -&gt; x end)</a></td>
-  
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code> and returns <code>true</code> if
-at least one invocation returns <code>true</code>. Returns <code>false</code> otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#each/2">each(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code>.
-Returns <code>:ok</code></p>
+    <td class="summary_synopsis"><p>Inserts the given enumerable into a collectable
+according to the transformation function</p>
 </td>
   
 </tr>
@@ -289,210 +296,10 @@ empty binary</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#partition/2">partition(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Partitions <code>collection</code> into two collections, where the first one contains elements
-for which <code>fun</code> returns a truthy value, and the second one -- for which <code>fun</code>
-returns <code>false</code> or <code>nil</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#take_every/2">take_every(collection, nth)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a collection of every <code>nth</code> item in the collection,
-starting with the first element</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#flat_map/2">flat_map(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a new collection appending the result of invoking <code>fun</code>
-on each corresponding item of <code>collection</code></p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#map/2">map(collection, fun)</a></td>
   
     <td class="summary_synopsis"><p>Returns a new collection, where each item is the result
 of invoking <code>fun</code> on each corresponding item of <code>collection</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#slice/2">slice(coll, arg2)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a subset list of the given collection. Drops elements
-until element position <code>range.first</code>, then takes elements until element
-position <code>range.last</code> (inclusive)</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reject/2">reject(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns elements of collection for which <code>fun</code> returns <code>false</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#count/2">count(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the count of items in the collection for which
-<code>fun</code> returns <code>true</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#max_by/2">max_by(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the maximum value as calculated by the given function.
-Raises <code>EmptyError</code> if the collection is empty</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#min_by/2">min_by(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the minimum value as calculated by the given function.
-Raises <code>EmptyError</code> if the collection is empty</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reverse/2">reverse(collection, tail)</a></td>
-  
-    <td class="summary_synopsis"><p>Reverses the collection and appends the tail.
-This is an optimization for
-<code>Enum.concat(Enum.reverse(collection), tail)</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#chunk/2">chunk(coll, n)</a></td>
-  
-    <td class="summary_synopsis"><p>Shortcut to <code>chunk(coll, n, n)</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#find_index/2">find_index(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Similar to <a href="#find/3"><code>find/3</code></a>, but returns the index (zero-based)
-of the element instead of the element itself</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#sort/2">sort(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Sorts the collection by the given function</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#chunk_by/2">chunk_by(coll, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Splits <code>coll</code> on every element for which <code>fun</code> returns a new value</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#split_while/2">split_while(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Splits <code>collection</code> in two while <code>fun</code> returns <code>true</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#split/2">split(collection, count)</a></td>
-  
-    <td class="summary_synopsis"><p>Splits the enumerable into two collections, leaving <code>count</code>
-elements in the first one. If <code>count</code> is a negative number,
-it starts counting from the back to the beginning of the
-collection</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#take/2">take(collection, count)</a></td>
-  
-    <td class="summary_synopsis"><p>Takes the first <code>count</code> items from the collection</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#take_while/2">take_while(collection, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Takes the items at the beginning of <code>collection</code> while <code>fun</code> returns <code>true</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#traverse/2">traverse(collection, transform)</a></td>
-  
-    <td class="summary_synopsis"><p>Traverses the given enumerable keeping its shape</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#zip/2">zip(coll1, coll2)</a></td>
-  
-    <td class="summary_synopsis"><p>Zips corresponding elements from two collections into one list
-of tuples</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#scan/3">scan(enum, acc, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Applies the given function to each element in the collection,
-storing the result in a list and passing it as the accumulator
-for the next computation. Uses the given <code>acc</code> as the starting value</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#filter_map/3">filter_map(collection, filter, mapper)</a></td>
-  
-    <td class="summary_synopsis"><p>Filters the collection and maps its values in one pass</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#at/3">at(collection, n, default \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Finds the element at the given index (zero-based).
-Returns <code>default</code> if index is out of bounds</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#into/3">into(collection, list, transform)</a></td>
-  
-    <td class="summary_synopsis"><p>Inserts the given enumerable into a collectable
-according to the transformation function</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reduce/3">reduce(collection, acc, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Invokes <code>fun</code> for each element in the collection passing that element and the
-accumulator <code>acc</code> as arguments. <code>fun</code>&#39;s return value is stored in <code>acc</code>.
-Returns the accumulator</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#map_reduce/3">map_reduce(collection, acc, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code>
-while also keeping an accumulator. Returns a tuple where
-the first element is the mapped collection and the second
-one is the final accumulator</p>
 </td>
   
 </tr>
@@ -508,9 +315,136 @@ empty binary</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#flat_map_reduce/3">flat_map_reduce(collection, acc, fun)</a></td>
+  <td class="summary_signature"><a href="#map_reduce/3">map_reduce(collection, acc, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Maps and reduces a collection, flattening the given results</p>
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> for each item in the <code>collection</code>
+while also keeping an accumulator. Returns a tuple where
+the first element is the mapped collection and the second
+one is the final accumulator</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#max/1">max(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the maximum value.
+Raises <code>EmptyError</code> if the collection is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#max_by/2">max_by(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the maximum value as calculated by the given function.
+Raises <code>EmptyError</code> if the collection is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#member?/2">member?(collection, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if <code>value</code> exists within the <code>collection</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#min/1">min(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the minimum value.
+Raises <code>EmptyError</code> if the collection is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#min_by/2">min_by(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the minimum value as calculated by the given function.
+Raises <code>EmptyError</code> if the collection is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#partition/2">partition(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Partitions <code>collection</code> into two collections, where the first one contains elements
+for which <code>fun</code> returns a truthy value, and the second one -- for which <code>fun</code>
+returns <code>false</code> or <code>nil</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reduce/2">reduce(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Invokes <code>fun</code> for each element in the collection passing that element and the
+accumulator <code>acc</code> as arguments. <code>fun</code>&#39;s return value is stored in <code>acc</code>.
+The first element of the collection is used as the initial value of <code>acc</code>.
+Returns the accumulator</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reduce/3">reduce(collection, acc, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Invokes <code>fun</code> for each element in the collection passing that element and the
+accumulator <code>acc</code> as arguments. <code>fun</code>&#39;s return value is stored in <code>acc</code>.
+Returns the accumulator</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reject/2">reject(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns elements of collection for which <code>fun</code> returns <code>false</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reverse/1">reverse(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Reverses the collection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reverse/2">reverse(collection, tail)</a></td>
+  
+    <td class="summary_synopsis"><p>Reverses the collection and appends the tail.
+This is an optimization for
+<code>Enum.concat(Enum.reverse(collection), tail)</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#scan/2">scan(enum, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Applies the given function to each element in the collection,
+storing the result in a list and passing it as the accumulator
+for the next computation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#scan/3">scan(enum, acc, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Applies the given function to each element in the collection,
+storing the result in a list and passing it as the accumulator
+for the next computation. Uses the given <code>acc</code> as the starting value</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#shuffle/1">shuffle(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a list of collection elements shuffled</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#slice/2">slice(coll, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a subset list of the given collection. Drops elements
+until element position <code>range.first</code>, then takes elements until element
+position <code>range.last</code> (inclusive)</p>
 </td>
   
 </tr>
@@ -523,33 +457,99 @@ until element position <code>start</code>, then takes <code>count</code> element
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#find/3">find(collection, ifnone \\ nil, fun)</a></td>
+  <td class="summary_signature"><a href="#sort/1">sort(collection)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the first item for which <code>fun</code> returns a truthy value. If no such
-item is found, returns <code>ifnone</code></p>
+    <td class="summary_synopsis"><p>Sorts the collection according to Elixir&#39;s term ordering</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#find_value/3">find_value(collection, ifnone \\ nil, fun)</a></td>
+  <td class="summary_signature"><a href="#sort/2">sort(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Similar to <a href="#find/3"><code>find/3</code></a>, but returns the value of the function
-invocation instead of the element itself</p>
+    <td class="summary_synopsis"><p>Sorts the collection by the given function</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#group_by/3">group_by(collection, dict \\ %{}, fun)</a></td>
+  <td class="summary_signature"><a href="#split/2">split(collection, count)</a></td>
   
-    <td class="summary_synopsis"><p>Splits <code>collection</code> into groups based on <code>fun</code></p>
+    <td class="summary_synopsis"><p>Splits the enumerable into two collections, leaving <code>count</code>
+elements in the first one. If <code>count</code> is a negative number,
+it starts counting from the back to the beginning of the
+collection</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#chunk/4">chunk(coll, n, step, pad \\ nil)</a></td>
+  <td class="summary_signature"><a href="#split_while/2">split_while(collection, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a collection of lists containing <code>n</code> items each, where
-each new chunk starts <code>step</code> elements into the collection</p>
+    <td class="summary_synopsis"><p>Splits <code>collection</code> in two while <code>fun</code> returns <code>true</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sum/1">sum(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the sum of all values</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#take/2">take(collection, count)</a></td>
+  
+    <td class="summary_synopsis"><p>Takes the first <code>count</code> items from the collection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#take_every/2">take_every(collection, nth)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a collection of every <code>nth</code> item in the collection,
+starting with the first element</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#take_while/2">take_while(collection, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Takes the items at the beginning of <code>collection</code> while <code>fun</code> returns <code>true</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_list/1">to_list(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Convert <code>collection</code> to a list</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#traverse/2">traverse(collection, transform)</a></td>
+  
+    <td class="summary_synopsis"><p>Traverses the given enumerable keeping its shape</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#uniq/2">uniq(collection, fun \\ fn x -&gt; x end)</a></td>
+  
+    <td class="summary_synopsis"><p>Enumerates the collection, removing all duplicated items</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#with_index/1">with_index(collection)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the collection with each element wrapped in a tuple
+alongside its index</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#zip/2">zip(coll1, coll2)</a></td>
+  
+    <td class="summary_synopsis"><p>Zips corresponding elements from two collections into one list
+of tuples</p>
 </td>
   
 </tr>
@@ -631,7 +631,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L222" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L222" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -674,7 +674,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L259" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L259" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -713,7 +713,7 @@ iex&gt; Enum.at([2, 4, 6], 4, :none)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L292" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L292" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -736,7 +736,7 @@ iex&gt; Enum.at([2, 4, 6], 4, :none)
   <div class="docstring"><p>Shortcut to <code>chunk(coll, n, n)</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L303" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L303" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -784,7 +784,7 @@ iex&gt; Enum.chunk([1, 2, 3, 4, 5, 6], 3, 3, [])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L335" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -813,7 +813,7 @@ iex&gt; Enum.chunk([1, 2, 3, 4, 5, 6], 3, 3, [])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L359" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L359" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -845,7 +845,7 @@ iex&gt; Enum.concat([[1, [2], 3], [4], [5, 6]])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L384" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L384" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -879,7 +879,7 @@ iex&gt; Enum.concat([1, 2, 3], [4, 5, 6])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L403" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L403" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -908,7 +908,7 @@ iex&gt; Enum.concat([1, 2, 3], [4, 5, 6])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L426" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L426" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -938,7 +938,7 @@ iex&gt; Enum.concat([1, 2, 3], [4, 5, 6])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L452" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L452" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -981,7 +981,7 @@ iex&gt; Enum.drop([1, 2, 3], -1)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L482" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L482" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1010,7 +1010,7 @@ iex&gt; Enum.drop([1, 2, 3], -1)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L510" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L510" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1042,7 +1042,7 @@ Returns <code>:ok</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L533" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L533" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1074,7 +1074,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L559" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L559" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1114,7 +1114,7 @@ iex&gt; Enum.fetch([2, 4, 6], 4)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L588" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L588" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1151,7 +1151,7 @@ iex&gt; Enum.fetch!([2, 4, 6], 4)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L630" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L630" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1181,7 +1181,7 @@ for which <code>fun</code> returns <code>true</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L648" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L648" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1210,7 +1210,7 @@ for which <code>fun</code> returns <code>true</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L667" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L667" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1246,7 +1246,7 @@ iex&gt; Enum.find([2, 3, 4], fn(x) -&gt; rem(x, 2) == 1 end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L694" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L694" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1279,7 +1279,7 @@ iex&gt; Enum.find_index([2, 3, 4], fn(x) -&gt; rem(x, 2) == 1 end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L748" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L748" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1312,7 +1312,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L721" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L721" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1347,7 +1347,7 @@ iex&gt; Enum.flat_map([{1,3}, {4,6}], fn({x,y}) -&gt; x..y end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L780" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L780" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1385,7 +1385,7 @@ iex&gt; Enum.flat_map_reduce(enum, 0, fn i, acc -&gt;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L807" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L807" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1419,7 +1419,7 @@ preserved.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1233" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1233" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1456,7 +1456,7 @@ iex&gt; Enum.intersperse([], 0)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L839" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L839" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1488,7 +1488,7 @@ iex&gt; Enum.into([a: 1, b: 2], %{})
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L864" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L864" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1518,7 +1518,7 @@ according to the transformation function.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L891" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L891" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1557,7 +1557,7 @@ iex&gt; Enum.join([1, 2, 3], &quot; = &quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L936" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L936" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1592,7 +1592,7 @@ iex&gt; Enum.map([a: 1, b: 2], fn({k, v}) -&gt; {k, -v} end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L966" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L966" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1631,7 +1631,7 @@ iex&gt; Enum.map_join([1, 2, 3], &quot; = &quot;, &amp;(&amp;1 * 2))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L995" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L995" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1666,7 +1666,7 @@ tuple.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1026" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1026" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1696,7 +1696,7 @@ Raises <code>EmptyError</code> if the collection is empty.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1049" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1049" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1726,7 +1726,7 @@ Raises <code>EmptyError</code> if the collection is empty.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1064" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1064" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1762,7 +1762,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1108" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1792,7 +1792,7 @@ Raises <code>EmptyError</code> if the collection is empty.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1135" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1135" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1822,7 +1822,7 @@ Raises <code>EmptyError</code> if the collection is empty.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1150" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1150" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1853,7 +1853,7 @@ returns <code>false</code> or <code>nil</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1205" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1205" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1885,7 +1885,7 @@ Returns the accumulator.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1273" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1273" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1916,7 +1916,7 @@ Returns the accumulator.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1251" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1251" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1945,7 +1945,7 @@ Returns the accumulator.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1306" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1306" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1974,7 +1974,7 @@ Returns the accumulator.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1324" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1324" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2005,7 +2005,7 @@ This is an optimization for
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1344" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1344" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2036,7 +2036,7 @@ for the next computation.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1366" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1366" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2067,7 +2067,7 @@ for the next computation. Uses the given <code>acc</code> as the starting value.
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1384" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1384" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2107,7 +2107,7 @@ iex&gt; Enum.shuffle([1, 2, 3])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1410" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1410" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2145,7 +2145,7 @@ or equal to the last position.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1478" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1478" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2175,7 +2175,7 @@ until element position <code>start</code>, then takes <code>count</code> element
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1429" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1429" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2206,7 +2206,7 @@ until element position <code>start</code>, then takes <code>count</code> element
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1507" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1507" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2252,7 +2252,7 @@ the order of equal terms may be shuffled:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1540" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1540" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2300,7 +2300,7 @@ iex&gt; Enum.split([1, 2, 3], -5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1577" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1577" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2329,7 +2329,7 @@ iex&gt; Enum.split([1, 2, 3], -5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1608" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1608" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2360,7 +2360,7 @@ iex&gt; Enum.split([1, 2, 3], -5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1189" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1189" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2403,7 +2403,7 @@ iex&gt; Enum.take([1, 2, 3], -1)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1649" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1649" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2433,7 +2433,7 @@ starting with the first element.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1685" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1685" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2462,7 +2462,7 @@ starting with the first element.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1702" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1702" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2491,7 +2491,7 @@ starting with the first element.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1721" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1721" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2522,7 +2522,7 @@ starting with the first element.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1742" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1742" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2554,7 +2554,7 @@ iex&gt; Enum.uniq([{1, :x}, {2, :y}, {1, :z}], fn {x, _} -&gt; x end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1764" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1764" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2584,7 +2584,7 @@ alongside its index.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1811" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1811" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2619,7 +2619,7 @@ iex&gt; Enum.zip([1,2,3,4,5], [:a, :b, :c])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/enum.ex#L1792" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/enum.ex#L1792" class="view_source">Source</a>
   
 </div>
 

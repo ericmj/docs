@@ -50,13 +50,34 @@ on video text terminals.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L17" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L17" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#black/0">black()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets foreground color to black</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#black_background/0">black_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to black</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#blink_off/0">blink_off()</a></td>
+  
+    <td class="summary_synopsis"><p>Blink: off</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#blink_rapid/0">blink_rapid()</a></td>
   
     <td class="summary_synopsis"><p>Blink: Rapid. MS-DOS ANSI.SYS; 150 per minute or more; not widely supported</p>
@@ -71,9 +92,16 @@ on video text terminals.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#blink_off/0">blink_off()</a></td>
+  <td class="summary_signature"><a href="#blue/0">blue()</a></td>
   
-    <td class="summary_synopsis"><p>Blink: off</p>
+    <td class="summary_synopsis"><p>Sets foreground color to blue</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#blue_background/0">blue_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to blue</p>
 </td>
   
 </tr>
@@ -106,6 +134,20 @@ on video text terminals.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#cyan/0">cyan()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets foreground color to cyan</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cyan_background/0">cyan_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to cyan</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#default_background/0">default_background()</a></td>
   
     <td class="summary_synopsis"><p>Default background color</p>
@@ -127,86 +169,23 @@ on video text terminals.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#escape/2">escape(string, emit \\ terminal?())</a></td>
+  
+    <td class="summary_synopsis"><p>Escapes a string by converting named ANSI sequences into actual ANSI codes</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#escape_fragment/2">escape_fragment(string, emit \\ terminal?())</a></td>
+  
+    <td class="summary_synopsis"><p>Escapes a string by converting named ANSI sequences into actual ANSI codes</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#faint/0">faint()</a></td>
   
     <td class="summary_synopsis"><p>Faint (decreased intensity), not widely supported</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#framed/0">framed()</a></td>
-  
-    <td class="summary_synopsis"><p>Framed</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#inverse/0">inverse()</a></td>
-  
-    <td class="summary_synopsis"><p>Image: Negative. Swap foreground and background</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reverse/0">reverse()</a></td>
-  
-    <td class="summary_synopsis"><p>Image: Negative. Swap foreground and background</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#italic/0">italic()</a></td>
-  
-    <td class="summary_synopsis"><p>Italic: on. Not widely supported. Sometimes treated as inverse</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#normal/0">normal()</a></td>
-  
-    <td class="summary_synopsis"><p>Normal color or intensity</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#not_framed_encircled/0">not_framed_encircled()</a></td>
-  
-    <td class="summary_synopsis"><p>Not framed or encircled</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#not_italic/0">not_italic()</a></td>
-  
-    <td class="summary_synopsis"><p>Not italic</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#not_overlined/0">not_overlined()</a></td>
-  
-    <td class="summary_synopsis"><p>Not overlined</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#overlined/0">overlined()</a></td>
-  
-    <td class="summary_synopsis"><p>Overlined</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reset/0">reset()</a></td>
-  
-    <td class="summary_synopsis"><p>Resets all attributes</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#home/0">home()</a></td>
-  
-    <td class="summary_synopsis"><p>Send cursor home</p>
 </td>
   
 </tr>
@@ -274,79 +253,9 @@ on video text terminals.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#black_background/0">black_background()</a></td>
+  <td class="summary_signature"><a href="#framed/0">framed()</a></td>
   
-    <td class="summary_synopsis"><p>Sets background color to black</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#blue_background/0">blue_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to blue</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cyan_background/0">cyan_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to cyan</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#green_background/0">green_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to green</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#magenta_background/0">magenta_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to magenta</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#red_background/0">red_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to red</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#white_background/0">white_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to white</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#yellow_background/0">yellow_background()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets background color to yellow</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#black/0">black()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets foreground color to black</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#blue/0">blue()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets foreground color to blue</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#cyan/0">cyan()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets foreground color to cyan</p>
+    <td class="summary_synopsis"><p>Framed</p>
 </td>
   
 </tr>
@@ -358,6 +267,34 @@ on video text terminals.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#green_background/0">green_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to green</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#home/0">home()</a></td>
+  
+    <td class="summary_synopsis"><p>Send cursor home</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#inverse/0">inverse()</a></td>
+  
+    <td class="summary_synopsis"><p>Image: Negative. Swap foreground and background</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#italic/0">italic()</a></td>
+  
+    <td class="summary_synopsis"><p>Italic: on. Not widely supported. Sometimes treated as inverse</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#magenta/0">magenta()</a></td>
   
     <td class="summary_synopsis"><p>Sets foreground color to magenta</p>
@@ -365,30 +302,9 @@ on video text terminals.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#red/0">red()</a></td>
+  <td class="summary_signature"><a href="#magenta_background/0">magenta_background()</a></td>
   
-    <td class="summary_synopsis"><p>Sets foreground color to red</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#white/0">white()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets foreground color to white</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#yellow/0">yellow()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets foreground color to yellow</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#primary_font/0">primary_font()</a></td>
-  
-    <td class="summary_synopsis"><p>Sets primary (default) font</p>
+    <td class="summary_synopsis"><p>Sets background color to magenta</p>
 </td>
   
 </tr>
@@ -400,9 +316,72 @@ on video text terminals.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#underline/0">underline()</a></td>
+  <td class="summary_signature"><a href="#normal/0">normal()</a></td>
   
-    <td class="summary_synopsis"><p>Underline: Single</p>
+    <td class="summary_synopsis"><p>Normal color or intensity</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not_framed_encircled/0">not_framed_encircled()</a></td>
+  
+    <td class="summary_synopsis"><p>Not framed or encircled</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not_italic/0">not_italic()</a></td>
+  
+    <td class="summary_synopsis"><p>Not italic</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#not_overlined/0">not_overlined()</a></td>
+  
+    <td class="summary_synopsis"><p>Not overlined</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#overlined/0">overlined()</a></td>
+  
+    <td class="summary_synopsis"><p>Overlined</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#primary_font/0">primary_font()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets primary (default) font</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#red/0">red()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets foreground color to red</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#red_background/0">red_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to red</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reset/0">reset()</a></td>
+  
+    <td class="summary_synopsis"><p>Resets all attributes</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#reverse/0">reverse()</a></td>
+  
+    <td class="summary_synopsis"><p>Image: Negative. Swap foreground and background</p>
 </td>
   
 </tr>
@@ -414,16 +393,37 @@ on video text terminals.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#escape_fragment/2">escape_fragment(string, emit \\ terminal?())</a></td>
+  <td class="summary_signature"><a href="#underline/0">underline()</a></td>
   
-    <td class="summary_synopsis"><p>Escapes a string by converting named ANSI sequences into actual ANSI codes</p>
+    <td class="summary_synopsis"><p>Underline: Single</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#escape/2">escape(string, emit \\ terminal?())</a></td>
+  <td class="summary_signature"><a href="#white/0">white()</a></td>
   
-    <td class="summary_synopsis"><p>Escapes a string by converting named ANSI sequences into actual ANSI codes</p>
+    <td class="summary_synopsis"><p>Sets foreground color to white</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#white_background/0">white_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to white</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#yellow/0">yellow()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets foreground color to yellow</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#yellow_background/0">yellow_background()</a></td>
+  
+    <td class="summary_synopsis"><p>Sets background color to yellow</p>
 </td>
   
 </tr>
@@ -449,7 +449,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets foreground color to black</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -465,7 +465,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets background color to black</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -481,7 +481,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Blink: off</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L93" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L93" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -497,7 +497,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Blink: Rapid. MS-DOS ANSI.SYS; 150 per minute or more; not widely supported</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L61" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L61" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -513,7 +513,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Blink: Slow. Less than 150 per minute</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L58" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -529,7 +529,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets foreground color to blue</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -545,7 +545,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets background color to blue</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -561,7 +561,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Bright (increased intensity) or Bold</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L46" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L46" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -577,7 +577,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Clear screen</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L131" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L131" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -593,7 +593,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Conceal. Not widely supported</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L70" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L70" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -609,7 +609,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Crossed-out. Characters legible, but marked for deletion. Not widely supported.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L73" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L73" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -625,7 +625,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets foreground color to cyan</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -641,7 +641,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Sets background color to cyan</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -657,7 +657,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Default background color</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L110" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L110" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -673,7 +673,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Default text color</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L107" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L107" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -689,7 +689,7 @@ on video text terminals.</p>
   <div class="docstring"><p>Encircled</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L116" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L116" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -729,7 +729,7 @@ of handling these sequences (using <a href="#terminal?/1"><code>terminal?/1</cod
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L158" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L158" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -769,7 +769,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L188" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L188" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -785,7 +785,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Faint (decreased intensity), not widely supported</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L49" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L49" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -801,7 +801,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 1</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -817,7 +817,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 2</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -833,7 +833,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 3</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -849,7 +849,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 4</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -865,7 +865,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 5</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -881,7 +881,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 6</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -897,7 +897,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 7</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -913,7 +913,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 8</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -929,7 +929,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets alternative font 9</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -945,7 +945,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Framed</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L113" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L113" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -961,7 +961,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets foreground color to green</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -977,7 +977,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets background color to green</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -993,7 +993,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Send cursor home</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L128" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L128" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1009,7 +1009,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Image: Negative. Swap foreground and background</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L64" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L64" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1025,7 +1025,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Italic: on. Not widely supported. Sometimes treated as inverse.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L52" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L52" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1041,7 +1041,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets foreground color to magenta</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1057,7 +1057,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets background color to magenta</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1073,7 +1073,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Underline: None</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L90" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L90" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1089,7 +1089,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Normal color or intensity</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L84" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L84" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1105,7 +1105,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Not framed or encircled</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L122" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L122" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1121,7 +1121,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Not italic</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L87" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L87" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1137,7 +1137,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Not overlined</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L125" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L125" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1153,7 +1153,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Overlined</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L119" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L119" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1169,7 +1169,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets primary (default) font</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L76" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L76" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1185,7 +1185,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets foreground color to red</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1201,7 +1201,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Sets background color to red</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1217,7 +1217,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Resets all attributes</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L43" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L43" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1233,7 +1233,7 @@ iex&gt; IO.ANSI.escape_fragment(&quot;%{reset}bye&quot;, true)
   <div class="docstring"><p>Image: Negative. Swap foreground and background</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L67" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L67" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1261,7 +1261,7 @@ the group leader. In case the group leader does not support the message,
 it will likely lead to a timeout (and a slow down on execution time).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L37" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L37" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1277,7 +1277,7 @@ it will likely lead to a timeout (and a slow down on execution time).</p>
   <div class="docstring"><p>Underline: Single</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L55" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L55" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1293,7 +1293,7 @@ it will likely lead to a timeout (and a slow down on execution time).</p>
   <div class="docstring"><p>Sets foreground color to white</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1309,7 +1309,7 @@ it will likely lead to a timeout (and a slow down on execution time).</p>
   <div class="docstring"><p>Sets background color to white</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1325,7 +1325,7 @@ it will likely lead to a timeout (and a slow down on execution time).</p>
   <div class="docstring"><p>Sets foreground color to yellow</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1341,7 +1341,7 @@ it will likely lead to a timeout (and a slow down on execution time).</p>
   <div class="docstring"><p>Sets background color to yellow</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/io/ansi.ex#L103" class="view_source">Source</a>
   
 </div>
 

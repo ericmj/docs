@@ -49,34 +49,13 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#assert_protocol!/1">assert_protocol!(module)</a></td>
-  
-    <td class="summary_synopsis"><p>Checks if the given module is loaded and is protocol</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#def/1">def(arg1)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a new protocol function</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#extract_protocols/1">extract_protocols(paths)</a></td>
-  
-    <td class="summary_synopsis"><p>Extract all protocols from the given paths</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#assert_impl!/2">assert_impl!(protocol, impl)</a></td>
   
     <td class="summary_synopsis"><p>Checks if the given module is loaded and is an implementation
@@ -85,10 +64,9 @@ of the given protocol</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#extract_impls/2">extract_impls(protocol, paths)</a></td>
+  <td class="summary_signature"><a href="#assert_protocol!/1">assert_protocol!(module)</a></td>
   
-    <td class="summary_synopsis"><p>Extract all types implemented for the given protocol from
-the given paths</p>
+    <td class="summary_synopsis"><p>Checks if the given module is loaded and is protocol</p>
 </td>
   
 </tr>
@@ -101,10 +79,31 @@ consolidates the given protocol</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#derive/3">derive(protocol, struct, env)</a></td>
+  <td class="summary_signature"><a href="#consolidated?/1">consolidated?(protocol)</a></td>
   
-    <td class="summary_synopsis"><p>Derives an implementation of the given protocol with the
-given struct considering the given environment</p>
+    <td class="summary_synopsis"><p>Returns true if the protocol was consolidated</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#def/1">def(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a new protocol function</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#extract_impls/2">extract_impls(protocol, paths)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract all types implemented for the given protocol from
+the given paths</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#extract_protocols/1">extract_protocols(paths)</a></td>
+  
+    <td class="summary_synopsis"><p>Extract all protocols from the given paths</p>
 </td>
   
 </tr>
@@ -140,7 +139,7 @@ of the given protocol.</p>
 <p>Returns <code>:ok</code> if so, otherwise raises ArgumentError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L86" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L86" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -165,7 +164,7 @@ of the given protocol.</p>
 <p>Returns <code>:ok</code> if so, otherwise raises ArgumentError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L59" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L59" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -198,7 +197,7 @@ A given bytecode or protocol implementation can be checked
 to be consolidated or not by analyzing the protocol
 attribute:</p>
 
-<pre><code>Enumerable.__info__(:attributes)[:protocol]
+<pre><code>Protocol.consolidated?(Enumerable)
 </code></pre>
 
 <p>If the first element of the tuple is true, it means
@@ -210,24 +209,30 @@ However each implementation must be available and
 it will be loaded.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L279" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L250" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="derive/3">
-    <span class="signature"><strong>derive(protocol, struct, env)</strong></span>
+  <div class="detail_header" id="consolidated?/1">
+    <span class="signature"><strong>consolidated?(protocol)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#derive/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#consolidated?/1" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-  <div class="docstring"><p>Derives an implementation of the given protocol with the
-given struct considering the given environment.</p>
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>consolidated?(module) :: boolean</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Returns true if the protocol was consolidated.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L116" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L218" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -266,7 +271,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L200" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L163" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -304,7 +309,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L170" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L133" class="view_source">Source</a>
   
 </div>
 
@@ -331,7 +336,7 @@ regular <code>Kernel.def/*</code> macros are replaced by this macro which
 defines the protocol functions with the appropriate callbacks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/protocol.ex#L13" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L13" class="view_source">Source</a>
   
 </div>
 

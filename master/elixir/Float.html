@@ -47,35 +47,13 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#parse/1">parse(binary)</a></td>
-  
-    <td class="summary_synopsis"><p>Parses a binary into a float</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_string/1">to_string(some_float)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a binary which corresponds to the text representation
-of <code>some_float</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(number)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a char list which corresponds to the text representation of the given float</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#ceil/1">ceil(num)</a></td>
   
     <td class="summary_synopsis"><p>Rounds a float to the largest integer greater than or equal to <code>num</code></p>
@@ -90,10 +68,24 @@ of <code>some_float</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_string/2">to_string(float, options)</a></td>
+  <td class="summary_signature"><a href="#parse/1">parse(binary)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a binary which corresponds to the text representation
-of <code>float</code></p>
+    <td class="summary_synopsis"><p>Parses a binary into a float</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#round/2">round(number, precision)</a></td>
+  
+    <td class="summary_synopsis"><p>Rounds a floating point value to an arbitrary number of fractional digits
+(between 0 and 15)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(number)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a char list which corresponds to the text representation of the given float</p>
 </td>
   
 </tr>
@@ -106,10 +98,18 @@ of <code>float</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#round/2">round(number, precision)</a></td>
+  <td class="summary_signature"><a href="#to_string/1">to_string(some_float)</a></td>
   
-    <td class="summary_synopsis"><p>Rounds a floating point value to an arbitrary number of fractional digits
-(between 0 and 15)</p>
+    <td class="summary_synopsis"><p>Returns a binary which corresponds to the text representation
+of <code>some_float</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_string/2">to_string(float, options)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a binary which corresponds to the text representation
+of <code>float</code></p>
 </td>
   
 </tr>
@@ -154,7 +154,7 @@ iex&gt; Float.ceil(-56.5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L140" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L140" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -189,7 +189,7 @@ iex&gt; Float.floor(-56.5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L115" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L115" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -230,7 +230,7 @@ iex&gt; Float.parse(&quot;pi&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L28" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L28" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -269,7 +269,7 @@ iex&gt; Float.round(-5.5675, 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L169" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L169" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -300,7 +300,7 @@ iex&gt; Float.round(-5.5675, 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L185" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L185" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -338,7 +338,7 @@ of <code>float</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L206" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L206" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -370,7 +370,7 @@ of <code>some_float</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L223" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L223" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -408,7 +408,7 @@ of <code>float</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/float.ex#L244" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/float.ex#L244" class="view_source">Source</a>
   
 </div>
 

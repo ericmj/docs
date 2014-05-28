@@ -49,81 +49,17 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L3" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L3" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#unpipe/1">unpipe(other)</a></td>
-  
-    <td class="summary_synopsis"><p>Breaks a pipeline expression into a list</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#decompose_call/1">decompose_call(arg1)</a></td>
   
     <td class="summary_synopsis"><p>Decomposes a local or remote call into its remote part (when provided),
 function name and argument list</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#unescape_string/1">unescape_string(chars)</a></td>
-  
-    <td class="summary_synopsis"><p>Unescape the given chars</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#unescape_tokens/1">unescape_tokens(tokens)</a></td>
-  
-    <td class="summary_synopsis"><p>Unescape the given tokens according to the default map</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#update_meta/2">update_meta(quoted, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Applies the given function to the node metadata if it contains one</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_string/2">to_string(tree, fun \\ fn _ast, string -&gt; string end)</a></td>
-  
-    <td class="summary_synopsis"><p>Converts the given expression to a binary</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#postwalk/2">postwalk(ast, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Performs a depth-first, post-order traversal of quoted expressions</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#prewalk/2">prewalk(ast, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Performs a depth-first, pre-order traversal of quoted expressions</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#expand_once/2">expand_once(ast, env)</a></td>
-  
-    <td class="summary_synopsis"><p>Receives an AST node and expands it once</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#expand/2">expand(tree, env)</a></td>
-  
-    <td class="summary_synopsis"><p>Receives an AST node and expands it until it can no longer
-be expanded</p>
 </td>
   
 </tr>
@@ -136,16 +72,31 @@ into a syntax tree</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#unescape_string/2">unescape_string(chars, map)</a></td>
+  <td class="summary_signature"><a href="#expand/2">expand(tree, env)</a></td>
   
-    <td class="summary_synopsis"><p>Unescape the given chars according to the map given</p>
+    <td class="summary_synopsis"><p>Receives an AST node and expands it until it can no longer
+be expanded</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#unescape_tokens/2">unescape_tokens(tokens, map)</a></td>
+  <td class="summary_signature"><a href="#expand_once/2">expand_once(ast, env)</a></td>
   
-    <td class="summary_synopsis"><p>Unescape the given tokens according to the given map</p>
+    <td class="summary_synopsis"><p>Receives an AST node and expands it once</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#pipe/3">pipe(expr, call_args, position)</a></td>
+  
+    <td class="summary_synopsis"><p>Pipes <code>expr</code> into the <code>call_args</code> at the given <code>position</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#postwalk/2">postwalk(ast, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Performs a depth-first, post-order traversal of quoted expressions</p>
 </td>
   
 </tr>
@@ -158,6 +109,13 @@ using an accumulator</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#prewalk/2">prewalk(ast, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Performs a depth-first, pre-order traversal of quoted expressions</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#prewalk/3">prewalk(ast, acc, fun)</a></td>
   
     <td class="summary_synopsis"><p>Performs a depth-first, pre-order traversal of quoted expressions
@@ -166,9 +124,51 @@ using an accumulator</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#pipe/3">pipe(expr, call_args, position)</a></td>
+  <td class="summary_signature"><a href="#to_string/2">to_string(tree, fun \\ fn _ast, string -&gt; string end)</a></td>
   
-    <td class="summary_synopsis"><p>Pipes <code>expr</code> into the <code>call_args</code> at the given <code>position</code></p>
+    <td class="summary_synopsis"><p>Converts the given expression to a binary</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unescape_string/1">unescape_string(chars)</a></td>
+  
+    <td class="summary_synopsis"><p>Unescape the given chars</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unescape_string/2">unescape_string(chars, map)</a></td>
+  
+    <td class="summary_synopsis"><p>Unescape the given chars according to the map given</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unescape_tokens/1">unescape_tokens(tokens)</a></td>
+  
+    <td class="summary_synopsis"><p>Unescape the given tokens according to the default map</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unescape_tokens/2">unescape_tokens(tokens, map)</a></td>
+  
+    <td class="summary_synopsis"><p>Unescape the given tokens according to the given map</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unpipe/1">unpipe(other)</a></td>
+  
+    <td class="summary_synopsis"><p>Breaks a pipeline expression into a list</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#update_meta/2">update_meta(quoted, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Applies the given function to the node metadata if it contains one</p>
 </td>
   
 </tr>
@@ -245,7 +245,7 @@ iex&gt; Macro.decompose_call(quote do: 42)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L234" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L234" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -285,7 +285,7 @@ iex&gt; Macro.escape({:unquote, [], [1]}, unquote: true)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L268" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L268" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -305,7 +305,7 @@ be expanded.</p>
 <a href="#expand_once/2"><code>expand_once/2</code></a> for more information and exmaples.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L853" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L853" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -400,7 +400,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L735" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L735" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -423,7 +423,7 @@ end
   <div class="docstring"><p>Pipes <code>expr</code> into the <code>call_args</code> at the given <code>position</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L68" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L68" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -446,7 +446,7 @@ end
   <div class="docstring"><p>Performs a depth-first, post-order traversal of quoted expressions.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L169" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L169" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -470,7 +470,7 @@ end
 using an accumulator.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L178" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L178" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -493,7 +493,7 @@ using an accumulator.</p>
   <div class="docstring"><p>Performs a depth-first, pre-order traversal of quoted expressions.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L116" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L116" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -517,7 +517,7 @@ using an accumulator.</p>
 using an accumulator.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L125" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L125" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -546,7 +546,7 @@ using an accumulator.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L386" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L386" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -590,7 +590,7 @@ string.</p>
 and return a version with it unescaped.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L296" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L296" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -655,7 +655,7 @@ returns <code>false</code> for <code>?x</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L345" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L345" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -686,7 +686,7 @@ sigils. Check the implementation of <a href="Kernel.html#sigil_s/2"><code>Kernel
 for examples.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L361" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L361" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -711,7 +711,7 @@ for examples.</p>
 <p>Check <a href="#unescape_tokens/1"><code>unescape_tokens/1</code></a> and <a href="#unescape_string/2"><code>unescape_string/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L371" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L371" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -736,7 +736,7 @@ for examples.</p>
 <p>Raises if the pipeline is ill-formed.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L56" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L56" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -771,7 +771,7 @@ iex&gt; Macro.update_meta(quoted, &amp;Keyword.delete(&amp;1, :line))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/macro.ex#L102" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/macro.ex#L102" class="view_source">Source</a>
   
 </div>
 

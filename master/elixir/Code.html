@@ -50,13 +50,34 @@ to add behaviour which is specific to Elixir.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#append_path/1">append_path(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Append a path to the Erlang VM code path</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#compile_quoted/2">compile_quoted(quoted, file \\ &quot;nofile&quot;)</a></td>
+  
+    <td class="summary_synopsis"><p>Compiles the quoted expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#compile_string/2">compile_string(string, file \\ &quot;nofile&quot;)</a></td>
+  
+    <td class="summary_synopsis"><p>Compiles the given string</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#compiler_options/0">compiler_options()</a></td>
   
     <td class="summary_synopsis"><p>Gets the compilation options from the code server</p>
@@ -64,16 +85,9 @@ to add behaviour which is specific to Elixir.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#loaded_files/0">loaded_files()</a></td>
+  <td class="summary_signature"><a href="#compiler_options/1">compiler_options(opts)</a></td>
   
-    <td class="summary_synopsis"><p>List all loaded files</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#append_path/1">append_path(path)</a></td>
-  
-    <td class="summary_synopsis"><p>Append a path to the Erlang VM code path</p>
+    <td class="summary_synopsis"><p>Sets compilation options</p>
 </td>
   
 </tr>
@@ -113,6 +127,48 @@ to add behaviour which is specific to Elixir.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#eval_file/2">eval_file(file, relative_to \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Evals the given file</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eval_quoted/3">eval_quoted(quoted, binding \\ [], opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Evaluate the quoted contents</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eval_string/3">eval_string(string, binding \\ [], opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Evaluate the contents given by <code>string</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_docs/2">get_docs(module, kind)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the docs for the given module</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#load_file/2">load_file(file, relative_to \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Load the given file</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#loaded_files/0">loaded_files()</a></td>
+  
+    <td class="summary_synopsis"><p>List all loaded files</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#prepend_path/1">prepend_path(path)</a></td>
   
     <td class="summary_synopsis"><p>Prepend a path to the Erlang VM code path</p>
@@ -120,30 +176,9 @@ to add behaviour which is specific to Elixir.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#unload_files/1">unload_files(files)</a></td>
+  <td class="summary_signature"><a href="#require_file/2">require_file(file, relative_to \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Remove files from the loaded files list</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#compiler_options/1">compiler_options(opts)</a></td>
-  
-    <td class="summary_synopsis"><p>Sets compilation options</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#compile_string/2">compile_string(string, file \\ &quot;nofile&quot;)</a></td>
-  
-    <td class="summary_synopsis"><p>Compiles the given string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#compile_quoted/2">compile_quoted(quoted, file \\ &quot;nofile&quot;)</a></td>
-  
-    <td class="summary_synopsis"><p>Compiles the quoted expression</p>
+    <td class="summary_synopsis"><p>Requires the given <code>file</code></p>
 </td>
   
 </tr>
@@ -162,44 +197,9 @@ to add behaviour which is specific to Elixir.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#eval_file/2">eval_file(file, relative_to \\ nil)</a></td>
+  <td class="summary_signature"><a href="#unload_files/1">unload_files(files)</a></td>
   
-    <td class="summary_synopsis"><p>Evals the given file</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#load_file/2">load_file(file, relative_to \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Load the given file</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#require_file/2">require_file(file, relative_to \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Requires the given <code>file</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_docs/2">get_docs(module, kind)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the docs for the given module</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#eval_string/3">eval_string(string, binding \\ [], opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Evaluate the contents given by <code>string</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#eval_quoted/3">eval_quoted(quoted, binding \\ [], opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Evaluate the quoted contents</p>
+    <td class="summary_synopsis"><p>Remove files from the loaded files list</p>
 </td>
   
 </tr>
@@ -227,7 +227,7 @@ to add behaviour which is specific to Elixir.</p>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being appended.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L32" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L32" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -246,7 +246,7 @@ to add behaviour which is specific to Elixir.</p>
 the second one is its byte code (as a binary).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L353" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L353" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -267,7 +267,7 @@ and the second one is its byte code (as a binary).</p>
 <p>For compiling many files at once, check <a href="Kernel.ParallelCompiler.html#files/2"><code>Kernel.ParallelCompiler.files/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L343" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L343" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -285,7 +285,7 @@ and the second one is its byte code (as a binary).</p>
 <p>Check <a href="#compiler_options/1"><code>compiler_options/1</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L307" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L307" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -316,7 +316,7 @@ without raising errors, <code>false</code> by default;</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L331" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L331" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -334,7 +334,7 @@ without raising errors, <code>false</code> by default;</p></li>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being deleted.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L50" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L50" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -360,7 +360,7 @@ If not, returns <code>{:error, reason}</code> with the error reason.</p>
 and when to use <a href="#ensure_loaded/1"><code>ensure_loaded/1</code></a> or <a href="#ensure_compiled/1"><code>ensure_compiled/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L423" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L423" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -380,7 +380,7 @@ is already loaded or was successfully loaded and compiled.
 Returns <code>false</code> otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L447" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L447" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +431,7 @@ must be used in rare cases, usually involving macros that need to
 invoke a module for callback information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L395" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L395" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -451,7 +451,7 @@ is already loaded or was successfully loaded. Returns <code>false</code>
 otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L406" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L406" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -473,7 +473,7 @@ byte code, <code>eval_file</code> simply evalutes the file contents and returns 
 evaluation result and its bindings.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L246" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L246" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -506,7 +506,7 @@ iex&gt; Code.eval_quoted(contents, [a: 1, b: 2], __ENV__)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L143" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L143" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -581,7 +581,7 @@ will be automatically carried over:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L111" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L111" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -613,7 +613,7 @@ attached to the module using the <code>@moduledoc</code> attribute</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L471" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L471" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -639,7 +639,7 @@ the target file will be loaded concurrently many times. Check <a href="#require_
 if you don&#39;t want a file to be loaded concurrently.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L264" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L264" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -655,7 +655,7 @@ if you don&#39;t want a file to be loaded concurrently.</p>
   <div class="docstring"><p>List all loaded files.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L12" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L12" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -673,7 +673,7 @@ if you don&#39;t want a file to be loaded concurrently.</p>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being prepended.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L41" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L41" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -701,7 +701,7 @@ call <code>require_file</code> will get the list of loaded modules, others will 
 <p>Check <a href="#load_file/2"><code>load_file/2</code></a> if you want a file to be loaded multiple times.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L287" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L287" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -736,7 +736,7 @@ when non-existing atoms are found by the tokenizer.</p></li>
 representation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L215" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L215" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -759,7 +759,7 @@ in case a token is missing (usually because the expression is incomplete),
 <p>Check <a href="#string_to_quoted/2"><code>string_to_quoted/2</code></a> for options information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L231" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L231" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -779,7 +779,7 @@ calling this function only removes them from the list,
 allowing them to be required again.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/code.ex#L23" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/code.ex#L23" class="view_source">Source</a>
   
 </div>
 

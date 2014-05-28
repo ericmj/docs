@@ -69,23 +69,23 @@ files.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#record?/1">record?(data)</a></td>
+  <td class="summary_signature"><a href="#defrecord/3">defrecord(name, tag \\ nil, kv)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if the given <code>data</code> is a record</p>
+    <td class="summary_synopsis"><p>Defines a set of macros to create and access a record</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#record?/2">record?(data, kind)</a></td>
+  <td class="summary_signature"><a href="#defrecordp/3">defrecordp(name, tag \\ nil, kv)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if the given <code>data</code> is a record of <code>kind</code></p>
+    <td class="summary_synopsis"><p>Same as <a href="#defrecord/3"><code>defrecord/3</code></a> but generates private macros</p>
 </td>
   
 </tr>
@@ -97,16 +97,16 @@ files.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defrecord/3">defrecord(name, tag \\ nil, kv)</a></td>
+  <td class="summary_signature"><a href="#record?/1">record?(data)</a></td>
   
-    <td class="summary_synopsis"><p>Defines a set of macros to create and access a record</p>
+    <td class="summary_synopsis"><p>Checks if the given <code>data</code> is a record</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defrecordp/3">defrecordp(name, tag \\ nil, kv)</a></td>
+  <td class="summary_signature"><a href="#record?/2">record?(data, kind)</a></td>
   
-    <td class="summary_synopsis"><p>Same as <a href="#defrecord/3"><code>defrecord/3</code></a> but generates private macros</p>
+    <td class="summary_synopsis"><p>Checks if the given <code>data</code> is a record of <code>kind</code></p>
 </td>
   
 </tr>
@@ -170,7 +170,7 @@ User.user() #=&gt; {User, nil}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L141" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L141" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -186,7 +186,7 @@ User.user() #=&gt; {User, nil}
   <div class="docstring"><p>Same as <a href="#defrecord/3"><code>defrecord/3</code></a> but generates private macros.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L159" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L159" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -215,7 +215,7 @@ library path to be a string at expansion time.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L41" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L41" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -243,7 +243,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L88" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L88" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -268,7 +268,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/b4c0826467be917043abd1ee635be1c10e599755/lib/elixir/lib/record.ex#L57" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/record.ex#L57" class="view_source">Source</a>
   
 </div>
 
