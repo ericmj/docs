@@ -43,7 +43,7 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>A behaviour module for implementing supevision functionality.</p>
+          <p>A behaviour module for implementing supervision functionality.</p>
 
 <p>A supervisor is a process which supervises other processes called
 child processes. Supervisors are used to build an hierarchical process
@@ -134,7 +134,7 @@ about the specification for workers and supervisors.</p>
 
 <p>In the example above, a supervisor was dynamically created by passing
 the supervision structure to <a href="#start_link/2"><code>start_link/2</code></a>. However, supervisors
-can also be created by explicitly defining a supevision module:</p>
+can also be created by explicitly defining a supervision module:</p>
 
 <pre><code>defmodule MyApp.Supervisor do
   use Supervisor
@@ -144,13 +144,11 @@ can also be created by explicitly defining a supevision module:</p>
   end
 
   def init([]) do
-    import Supervisor.Spec
-
     children = [
       worker(Stack, [[:hello]])
     ]
 
-    supervisor(children, strategy: :one_for_one)
+    supervise(children, strategy: :one_for_one)
   end
 end
 </code></pre>
@@ -355,7 +353,7 @@ still alive;</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L383" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L381" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -387,7 +385,7 @@ process is running or being restarted.</p>
 <p>This operation is not supported by <code>simple_one_for_one</code> supervisors.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L307" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L305" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +429,7 @@ or if it fails, the function returns <code>{:error, error}</code>.</p>
 <p>This operation is not supported by <code>simple_one_for_one</code> supervisors.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L336" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L334" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -480,7 +478,7 @@ or if it fails, the child specification is discarded and the function returns
 and child specification.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L269" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L267" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -524,7 +522,7 @@ started child processes with reason <code>:shutdown</code> and then terminate
 itself and return <code>{:error, {:shutdown, reason}}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L202" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L200" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -564,7 +562,7 @@ section in the <a href="GenServer.html"><code>GenServer</code></a> module docs.<
 <p>Other failure conditions are specified in <a href="#start_link/2"><code>start_link/2</code></a> docs.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L228" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L226" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -602,7 +600,7 @@ process can also be restarted explicitly by calling <a href="#restart_child/2"><
 pid, the function returns <code>{:error, :not_found}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L291" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L289" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -639,7 +637,7 @@ if the process is about to be restarted, or <code>:undefined</code> if there is 
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L361" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/supervisor.ex#L359" class="view_source">Source</a>
   
 </div>
 
