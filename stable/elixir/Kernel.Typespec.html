@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a> &rarr; <a href="Kernel.Typespec.html">Typespec</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a> &rarr; <a href="Kernel.Typespec.html">Typespec</a></div>
 
       <h1>
         Kernel.Typespec
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -324,62 +321,13 @@ the <a href="String.html"><code>String</code></a> module), use <code>String.t</c
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#type_to_ast/1">type_to_ast(arg1)</a></td>
-  
-    <td class="summary_synopsis"><p>Converts a type clause back to Elixir AST</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defcallback/1">defcallback(spec)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a callback.
-This macro is responsible for handling the attribute <code>@callback</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#deftypep/1">deftypep(type)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a private type.
-This macro is responsible for handling the attribute <code>@typep</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defspec/1">defspec(spec)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a spec.
-This macro is responsible for handling the attribute <code>@spec</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#deftype/1">deftype(type)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a type.
-This macro is responsible for handling the attribute <code>@type</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defopaque/1">defopaque(type)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines an opaque type.
-This macro is responsible for handling the attribute <code>@opaque</code></p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#beam_callbacks/1">beam_callbacks(module)</a></td>
   
     <td class="summary_synopsis"><p>Returns all callbacks available from the module&#39;s beam code</p>
@@ -408,9 +356,10 @@ This macro is responsible for handling the attribute <code>@opaque</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#spec_to_ast/2">spec_to_ast(name, arg2)</a></td>
+  <td class="summary_signature"><a href="#defcallback/1">defcallback(spec)</a></td>
   
-    <td class="summary_synopsis"><p>Converts a spec clause back to Elixir AST</p>
+    <td class="summary_synopsis"><p>Defines a callback.
+This macro is responsible for handling the attribute <code>@callback</code></p>
 </td>
   
 </tr>
@@ -460,6 +409,52 @@ for modules being compiled</p>
 </td>
   
 </tr>
+<tr>
+  <td class="summary_signature"><a href="#defopaque/1">defopaque(type)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines an opaque type.
+This macro is responsible for handling the attribute <code>@opaque</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defspec/1">defspec(spec)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a spec.
+This macro is responsible for handling the attribute <code>@spec</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deftype/1">deftype(type)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a type.
+This macro is responsible for handling the attribute <code>@type</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#deftypep/1">deftypep(type)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a private type.
+This macro is responsible for handling the attribute <code>@typep</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spec_to_ast/2">spec_to_ast(name, arg2)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts a spec clause back to Elixir AST</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#type_to_ast/1">type_to_ast(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts a type clause back to Elixir AST</p>
+</td>
+  
+</tr>
 
         </table>
       
@@ -495,7 +490,7 @@ element is spec name and arity and the second is the spec.</p>
 which can be located by the runtime system.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L484" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L484" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -524,7 +519,7 @@ element is spec name and arity and the second is the spec.</p>
 located by the runtime system.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L470" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L470" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -553,7 +548,7 @@ name and arity and the second element is the documentation.</p>
 located by the runtime system.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L422" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L422" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -582,7 +577,7 @@ element is the type (<code>:typep</code>, <code>:type</code> and <code>:opaque</
 located by the runtime system.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L442" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L442" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -598,7 +593,7 @@ located by the runtime system.</p>
   <div class="docstring"><p>Defines a <code>callback</code> by receiving Erlang&#39;s typespec.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L317" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L317" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -614,7 +609,7 @@ located by the runtime system.</p>
   <div class="docstring"><p>Defines a <code>spec</code> by receiving Erlang&#39;s typespec.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L310" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L310" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -630,7 +625,7 @@ located by the runtime system.</p>
   <div class="docstring"><p>Defines a <code>type</code>, <code>typep</code> or <code>opaque</code> by receiving Erlang&#39;s typespec.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L270" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L270" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -647,7 +642,7 @@ located by the runtime system.</p>
 This function is only available for modules being compiled.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L345" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L345" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -664,7 +659,7 @@ This function is only available for modules being compiled.</p>
 This function is only available for modules being compiled.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L336" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L336" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -682,7 +677,7 @@ This function is only available for modules being compiled.</p>
 for modules being compiled.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L326" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L326" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -698,7 +693,7 @@ for modules being compiled.</p>
   <div class="docstring"><p>Converts a spec clause back to Elixir AST.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L353" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L353" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -714,7 +709,7 @@ for modules being compiled.</p>
   <div class="docstring"><p>Converts a type clause back to Elixir AST.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L400" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L400" class="view_source">Source</a>
   
 </div>
 
@@ -743,7 +738,7 @@ This macro is responsible for handling the attribute <code>@callback</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L259" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L259" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -765,7 +760,7 @@ This macro is responsible for handling the attribute <code>@opaque</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L214" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L214" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -787,7 +782,7 @@ This macro is responsible for handling the attribute <code>@spec</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L244" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L244" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -809,7 +804,7 @@ This macro is responsible for handling the attribute <code>@type</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L199" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L199" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -831,7 +826,7 @@ This macro is responsible for handling the attribute <code>@typep</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel/typespec.ex#L229" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel/typespec.ex#L229" class="view_source">Source</a>
   
 </div>
 

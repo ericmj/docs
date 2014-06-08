@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Inspect.html">Inspect</a> &rarr; <a href="Inspect.Algebra.html">Algebra</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Inspect.html">Inspect</a> &rarr; <a href="Inspect.Algebra.html">Algebra</a></div>
 
       <h1>
         Inspect.Algebra
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -115,9 +112,7 @@ by this module and by providing their own rendering functions.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L39" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L38" class="view_source">Source</a>
       
 
       
@@ -125,21 +120,6 @@ by this module and by providing their own rendering functions.</p>
         <table class="summary">
           <tr>
   <td class="summary_signature"><a href="#break/0">break()</a></td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#empty/0">empty()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>:doc_nil</code> which is a document entity used to represent
-nothingness. Takes no arguments</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#concat/1">concat(docs)</a></td>
-  
-    <td class="summary_synopsis"><p>Concatenates a list of documents</p>
-</td>
   
 </tr>
 <tr>
@@ -152,9 +132,9 @@ be rendered as a linebreak or as spaces, depending on the
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#group/1">group(d)</a></td>
+  <td class="summary_signature"><a href="#concat/1">concat(docs)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a group containing the specified document</p>
+    <td class="summary_synopsis"><p>Concatenates a list of documents</p>
 </td>
   
 </tr>
@@ -167,10 +147,10 @@ left doc and right doc. Returns a DocCons doc</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_doc/2">to_doc(arg, opts)</a></td>
+  <td class="summary_signature"><a href="#empty/0">empty()</a></td>
   
-    <td class="summary_synopsis"><p>Converts an Elixir structure to an algebra document
-according to the inspect protocol</p>
+    <td class="summary_synopsis"><p>Returns <code>:doc_nil</code> which is a document entity used to represent
+nothingness. Takes no arguments</p>
 </td>
   
 </tr>
@@ -190,16 +170,24 @@ using a function that is passed as the first argument</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#line/2">line(x, y)</a></td>
+  <td class="summary_signature"><a href="#glue/3">glue(x, g, y)</a></td>
   
-    <td class="summary_synopsis"><p>Inserts a mandatory linebreak between two document entities</p>
+    <td class="summary_synopsis"><p>Inserts a break, passed as the second argument, between two docs,
+the first and the third arguments</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#space/2">space(x, y)</a></td>
+  <td class="summary_signature"><a href="#group/1">group(d)</a></td>
   
-    <td class="summary_synopsis"><p>Inserts a mandatory single space between two document entities</p>
+    <td class="summary_synopsis"><p>Returns a group containing the specified document</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#line/2">line(x, y)</a></td>
+  
+    <td class="summary_synopsis"><p>Inserts a mandatory linebreak between two document entities</p>
 </td>
   
 </tr>
@@ -219,10 +207,9 @@ appended to the line breaks</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#glue/3">glue(x, g, y)</a></td>
+  <td class="summary_signature"><a href="#space/2">space(x, y)</a></td>
   
-    <td class="summary_synopsis"><p>Inserts a break, passed as the second argument, between two docs,
-the first and the third arguments</p>
+    <td class="summary_synopsis"><p>Inserts a mandatory single space between two document entities</p>
 </td>
   
 </tr>
@@ -239,6 +226,14 @@ the first and the third arguments</p>
     <td class="summary_synopsis"><p>Maps and glues a collection of items together using the given separator
 and surrounds them. A limit can be passed which, once reached, stops
 gluing and outputs &quot;...&quot; instead</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_doc/2">to_doc(map, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts an Elixir structure to an algebra document
+according to the inspect protocol</p>
 </td>
   
 </tr>
@@ -281,7 +276,7 @@ gluing and outputs &quot;...&quot; instead</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L278" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L264" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -323,7 +318,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 10)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L275" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L261" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -346,7 +341,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 10)
   <div class="docstring"><p>Concatenates a list of documents.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L229" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L215" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -377,7 +372,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L221" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L207" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -407,7 +402,7 @@ nothingness. Takes no arguments.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L207" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L193" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,7 +436,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L366" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L352" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -464,7 +459,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
   <div class="docstring"><p>Inserts a break between two docs. See <a href="#break/1"><code>break/1</code></a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L284" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L270" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -488,7 +483,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 the first and the third arguments.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L291" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L277" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -535,7 +530,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 6)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L321" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L307" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -565,7 +560,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L349" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -596,7 +591,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L245" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L231" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -623,7 +618,7 @@ and returns the string representation of the best layout for the
 document to fit in the given width.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L455" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L441" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -653,7 +648,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 80)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L336" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -687,7 +682,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L387" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L373" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -727,12 +722,12 @@ iex&gt; Inspect.Algebra.pretty(doc, 20)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L412" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L398" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="to_doc/2">
-    <span class="signature"><strong>to_doc(arg, opts)</strong></span>
+    <span class="signature"><strong>to_doc(map, opts)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#to_doc/2" class="detail_link" title="Link to this function">#</a>
@@ -751,7 +746,7 @@ iex&gt; Inspect.Algebra.pretty(doc, 20)
 according to the inspect protocol.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/inspect/algebra.ex#L163" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L162" class="view_source">Source</a>
   
 </div>
 

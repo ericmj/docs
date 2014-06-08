@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="String.html">String</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="String.html">String</a></div>
 
       <h1>
         String
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -168,68 +165,17 @@ responsible to check the validity of the encoding.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L3" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L3" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#printable?/1">printable?(b)</a></td>
+  <td class="summary_signature"><a href="#at/2">at(string, position)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if a string is printable considering it is encoded
-as UTF-8. Returns <code>true</code> if so, <code>false</code> otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#valid?/1">valid?(arg1)</a></td>
-  
-    <td class="summary_synopsis"><p>Checks whether <code>str</code> contains only valid characters</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#valid_character?/1">valid_character?(codepoint)</a></td>
-  
-    <td class="summary_synopsis"><p>Checks whether <code>str</code> is a valid character</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#downcase/1">downcase(binary)</a></td>
-  
-    <td class="summary_synopsis"><p>Convert all characters on the given string to lowercase</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#upcase/1">upcase(binary)</a></td>
-  
-    <td class="summary_synopsis"><p>Convert all characters on the given string to uppercase</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Converts a string into a char list</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_atom/1">to_atom(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Converts a string to an atom</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_existing_atom/1">to_existing_atom(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Converts a string to an existing atom</p>
+    <td class="summary_synopsis"><p>Returns the grapheme in the <code>position</code> of the given utf8 <code>string</code>.
+If <code>position</code> is greater than <code>string</code> length, than it returns <code>nil</code></p>
 </td>
   
 </tr>
@@ -242,48 +188,9 @@ uppercase and the remaining to lowercase</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#split/1">split(binary)</a></td>
+  <td class="summary_signature"><a href="#chunk/2">chunk(string, trait)</a></td>
   
-    <td class="summary_synopsis"><p>Divides a string into substrings at each Unicode whitespace
-occurrence with leading and trailing whitespace ignored</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_float/1">to_float(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a float whose text representation is <code>string</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#to_integer/1">to_integer(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a integer whose text representation is <code>string</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#lstrip/1">lstrip(binary)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a string where leading Unicode whitespace
-has been removed</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#strip/1">strip(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a string where leading/trailing Unicode whitespace
-has been removed</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#rstrip/1">rstrip(binary)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a string where trailing Unicode whitespace
-has been removed</p>
+    <td class="summary_synopsis"><p>Splits the string into chunks of characters that share a common trait</p>
 </td>
   
 </tr>
@@ -291,6 +198,35 @@ has been removed</p>
   <td class="summary_signature"><a href="#codepoints/1">codepoints(string)</a></td>
   
     <td class="summary_synopsis"><p>Returns all codepoints in the string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#contains?/2">contains?(string, contents)</a></td>
+  
+    <td class="summary_synopsis"><p>Check if <code>string</code> contains any of the given <code>contents</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#downcase/1">downcase(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Convert all characters on the given string to lowercase</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#duplicate/2">duplicate(subject, n)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a binary <code>subject</code> duplicated <code>n</code> times</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ends_with?/2">ends_with?(string, suffixes)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>string</code> ends with any of the suffixes given, otherwise
+<code>false</code>. <code>suffixes</code> can be either a single suffix or a list of suffixes</p>
 </td>
   
 </tr>
@@ -303,10 +239,61 @@ nil if the string is empty</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#graphemes/1">graphemes(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns unicode graphemes in the string as per Extended Grapheme
+Cluster algorithm outlined in the <a href="http://www.unicode.org/reports/tr29/">Unicode Standard Annex #29,
+Unicode Text Segmentation</a></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#last/1">last(string)</a></td>
   
     <td class="summary_synopsis"><p>Returns the last grapheme from an utf8 string,
 <code>nil</code> if the string is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#length/1">length(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the number of unicode graphemes in an utf8 string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ljust/2">ljust(subject, len)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a new string of length <code>len</code> with <code>subject</code> left justified and padded
+with <code>padding</code>. If <code>padding</code> is not present, it defaults to whitespace. When
+<code>len</code> is less than the length of <code>subject</code>, <code>subject</code> is returned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ljust/3">ljust(subject, len, padding)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lstrip/1">lstrip(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a string where leading Unicode whitespace
+has been removed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#lstrip/2">lstrip(other, char)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a string where leading <code>char</code> have been removed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#match?/2">match?(string, regex)</a></td>
+  
+    <td class="summary_synopsis"><p>Check if <code>string</code> matches the given regular expression</p>
 </td>
   
 </tr>
@@ -325,18 +312,19 @@ nil if the string is empty</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#length/1">length(string)</a></td>
+  <td class="summary_signature"><a href="#printable?/1">printable?(b)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the number of unicode graphemes in an utf8 string</p>
+    <td class="summary_synopsis"><p>Checks if a string is printable considering it is encoded
+as UTF-8. Returns <code>true</code> if so, <code>false</code> otherwise</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#graphemes/1">graphemes(string)</a></td>
+  <td class="summary_signature"><a href="#replace/4">replace(subject, pattern, replacement, options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Returns unicode graphemes in the string as per Extended Grapheme
-Cluster algorithm outlined in the <a href="http://www.unicode.org/reports/tr29/">Unicode Standard Annex #29,
-Unicode Text Segmentation</a></p>
+    <td class="summary_synopsis"><p>Returns a new binary based on <code>subject</code> by replacing the parts
+matching <code>pattern</code> by <code>replacement</code>. By default, it replaces
+all entries, except if the <code>global</code> option is set to <code>false</code></p>
 </td>
   
 </tr>
@@ -344,52 +332,6 @@ Unicode Text Segmentation</a></p>
   <td class="summary_signature"><a href="#reverse/1">reverse(string)</a></td>
   
     <td class="summary_synopsis"><p>Reverses the given string. Works on graphemes</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#contains?/2">contains?(string, contents)</a></td>
-  
-    <td class="summary_synopsis"><p>Check if <code>string</code> contains any of the given <code>contents</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#match?/2">match?(string, regex)</a></td>
-  
-    <td class="summary_synopsis"><p>Check if <code>string</code> matches the given regular expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#ends_with?/2">ends_with?(string, suffixes)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>string</code> ends with any of the suffixes given, otherwise
-<code>false</code>. <code>suffixes</code> can be either a single suffix or a list of suffixes</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#starts_with?/2">starts_with?(string, prefixes)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>string</code> starts with any of the prefixes given, otherwise
-<code>false</code>. <code>prefixes</code> can be either a single prefix or a list of prefixes</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#duplicate/2">duplicate(subject, n)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a binary <code>subject</code> duplicated <code>n</code> times</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#ljust/2">ljust(subject, len)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a new string of length <code>len</code> with <code>subject</code> left justified and padded
-with <code>padding</code>. If <code>padding</code> is not present, it defaults to whitespace. When
-<code>len</code> is less than the length of <code>subject</code>, <code>subject</code> is returned</p>
 </td>
   
 </tr>
@@ -404,17 +346,14 @@ returned</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#lstrip/2">lstrip(other, char)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a string where leading <code>char</code> have been removed</p>
-</td>
+  <td class="summary_signature"><a href="#rjust/3">rjust(subject, len, padding)</a></td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#strip/2">strip(string, char)</a></td>
+  <td class="summary_signature"><a href="#rstrip/1">rstrip(binary)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a string where leading/trailing <code>char</code> have been
-removed</p>
+    <td class="summary_synopsis"><p>Returns a string where trailing Unicode whitespace
+has been removed</p>
 </td>
   
 </tr>
@@ -434,17 +373,26 @@ range to the offset given by the end of the range</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_integer/2">to_integer(string, base)</a></td>
+  <td class="summary_signature"><a href="#slice/3">slice(string, start, len)</a></td>
   
-    <td class="summary_synopsis"><p>Returns an integer whose text representation is <code>string</code> in base <code>base</code></p>
+    <td class="summary_synopsis"><p>Returns a substring starting at the offset given by the first, and
+a length given by the second.
+If the offset is greater than string length, than it returns <code>nil</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#at/2">at(string, position)</a></td>
+  <td class="summary_signature"><a href="#split/1">split(binary)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the grapheme in the <code>position</code> of the given utf8 <code>string</code>.
-If <code>position</code> is greater than <code>string</code> length, than it returns <code>nil</code></p>
+    <td class="summary_synopsis"><p>Divides a string into substrings at each Unicode whitespace
+occurrence with leading and trailing whitespace ignored</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#split/3">split(binary, pattern, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Divides a string into substrings based on a pattern</p>
 </td>
   
 </tr>
@@ -457,35 +405,89 @@ negative, location is counted from the end of the string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#ljust/3">ljust(subject, len, padding)</a></td>
+  <td class="summary_signature"><a href="#starts_with?/2">starts_with?(string, prefixes)</a></td>
   
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#rjust/3">rjust(subject, len, padding)</a></td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#split/3">split(binary, pattern, options \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Divides a string into substrings based on a pattern</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>string</code> starts with any of the prefixes given, otherwise
+<code>false</code>. <code>prefixes</code> can be either a single prefix or a list of prefixes</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#slice/3">slice(string, start, len)</a></td>
+  <td class="summary_signature"><a href="#strip/1">strip(string)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a substring starting at the offset given by the first, and
-a length given by the second.
-If the offset is greater than string length, than it returns <code>nil</code></p>
+    <td class="summary_synopsis"><p>Returns a string where leading/trailing Unicode whitespace
+has been removed</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#replace/4">replace(subject, pattern, replacement, options \\ [])</a></td>
+  <td class="summary_signature"><a href="#strip/2">strip(string, char)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a new binary based on <code>subject</code> by replacing the parts
-matching <code>pattern</code> by <code>replacement</code>. By default, it replaces
-all entries, except if the <code>global</code> option is set to <code>false</code></p>
+    <td class="summary_synopsis"><p>Returns a string where leading/trailing <code>char</code> have been
+removed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_atom/1">to_atom(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts a string to an atom</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts a string into a char list</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_existing_atom/1">to_existing_atom(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts a string to an existing atom</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_float/1">to_float(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a float whose text representation is <code>string</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_integer/1">to_integer(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a integer whose text representation is <code>string</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_integer/2">to_integer(string, base)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns an integer whose text representation is <code>string</code> in base <code>base</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#upcase/1">upcase(binary)</a></td>
+  
+    <td class="summary_synopsis"><p>Convert all characters on the given string to uppercase</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#valid?/1">valid?(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks whether <code>str</code> contains only valid characters</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#valid_character?/1">valid_character?(codepoint)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks whether <code>str</code> is a valid character</p>
 </td>
   
 </tr>
@@ -560,7 +562,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L893" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L952" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -601,7 +603,56 @@ iex&gt; String.capitalize(&quot;josé&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L372" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L372" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="chunk/2">
+    <span class="signature"><strong>chunk(string, trait)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#chunk/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>chunk(<a href="#t:t/0">t</a>, :valid | :printable) :: [<a href="#t:t/0">t</a>]</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Splits the string into chunks of characters that share a common trait.</p>
+
+<p>The trait can be one of two options:</p>
+
+<ul>
+<li><p><code>:valid</code> – the string is split into chunks of valid and invalid character
+sequences</p></li>
+<li><p><code>:printable</code> – the string is split into chunks of printable and
+non-printable character sequences</p></li>
+</ul>
+
+<p>Returns a list of binaries each of which contains only one kind of
+characters.</p>
+
+<p>If the given string is empty, an empty list is returned.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; String.chunk(&lt;&lt;?a, ?b, ?c, 0&gt;&gt;, :valid)
+[&quot;abc\000&quot;]
+
+iex&gt; String.chunk(&lt;&lt;?a, ?b, ?c, 0, 0x0ffff::utf8&gt;&gt;, :valid)
+[&quot;abc\000&quot;, &lt;&lt;0x0ffff::utf8&gt;&gt;]
+
+iex&gt; String.chunk(&lt;&lt;?a, ?b, ?c, 0, 0x0ffff::utf8&gt;&gt;, :printable)
+[&quot;abc&quot;, &lt;&lt;0, 0x0ffff::utf8&gt;&gt;]
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L800" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -636,7 +687,7 @@ iex&gt; String.codepoints(&quot;ἅἪῼ&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L686" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L686" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -673,7 +724,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1169" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1228" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -708,7 +759,7 @@ iex&gt; String.downcase(&quot;JOSÉ&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L348" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L348" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -743,7 +794,7 @@ iex&gt; String.duplicate(&quot;abc&quot;, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L666" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L666" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -779,7 +830,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1114" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1173" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -812,7 +863,7 @@ iex&gt; String.first(&quot;եոգլի&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L815" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L874" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -843,7 +894,7 @@ Unicode Text Segmentation</a>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L782" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L841" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -876,7 +927,7 @@ iex&gt; String.last(&quot;եոգլի&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L836" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L895" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -908,7 +959,7 @@ iex&gt; String.length(&quot;եոգլի&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L859" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L918" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -942,7 +993,7 @@ iex&gt; String.ljust(&quot;abc&quot;, 5, ?-)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L537" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L537" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -964,7 +1015,7 @@ iex&gt; String.ljust(&quot;abc&quot;, 5, ?-)
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L541" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L541" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -987,7 +1038,7 @@ has been removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L440" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L440" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1016,7 +1067,7 @@ has been removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L454" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L454" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1048,7 +1099,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1146" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1205" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1086,7 +1137,7 @@ be returned by this function.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L708" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L708" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1119,7 +1170,7 @@ the String reached its end.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L799" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L858" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1149,7 +1200,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L131" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L131" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1208,7 +1259,7 @@ iex&gt; String.replace(&quot;a,b,c&quot;, &quot;,&quot;, &quot;[]&quot;, insert_
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L605" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L605" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1243,7 +1294,7 @@ iex&gt; String.reverse(&quot;hello ∂og&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L640" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L640" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1278,7 +1329,7 @@ iex&gt; String.rjust(&quot;abc&quot;, 5, ?-)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L512" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L512" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1300,7 +1351,7 @@ iex&gt; String.rjust(&quot;abc&quot;, 5, ?-)
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L516" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L516" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1330,7 +1381,7 @@ has been removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L388" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L388" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1359,7 +1410,7 @@ has been removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L401" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L401" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1422,7 +1473,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1013" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1072" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1474,7 +1525,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L949" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1008" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1510,7 +1561,7 @@ iex&gt; String.split(&quot; foo bar &quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L169" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L169" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1590,7 +1641,7 @@ iex&gt; String.split(&quot;abc&quot;, &quot;&quot;, parts: 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L230" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1636,7 +1687,7 @@ iex&gt; String.split_at &quot;abc&quot;, -1000
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L294" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L294" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1672,7 +1723,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1080" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1139" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1702,7 +1753,7 @@ has been removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L474" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L474" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1732,7 +1783,7 @@ removed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L490" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L490" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1766,7 +1817,7 @@ which contains Unicode codepoints greater than 0xFF.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1226" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1285" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1799,7 +1850,7 @@ UTF-8 codepoints. If you have a raw binary, you must instead use
 <a href="http://erlang.org/doc/man/binary.html">the <code>:binary</code> module</a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1198" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1257" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1837,7 +1888,7 @@ iex&gt; String.to_existing_atom(&quot;this_atom_will_never_exist&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1249" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1308" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1868,7 +1919,7 @@ iex&gt; String.to_existing_atom(&quot;this_atom_will_never_exist&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1297" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1356" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1899,7 +1950,7 @@ iex&gt; String.to_existing_atom(&quot;this_atom_will_never_exist&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1265" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1324" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1930,7 +1981,7 @@ iex&gt; String.to_existing_atom(&quot;this_atom_will_never_exist&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L1281" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L1340" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1965,7 +2016,7 @@ iex&gt; String.upcase(&quot;josé&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L330" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L330" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2003,7 +2054,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L737" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L737" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2044,7 +2095,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/string.ex#L767" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/string.ex#L767" class="view_source">Source</a>
   
 </div>
 

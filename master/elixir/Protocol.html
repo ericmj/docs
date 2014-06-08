@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Protocol.html">Protocol</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Protocol.html">Protocol</a></div>
 
       <h1>
         Protocol
@@ -49,7 +49,7 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L1" class="view_source">Source</a>
       
 
       
@@ -89,6 +89,13 @@ consolidates the given protocol</p>
   <td class="summary_signature"><a href="#def/1">def(signature)</a></td>
   
     <td class="summary_synopsis"><p>Defines a new protocol function</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#derive/3">derive(protocol, module, options \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Derive the <code>protocol</code> for <code>module</code> with the given options</p>
 </td>
   
 </tr>
@@ -139,7 +146,7 @@ of the given protocol.</p>
 <p>Returns <code>:ok</code> if so, otherwise raises ArgumentError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L88" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L88" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -164,7 +171,7 @@ of the given protocol.</p>
 <p>Returns <code>:ok</code> if so, otherwise raises ArgumentError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L61" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L61" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -209,7 +216,7 @@ However each implementation must be available and
 it will be loaded.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L252" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L262" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -232,7 +239,7 @@ it will be loaded.</p>
   <div class="docstring"><p>Returns true if the protocol was consolidated.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L220" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -271,7 +278,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L165" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L175" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -309,7 +316,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L135" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L145" class="view_source">Source</a>
   
 </div>
 
@@ -336,7 +343,23 @@ regular <code>Kernel.def/*</code> macros are replaced by this macro which
 defines the protocol functions with the appropriate callbacks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/protocol.ex#L13" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L13" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="derive/3">
+    <span class="signature"><strong>derive(protocol, module, options \\ [])</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#derive/3" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Derive the <code>protocol</code> for <code>module</code> with the given options.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/protocol.ex#L117" class="view_source">Source</a>
   
 </div>
 

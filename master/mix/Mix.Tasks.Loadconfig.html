@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.0-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Loadconfig.html">Loadconfig</a></div>
+      <div class="breadcrumbs">Mix v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Loadconfig.html">Loadconfig</a></div>
 
       <h1>
         Mix.Tasks.Loadconfig
@@ -41,34 +41,29 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>Loads and persists the project configuration.</p>
+          <p>Loads and persists the given configuration.</p>
 
-<p>In case the application is an umbrella application, the
-configuration for all children app will be merged together
-and, in case there are any conflicts, they need to be resolved
-in the umbrella application.</p>
+<p>In case no configuration file is given, it
+loads the project oe at &quot;config/config.exs&quot;.</p>
+
+<p>This task is automatically reenabled, so it
+can be called multiple times to load different
+configs.</p>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/loadconfig.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/loadconfig.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#load/0">load()</a></td>
+  <td class="summary_signature"><a href="#run/1">run(args)</a></td>
   
-    <td class="summary_synopsis"><p>Loads the configuration for the current project</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#run/1">run()</a></td>
-  
-    <td class="summary_synopsis"><p>Runs this task</p>
+    <td class="summary_synopsis"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a></p>
 </td>
   
 </tr>
@@ -82,24 +77,8 @@ in the umbrella application.</p>
         <div id="functions_details" class="details_list">
           <h2>Functions</h2>
           <div class="detail">
-  <div class="detail_header" id="load/0">
-    <span class="signature"><strong>load()</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#load/0" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <div class="docstring"><p>Loads the configuration for the current project.</p>
-</div>
-  
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/loadconfig.ex#L23" class="view_source">Source</a>
-  
-</div>
-<div class="detail">
   <div class="detail_header" id="run/1">
-    <span class="signature"><strong>run()</strong></span>
+    <span class="signature"><strong>run(args)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#run/1" class="detail_link" title="Link to this function">#</a>
@@ -107,10 +86,10 @@ in the umbrella application.</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Runs this task.</p>
+  <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/loadconfig.ex#L16" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/loadconfig.ex#L16" class="view_source">Source</a>
   
 </div>
 

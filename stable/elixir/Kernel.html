@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a></div>
 
       <h1>
         Kernel
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -79,55 +76,56 @@ the function:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L8" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L8" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#make_ref/0">make_ref()</a></td>
+  <td class="summary_signature"><a href="#!/1">!arg</a></td>
   
-    <td class="summary_synopsis"><p>Returns an almost unique reference</p>
+    <td class="summary_synopsis"><p>Receives any argument and returns <code>true</code> if it is <code>false</code>
+or <code>nil</code>. Returns <code>false</code> otherwise. Not allowed in guard
+clauses</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#node/0">node()</a></td>
+  <td class="summary_signature"><a href="#!=/2">left != right</a></td>
   
-    <td class="summary_synopsis"><p>Returns an atom representing the name of the local node.
-If the node is not alive, <code>:nonode@nohost</code> is returned instead</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are not equal</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#binding/0">binding()</a></td>
+  <td class="summary_signature"><a href="#!==/2">left !== right</a></td>
   
-    <td class="summary_synopsis"><p>Returns the binding as a keyword list where the variable name
-is the key and the variable value is the value</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items do not match</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#self/0">self()</a></td>
+  <td class="summary_signature"><a href="#&amp;&amp;/2">left &amp;&amp; right</a></td>
   
-    <td class="summary_synopsis"><p>Returns the pid (process identifier) of the calling process</p>
+    <td class="summary_synopsis"><p>Provides a short-circuit operator that evaluates and returns
+the second expression only if the first one evaluates to true
+(i.e. it is not nil nor false). Returns the first expression
+otherwise</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#throw/1">throw(term)</a></td>
+  <td class="summary_signature"><a href="#*/2">left * right</a></td>
   
-    <td class="summary_synopsis"><p>A non-local return from a function. Check <a href="Kernel.SpecialForms.html#try/1"><code>Kernel.SpecialForms.try/1</code></a> for more information</p>
+    <td class="summary_synopsis"><p>Arithmetic multiplication</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#-/1">-value</a></td>
+  <td class="summary_signature"><a href="#++/2">left ++ right</a></td>
   
-    <td class="summary_synopsis"><p>Arithmetic unary minus</p>
+    <td class="summary_synopsis"><p>Concatenates two lists</p>
 </td>
   
 </tr>
@@ -139,70 +137,104 @@ is the key and the variable value is the value</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#not/1">not arg</a></td>
+  <td class="summary_signature"><a href="#+/2">left + right</a></td>
   
-    <td class="summary_synopsis"><p>Boolean not. Argument must be a boolean</p>
+    <td class="summary_synopsis"><p>Arithmetic plus</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#nil?/1">nil?(x)</a></td>
+  <td class="summary_signature"><a href="#--/2">left -- right</a></td>
   
-    <td class="summary_synopsis"><p>Checks if the given argument is nil or not.
-Allowed in guard clauses</p>
+    <td class="summary_synopsis"><p>Removes the first occurrence of an item on the left
+for each item on the right</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(arg)</a></td>
+  <td class="summary_signature"><a href="#-/1">-value</a></td>
   
-    <td class="summary_synopsis"><p>Convert the argument to a list according to the List.Chars protocol</p>
+    <td class="summary_synopsis"><p>Arithmetic unary minus</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#to_string/1">to_string(arg)</a></td>
+  <td class="summary_signature"><a href="#-/2">left - right</a></td>
   
-    <td class="summary_synopsis"><p>Converts the argument to a string according to the String.Chars protocol.
-This is the function invoked when there is string interpolation</p>
+    <td class="summary_synopsis"><p>Arithmetic minus</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defstruct/1">defstruct(kv)</a></td>
+  <td class="summary_signature"><a href="#../2">first .. last</a></td>
   
-    <td class="summary_synopsis"><p>Defines a struct for the current module</p>
+    <td class="summary_synopsis"><p>Returns a range with the specified start and end.
+Includes both ends</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defexception/1">defexception(fields)</a></td>
+  <td class="summary_signature"><a href="#//2">left / right</a></td>
   
-    <td class="summary_synopsis"><p>Defines an exception</p>
+    <td class="summary_synopsis"><p>Arithmetic division</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#cond/1">cond(list1)</a></td>
+  <td class="summary_signature"><a href="#&lt;/2">left &lt; right</a></td>
   
-    <td class="summary_synopsis"><p>Evaluates the expression corresponding to the first clause that
-evaluates to true. Raises an error if all conditions evaluate to
-to nil or false</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if left is less than right</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defoverridable/1">defoverridable(tuples)</a></td>
+  <td class="summary_signature"><a href="#&lt;=/2">left &lt;= right</a></td>
   
-    <td class="summary_synopsis"><p>Makes the given functions in the current module overridable. An overridable
-function is lazily defined, allowing a developer to customize it</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if left is less than or equal to right</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#raise/1">raise(msg)</a></td>
+  <td class="summary_signature"><a href="#&lt;&gt;/2">left &lt;&gt; right</a></td>
   
-    <td class="summary_synopsis"><p>Raises an exception</p>
+    <td class="summary_synopsis"><p>Concatenates two binaries</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#==/2">left == right</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are equal</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#===/2">left === right</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are match</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#=~/2">left =~ right</a></td>
+  
+    <td class="summary_synopsis"><p>Matches the term on the left against the regular expression or string on the
+right. Returns true if <code>left</code> matches <code>right</code> (if it&#39;s a regular expression)
+or contains <code>right</code> (if it&#39;s a string)</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;/2">left &gt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if left is more than right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;=/2">left &gt;= right</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if left is more than or equal to right</p>
 </td>
   
 </tr>
@@ -210,6 +242,60 @@ function is lazily defined, allowing a developer to customize it</p>
   <td class="summary_signature"><a href="#@/1">@expr</a></td>
   
     <td class="summary_synopsis"><p>Read and write attributes of th current module</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#abs/1">abs(number)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns an integer or float which is the arithmetical absolute value of <code>number</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#alias!/1">alias!(alias)</a></td>
+  
+    <td class="summary_synopsis"><p>When used inside quoting, marks that the alias should not
+be hygienezed. This means the alias will be expanded when
+the macro is expanded</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#and/2">left and right</a></td>
+  
+    <td class="summary_synopsis"><p>Boolean and. Requires only the first argument to be a
+boolean since it short-circuits</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#apply/2">apply(fun, args)</a></td>
+  
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> with the array of arguments <code>args</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#apply/3">apply(module, fun, args)</a></td>
+  
+    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> from <code>module</code> with the array of arguments <code>args</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#binary_part/3">binary_part(binary, start, length)</a></td>
+  
+    <td class="summary_synopsis"><p>Extracts the part of the binary starting at <code>start</code> with length <code>length</code>.
+Binaries are zero-indexed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#binding/0">binding()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the binding as a keyword list where the variable name
+is the key and the variable value is the value</p>
 </td>
   
 </tr>
@@ -223,11 +309,227 @@ variable name is the key and the variable value is the value</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#!/1">!arg</a></td>
+  <td class="summary_signature"><a href="#binding/2">binding(list, context)</a></td>
   
-    <td class="summary_synopsis"><p>Receives any argument and returns <code>true</code> if it is <code>false</code>
-or <code>nil</code>. Returns <code>false</code> otherwise. Not allowed in guard
-clauses</p>
+    <td class="summary_synopsis"><p>Receives a list of atoms at compilation time and returns the
+binding of the given variables in the given context as a keyword
+list where the variable name is the key and the variable value
+is the value</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#bit_size/1">bit_size(bitstring)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns an integer which is the size in bits of <code>bitstring</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#byte_size/1">byte_size(bitstring)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the number of bytes needed to contain <code>bitstring</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cond/1">cond(list1)</a></td>
+  
+    <td class="summary_synopsis"><p>Evaluates the expression corresponding to the first clause that
+evaluates to true. Raises an error if all conditions evaluate to
+to nil or false</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#def/2">def(call, expr \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a function with the given name and contents</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defdelegate/2">defdelegate(funs, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines the given functions in the current module that will
+delegate to the given <code>target</code>. Functions defined with
+<code>defdelegate</code> are public and are allowed to be invoked
+from external. If you find yourself wishing to define a
+delegation as private, you should likely use import
+instead</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defexception/1">defexception(fields)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines an exception</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defimpl/3">defimpl(name, opts, do_block \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Defines an implementation for the given protocol. See
+<a href="#defprotocol/2"><code>defprotocol/2</code></a> for examples</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defmacro/2">defmacro(call, expr \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a macro with the given name and contents</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defmacrop/2">defmacrop(call, expr \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a macro that is private. Private macros are
+only accessible from the same module in which they are defined</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defmodule/2">defmodule(alias, list2)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a module given by name with the given contents</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defoverridable/1">defoverridable(tuples)</a></td>
+  
+    <td class="summary_synopsis"><p>Makes the given functions in the current module overridable. An overridable
+function is lazily defined, allowing a developer to customize it</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defp/2">defp(call, expr \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a function that is private. Private functions are
+only accessible from within the module in which they are defined</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defprotocol/2">defprotocol(name, list2)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a protocol</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#defstruct/1">defstruct(kv)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a struct for the current module</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#destructure/2">destructure(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Allows you to destructure two lists, assigning each term in the right to the
+matching term in the left. Unlike pattern matching via <code>=</code>, if the sizes of
+the left and right lists don&#39;t match, destructuring simply stops instead of
+raising an error</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#div/2">div(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Performs an integer division</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#elem/2">elem(tuple, index)</a></td>
+  
+    <td class="summary_synopsis"><p>Get the element at the zero-based <code>index</code> in <code>tuple</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#exit/1">exit(reason)</a></td>
+  
+    <td class="summary_synopsis"><p>Stops the execution of the calling process with the given reason</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#function_exported?/3">function_exported?(module, function, arity)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns true if the <code>module</code> is loaded and contains a
+public <code>function</code> with the given <code>arity</code>, otherwise false</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_and_update_in/2">get_and_update_in(path, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a value and updates a nested data structure via the given <code>path</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_and_update_in/3">get_and_update_in(data, keys, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a value and updates a nested structure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_in/1">get_in(path)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a value from a nested structure via the given <code>path</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#get_in/2">get_in(data, keys)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets a value from a nested structure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#hd/1">hd(list)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the head of a list, raises <code>badarg</code> if the list is empty</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#if/2">if(condition, clauses)</a></td>
+  
+    <td class="summary_synopsis"><p>Provides an <code>if</code> macro. This macro expects the first argument to
+be a condition and the rest are keyword arguments</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#in/2">left in right</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if the element on the left side is member of the
+collection on the right side</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#inspect/2">inspect(arg, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Inspect the given argument according to the <a href="Inspect.html"><code>Inspect</code></a> protocol.
+The second argument is a keywords list with options to control
+inspection</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#is_atom/1">is_atom(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is an atom; otherwise returns <code>false</code></p>
 </td>
   
 </tr>
@@ -246,6 +548,14 @@ clauses</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#is_boolean/1">is_boolean(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is either the atom <code>true</code> or the atom <code>false</code> (i.e. a boolean);
+otherwise returns false</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#is_float/1">is_float(term)</a></td>
   
     <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is a floating point number; otherwise returns <code>false</code></p>
@@ -260,6 +570,21 @@ clauses</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#is_function/2">is_function(term, arity)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is a function that can be applied with <code>arity</code> number of arguments;
+otherwise returns <code>false</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#is_integer/1">is_integer(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is an integer; otherwise returns <code>false</code></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#is_list/1">is_list(term)</a></td>
   
     <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is a list with zero or more elements; otherwise returns <code>false</code></p>
@@ -270,6 +595,14 @@ clauses</p>
   <td class="summary_signature"><a href="#is_map/1">is_map(term)</a></td>
   
     <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is a map; otherwise returns <code>false</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#is_number/1">is_number(term)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is either an integer or a floating point number;
+otherwise returns <code>false</code></p>
 </td>
   
 </tr>
@@ -302,74 +635,73 @@ clauses</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#is_atom/1">is_atom(term)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is an atom; otherwise returns <code>false</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#is_integer/1">is_integer(term)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is an integer; otherwise returns <code>false</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#is_number/1">is_number(term)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is either an integer or a floating point number;
-otherwise returns <code>false</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#is_boolean/1">is_boolean(term)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is either the atom <code>true</code> or the atom <code>false</code> (i.e. a boolean);
-otherwise returns false</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#round/1">round(number)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns an integer by rounding the given number</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#trunc/1">trunc(number)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns an integer by truncating the given number</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#abs/1">abs(number)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns an integer or float which is the arithmetical absolute value of <code>number</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#bit_size/1">bit_size(bitstring)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns an integer which is the size in bits of <code>bitstring</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#hd/1">hd(list)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the head of a list, raises <code>badarg</code> if the list is empty</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#length/1">length(list)</a></td>
   
     <td class="summary_synopsis"><p>Returns the length of <code>list</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#macro_exported?/3">macro_exported?(module, macro, arity)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns true if the <code>module</code> is loaded and contains a
+public <code>macro</code> with the given <code>arity</code>, otherwise false</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#make_ref/0">make_ref()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns an almost unique reference</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#map_size/1">map_size(map)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the size of a map</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#match?/2">match?(pattern, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A convenient macro that checks if the right side matches
+the left side. The left side is allowed to be a match pattern</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#max/2">max(first, second)</a></td>
+  
+    <td class="summary_synopsis"><p>Return the biggest of the two given terms according to
+Erlang&#39;s term ordering. If the terms compare equal, the
+first one is returned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#min/2">min(first, second)</a></td>
+  
+    <td class="summary_synopsis"><p>Return the smallest of the two given terms according to
+Erlang&#39;s term ordering. If the terms compare equal, the
+first one is returned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#nil?/1">nil?(x)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if the given argument is nil or not.
+Allowed in guard clauses</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#node/0">node()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns an atom representing the name of the local node.
+If the node is not alive, <code>:nonode@nohost</code> is returned instead</p>
 </td>
   
 </tr>
@@ -383,146 +715,9 @@ If the local node is not alive, <code>nonode@nohost</code> is returned</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#byte_size/1">byte_size(bitstring)</a></td>
+  <td class="summary_signature"><a href="#not/1">not arg</a></td>
   
-    <td class="summary_synopsis"><p>Returns the number of bytes needed to contain <code>bitstring</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#map_size/1">map_size(map)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the size of a map</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#tuple_size/1">tuple_size(tuple)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the size of a tuple</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#size/1">size(arg)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the size of the given argument, which must be a tuple or a binary</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#tl/1">tl(list)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the tail of a list. Raises <a href="ArgumentError.html"><code>ArgumentError</code></a> if the list is empty</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn/1">spawn(fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given function and returns its pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn_link/1">spawn_link(fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given function, links it to the current process and returns its pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn_monitor/1">spawn_monitor(fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given function, monitors it and returns its pid
-and monitoring reference</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#exit/1">exit(reason)</a></td>
-  
-    <td class="summary_synopsis"><p>Stops the execution of the calling process with the given reason</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#alias!/1">alias!(alias)</a></td>
-  
-    <td class="summary_synopsis"><p>When used inside quoting, marks that the alias should not
-be hygienezed. This means the alias will be expanded when
-the macro is expanded</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#match?/2">match?(pattern, expr)</a></td>
-  
-    <td class="summary_synopsis"><p>A convenient macro that checks if the right side matches
-the left side. The left side is allowed to be a match pattern</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#access/2">access(element, attrs)</a></td>
-  
-    <td class="summary_synopsis"><p>Access the given element using the qualifier according
-to the <a href="Access.html"><code>Access</code></a> protocol. All calls in the form <code>foo[bar]</code>
-are translated to <code>access(foo, bar)</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#destructure/2">destructure(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Allows you to destructure two lists, assigning each term in the right to the
-matching term in the left. Unlike pattern matching via <code>=</code>, if the sizes of
-the left and right lists don&#39;t match, destructuring simply stops instead of
-raising an error</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#//2">left / right</a></td>
-  
-    <td class="summary_synopsis"><p>Arithmetic division</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#-/2">left - right</a></td>
-  
-    <td class="summary_synopsis"><p>Arithmetic minus</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#*/2">left * right</a></td>
-  
-    <td class="summary_synopsis"><p>Arithmetic multiplication</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#+/2">left + right</a></td>
-  
-    <td class="summary_synopsis"><p>Arithmetic plus</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#and/2">left and right</a></td>
-  
-    <td class="summary_synopsis"><p>Boolean and. Requires only the first argument to be a
-boolean since it short-circuits</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#xor/2">left xor right</a></td>
-  
-    <td class="summary_synopsis"><p>Boolean exclusive-or. Arguments must be booleans.
-Returns <code>true</code> if and only if both arguments are different</p>
+    <td class="summary_synopsis"><p>Boolean not. Argument must be a boolean</p>
 </td>
   
 </tr>
@@ -535,6 +730,41 @@ boolean since it short-circuits</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#put_elem/3">put_elem(tuple, index, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Sets the element in <code>tuple</code> at the zero-based <code>index</code> to the given <code>value</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_in/2">put_in(path, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Puts a value in a nested structure via the given <code>path</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put_in/3">put_in(data, keys, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Puts a value in a nested structure</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#raise/1">raise(msg)</a></td>
+  
+    <td class="summary_synopsis"><p>Raises an exception</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#raise/2">raise(exception, attrs)</a></td>
+  
+    <td class="summary_synopsis"><p>Raises an exception</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#rem/2">rem(left, right)</a></td>
   
     <td class="summary_synopsis"><p>Calculates the remainder of an integer division</p>
@@ -542,104 +772,37 @@ boolean since it short-circuits</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#in/2">left in right</a></td>
+  <td class="summary_signature"><a href="#reraise/2">reraise(msg, stacktrace)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if the element on the left side is member of the
-collection on the right side</p>
+    <td class="summary_synopsis"><p>Raises an exception preserving a previous stacktrace</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&lt;&gt;/2">left &lt;&gt; right</a></td>
+  <td class="summary_signature"><a href="#reraise/3">reraise(exception, attrs, stacktrace)</a></td>
   
-    <td class="summary_synopsis"><p>Concatenates two binaries</p>
+    <td class="summary_synopsis"><p>Raises an exception preserving a previous stacktrace</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#++/2">left ++ right</a></td>
+  <td class="summary_signature"><a href="#round/1">round(number)</a></td>
   
-    <td class="summary_synopsis"><p>Concatenates two lists</p>
+    <td class="summary_synopsis"><p>Returns an integer by rounding the given number</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#struct/2">struct(struct, kv \\ [])</a></td>
+  <td class="summary_signature"><a href="#self/0">self()</a></td>
   
-    <td class="summary_synopsis"><p>Creates and updates structs</p>
+    <td class="summary_synopsis"><p>Returns the pid (process identifier) of the calling process</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defp/2">defp(call, expr \\ nil)</a></td>
+  <td class="summary_signature"><a href="#send/2">send(dest, msg)</a></td>
   
-    <td class="summary_synopsis"><p>Defines a function that is private. Private functions are
-only accessible from within the module in which they are defined</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#def/2">def(call, expr \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a function with the given name and contents</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defmacrop/2">defmacrop(call, expr \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a macro that is private. Private macros are
-only accessible from the same module in which they are defined</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defmacro/2">defmacro(call, expr \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a macro with the given name and contents</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defmodule/2">defmodule(alias, list2)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a module given by name with the given contents</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defprotocol/2">defprotocol(name, list2)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines a protocol</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#defdelegate/2">defdelegate(funs, opts)</a></td>
-  
-    <td class="summary_synopsis"><p>Defines the given functions in the current module that will
-delegate to the given <code>target</code>. Functions defined with
-<code>defdelegate</code> are public and are allowed to be invoked
-from external. If you find yourself wishing to define a
-delegation as private, you should likely use import
-instead</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#unless/2">unless(clause, options)</a></td>
-  
-    <td class="summary_synopsis"><p>Evaluates and returns the do-block passed in as a second argument
-unless clause evaluates to true.
-Returns nil otherwise.
-See also <code>if</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#elem/2">elem(tuple, index)</a></td>
-  
-    <td class="summary_synopsis"><p>Get the element at the zero-based <code>index</code> in <code>tuple</code></p>
+    <td class="summary_synopsis"><p>Sends a message to the given <code>dest</code> and returns the message</p>
 </td>
   
 </tr>
@@ -706,190 +869,130 @@ string, unescaping characters and replacing interpolations</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#inspect/2">inspect(arg, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#spawn/1">spawn(fun)</a></td>
   
-    <td class="summary_synopsis"><p>Inspect the given argument according to the <a href="Inspect.html"><code>Inspect</code></a> protocol.
-The second argument is a keywords list with options to control
-inspection</p>
+    <td class="summary_synopsis"><p>Spawns the given function and returns its pid</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#apply/2">apply(fun, args)</a></td>
+  <td class="summary_signature"><a href="#spawn/3">spawn(module, fun, args)</a></td>
   
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> with the array of arguments <code>args</code></p>
+    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args
+and returns its pid</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#=~/2">left =~ right</a></td>
+  <td class="summary_signature"><a href="#spawn_link/1">spawn_link(fun)</a></td>
   
-    <td class="summary_synopsis"><p>Matches the term on the left against the regular expression or string on the
-right. Returns true if <code>left</code> matches <code>right</code> (if it&#39;s a regular expression)
-or contains <code>right</code> (if it&#39;s a string)</p>
+    <td class="summary_synopsis"><p>Spawns the given function, links it to the current process and returns its pid</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#div/2">div(left, right)</a></td>
+  <td class="summary_signature"><a href="#spawn_link/3">spawn_link(module, fun, args)</a></td>
   
-    <td class="summary_synopsis"><p>Performs an integer division</p>
+    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args,
+links it to the current process and returns its pid</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&amp;&amp;/2">left &amp;&amp; right</a></td>
+  <td class="summary_signature"><a href="#spawn_monitor/1">spawn_monitor(fun)</a></td>
   
-    <td class="summary_synopsis"><p>Provides a short-circuit operator that evaluates and returns
-the second expression only if the first one evaluates to true
-(i.e. it is not nil nor false). Returns the first expression
-otherwise</p>
+    <td class="summary_synopsis"><p>Spawns the given function, monitors it and returns its pid
+and monitoring reference</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#||/2">left || right</a></td>
+  <td class="summary_signature"><a href="#spawn_monitor/3">spawn_monitor(module, fun, args)</a></td>
   
-    <td class="summary_synopsis"><p>Provides a short-circuit operator that evaluates and returns the second
-expression only if the first one does not evaluate to true (i.e. it
-is either nil or false). Returns the first expression otherwise</p>
+    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args,
+monitors it and returns its pid and monitoring reference</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#if/2">if(condition, clauses)</a></td>
+  <td class="summary_signature"><a href="#struct/2">struct(struct, kv \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Provides an <code>if</code> macro. This macro expects the first argument to
-be a condition and the rest are keyword arguments</p>
+    <td class="summary_synopsis"><p>Creates and updates structs</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#reraise/2">reraise(msg, stacktrace)</a></td>
+  <td class="summary_signature"><a href="#throw/1">throw(term)</a></td>
   
-    <td class="summary_synopsis"><p>Raises an exception preserving a previous stacktrace</p>
+    <td class="summary_synopsis"><p>A non-local return from a function. Check <a href="Kernel.SpecialForms.html#try/1"><code>Kernel.SpecialForms.try/1</code></a> for more information</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#raise/2">raise(exception, attrs)</a></td>
+  <td class="summary_signature"><a href="#tl/1">tl(list)</a></td>
   
-    <td class="summary_synopsis"><p>Raises an exception</p>
+    <td class="summary_synopsis"><p>Returns the tail of a list. Raises <a href="ArgumentError.html"><code>ArgumentError</code></a> if the list is empty</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#binding/2">binding(list, context)</a></td>
+  <td class="summary_signature"><a href="#to_char_list/1">to_char_list(arg)</a></td>
   
-    <td class="summary_synopsis"><p>Receives a list of atoms at compilation time and returns the
-binding of the given variables in the given context as a keyword
-list where the variable name is the key and the variable value
-is the value</p>
+    <td class="summary_synopsis"><p>Convert the argument to a list according to the List.Chars protocol</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#--/2">left -- right</a></td>
+  <td class="summary_signature"><a href="#to_string/1">to_string(arg)</a></td>
   
-    <td class="summary_synopsis"><p>Removes the first occurrence of an item on the left
-for each item on the right</p>
+    <td class="summary_synopsis"><p>Converts the argument to a string according to the
+<a href="String.Chars.html"><code>String.Chars</code></a> protocol</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#max/2">max(first, second)</a></td>
+  <td class="summary_signature"><a href="#trunc/1">trunc(number)</a></td>
   
-    <td class="summary_synopsis"><p>Return the biggest of the two given terms according to
-Erlang&#39;s term ordering. If the terms compare equal, the
-first one is returned</p>
+    <td class="summary_synopsis"><p>Returns an integer by truncating the given number</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#min/2">min(first, second)</a></td>
+  <td class="summary_signature"><a href="#tuple_size/1">tuple_size(tuple)</a></td>
   
-    <td class="summary_synopsis"><p>Return the smallest of the two given terms according to
-Erlang&#39;s term ordering. If the terms compare equal, the
-first one is returned</p>
+    <td class="summary_synopsis"><p>Returns the size of a tuple</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#is_function/2">is_function(term, arity)</a></td>
+  <td class="summary_signature"><a href="#unless/2">unless(clause, options)</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>term</code> is a function that can be applied with <code>arity</code> number of arguments;
-otherwise returns <code>false</code></p>
+    <td class="summary_synopsis"><p>Evaluates and returns the do-block passed in as a second argument
+unless clause evaluates to true.
+Returns nil otherwise.
+See also <code>if</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&lt;=/2">left &lt;= right</a></td>
+  <td class="summary_signature"><a href="#update_in/2">update_in(path, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if left is less than or equal to right</p>
+    <td class="summary_synopsis"><p>Updates a nested structure via the given <code>path</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&lt;/2">left &lt; right</a></td>
+  <td class="summary_signature"><a href="#update_in/3">update_in(data, keys, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if left is less than right</p>
+    <td class="summary_synopsis"><p>Updates a key in a nested structure</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&gt;=/2">left &gt;= right</a></td>
+  <td class="summary_signature"><a href="#use/2">use(module, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if left is more than or equal to right</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#&gt;/2">left &gt; right</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if left is more than right</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#==/2">left == right</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are equal</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#===/2">left === right</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are match</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#!=/2">left != right</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items are not equal</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#!==/2">left !== right</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if the two items do not match</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#../2">first .. last</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a range with the specified start and end.
-Includes both ends</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#send/2">send(dest, msg)</a></td>
-  
-    <td class="summary_synopsis"><p>Sends a message to the given <code>dest</code> and returns the message</p>
+    <td class="summary_synopsis"><p><code>use</code> is a simple mechanism for using a given module into
+the current context</p>
 </td>
   
 </tr>
@@ -903,10 +1006,10 @@ unquoted or an atom representing the variable name</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#use/2">use(module, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#xor/2">left xor right</a></td>
   
-    <td class="summary_synopsis"><p><code>use</code> is a simple mechanism for using a given module into
-the current context</p>
+    <td class="summary_synopsis"><p>Boolean exclusive-or. Arguments must be booleans.
+Returns <code>true</code> if and only if both arguments are different</p>
 </td>
   
 </tr>
@@ -918,79 +1021,11 @@ the current context</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defimpl/3">defimpl(name, opts, do_block \\ [])</a></td>
+  <td class="summary_signature"><a href="#||/2">left || right</a></td>
   
-    <td class="summary_synopsis"><p>Defines an implementation for the given protocol. See
-<a href="#defprotocol/2"><code>defprotocol/2</code></a> for examples</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#binary_part/3">binary_part(binary, start, length)</a></td>
-  
-    <td class="summary_synopsis"><p>Extracts the part of the binary starting at <code>start</code> with length <code>length</code>.
-Binaries are zero-indexed</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#apply/3">apply(module, fun, args)</a></td>
-  
-    <td class="summary_synopsis"><p>Invokes the given <code>fun</code> from <code>module</code> with the array of arguments <code>args</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#reraise/3">reraise(exception, attrs, stacktrace)</a></td>
-  
-    <td class="summary_synopsis"><p>Raises an exception preserving a previous stacktrace</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#function_exported?/3">function_exported?(module, function, arity)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns true if the <code>module</code> is loaded and contains a
-public <code>function</code> with the given <code>arity</code>, otherwise false</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#macro_exported?/3">macro_exported?(module, macro, arity)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns true if the <code>module</code> is loaded and contains a
-public <code>macro</code> with the given <code>arity</code>, otherwise false</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#put_elem/3">put_elem(tuple, index, value)</a></td>
-  
-    <td class="summary_synopsis"><p>Sets the element in <code>tuple</code> at the zero-based <code>index</code> to the given <code>value</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn/3">spawn(module, fun, args)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args
-and returns its pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn_link/3">spawn_link(module, fun, args)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args,
-links it to the current process and returns its pid</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn_monitor/3">spawn_monitor(module, fun, args)</a></td>
-  
-    <td class="summary_synopsis"><p>Spawns the given module and function passing the given args,
-monitors it and returns its pid and monitoring reference</p>
+    <td class="summary_synopsis"><p>Provides a short-circuit operator that evaluates and returns the second
+expression only if the first one does not evaluate to true (i.e. it
+is either nil or false). Returns the first expression otherwise</p>
 </td>
   
 </tr>
@@ -1039,7 +1074,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1144" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1137" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1075,7 +1110,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1190" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1183" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1106,7 +1141,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L927" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L920" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1137,7 +1172,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L895" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L888" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1168,7 +1203,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L863" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L856" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1202,7 +1237,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L968" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L961" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1233,7 +1268,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L911" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L904" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1264,7 +1299,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L879" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L872" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1299,7 +1334,7 @@ iex&gt; [1, 2, 3, 2, 1] -- [1, 2, 2]
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L988" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L981" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1336,7 +1371,7 @@ iex&gt; 2 / 1
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L949" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L942" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1369,7 +1404,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1042" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1035" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1402,7 +1437,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1078" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1071" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1441,7 +1476,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1120" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1113" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1481,7 +1516,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1169" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1162" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1514,7 +1549,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1548" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1507" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1547,7 +1582,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1060" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1053" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1580,7 +1615,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1096" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1089" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1614,7 +1649,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L55" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L55" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1645,7 +1680,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L71" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L71" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1676,7 +1711,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L87" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L87" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1717,7 +1752,7 @@ Binaries are zero-indexed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L251" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L256" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1751,7 +1786,7 @@ iex&gt; bit_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L270" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L275" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1789,7 +1824,7 @@ iex&gt; byte_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L293" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L298" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1822,7 +1857,7 @@ iex&gt; byte_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L311" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L316" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1854,7 +1889,7 @@ iex&gt; elem(tuple, 1)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1207" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1200" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1888,7 +1923,7 @@ exit(:seems_bad)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L330" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1916,7 +1951,95 @@ it is not loaded. Check <a href="Code.html#ensure_loaded/1"><code>Code.ensure_lo
 information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2305" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2591" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_and_update_in/3">
+    <span class="signature"><strong>get_and_update_in(data, keys, fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_and_update_in/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>(get_and_update_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), (term -> {get, term})) :: {get, <a href="Access.html#t:t/0">Access.t</a>}) when get: var</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Gets a value and updates a nested structure.</p>
+
+<p>It expects a tuple to be returned, containing the value retrieved
+and the update one. Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the
+structures according to the given <code>keys</code>.</p>
+
+<h2>Examples</h2>
+
+<p>This function is useful when there is a need to retrieve the current
+value (or something calculated in function of the current value) and
+update it at the same time. For example, it could be used to increase
+the age of a user by one and return the previous age in one pass:</p>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_and_update_in(users, [&quot;josé&quot;, :age], &amp;{&amp;1, &amp;1 + 1})
+{27, %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}}
+</code></pre>
+
+<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
+created:</p>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_and_update_in(users, [&quot;dave&quot;, :age], &amp;{&amp;1, 13})
+{nil, %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 13}}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1715" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_in/2">
+    <span class="signature"><strong>get_in(data, keys)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#get_in/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term)) :: term</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Gets a value from a nested structure.</p>
+
+<p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
+according to the given <code>keys</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_in(users, [&quot;josé&quot;, :age])
+27
+</code></pre>
+
+<p>In case any of entries in the middle returns <code>nil</code>, <code>nil</code> will be returned
+as per the Access protocol:</p>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_in(users, [&quot;unknown&quot;, :age])
+nil
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1632" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1941,7 +2064,7 @@ information.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L340" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L345" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1968,7 +2091,7 @@ inspection.</p>
 <h2>Options</h2>
 
 <p><a href="#inspect/2"><code>inspect/2</code></a> accepts a list of options that are internally
-translated to an <a href="Inspect.Opts.html"><code>Inspect.Opts</code></a> record. Check the docs for
+translated to an <a href="Inspect.Opts.html"><code>Inspect.Opts</code></a> struct. Check the docs for
 <a href="Inspect.Opts.html"><code>Inspect.Opts</code></a> to see the supported options.</p>
 
 <h2>Examples</h2>
@@ -1998,7 +2121,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1593" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1552" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2023,7 +2146,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L350" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L355" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2050,7 +2173,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L362" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L367" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2075,7 +2198,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L372" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L377" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2101,7 +2224,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L383" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L388" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2126,7 +2249,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L393" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L398" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2151,7 +2274,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L403" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L408" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2177,7 +2300,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L414" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L419" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2202,7 +2325,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L424" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L429" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2227,7 +2350,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L434" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L439" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2252,7 +2375,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L495" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L500" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2278,7 +2401,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L445" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L450" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2303,7 +2426,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L455" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L460" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2328,7 +2451,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L465" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L470" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2353,7 +2476,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L475" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L480" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2378,7 +2501,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L485" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L490" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2409,7 +2532,7 @@ otherwise returns <code>false</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L511" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L516" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2437,7 +2560,7 @@ it is not loaded. Check <a href="Code.html#ensure_loaded/1"><code>Code.ensure_lo
 information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2318" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2604" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2470,7 +2593,7 @@ therefore it is unique enough for practical purposes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L529" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L534" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2497,7 +2620,7 @@ therefore it is unique enough for practical purposes.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L541" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L546" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2530,7 +2653,7 @@ first one is returned.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L559" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L564" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2563,7 +2686,7 @@ first one is returned.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L577" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L582" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2589,7 +2712,7 @@ If the node is not alive, <code>:nonode@nohost</code> is returned instead.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L588" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L593" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2616,7 +2739,7 @@ If the local node is not alive, <code>nonode@nohost</code> is returned.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L600" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L605" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2647,7 +2770,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1024" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1017" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2679,7 +2802,48 @@ iex&gt; put_elem(tuple, 0, :baz)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1224" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1217" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_in/3">
+    <span class="signature"><strong>put_in(data, keys, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#put_in/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>put_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), term) :: <a href="Access.html#t:t/0">Access.t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Puts a value in a nested structure.</p>
+
+<p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
+according to the given <code>keys</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; put_in(users, [&quot;josé&quot;, :age], 28)
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+</code></pre>
+
+<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
+created:</p>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
+%{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 13}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1658" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2712,7 +2876,7 @@ iex&gt; put_elem(tuple, 0, :baz)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L618" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L623" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2743,7 +2907,7 @@ iex&gt; put_elem(tuple, 0, :baz)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L634" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L639" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2768,7 +2932,7 @@ iex&gt; put_elem(tuple, 0, :baz)
 <p>Allowed in guard clauses. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L664" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L669" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2803,34 +2967,7 @@ name at another node.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L654" target="_blank" class="view_source">Source</a>
-  
-</div>
-<div class="detail">
-  <div class="detail_header" id="size/1">
-    <span class="signature"><strong>size(arg)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#size/1" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>size(tuple | binary) :: non_neg_integer</li>
-      
-    </ul>
-  
-  <div class="docstring"><p>Returns the size of the given argument, which must be a tuple or a binary.</p>
-
-<p>Prefer using <a href="#tuple_size/1"><code>tuple_size/1</code></a> or <a href="#byte_size/1"><code>byte_size/1</code></a> instead.</p>
-
-<p>Allowed in guard tests. Inlined by the compiler.</p>
-</div>
-  
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L676" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L659" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2868,7 +3005,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L699" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L692" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2902,7 +3039,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L718" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L711" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2940,7 +3077,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L741" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L734" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2974,7 +3111,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L760" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L753" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3009,7 +3146,7 @@ spawn_monitor(fn -&gt; send current, {Kernel.self, 1 + 2} end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L780" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L773" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3043,7 +3180,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L799" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L792" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3093,7 +3230,7 @@ struct(user, unknown: &quot;value&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1633" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1592" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3118,7 +3255,7 @@ struct(user, unknown: &quot;value&quot;)
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L809" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L802" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3143,7 +3280,7 @@ struct(user, unknown: &quot;value&quot;)
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L819" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L812" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3174,7 +3311,7 @@ struct(user, unknown: &quot;value&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L835" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L828" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3201,7 +3338,48 @@ struct(user, unknown: &quot;value&quot;)
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L847" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L840" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="update_in/3">
+    <span class="signature"><strong>update_in(data, keys, fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#update_in/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>update_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), (term -> term)) :: <a href="Access.html#t:t/0">Access.t</a></li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Updates a key in a nested structure.</p>
+
+<p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
+according to the given <code>keys</code>.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; update_in(users, [&quot;josé&quot;, :age], &amp;(&amp;1 + 1))
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+</code></pre>
+
+<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
+created:</p>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; update_in(users, [&quot;dave&quot;, :age], &amp;((&amp;1 || 0) + 1))
+%{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 1}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1683" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3236,7 +3414,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1008" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1001" class="view_source">Source</a>
   
 </div>
 
@@ -3270,7 +3448,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1276" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3308,7 +3486,7 @@ this operator accepts any expression as an argument,
 not only booleans, however it is not allowed in guards.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2199" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2485" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3340,7 +3518,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2171" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2457" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3370,7 +3548,7 @@ iex&gt; x
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1312" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1305" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3427,33 +3605,7 @@ time and not at runtime. Check the module <a href="Module.html"><code>Module</co
 to manipulate module attributes.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1793" target="_blank" class="view_source">Source</a>
-  
-</div>
-<div class="detail">
-  <div class="detail_header" id="access/2">
-    <span class="signature"><strong>access(element, attrs)</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(macro)</span>
-      <a href="#access/2" class="detail_link" title="Link to this macro">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-  <div class="docstring"><p>Access the given element using the qualifier according
-to the <a href="Access.html"><code>Access</code></a> protocol. All calls in the form <code>foo[bar]</code>
-are translated to <code>access(foo, bar)</code>.</p>
-
-<p>The usage of this protocol is to access a raw value in a
-keyword list.</p>
-
-<pre><code>iex&gt; sample = [a: 1, b: 2, c: 3]
-iex&gt; sample[:b]
-2
-</code></pre>
-</div>
-  
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2342" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2080" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3473,7 +3625,7 @@ the macro is expanded.</p>
 <p>Check <a href="Kernel.SpecialForms.html#quote/2"><code>Kernel.SpecialForms.quote/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2523" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2769" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3498,7 +3650,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1258" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1251" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3525,7 +3677,7 @@ iex&gt; binding()
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1890" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2176" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3553,7 +3705,7 @@ iex&gt; binding([:x, :y])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1909" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2195" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3584,7 +3736,7 @@ iex&gt; binding([:x, :y], :foo)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1935" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2221" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3614,7 +3766,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2018" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2304" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3651,7 +3803,7 @@ end
 two arguments and sums them.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2721" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2967" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3705,7 +3857,7 @@ MyList.other_reverse([1, 2, 3])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3307" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3578" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3771,7 +3923,7 @@ raise MyAppError, value
 exception messages.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2983" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3246" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3791,7 +3943,7 @@ exception messages.</p>
 via <code>@protocol</code> and the current target as <code>@for</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3179" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3450" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3823,7 +3975,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2767" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3013" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3842,7 +3994,7 @@ only accessible from the same module in which they are defined.</p>
 <p>Check <a href="#defmacro/2"><code>defmacro/2</code></a> for more information</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2777" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3023" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3904,7 +4056,7 @@ won&#39;t nest the name under the current module nor automatically
 set up an alias.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2583" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2829" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3947,7 +4099,7 @@ end
 implementation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3214" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3485" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3980,7 +4132,7 @@ end
 through <code>Foo.sum</code> will raise an error.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2744" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2990" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4064,7 +4216,7 @@ structs, like <a href="HashDict.html"><code>HashDict</code></a> and <a href="Has
 <code>Blank</code> protocol for those types as well:</p>
 
 <pre><code>defimpl Blank, for: [HashDict, HashSet] do
-  def blank?(dict), do: Dict.empty?(dict)
+  def blank?(enum_like), do: Enum.empty?(enum_like)
 end
 </code></pre>
 
@@ -4133,20 +4285,22 @@ given protocol are valid argument types for the given function.</p>
 <h2>Consolidation</h2>
 
 <p>In order to cope with code loading in development, protocols in
-Elixir provide a slow implementation of protocol dispatching in
-development.</p>
+Elixir provide a slow implementation of protocol dispatching specific
+to development.</p>
 
 <p>In order to speed up dispatching in production environments, where
-all implementations are now up-front, Elixir provides a feature
+all implementations are known up-front, Elixir provides a feature
 called protocol consolidation. For this reason, all protocols are
 compiled with <code>debug_info</code> set to true, regardless of the option
-set by <code>elixirc</code> compiler.</p>
+set by <code>elixirc</code> compiler. The debug info though may be removed
+after consolidation.</p>
 
 <p>For more information on how to apply protocol consolidation to
-a given project, please check the <code>mix compile.protocols</code> task.</p>
+a given project, please check the functions in the <a href="Protocol.html"><code>Protocol</code></a>
+module or the <code>mix compile.protocols</code> task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3168" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3439" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4168,35 +4322,57 @@ dispatches and compile time assertions.</p>
 <p>To define a struct, a developer needs to only define
 a function named <code>__struct__/0</code> that returns a map with the
 structs field. This macro is a convenience for defining such
-function, with the addition of a type <code>t</code>.</p>
+function, with the addition of a type <code>t</code> and deriving
+conveniences.</p>
 
 <p>For more information about structs, please check
 <code>Kernel.SpecialForms.%/2</code>.</p>
 
 <h2>Examples</h2>
 
-<pre><code>defmodule MyRange do
-  defstruct first: nil, last: nil
+<pre><code>defmodule User do
+  defstruct name: nil, age: nil
 end
 </code></pre>
 
-<p>Notice <code>defstruct</code> requires a keyword list of fields and values
-at expansion time. In other words, <code>defstruct</code> works with quoted
-expressions. In other words, a struct defined like:</p>
+<p>Struct fields are evaluated at definition time, which allows
+them to be dynamic. In the example below, <code>10 + 11</code> will be
+evaluated at compilation time and the age field will be stored
+with value <code>21</code>:</p>
 
-<pre><code>defmodule MyRange do
-  defstruct first: nil, last: 1 + 1
+<pre><code>defmodule User do
+  defstruct name: nil, age: 10 + 11
 end
 </code></pre>
 
-<p>Will execute <code>1 + 1</code> every time the struct is built. This also
-implies the following leads to an error:</p>
+<h2>Deriving</h2>
 
-<pre><code>defmodule MyRange do
-  my_fields = [first: nil, last: nil]
-  defstruct my_fields
-end
+<p>Alhought structs are maps, by default structs do not implement
+any of the protocols implemented for maps. For example, if you
+attempt to use the access protocol with the User struct, it
+will lead to an error:</p>
+
+<pre><code>%User{}[:age]
+** (Protocol.UndefinedError) protocol Access not implemented for %User{...}
 </code></pre>
+
+<p>However, <code>defstruct/2</code> allows implementation for protocols to
+derived by defining a <code>@derive</code> attribute as a list before <code>defstruct/2</code>
+is invoked:</p>
+
+<pre><code>defmodule User do
+  @derive [Access]
+  defstruct name: nil, age: 10 + 11
+end
+
+%User{}[:age] #=&gt; 21
+</code></pre>
+
+<p>For each protocol given to <code>@derive</code>, Elixir will assert there is an
+implementation of that protocol for maps and check if the map
+implementation defines a <code>__deriving__/3</code> callback. If so, the callback
+is invoked, otherwise an implementation that simply points to the map
+one is automatically derived.</p>
 
 <h2>Types</h2>
 
@@ -4217,7 +4393,7 @@ end
 <p>In case a struct does not declare a field type, it defaults to <code>term</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2865" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3119" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4264,7 +4440,115 @@ the first value from the right side. Otherwise,
 it will raise a CaseClauseError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2137" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2423" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_and_update_in/2">
+    <span class="signature"><strong>get_and_update_in(path, fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#get_and_update_in/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Gets a value and updates a nested data structure via the given <code>path</code>.</p>
+
+<p>This is similar to <a href="#get_and_update_in/3"><code>get_and_update_in/3</code></a>, except the path is extracted
+via a macro rather than passing a list. For example:</p>
+
+<pre><code>get_and_update_in(opts[:foo][:bar], &amp;{&amp;1, &amp;1 + 1})
+</code></pre>
+
+<p>Is equivalent to:</p>
+
+<pre><code>get_and_update_in(opts, [:foo, :bar], &amp;{&amp;1, &amp;1 + 1})
+</code></pre>
+
+<p>Note the in order for this macro to work, the complete path must always
+be visible by this macro. For more information about the supported path
+expressions, please check <a href="#get_in/1"><code>get_in/1</code></a> docs.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_and_update_in(users[&quot;josé&quot;][:age], &amp;{&amp;1, &amp;1 + 1})
+{27, %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1874" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="get_in/1">
+    <span class="signature"><strong>get_in(path)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#get_in/1" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Gets a value from a nested structure via the given <code>path</code>.</p>
+
+<p>This is similar to <a href="#get_in/2"><code>get_in/2</code></a>, except the path is extracted via
+a macro rather than passing a list. For example:</p>
+
+<pre><code>get_in(opts[:foo][:bar])
+</code></pre>
+
+<p>Is equivalent to:</p>
+
+<pre><code>get_in(opts, [:foo, :bar])
+</code></pre>
+
+<p>Note the in order for this macro to work, the complete path must always
+be visible by this macro.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_in(users[&quot;josé&quot;][:age])
+27
+
+iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; get_in(users[&quot;josé&quot;].age)
+27
+</code></pre>
+
+<h2>Paths</h2>
+
+<p>A path may start with a variable, local or remote call, and must be
+followed by one or more:</p>
+
+<ul>
+<li><p><code>foo[bar]</code> - access a field. In case an intermediate field is not
+present or returns nil, an empty map is used;</p></li>
+<li><p><code>foo.bar</code> - access a map/struct field. In case the field is not
+present, an error is raised;</p></li>
+</ul>
+
+<p>Here are some valid paths:</p>
+
+<pre><code>users[&quot;josé&quot;][:age]
+users[&quot;josé&quot;].age
+User.all[&quot;josé&quot;].age
+all_users()[&quot;josé&quot;].age
+</code></pre>
+
+<p>Here are some invalid ones:</p>
+
+<pre><code># Does a remote call after the initial value
+users[&quot;josé&quot;].do_something(arg1, arg2)
+
+# Does not access any field
+users
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1775" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4317,7 +4601,7 @@ end
 macro.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1989" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2275" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4370,7 +4654,7 @@ operator to a valid guard expression. For example:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2416" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2660" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4421,7 +4705,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1734" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2021" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4447,7 +4731,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1695" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1982" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4472,7 +4756,49 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1242" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1235" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="put_in/2">
+    <span class="signature"><strong>put_in(path, value)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#put_in/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Puts a value in a nested structure via the given <code>path</code>.</p>
+
+<p>This is similar to <a href="#put_in/3"><code>put_in/3</code></a>, except the path is extracted via
+a macro rather than passing a list. For example:</p>
+
+<pre><code>put_in(opts[:foo][:bar], :baz)
+</code></pre>
+
+<p>Is equivalent to:</p>
+
+<pre><code>put_in(opts, [:foo, :bar], :baz)
+</code></pre>
+
+<p>Note the in order for this macro to work, the complete path must always
+be visible by this macro. For more information about the supported path
+expressions, please check <a href="#get_in/1"><code>get_in/1</code></a> docs.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; put_in(users[&quot;josé&quot;][:age], 28)
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+
+iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; put_in(users[&quot;josé&quot;].age, 28)
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1812" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4508,7 +4834,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1358" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1351" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4537,7 +4863,7 @@ implements <code>exception(attrs)</code> callback expected by <a href="#raise/2"
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1409" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1402" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4575,7 +4901,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1439" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1432" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4606,7 +4932,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1488" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1481" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4632,7 +4958,7 @@ iex&gt; ~C(f#{o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3386" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3657" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4655,7 +4981,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3445" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3716" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4681,7 +5007,7 @@ iex&gt; ~S(f#{o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3352" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3623" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4712,7 +5038,7 @@ without escaping nor interpreting interpolations.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3497" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3768" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4738,7 +5064,7 @@ iex&gt; ~c(f#{:o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3406" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3677" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4760,7 +5086,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3424" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3695" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4786,7 +5112,7 @@ iex&gt; ~s(f#{:o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3369" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3640" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4822,7 +5148,7 @@ iex&gt; ~w(foo bar baz)a
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3472" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3743" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4844,7 +5170,7 @@ iex&gt; ~w(foo bar baz)a
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1678" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1965" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4857,8 +5183,10 @@ iex&gt; ~w(foo bar baz)a
     </div>
   </div>
   
-  <div class="docstring"><p>Converts the argument to a string according to the String.Chars protocol.
-This is the function invoked when there is string interpolation.</p>
+  <div class="docstring"><p>Converts the argument to a string according to the
+<a href="String.Chars.html"><code>String.Chars</code></a> protocol.</p>
+
+<p>This is the function invoked when there is string interpolation.</p>
 
 <h2>Examples</h2>
 
@@ -4867,7 +5195,7 @@ This is the function invoked when there is string interpolation.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L1663" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1950" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4895,7 +5223,49 @@ iex&gt; unless(Enum.empty?([1,2,3]), do: &quot;Hello&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2098" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2384" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="update_in/2">
+    <span class="signature"><strong>update_in(path, fun)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#update_in/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Updates a nested structure via the given <code>path</code>.</p>
+
+<p>This is similar to <a href="#update_in/3"><code>update_in/3</code></a>, except the path is extracted via
+a macro rather than passing a list. For example:</p>
+
+<pre><code>update_in(opts[:foo][:bar], &amp;(&amp;1 + 1))
+</code></pre>
+
+<p>Is equivalent to:</p>
+
+<pre><code>update_in(opts, [:foo, :bar], &amp;(&amp;1 + 1))
+</code></pre>
+
+<p>Note the in order for this macro to work, the complete path must always
+be visible by this macro. For more information about the supported path
+expressions, please check <a href="#get_in/1"><code>get_in/1</code></a> docs.</p>
+
+<h2>Examples</h2>
+
+<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; update_in(users[&quot;josé&quot;][:age], &amp;(&amp;1 + 1))
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+
+iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
+iex&gt; update_in(users[&quot;josé&quot;].age, &amp;(&amp;1 + 1))
+%{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L1845" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4941,7 +5311,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L3252" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L3523" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4961,7 +5331,7 @@ unquoted or an atom representing the variable name.</p>
 <p>Check <a href="Kernel.SpecialForms.html#quote/2"><code>Kernel.SpecialForms.quote/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2489" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2733" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5028,7 +5398,7 @@ for binaries. Adding explicit parenthesis resolves the ambiguity:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2292" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2578" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5065,7 +5435,7 @@ this operator accepts any expression as an argument,
 not only booleans, however it is not allowed in guards.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/kernel.ex#L2233" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/kernel.ex#L2519" class="view_source">Source</a>
   
 </div>
 

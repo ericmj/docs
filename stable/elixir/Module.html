@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Module.html">Module</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Module.html">Module</a></div>
 
       <h1>
         Module
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -327,29 +324,29 @@ macros it defines, extract its docstrings, etc. See <a href="#__info__/1"><code>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#open?/1">open?(module)</a></td>
+  <td class="summary_signature"><a href="#__info__/1">__info__(kind)</a></td>
   
-    <td class="summary_synopsis"><p>Check if a module is open, i.e. it is currently being defined
-and its attributes and functions can be modified</p>
+    <td class="summary_synopsis"><p>Provides runtime information about functions and macros defined by the
+module, enables docstring extraction, etc</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#safe_concat/1">safe_concat(list)</a></td>
+  <td class="summary_signature"><a href="#add_doc/6">add_doc(module, line, kind, tuple, signature \\ [], doc)</a></td>
   
-    <td class="summary_synopsis"><p>Concatenates a list of aliases and returns a new alias only
-if the alias was already referenced. If the alias was not
-referenced yet, fails with <a href="ArgumentError.html"><code>ArgumentError</code></a>.
-It handles char lists, binaries and atoms</p>
+    <td class="summary_synopsis"><p>Attaches documentation to a given function or type. It expects
+the module the function/type belongs to, the line (a non negative
+integer), the kind (<code>def</code> or <code>defmacro</code>), a tuple representing
+the function and its arity, the function signature (the signature
+should be omitted for types) and the documentation, which should
+be either a binary or a boolean</p>
 </td>
   
 </tr>
@@ -361,24 +358,18 @@ It handles char lists, binaries and atoms</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#__info__/1">__info__(kind)</a></td>
+  <td class="summary_signature"><a href="#concat/2">concat(left, right)</a></td>
   
-    <td class="summary_synopsis"><p>Provides runtime information about functions and macros defined by the
-module, enables docstring extraction, etc</p>
+    <td class="summary_synopsis"><p>Concatenates two aliases and returns a new alias</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#definitions_in/1">definitions_in(module)</a></td>
+  <td class="summary_signature"><a href="#create/3">create(module, quoted, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Return all functions defined in <code>module</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#split/1">split(module)</a></td>
-  
-    <td class="summary_synopsis"><p>Split the given module name into binary parts</p>
+    <td class="summary_synopsis"><p>Creates a module with the given name and defined by
+the given quoted expressions. The line where the module
+is defined and its file can be passed as options</p>
 </td>
   
 </tr>
@@ -387,55 +378,6 @@ module, enables docstring extraction, etc</p>
   
     <td class="summary_synopsis"><p>Checks if the module defines the given function or macro.
 Use <a href="#defines?/3"><code>defines?/3</code></a> to assert for a specific type</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#safe_concat/2">safe_concat(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Concatenates two aliases and returns a new alias only
-if the alias was already referenced. If the alias was not
-referenced yet, fails with <a href="ArgumentError.html"><code>ArgumentError</code></a>.
-It handles char lists, binaries and atoms</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#concat/2">concat(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Concatenates two aliases and returns a new alias</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#delete_attribute/2">delete_attribute(module, key)</a></td>
-  
-    <td class="summary_synopsis"><p>Deletes all attributes that match the given key</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#make_overridable/2">make_overridable(module, tuples)</a></td>
-  
-    <td class="summary_synopsis"><p>Makes the given functions in <code>module</code> overridable.
-An overridable function is lazily defined, allowing a
-developer to customize it. See <a href="Kernel.html#defoverridable/1"><code>Kernel.defoverridable/1</code></a> for
-more information and documentation</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#overridable?/2">overridable?(module, tuple)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>tuple</code> in <code>module</code> is marked as overridable</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#definitions_in/2">definitions_in(module, kind)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns all functions defined in <code>module</code>, according
-to its kind</p>
 </td>
   
 </tr>
@@ -449,11 +391,31 @@ given <code>kind</code>. <code>kind</code> can be any of <code>:def</code>, <cod
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#create/3">create(module, quoted, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#definitions_in/1">definitions_in(module)</a></td>
   
-    <td class="summary_synopsis"><p>Creates a module with the given name and defined by
-the given quoted expressions. The line where the module
-is defined and its file can be passed as options</p>
+    <td class="summary_synopsis"><p>Return all functions defined in <code>module</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#definitions_in/2">definitions_in(module, kind)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns all functions defined in <code>module</code>, according
+to its kind</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#delete_attribute/2">delete_attribute(module, key)</a></td>
+  
+    <td class="summary_synopsis"><p>Deletes all attributes that match the given key</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#eval_quoted/4">eval_quoted(module, quoted, binding \\ [], opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Evaluates the quoted contents in the given module&#39;s context</p>
 </td>
   
 </tr>
@@ -471,6 +433,31 @@ and arity. The module and function are not verified to exist</p>
     <td class="summary_synopsis"><p>Gets the given attribute from a module. If the attribute
 was marked with <code>accumulate</code> with <a href="Module.html#register_attribute/3"><code>Module.register_attribute/3</code></a>,
 a list is always returned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#make_overridable/2">make_overridable(module, tuples)</a></td>
+  
+    <td class="summary_synopsis"><p>Makes the given functions in <code>module</code> overridable.
+An overridable function is lazily defined, allowing a
+developer to customize it. See <a href="Kernel.html#defoverridable/1"><code>Kernel.defoverridable/1</code></a> for
+more information and documentation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#open?/1">open?(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Check if a module is open, i.e. it is currently being defined
+and its attributes and functions can be modified</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#overridable?/2">overridable?(module, tuple)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>true</code> if <code>tuple</code> in <code>module</code> is marked as overridable</p>
 </td>
   
 </tr>
@@ -493,21 +480,29 @@ attribute values</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#eval_quoted/4">eval_quoted(module, quoted, binding \\ [], opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#safe_concat/1">safe_concat(list)</a></td>
   
-    <td class="summary_synopsis"><p>Evaluates the quoted contents in the given module&#39;s context</p>
+    <td class="summary_synopsis"><p>Concatenates a list of aliases and returns a new alias only
+if the alias was already referenced. If the alias was not
+referenced yet, fails with <a href="ArgumentError.html"><code>ArgumentError</code></a>.
+It handles char lists, binaries and atoms</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#add_doc/6">add_doc(module, line, kind, tuple, signature \\ [], doc)</a></td>
+  <td class="summary_signature"><a href="#safe_concat/2">safe_concat(left, right)</a></td>
   
-    <td class="summary_synopsis"><p>Attaches documentation to a given function or type. It expects
-the module the function/type belongs to, the line (a non negative
-integer), the kind (<code>def</code> or <code>defmacro</code>), a tuple representing
-the function and its arity, the function signature (the signature
-should be omitted for types) and the documentation, which should
-be either a binary or a boolean</p>
+    <td class="summary_synopsis"><p>Concatenates two aliases and returns a new alias only
+if the alias was already referenced. If the alias was not
+referenced yet, fails with <a href="ArgumentError.html"><code>ArgumentError</code></a>.
+It handles char lists, binaries and atoms</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#split/1">split(module)</a></td>
+  
+    <td class="summary_synopsis"><p>Split the given module name into binary parts</p>
 </td>
   
 </tr>
@@ -546,11 +541,6 @@ takes one of the following atoms:</p>
 <ul>
 <li><p><code>:functions</code>  - keyword list of public functions along with their arities</p></li>
 <li><p><code>:macros</code>     - keyword list of public macros along with their arities</p></li>
-<li><p><code>:docs</code>       - list of all docstrings attached to functions and macros
-              using the <code>@doc</code> attribute</p></li>
-<li><p><code>:moduledoc</code>  - tuple <code>{&lt;line&gt;, &lt;doc&gt;}</code> where <code>line</code> is the line on
-              which module definition starts and <code>doc</code> is the string
-              attached to the module using the <code>@moduledoc</code> attribute</p></li>
 <li><p><code>:module</code>     - module name (<code>Module == Module.__info__(:module)</code>)</p></li>
 </ul>
 
@@ -560,7 +550,7 @@ module. See <a href="http://erlang.org/doc/reference_manual/modules.html#id69430
 more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L301" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L294" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -589,7 +579,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L499" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L492" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -621,7 +611,7 @@ Foo.Bar
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L409" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L402" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -653,7 +643,7 @@ Foo.Bar
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L426" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L419" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -696,7 +686,7 @@ when defining the module, while <code>defmodule</code> automatically
 shares the same environment.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L386" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L379" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -722,7 +712,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L614" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L607" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -749,7 +739,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L634" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L627" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -773,7 +763,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L654" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L647" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -799,7 +789,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L673" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L666" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -823,7 +813,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L826" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L819" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -865,7 +855,7 @@ Foo.sum(1, 2) #=&gt; 3
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L339" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L332" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -887,7 +877,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L479" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L472" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -941,7 +931,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L783" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L776" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -960,7 +950,7 @@ developer to customize it. See <a href="Kernel.html#defoverridable/1"><code>Kern
 more information and documentation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L685" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L678" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -977,7 +967,7 @@ more information and documentation.</p>
 and its attributes and functions can be modified.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L307" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L300" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -993,7 +983,7 @@ and its attributes and functions can be modified.</p>
   <div class="docstring"><p>Returns <code>true</code> if <code>tuple</code> in <code>module</code> is marked as overridable.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L715" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L708" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1018,7 +1008,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L731" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L724" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1063,7 +1053,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L863" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L856" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1098,7 +1088,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L446" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L439" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1133,7 +1123,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L466" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L459" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1155,7 +1145,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/module.ex#L887" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/module.ex#L880" class="view_source">Source</a>
   
 </div>
 

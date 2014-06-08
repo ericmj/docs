@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="GenServer.html">GenServer</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="GenServer.html">GenServer</a></div>
 
       <h1>
         GenServer
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -92,14 +89,14 @@ GenServer.call(pid, :pop)
 #=&gt; :world
 </code></pre>
 
-<p>We start our <code>Stack</code> by calling <code>start_link/2</code>, passing the module
+<p>We start our <code>Stack</code> by calling <a href="#start_link/3"><code>start_link/3</code></a>, passing the module
 with the server implementation and its initial argument (a list
 representing the stack containing the item <code>:hello</code>). We can primarily
 interact with the server by sending two types of messages. <strong>call</strong>
-messages expect a reply from the server (and is therefore synchronous)
+messages expect a reply from the server (and are therefore synchronous)
 while <strong>cast</strong> messages do not.</p>
 
-<p>Every time you do a <code>GenServer.call/2</code>, the client will send a message
+<p>Every time you do a <a href="GenServer.html#call/3"><code>GenServer.call/3</code></a>, the client will send a message
 that must be handled by the <code>handle_call/3</code> callback in the GenServer.
 A <a href="#cast/2"><code>cast/2</code></a> message must be handled by <code>handle_cast/2</code>.</p>
 
@@ -115,47 +112,55 @@ you want to customize. The callbacks are:</p>
 
 <p>It must return:</p>
 
-<p>{:ok, state}
-  {:ok, state, timeout}
-  :ignore
-  {:stop, reason}</p></li>
+<ul>
+<li> <code>{:ok, state}</code></li>
+<li> <code>{:ok, state, timeout}</code></li>
+<li> <code>:ignore</code></li>
+<li> <code>{:stop, reason}</code></li>
+</ul></li>
 <li><p><code>handle_call(msg, {from, ref}, state)</code> and <code>handle_cast(msg, state)</code> -
 invoked to handle call (sync) and cast (async) messages.</p>
 
 <p>It must return:</p>
 
-<p>{:reply, reply, new<em>state}
-  {:reply, reply, new</em>state, timeout}
-  {:reply, reply, new<em>state, :hibernate}
-  {:noreply, new</em>state}
-  {:noreply, new<em>state, timeout}
-  {:noreply, new</em>state, :hibernate}
-  {:stop, reason, new<em>state}
-  {:stop, reason, reply, new</em>state}</p></li>
+<ul>
+<li> <code>{:reply, reply, new_state}</code></li>
+<li> <code>{:reply, reply, new_state, timeout}</code></li>
+<li> <code>{:reply, reply, new_state, :hibernate}</code></li>
+<li> <code>{:noreply, new_state}</code></li>
+<li> <code>{:noreply, new_state, timeout}</code></li>
+<li> <code>{:noreply, new_state, :hibernate}</code></li>
+<li> <code>{:stop, reason, new_state}</code></li>
+<li> <code>{:stop, reason, reply, new_state}</code></li>
+</ul></li>
 <li><p><code>handle_info(msg, state)</code> - invoked to handle all other messages which
 are received by the process.</p>
 
 <p>It must return:</p>
 
-<p>{:noreply, state}
-  {:noreply, state, timeout}
-  {:stop, reason, state}</p></li>
+<ul>
+<li> <code>{:noreply, state}</code></li>
+<li> <code>{:noreply, state, timeout}</code></li>
+<li> <code>{:stop, reason, state}</code></li>
+</ul></li>
 <li><p><code>terminate(reason, state)</code> - called when the server is about to
 terminate, useful for cleaning up. It must return <code>:ok</code></p></li>
 <li><p><code>code_change(old_vsn, state, extra)</code> - called when the application
-code is being upgraded live (hot code swap).</p>
+code is being upgraded live (hot code swapping).</p>
 
 <p>It must return:</p>
 
-<p>{:ok, new_state}
-  {:error, reason}</p></li>
+<ul>
+<li> <code>{:ok, new_state}</code></li>
+<li> <code>{:error, reason}</code></li>
+</ul></li>
 </ul>
 
-<h2>Names registering</h2>
+<h2>Name Registration</h2>
 
 <p>Both <a href="#start_link/3"><code>start_link/3</code></a> and <a href="#start/3"><code>start/3</code></a> support the <a href="GenServer.html"><code>GenServer</code></a> to register
 a name on start via the <code>:name</code> option. Registered names are also
-automatically clean up on termination. The supported values are:</p>
+automatically cleaned up on termination. The supported values are:</p>
 
 <ul>
 <li><p>an atom - the GenServer is registered locally with the given name
@@ -164,7 +169,7 @@ using <a href="Process.html#register/2"><code>Process.register/2</code></a>;</p>
 term using the functions in the <code>:global</code> module;</p></li>
 <li><p><code>{:via, module, term}</code> - the GenServer is registered with the given
 mechanism and name. The <code>:via</code> option expects a module name to control
-the registration mechanism along side a name which can be any term;</p></li>
+the registration mechanism alongside a name which can be any term;</p></li>
 </ul>
 
 <p>For example, we could start and register our Stack server locally as follows:</p>
@@ -176,8 +181,8 @@ the registration mechanism along side a name which can be any term;</p></li>
 GenServer.call(MyStack, :pop) #=&gt; :hello
 </code></pre>
 
-<p>Once the server is started, the remaining functions in this module (<code>call/2</code>,
-<a href="#cast/2"><code>cast/2</code></a> and friends) will also accept an atom, or any <code>:global</code> or <code>:via</code>
+<p>Once the server is started, the remaining functions in this module (<a href="#call/3"><code>call/3</code></a>,
+<a href="#cast/2"><code>cast/2</code></a>, and friends) will also accept an atom, or any <code>:global</code> or <code>:via</code>
 tuples. In general, the following formats are supported:</p>
 
 <ul>
@@ -190,10 +195,10 @@ tuples. In general, the following formats are supported:</p>
 
 <h2>Client / Server APIs</h2>
 
-<p>Although in the example above we have used <code>GenServer.start_link/2</code> and
+<p>Although in the example above we have used <a href="GenServer.html#start_link/3"><code>GenServer.start_link/3</code></a> and
 friends to directly start and communicate with the server, most of the
-time we don&#39;t call the <a href="GenServer.html"><code>GenServer</code></a> functions directly, instead, we wrap
-them in functions too.</p>
+time we don&#39;t call the <a href="GenServer.html"><code>GenServer</code></a> functions directly. Instead, we wrap
+the calls in new functions representing the public API of the server.</p>
 
 <p>Here is a better implementation of our Stack module:</p>
 
@@ -241,7 +246,7 @@ complex, you may want to have them in different modules.</p>
 
 <h2>Learn more</h2>
 
-<p>In case you desire to learn more about gen servers, Elixir getting started
+<p>If you wish to find out more about gen servers, Elixir getting started
 guides provide a tutorial-like introduction. The documentation and links
 in Erlang can also provide extra insight.</p>
 
@@ -256,18 +261,23 @@ in Erlang can also provide extra insight.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#reply/2">reply(client, reply)</a></td>
+  <td class="summary_signature"><a href="#abcast/3">abcast(nodes \\ nodes(), name, request)</a></td>
   
-    <td class="summary_synopsis"><p>Replies a client</p>
+    <td class="summary_synopsis"><p>Casts all servers locally registered as <code>name</code> at the specified nodes</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#call/3">call(server, request, timeout \\ 5000)</a></td>
+  
+    <td class="summary_synopsis"><p>Makes a synchronous call to the <code>server</code> and waits for its reply</p>
 </td>
   
 </tr>
@@ -279,23 +289,16 @@ in Erlang can also provide extra insight.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#abcast/3">abcast(nodes \\ nodes(), name, request)</a></td>
+  <td class="summary_signature"><a href="#multi_call/4">multi_call(nodes \\ nodes(), name, request, timeout \\ :infinity)</a></td>
   
-    <td class="summary_synopsis"><p>Casts all servers locally registered as <code>name</code> at the specified nodes</p>
+    <td class="summary_synopsis"><p>Calls all servers locally registered as <code>name</code> at the specified <code>nodes</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#call/3">call(server, request, timeout \\ 5000)</a></td>
+  <td class="summary_signature"><a href="#reply/2">reply(client, reply)</a></td>
   
-    <td class="summary_synopsis"><p>Makes a synchronous call to the <code>server</code> and wait for its reply</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#start_link/3">start_link(module, args, options \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Starts a <a href="GenServer.html"><code>GenServer</code></a> process linked to the current process</p>
+    <td class="summary_synopsis"><p>Replies to a client</p>
 </td>
   
 </tr>
@@ -307,9 +310,9 @@ in Erlang can also provide extra insight.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#multi_call/4">multi_call(nodes \\ nodes(), name, request, timeout \\ :infinity)</a></td>
+  <td class="summary_signature"><a href="#start_link/3">start_link(module, args, options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Calls all servers locally registered as <code>name</code> at the specified <code>nodes</code></p>
+    <td class="summary_synopsis"><p>Starts a <a href="GenServer.html"><code>GenServer</code></a> process linked to the current process</p>
 </td>
   
 </tr>
@@ -397,7 +400,7 @@ server name does not exist.</p>
 <p>See <a href="#multi_call/4"><code>multi_call/4</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L368" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L373" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -417,13 +420,13 @@ server name does not exist.</p>
       
     </ul>
   
-  <div class="docstring"><p>Makes a synchronous call to the <code>server</code> and wait for its reply.</p>
+  <div class="docstring"><p>Makes a synchronous call to the <code>server</code> and waits for its reply.</p>
 
 <p>The client sends the given <code>request</code> to the server and waits until a reply
 arrives or a timeout occurs. <code>handle_call/3</code> will be called on the server
 to handle the request.</p>
 
-<p>The server can be any of the values described in the <code>Name Registering</code>
+<p>The server can be any of the values described in the <code>Name Registration</code>
 section of the module documentation.</p>
 
 <h2>Timeouts</h2>
@@ -438,7 +441,7 @@ must in this case be prepared for this and discard any such garbage messages
 that are two element tuples with a reference as the first element.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L345" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L350" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -460,12 +463,12 @@ that are two element tuples with a reference as the first element.</p>
   
   <div class="docstring"><p>Sends an asynchronous request to the <code>server</code>.</p>
 
-<p>This function returns <code>:ok</code> immediately, ignoring if the destination node
-or server does not exist. <code>handle_cast/2</code> will be called on the server
-to handle the request.</p>
+<p>This function returns <code>:ok</code> immediately, regardless of whether the
+destination node or server does exists. <code>handle_cast/2</code> will be called on the
+server to handle the request.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L357" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L362" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -501,7 +504,7 @@ queue, a middleman process is used to do the actual calls. Late answers will
 then be discarded when they arrive to a terminated process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L390" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L395" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -521,7 +524,7 @@ then be discarded when they arrive to a terminated process.</p>
       
     </ul>
   
-  <div class="docstring"><p>Replies a client.</p>
+  <div class="docstring"><p>Replies to a client.</p>
 
 <p>This function can be used by a server to explicitly send a reply to a
 client that called <a href="#call/3"><code>call/3</code></a> or <a href="#multi_call/4"><code>multi_call/4</code></a>. When the reply cannot be
@@ -531,10 +534,10 @@ defined in the return value of <code>handle_call/3</code>.</p>
 in <code>handle_call/3</code> callbacks. Reply is an arbitrary term which will be
 given back to the client as the return value of the call.</p>
 
-<p>This function always return <code>:ok</code>.</p>
+<p>This function always returns <code>:ok</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L408" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L413" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -559,7 +562,7 @@ given back to the client as the return value of the call.</p>
 <p>See <a href="#start_link/3"><code>start_link/3</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L308" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L313" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -587,33 +590,38 @@ given back to the client as the return value of the call.</p>
 passing the given <code>args</code> to initialize it. To ensure a synchronized start-up
 procedure, this function does not return until <code>init/1</code> has returned.</p>
 
+<p>Note that a <a href="GenServer.html"><code>GenServer</code></a> started with <a href="#start_link/3"><code>start_link/3</code></a> is linked to the
+parent process and will exit in case of crashes. The GenServer will also
+exit due to the <code>:normal</code> reasons in case it is configured to trap exits
+in the <code>init/1</code> callback.</p>
+
 <h2>Options</h2>
 
-<p>The <code>:name</code> option is used for name registered as described in the module
+<p>The <code>:name</code> option is used for name registration as described in the module
 documentation. If the option <code>:timeout</code> option is present, the server is
 allowed to spend the given milliseconds initializing or it will be
 terminated and the start function will return <code>{:error, :timeout}</code>.</p>
 
-<p>If the option <code>:debug</code> is present, the corresponding function in the
+<p>If the <code>:debug</code> option is present, the corresponding function in the
 <a href="http://www.erlang.org/doc/man/sys.html"><code>:sys</code> module</a> will be invoked.</p>
 
-<p>If the option <code>:spawn_opt</code> is present, the given options will be passed
-to the underlying process as in <code>Process.spawn/3</code>.</p>
+<p>If the <code>:spawn_opt</code> option is present, its value will be passed as options
+to the underlying process as in <a href="Process.html#spawn/4"><code>Process.spawn/4</code></a>.</p>
 
 <h2>Return values</h2>
 
-<p>If the server is successfully created and initialized the function returns
+<p>If the server is successfully created and initialized, the function returns
 <code>{:ok, pid}</code>, where pid is the pid of the server. If there already exists a
-process with the specified server name the function returns
+process with the specified server name, the function returns
 <code>{:error, {:already_started, pid}}</code> with the pid of that process.</p>
 
-<p>If the <code>init/1</code> callback fails with reason, the function returns
+<p>If the <code>init/1</code> callback fails with <code>reason</code>, the function returns
 <code>{:error, reason}</code>. Otherwise, if it returns <code>{:stop, reason}</code>
 or <code>:ignore</code>, the process is terminated and the function returns
 <code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/gen_server.ex#L298" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/gen_server.ex#L303" class="view_source">Source</a>
   
 </div>
 

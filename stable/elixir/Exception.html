@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Exception.html">Exception</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Exception.html">Exception</a></div>
 
       <h1>
         Exception
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -63,43 +60,13 @@ format exceptions as in the current Elixir version being used.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#format_exit/1">format_exit(reason)</a></td>
-  
-    <td class="summary_synopsis"><p>Formats an exit, returns a string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#format_stacktrace/1">format_stacktrace(trace \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Formats the stacktrace</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#message/1">message(exception)</a></td>
-  
-    <td class="summary_synopsis"><p>Gets the message for an exception</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#format_stacktrace_entry/1">format_stacktrace_entry(entry)</a></td>
-  
-    <td class="summary_synopsis"><p>Receives a stacktrace entry and formats it into a string</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#exception?/1">exception?(arg1)</a></td>
   
     <td class="summary_synopsis"><p>Returns true if the given argument is an exception</p>
@@ -107,10 +74,23 @@ format exceptions as in the current Elixir version being used.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#format_file_line/2">format_file_line(file, line)</a></td>
+  <td class="summary_signature"><a href="#format/3">format(kind, payload, stacktrace \\ nil)</a></td>
   
-    <td class="summary_synopsis"><p>Formats the given file and line as shown in stacktraces.
-If any of the values are nil, they are omitted</p>
+    <td class="summary_synopsis"><p>Normalizes and formats throw/errors/exits and stacktrace</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#format_banner/3">format_banner(kind, exception, stacktrace \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Normalizes and formats any throw, error and exit</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#format_exit/1">format_exit(reason)</a></td>
+  
+    <td class="summary_synopsis"><p>Formats an exit, returns a string</p>
 </td>
   
 </tr>
@@ -123,24 +103,10 @@ shown in stacktraces. The arity may also be a list of arguments</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#normalize/3">normalize(kind, payload, stacktrace \\ nil)</a></td>
+  <td class="summary_signature"><a href="#format_file_line/2">format_file_line(file, line)</a></td>
   
-    <td class="summary_synopsis"><p>Normalizes an exception, converting Erlang exceptions
-to Elixir exceptions</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#format_banner/3">format_banner(kind, exception, stacktrace \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Normalizes and formats any throw, error and exit</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#format/3">format(kind, payload, stacktrace \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>Normalizes and formats throw/errors/exits and stacktrace</p>
+    <td class="summary_synopsis"><p>Formats the given file and line as shown in stacktraces.
+If any of the values are nil, they are omitted</p>
 </td>
   
 </tr>
@@ -150,6 +116,35 @@ to Elixir exceptions</p>
     <td class="summary_synopsis"><p>Receives a module, fun and arity and formats it
 as shown in stacktraces. The arity may also be a list
 of arguments</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#format_stacktrace/1">format_stacktrace(trace \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Formats the stacktrace</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#format_stacktrace_entry/1">format_stacktrace_entry(entry)</a></td>
+  
+    <td class="summary_synopsis"><p>Receives a stacktrace entry and formats it into a string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#message/1">message(exception)</a></td>
+  
+    <td class="summary_synopsis"><p>Gets the message for an exception</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#normalize/3">normalize(kind, payload, stacktrace \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>Normalizes an exception, converting Erlang exceptions
+to Elixir exceptions</p>
 </td>
   
 </tr>
@@ -210,7 +205,7 @@ of arguments</p>
   <div class="docstring"><p>Returns true if the given argument is an exception.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L37" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L37" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -239,7 +234,7 @@ to generate the final format.</p>
 (as they are retrieved as messages without stacktraces).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L133" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L133" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -272,7 +267,7 @@ not return the stacktrace corresponding to the exception
 an empty stacktrace, <code>[]</code>, must be used.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L102" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L102" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -300,7 +295,7 @@ formats exits in a way to nicely show the exit reason, caller
 and stacktrace.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L157" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L157" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -323,7 +318,7 @@ shown in stacktraces. The arity may also be a list of arguments.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L392" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L392" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -352,7 +347,7 @@ iex&gt; Exception.format_file_line(nil, nil)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L456" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L456" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -386,7 +381,7 @@ where func is the name of the enclosing function. Convert to
 &quot;anonymous fn in func/arity&quot;</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L416" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L416" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -405,7 +400,7 @@ where func is the name of the enclosing function. Convert to
 is retrieved from <a href="Process.html#info/2"><code>Process.info/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L371" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L371" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -428,7 +423,7 @@ is retrieved from <a href="Process.html#info/2"><code>Process.info/2</code></a>.
   <div class="docstring"><p>Receives a stacktrace entry and formats it into a string.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L333" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L333" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -444,7 +439,7 @@ is retrieved from <a href="Process.html#info/2"><code>Process.info/2</code></a>.
   <div class="docstring"><p>Gets the message for an exception.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L43" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L43" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -481,7 +476,7 @@ not return the stacktrace corresponding to the exception
 an empty stacktrace, <code>[]</code>, must be used.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/exception.ex#L74" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/exception.ex#L74" class="view_source">Source</a>
   
 </div>
 

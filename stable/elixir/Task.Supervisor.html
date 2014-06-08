@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Task.html">Task</a> &rarr; <a href="Task.Supervisor.html">Supervisor</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Task.html">Task</a> &rarr; <a href="Task.Supervisor.html">Supervisor</a></div>
 
       <h1>
         Task.Supervisor
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -54,34 +51,39 @@ supervise tasks. Behind the scenes, this module is implemented as a
 <p>The functions in this module allow tasks can be spawned and awaited
 from a supervisor, similar to the functions defined in the <a href="Task.html"><code>Task</code></a> module.</p>
 
-<h2>Name registering</h2>
+<h2>Name Registration</h2>
 
-<p>A <a href="Task.Supervisor.html"><code>Task.Supervisor</code></a> is bound to the same name registering rules as a
+<p>A <a href="Task.Supervisor.html"><code>Task.Supervisor</code></a> is bound to the same name registration rules as a
 <a href="GenServer.html"><code>GenServer</code></a>. Read more about it in the <a href="GenServer.html"><code>GenServer</code></a> docs.</p>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#children/1">children(supervisor)</a></td>
+  <td class="summary_signature"><a href="#async/2">async(supervisor, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Returns all children pids</p>
+    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#start_link/1">start_link(opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#async/4">async(supervisor, module, fun, args)</a></td>
   
-    <td class="summary_synopsis"><p>Starts a new supervisor</p>
+    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#children/1">children(supervisor)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns all children pids</p>
 </td>
   
 </tr>
@@ -93,20 +95,6 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#async/2">async(supervisor, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#terminate_child/2">terminate_child(supervisor, pid)</a></td>
-  
-    <td class="summary_synopsis"><p>Terminates the given child at pid</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#start_child/4">start_child(supervisor, module, fun, args)</a></td>
   
     <td class="summary_synopsis"><p>Starts a task as child of the given <code>supervisor</code></p>
@@ -114,9 +102,16 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#async/4">async(supervisor, module, fun, args)</a></td>
+  <td class="summary_signature"><a href="#start_link/1">start_link(opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Starts a task that can be awaited on</p>
+    <td class="summary_synopsis"><p>Starts a new supervisor</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#terminate_child/2">terminate_child(supervisor, pid)</a></td>
+  
+    <td class="summary_synopsis"><p>Terminates the given child at pid</p>
 </td>
   
 </tr>
@@ -152,7 +147,7 @@ from a supervisor, similar to the functions defined in the <a href="Task.html"><
 For more information on tasks, check the <a href="Task.html"><code>Task</code></a> module.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L46" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L46" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -178,7 +173,7 @@ For more information on tasks, check the <a href="Task.html"><code>Task</code></
 For more information on tasks, check the <a href="Task.html"><code>Task</code></a> module.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L57" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L57" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -201,7 +196,7 @@ For more information on tasks, check the <a href="Task.html"><code>Task</code></
   <div class="docstring"><p>Returns all children pids.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L76" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L76" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -229,7 +224,7 @@ task needs to emit side-effects (like I/O) and does not need
 to report back to the caller.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L89" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L89" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -255,7 +250,7 @@ to report back to the caller.</p>
 by the given <code>module</code>, <code>fun</code> and <code>args</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L100" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -281,14 +276,14 @@ by the given <code>module</code>, <code>fun</code> and <code>args</code>.</p>
 
 <ul>
 <li><p><code>:name</code> - used to register a supervisor name, the supported values are
-described under the <code>Name Registering</code> section in the <a href="GenServer.html"><code>GenServer</code></a> module
+described under the <code>Name Registration</code> section in the <a href="GenServer.html"><code>GenServer</code></a> module
 docs;</p></li>
 <li><p><code>:shutdown</code> - <code>:brutal_kill</code> if the tasks must be killed directly on shutdown
 or an integer indicating the timeout value, defaults to 5000 miliseconds;</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L32" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L32" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -311,7 +306,7 @@ or an integer indicating the timeout value, defaults to 5000 miliseconds;</p></l
   <div class="docstring"><p>Terminates the given child at pid.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/task/supervisor.ex#L68" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/task/supervisor.ex#L68" class="view_source">Source</a>
   
 </div>
 

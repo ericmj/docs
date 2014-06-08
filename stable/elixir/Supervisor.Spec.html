@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Supervisor.html">Supervisor</a> &rarr; <a href="Supervisor.Spec.html">Spec</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Supervisor.html">Supervisor</a> &rarr; <a href="Supervisor.Spec.html">Spec</a></div>
 
       <h1>
         Supervisor.Spec
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -91,8 +88,9 @@ end
 <ol>
 <li><p>partialy change the supervision tree during hot-code swaps;</p></li>
 <li><p>define supervisors inside other supervisors;</p></li>
-<li><p>perform actions inside the supervision <code>init/1</code> callback.
-For example, you may want to start an ETS table that is linked to
+<li><p>perform actions inside the supervision <code>init/1</code> callback.</p>
+
+<p>For example, you may want to start an ETS table that is linked to
 the supervisor (i.e. if the supervision tree needs to be restarted,
 the ETS table must be restarted too);</p></li>
 </ol>
@@ -149,9 +147,7 @@ unconditionally terminated using <code>Process.exit(child, :kill)</code>;</p></l
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/supervisor/spec.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L1" class="view_source">Source</a>
       
 
       
@@ -288,22 +284,22 @@ supervise and a set of options.</p>
 <h2>Options</h2>
 
 <ul>
-<li><p><code>:strategy</code> - the restart strategy option It can be either
-<code>:one_for_one</code>, <code>:rest_for_one</code>, <code>:one_for_all</code> and
+<li><p><code>:strategy</code> - the restart strategy option. It can be either
+<code>:one_for_one</code>, <code>:rest_for_one</code>, <code>:one_for_all</code>, or
 <code>:simple_one_for_one</code>. You can learn more about strategies
-in the <a href="Supervisor.html"><code>Supervisor</code></a> module;</p></li>
+in the <a href="Supervisor.html"><code>Supervisor</code></a> module docs;</p></li>
 <li><p><code>:max_restarts</code> - the maximum amount of restarts allowed in
 a time frame. Defaults to 5;</p></li>
-<li><p><code>:max_seconds</code> - the time frame in which max_restarts applies.
+<li><p><code>:max_seconds</code> - the time frame in which <code>:max_restarts</code> applies.
 Defaults to 5;</p></li>
 </ul>
 
 <p>The <code>:strategy</code> option is required and by default maximum 5 restarts
-are allowed in 5 seconds. Please check the <a href="Supervisor.html"><code>Supervisor</code></a> module for
+are allowed within 5 seconds. Please check the <a href="Supervisor.html"><code>Supervisor</code></a> module for
 a complete description of the available strategies.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/supervisor/spec.ex#L159" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L160" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -329,7 +325,7 @@ with the given arguments.</p>
 <pre><code>supervisor ExUnit.Runner, [], restart: :permanent
 </code></pre>
 
-<p>By default, the function <code>:start_link</code> is invoked on the given
+<p>By default, the function <code>start_link</code> is invoked on the given
 module. Overall, the default values for the options are:</p>
 
 <pre><code>[id: module,
@@ -343,7 +339,7 @@ module. Overall, the default values for the options are:</p>
 the options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/supervisor/spec.ex#L229" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -369,7 +365,7 @@ with the given arguments.</p>
 <pre><code>worker ExUnit.Runner, [], restart: :permanent
 </code></pre>
 
-<p>By default, the function <code>:start_link</code> is invoked on the given
+<p>By default, the function <code>start_link</code> is invoked on the given
 module. Overall, the default values for the options are:</p>
 
 <pre><code>[id: module,
@@ -383,7 +379,7 @@ module. Overall, the default values for the options are:</p>
 the options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/supervisor/spec.ex#L205" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L206" class="view_source">Source</a>
   
 </div>
 

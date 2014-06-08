@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.0-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Leex.html">Leex</a></div>
+      <div class="breadcrumbs">Mix v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Leex.html">Leex</a></div>
 
       <h1>
         Mix.Tasks.Compile.Leex
@@ -58,11 +58,7 @@ the <code>--force</code> option.</p>
 <h2>Configuration</h2>
 
 <ul>
-<li><p><code>:erlc_paths</code> - directories to find source files.
-Defaults to <code>[&quot;src&quot;]</code>, can be configured as:</p>
-
-<pre><code>[erlc_paths: [&quot;src&quot;, &quot;other&quot;]]
-</code></pre></li>
+<li><p><code>:erlc_paths</code> - directories to find source files. Defaults to <code>[&quot;src&quot;]</code>.</p></li>
 <li><p><code>:leex_options</code> - compilation options that apply
 to Leex&#39;s compiler. There are many available options
 here: <a href="http://www.erlang.org/doc/man/leex.html#file-2">http://www.erlang.org/doc/man/leex.html#file-2</a></p></li>
@@ -72,13 +68,20 @@ here: <a href="http://www.erlang.org/doc/man/leex.html#file-2">http://www.erlang
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/compile.leex.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.leex.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#clean/0">clean()</a></td>
+  
+    <td class="summary_synopsis"><p>Cleans up compilation artifacts</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#manifests/0">manifests()</a></td>
   
     <td class="summary_synopsis"><p>Returns Leex manifests</p>
@@ -102,6 +105,22 @@ here: <a href="http://www.erlang.org/doc/man/leex.html#file-2">http://www.erlang
         <div id="functions_details" class="details_list">
           <h2>Functions</h2>
           <div class="detail">
+  <div class="detail_header" id="clean/0">
+    <span class="signature"><strong>clean()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#clean/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Cleans up compilation artifacts.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.leex.ex#L58" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
   <div class="detail_header" id="manifests/0">
     <span class="signature"><strong>manifests()</strong></span>
     <div class="detail_header_links">
@@ -114,7 +133,7 @@ here: <a href="http://www.erlang.org/doc/man/leex.html#file-2">http://www.erlang
   <div class="docstring"><p>Returns Leex manifests.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/compile.leex.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.leex.ex#L52" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -130,7 +149,7 @@ here: <a href="http://www.erlang.org/doc/man/leex.html#file-2">http://www.erlang
   <div class="docstring"><p>Runs this task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/mix/lib/mix/tasks/compile.leex.ex#L40" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.leex.ex#L34" class="view_source">Source</a>
   
 </div>
 

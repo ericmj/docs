@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Version.html">Version</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Version.html">Version</a></div>
 
       <h1>
         Version
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -107,25 +104,18 @@ be expressed as:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/version.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/version.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#parse_requirement/1">parse_requirement(string)</a></td>
+  <td class="summary_signature"><a href="#compare/2">compare(vsn1, vsn2)</a></td>
   
-    <td class="summary_synopsis"><p>Parse a version requirement string into a <code>Version.Requirement</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#parse/1">parse(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Parse a version string into a <a href="Version.html"><code>Version</code></a></p>
+    <td class="summary_synopsis"><p>Compares two versions. Returns <code>:gt</code> if first version is greater than
+the second and <code>:lt</code> for vice versa. If the two versions are equal <code>:eq</code>
+is returned</p>
 </td>
   
 </tr>
@@ -137,11 +127,16 @@ be expressed as:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#compare/2">compare(vsn1, vsn2)</a></td>
+  <td class="summary_signature"><a href="#parse/1">parse(string)</a></td>
   
-    <td class="summary_synopsis"><p>Compares two versions. Returns <code>:gt</code> if first version is greater than
-the second and <code>:lt</code> for vice versa. If the two versions are equal <code>:eq</code>
-is returned</p>
+    <td class="summary_synopsis"><p>Parse a version string into a <a href="Version.html"><code>Version</code></a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_requirement/1">parse_requirement(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Parse a version requirement string into a <code>Version.Requirement</code></p>
 </td>
   
 </tr>
@@ -220,7 +215,7 @@ iex&gt; Version.compare(&quot;invalid&quot;, &quot;2.0.1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/version.ex#L134" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/version.ex#L139" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -264,7 +259,7 @@ iex&gt; Version.match?(&quot;2.0.0&quot;, &quot;== ==1.0.0&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/version.ex#L99" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/version.ex#L104" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -296,7 +291,7 @@ iex&gt; Version.parse(&quot;2.0-alpha1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/version.ex#L163" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/version.ex#L168" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -328,7 +323,7 @@ iex&gt; Version.parse_requirement(&quot;== == 2.0.1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/version.ex#L187" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/version.ex#L192" class="view_source">Source</a>
   
 </div>
 

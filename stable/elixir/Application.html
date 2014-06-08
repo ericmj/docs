@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Application.html">Application</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Application.html">Application</a></div>
 
       <h1>
         Application
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -147,24 +144,13 @@ supervisor is automatically handled by the VM;</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#format_error/1">format_error(reason)</a></td>
-  
-    <td class="summary_synopsis"><p>Formats the error reason returned by <a href="#start/2"><code>start/2</code></a>,
-<code>ensure_started/2, [</code>stop/1<code>](#stop/1), [</code>load/1<code>](#load/1) and [</code>unload/1`](#unload/1),
-returns a string</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#app_dir/1">app_dir(app)</a></td>
   
     <td class="summary_synopsis"><p>Gets the directory for app</p>
@@ -172,30 +158,16 @@ returns a string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#load/1">load(app)</a></td>
+  <td class="summary_signature"><a href="#app_dir/2">app_dir(app, path)</a></td>
   
-    <td class="summary_synopsis"><p>Loads the given <code>app</code></p>
+    <td class="summary_synopsis"><p>Returns the given path inside <a href="#app_dir/1"><code>app_dir/1</code></a></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get_all_env/1">get_all_env(app)</a></td>
+  <td class="summary_signature"><a href="#delete_env/3">delete_env(app, key, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Returns all key-value pairs for <code>app</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#stop/1">stop(app)</a></td>
-  
-    <td class="summary_synopsis"><p>Stops the given <code>app</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#unload/1">unload(app)</a></td>
-  
-    <td class="summary_synopsis"><p>Unloads the given <code>app</code></p>
+    <td class="summary_synopsis"><p>Deletes the <code>key</code> from the given <code>app</code> environment</p>
 </td>
   
 </tr>
@@ -214,13 +186,6 @@ returns a string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#app_dir/2">app_dir(app, path)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the given path inside <a href="#app_dir/1"><code>app_dir/1</code></a></p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#fetch_env/2">fetch_env(app, key)</a></td>
   
     <td class="summary_synopsis"><p>Returns the value for <code>key</code> in <code>app</code>&#39;s environment in a tuple</p>
@@ -228,16 +193,18 @@ returns a string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#start/2">start(app, type \\ :temporary)</a></td>
+  <td class="summary_signature"><a href="#format_error/1">format_error(reason)</a></td>
   
-    <td class="summary_synopsis"><p>Starts the given <code>app</code></p>
+    <td class="summary_synopsis"><p>Formats the error reason returned by <a href="#start/2"><code>start/2</code></a>,
+<code>ensure_started/2, [</code>stop/1<code>](#stop/1), [</code>load/1<code>](#load/1) and [</code>unload/1`](#unload/1),
+returns a string</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#delete_env/3">delete_env(app, key, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#get_all_env/1">get_all_env(app)</a></td>
   
-    <td class="summary_synopsis"><p>Deletes the <code>key</code> from the given <code>app</code> environment</p>
+    <td class="summary_synopsis"><p>Returns all key-value pairs for <code>app</code></p>
 </td>
   
 </tr>
@@ -249,9 +216,37 @@ returns a string</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#load/1">load(app)</a></td>
+  
+    <td class="summary_synopsis"><p>Loads the given <code>app</code></p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#put_env/4">put_env(app, key, value, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Puts the <code>value</code> in <code>key</code> for the given <code>app</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#start/2">start(app, type \\ :temporary)</a></td>
+  
+    <td class="summary_synopsis"><p>Starts the given <code>app</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#stop/1">stop(app)</a></td>
+  
+    <td class="summary_synopsis"><p>Stops the given <code>app</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#unload/1">unload(app)</a></td>
+  
+    <td class="summary_synopsis"><p>Unloads the given <code>app</code></p>
 </td>
   
 </tr>
@@ -336,7 +331,7 @@ Application.app_dir(:bar)
 Elixir and also Erlang&#39;s <code>:code</code> module.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L306" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L306" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -359,7 +354,7 @@ Elixir and also Erlang&#39;s <code>:code</code> module.</p>
   <div class="docstring"><p>Returns the given path inside <a href="#app_dir/1"><code>app_dir/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L317" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L317" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -384,7 +379,7 @@ Elixir and also Erlang&#39;s <code>:code</code> module.</p>
 <p>See <a href="#put_env/4"><code>put_env/4</code></a> for a description of the options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L179" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L179" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -411,7 +406,7 @@ Elixir and also Erlang&#39;s <code>:code</code> module.</p>
 started.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L206" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L206" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,7 +436,7 @@ applications need to be explicitly started:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L194" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L194" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -467,7 +462,7 @@ applications need to be explicitly started:</p>
 does not exist, the function returns <code>:error</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L143" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L143" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -492,7 +487,7 @@ does not exist, the function returns <code>:error</code>.</p>
 returns a string.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L327" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L327" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -515,7 +510,7 @@ returns a string.</p>
   <div class="docstring"><p>Returns all key-value pairs for <code>app</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L118" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L118" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -541,7 +536,7 @@ returns a string.</p>
 does not exist, the function returns the <code>default</code> value.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L129" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L129" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -570,7 +565,7 @@ All <code>:included_applications</code> will also be loaded.</p>
 it does load its environment.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L266" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L266" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -609,7 +604,7 @@ in the application resource file on load. This means persistent values will
 stick after the application is loaded and also on application reload.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L169" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L169" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -662,7 +657,7 @@ be affected.</p>
 supervision tree terminates, the reason is set to <code>:shutdown</code>, not <code>:normal</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L242" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L242" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -687,7 +682,7 @@ supervision tree terminates, the reason is set to <code>:shutdown</code>, not <c
 <p>When stopped, the application is still loaded.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L252" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L252" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -713,7 +708,7 @@ supervision tree terminates, the reason is set to <code>:shutdown</code>, not <c
 Note that the function does not purge the application modules.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/application.ex#L277" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/application.ex#L277" class="view_source">Source</a>
   
 </div>
 

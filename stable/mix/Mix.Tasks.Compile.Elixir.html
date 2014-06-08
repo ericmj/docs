@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Elixir.html">Elixir</a></div>
+      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Elixir.html">Elixir</a></div>
 
       <h1>
         Mix.Tasks.Compile.Elixir
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -79,15 +76,20 @@ behaviour as Elixir;</p></li>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/compile.elixir.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/compile.elixir.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#clean/0">clean()</a></td>
+  
+    <td class="summary_synopsis"><p>Cleans up compilation artifacts</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#manifests/0">manifests()</a></td>
   
     <td class="summary_synopsis"><p>Returns Elixir manifests</p>
@@ -101,13 +103,6 @@ behaviour as Elixir;</p></li>
 </td>
   
 </tr>
-<tr>
-  <td class="summary_signature"><a href="#files_to_path/5">files_to_path(manifest, force, all, path, on_start)</a></td>
-  
-    <td class="summary_synopsis"><p>Compiles stale Elixir files</p>
-</td>
-  
-</tr>
 
         </table>
       
@@ -118,28 +113,19 @@ behaviour as Elixir;</p></li>
         <div id="functions_details" class="details_list">
           <h2>Functions</h2>
           <div class="detail">
-  <div class="detail_header" id="files_to_path/5">
-    <span class="signature"><strong>files_to_path(manifest, force, all, path, on_start)</strong></span>
+  <div class="detail_header" id="clean/0">
+    <span class="signature"><strong>clean()</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#files_to_path/5" class="detail_link" title="Link to this function">#</a>
+      <a href="#clean/0" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
   
-  <div class="docstring"><p>Compiles stale Elixir files.</p>
-
-<p>It expects a manifest file, a flag if compilation should be forced
-or not, all source files available (including the ones that are not
-stale) and a path where compiled files will be written to. All paths
-are required to be relative to the current working directory.</p>
-
-<p>The manifest is written down with information including dependencies
-in between modules, which helps it recompile only the modules that
-have changed at runtime.</p>
+  <div class="docstring"><p>Cleans up compilation artifacts.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/compile.elixir.ex#L286" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/compile.elixir.ex#L78" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -155,7 +141,7 @@ have changed at runtime.</p>
   <div class="docstring"><p>Returns Elixir manifests.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/compile.elixir.ex#L271" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/compile.elixir.ex#L72" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -171,7 +157,7 @@ have changed at runtime.</p>
   <div class="docstring"><p>Runs this task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/compile.elixir.ex#L241" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/compile.elixir.ex#L44" class="view_source">Source</a>
   
 </div>
 

@@ -20,17 +20,16 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Set.html">Set</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Set.html">Set</a></div>
 
       <h1>
         Set
         
+          <small>behaviour</small>
+        
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -78,32 +77,23 @@ operator.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#to_list/1">to_list(set)</a></td>
+  <td class="summary_signature"><a href="#delete/2">delete(set, value)</a></td>
   
-    <td class="summary_synopsis"><p>Converts <code>set</code> to a list</p>
+    <td class="summary_synopsis"><p>Deletes <code>value</code> from <code>set</code></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#size/1">size(set)</a></td>
+  <td class="summary_signature"><a href="#difference/2">difference(set1, set2)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the number of elements in <code>set</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#equal?/2">equal?(set1, set2)</a></td>
-  
-    <td class="summary_synopsis"><p>Check if two sets are equal using <code>===</code></p>
+    <td class="summary_synopsis"><p>Returns a set that is <code>set1</code> without the members of <code>set2</code></p>
 </td>
   
 </tr>
@@ -115,37 +105,9 @@ operator.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#subset?/2">subset?(set1, set2)</a></td>
+  <td class="summary_signature"><a href="#equal?/2">equal?(set1, set2)</a></td>
   
-    <td class="summary_synopsis"><p>Checks if <code>set1</code>&#39;s members are all contained in <code>set2</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#member?/2">member?(set, value)</a></td>
-  
-    <td class="summary_synopsis"><p>Checks if <code>set</code> contains <code>value</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#delete/2">delete(set, value)</a></td>
-  
-    <td class="summary_synopsis"><p>Deletes <code>value</code> from <code>set</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#put/2">put(set, value)</a></td>
-  
-    <td class="summary_synopsis"><p>Inserts <code>value</code> into <code>set</code> if it does not already contain it</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#union/2">union(set1, set2)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a set containing all members of <code>set1</code> and <code>set2</code></p>
+    <td class="summary_synopsis"><p>Check if two sets are equal using <code>===</code></p>
 </td>
   
 </tr>
@@ -157,9 +119,44 @@ operator.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#difference/2">difference(set1, set2)</a></td>
+  <td class="summary_signature"><a href="#member?/2">member?(set, value)</a></td>
   
-    <td class="summary_synopsis"><p>Returns a set that is <code>set1</code> without the members of <code>set2</code></p>
+    <td class="summary_synopsis"><p>Checks if <code>set</code> contains <code>value</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#put/2">put(set, value)</a></td>
+  
+    <td class="summary_synopsis"><p>Inserts <code>value</code> into <code>set</code> if it does not already contain it</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#size/1">size(set)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the number of elements in <code>set</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#subset?/2">subset?(set1, set2)</a></td>
+  
+    <td class="summary_synopsis"><p>Checks if <code>set1</code>&#39;s members are all contained in <code>set2</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#to_list/1">to_list(set)</a></td>
+  
+    <td class="summary_synopsis"><p>Converts <code>set</code> to a list</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#union/2">union(set1, set2)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a set containing all members of <code>set1</code> and <code>set2</code></p>
 </td>
   
 </tr>
@@ -226,7 +223,7 @@ iex&gt; Set.delete(s, 2) |&gt; Enum.sort
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L74" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L74" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -259,7 +256,7 @@ function, but they can only work with sets of the same type.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L92" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L92" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -295,7 +292,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L122" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L122" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -331,7 +328,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L161" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L161" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -367,7 +364,7 @@ iex&gt; Set.intersection(Enum.into([1,2], set_impl.new), Enum.into([3,4], set_im
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L194" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L194" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -399,7 +396,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L220" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L220" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +428,7 @@ iex&gt; Set.put(Enum.into([1, 2, 3], set_impl.new), 4) |&gt; Enum.sort
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L237" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L237" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -460,7 +457,7 @@ iex&gt; Set.put(Enum.into([1, 2, 3], set_impl.new), 4) |&gt; Enum.sort
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L251" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L251" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -496,7 +493,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L272" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L272" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -525,7 +522,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L293" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L293" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -558,7 +555,7 @@ but they can only work with sets of the same type.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L311" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L311" class="view_source">Source</a>
   
 </div>
 
@@ -589,7 +586,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L36" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L36" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -611,7 +608,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L37" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L37" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -633,7 +630,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L38" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L38" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -655,7 +652,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L39" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -677,7 +674,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L40" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L40" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -699,7 +696,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L41" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L41" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -721,7 +718,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L35" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L35" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -743,7 +740,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L42" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L42" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -765,7 +762,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L43" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L43" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -787,7 +784,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L44" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L44" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -809,7 +806,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L45" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L45" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -831,7 +828,7 @@ but they can only work with sets of the same type.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/set.ex#L46" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/set.ex#L46" class="view_source">Source</a>
   
 </div>
 

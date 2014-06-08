@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Filters.html">Filters</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Filters.html">Filters</a></div>
 
       <h1>
         ExUnit.Filters
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -52,25 +49,16 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/ex_unit/lib/ex_unit/filters.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/filters.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#parse_path/1">parse_path(file)</a></td>
+  <td class="summary_signature"><a href="#eval/3">eval(include, exclude, tags)</a></td>
   
-    <td class="summary_synopsis"><p>Parses filters out of a path</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#parse/1">parse(filters)</a></td>
-  
-    <td class="summary_synopsis"><p>Parses the given filters, as one would receive from the command line</p>
+    <td class="summary_synopsis"><p>Evaluates the include and exclude filters against the given tags</p>
 </td>
   
 </tr>
@@ -83,9 +71,16 @@ and keep precedence</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#eval/3">eval(include, exclude, tags)</a></td>
+  <td class="summary_signature"><a href="#parse/1">parse(filters)</a></td>
   
-    <td class="summary_synopsis"><p>Evaluates the include and exclude filters against the given tags</p>
+    <td class="summary_synopsis"><p>Parses the given filters, as one would receive from the command line</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_path/1">parse_path(file)</a></td>
+  
+    <td class="summary_synopsis"><p>Parses filters out of a path</p>
 </td>
   
 </tr>
@@ -141,7 +136,7 @@ iex&gt; ExUnit.Filters.eval([foo: &quot;bar&quot;], [:foo], %{foo: &quot;baz&quo
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/ex_unit/lib/ex_unit/filters.ex#L80" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/filters.ex#L80" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -174,7 +169,7 @@ iex&gt; ExUnit.Filters.normalize([:foo, :bar, :bar], [:foo, :baz])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/ex_unit/lib/ex_unit/filters.ex#L39" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/filters.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -203,7 +198,7 @@ iex&gt; ExUnit.Filters.normalize([:foo, :bar, :bar], [:foo, :baz])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/ex_unit/lib/ex_unit/filters.ex#L55" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/filters.ex#L55" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -230,7 +225,7 @@ on the command line) includes a line number filter, and if so returns the
 appropriate ExUnit configuration options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/ex_unit/lib/ex_unit/filters.ex#L16" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/filters.ex#L16" class="view_source">Source</a>
   
 </div>
 

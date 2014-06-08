@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Node.html">Node</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Node.html">Node</a></div>
 
       <h1>
         Node
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -57,9 +54,7 @@ about inlined functions, check out the <a href="Kernel.html"><code>Kernel</code>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L1" class="view_source">Source</a>
       
 
       
@@ -69,28 +64,6 @@ about inlined functions, check out the <a href="Kernel.html"><code>Kernel</code>
   <td class="summary_signature"><a href="#alive?/0">alive?()</a></td>
   
     <td class="summary_synopsis"><p>Returns <code>true</code> if the local node is alive</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#list/0">list()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns a list of all visible nodes in the system, excluding
-the local node</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#self/0">self()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the current node</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#get_cookie/0">get_cookie()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the magic cookie of the local node</p>
 </td>
   
 </tr>
@@ -109,6 +82,21 @@ the local node</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#get_cookie/0">get_cookie()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the magic cookie of the local node</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#list/0">list()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns a list of all visible nodes in the system, excluding
+the local node</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#list/1">list(args)</a></td>
   
     <td class="summary_synopsis"><p>Returns a list of nodes according to argument given</p>
@@ -116,38 +104,9 @@ the local node</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#ping/1">ping(node)</a></td>
-  
-    <td class="summary_synopsis"><p>Tries to set up a connection to node</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#monitor/2">monitor(node, flag)</a></td>
   
     <td class="summary_synopsis"><p>Monitors the status of the node</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn_link/2">spawn_link(node, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the pid of a new linked process started by the application of <code>fun</code> on <code>node</code></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#spawn/2">spawn(node, fun)</a></td>
-  
-    <td class="summary_synopsis"><p>Returns the pid of a new process started by the application of <code>fun</code>
-on <code>node</code>. If <code>node</code> does not exist, a useless pid is returned</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#set_cookie/2">set_cookie(node \\ Node.self(), cookie)</a></td>
-  
-    <td class="summary_synopsis"><p>Sets the magic cookie of <code>node</code> to the atom <code>cookie</code></p>
 </td>
   
 </tr>
@@ -160,18 +119,39 @@ option to be given, namely <code>:allow_passive_connect</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#spawn/3">spawn(node, fun, opts)</a></td>
+  <td class="summary_signature"><a href="#ping/1">ping(node)</a></td>
   
-    <td class="summary_synopsis"><p>Returns the pid of a new process started by the application of <code>fun</code>
-on <code>node</code></p>
+    <td class="summary_synopsis"><p>Tries to set up a connection to node</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#spawn_link/4">spawn_link(node, module, fun, args)</a></td>
+  <td class="summary_signature"><a href="#self/0">self()</a></td>
   
-    <td class="summary_synopsis"><p>Returns the pid of a new linked process started by the application of
-<code>module.function(args)</code> on <code>node</code></p>
+    <td class="summary_synopsis"><p>Returns the current node</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#set_cookie/2">set_cookie(node \\ Node.self(), cookie)</a></td>
+  
+    <td class="summary_synopsis"><p>Sets the magic cookie of <code>node</code> to the atom <code>cookie</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spawn/2">spawn(node, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the pid of a new process started by the application of <code>fun</code>
+on <code>node</code>. If <code>node</code> does not exist, a useless pid is returned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spawn/3">spawn(node, fun, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the pid of a new process started by the application of <code>fun</code>
+on <code>node</code></p>
 </td>
   
 </tr>
@@ -187,6 +167,21 @@ on <code>node</code></p>
   <td class="summary_signature"><a href="#spawn/5">spawn(node, module, fun, args, opts)</a></td>
   
     <td class="summary_synopsis"><p>Returns the pid of a new process started by the application of
+<code>module.function(args)</code> on <code>node</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spawn_link/2">spawn_link(node, fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the pid of a new linked process started by the application of <code>fun</code> on <code>node</code></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#spawn_link/4">spawn_link(node, module, fun, args)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the pid of a new linked process started by the application of
 <code>module.function(args)</code> on <code>node</code></p>
 </td>
   
@@ -233,7 +228,7 @@ on <code>node</code></p>
 <p>That is, if the node can be part of a distributed system.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L29" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L29" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -261,7 +256,7 @@ on <code>node</code></p>
 <p>See <a href="http://erlang.org/doc/man/net_kernel.html#connect_node-1">http://erlang.org/doc/man/net_kernel.html#connect_node-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L122" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L122" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -291,7 +286,7 @@ If the local node is not alive, the function returns <code>:ignored</code>.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#disconnect_node-1">http://www.erlang.org/doc/man/erlang.html#disconnect_node-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L109" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L109" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -309,7 +304,7 @@ If the local node is not alive, the function returns <code>:ignored</code>.</p>
 <p>Returns the cookie if the node is alive, otherwise <code>:nocookie</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L231" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L231" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -335,7 +330,7 @@ the local node.</p>
 <p>Same as <code>list(:visible)</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L40" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L40" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -363,7 +358,7 @@ satisfying the disjunction(s) of the list elements.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#nodes-1">http://www.erlang.org/doc/man/erlang.html#nodes-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L54" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L54" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -391,7 +386,7 @@ If <code>flag</code> is <code>false</code>, monitoring is turned off.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#monitor_node-2">http://www.erlang.org/doc/man/erlang.html#monitor_node-2</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L67" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L67" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -417,7 +412,7 @@ option to be given, namely <code>:allow_passive_connect</code>.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#monitor_node-3">http://www.erlang.org/doc/man/erlang.html#monitor_node-3</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L78" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L78" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -448,7 +443,7 @@ option to be given, namely <code>:allow_passive_connect</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L94" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L94" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -473,7 +468,7 @@ option to be given, namely <code>:allow_passive_connect</code>.</p>
 <p>It returns the same as the built-in <code>node()</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L19" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L19" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -494,7 +489,7 @@ the function also sets the cookie of all other unknown nodes to <code>cookie</co
 <p>This function will raise <a href="FunctionClauseError.html"><code>FunctionClauseError</code></a> if the given <code>node</code> is not alive.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L222" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L222" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -523,7 +518,7 @@ the list of available options.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L136" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L136" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -553,7 +548,7 @@ available options.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L151" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L151" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -583,7 +578,7 @@ available options.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L166" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L166" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -613,7 +608,7 @@ available options.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L181" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L181" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -642,7 +637,7 @@ signal with exit reason <code>:noconnection</code> will be received).</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L195" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L195" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -672,7 +667,7 @@ signal with exit reason <code>:noconnection</code> will be received).</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/node.ex#L210" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/node.ex#L210" class="view_source">Source</a>
   
 </div>
 

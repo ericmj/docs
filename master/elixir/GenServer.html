@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="GenServer.html">GenServer</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="GenServer.html">GenServer</a></div>
 
       <h1>
         GenServer
@@ -261,7 +261,7 @@ in Erlang can also provide extra insight.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L1" class="view_source">Source</a>
       
 
       
@@ -400,7 +400,7 @@ server name does not exist.</p>
 <p>See <a href="#multi_call/4"><code>multi_call/4</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L368" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L373" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,7 +441,7 @@ must in this case be prepared for this and discard any such garbage messages
 that are two element tuples with a reference as the first element.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L345" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L350" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -468,7 +468,7 @@ destination node or server does exists. <code>handle_cast/2</code> will be calle
 server to handle the request.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L357" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L362" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -504,7 +504,7 @@ queue, a middleman process is used to do the actual calls. Late answers will
 then be discarded when they arrive to a terminated process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L390" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L395" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -537,7 +537,7 @@ given back to the client as the return value of the call.</p>
 <p>This function always returns <code>:ok</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L408" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L413" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -562,7 +562,7 @@ given back to the client as the return value of the call.</p>
 <p>See <a href="#start_link/3"><code>start_link/3</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L308" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L313" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -590,6 +590,11 @@ given back to the client as the return value of the call.</p>
 passing the given <code>args</code> to initialize it. To ensure a synchronized start-up
 procedure, this function does not return until <code>init/1</code> has returned.</p>
 
+<p>Note that a <a href="GenServer.html"><code>GenServer</code></a> started with <a href="#start_link/3"><code>start_link/3</code></a> is linked to the
+parent process and will exit in case of crashes. The GenServer will also
+exit due to the <code>:normal</code> reasons in case it is configured to trap exits
+in the <code>init/1</code> callback.</p>
+
 <h2>Options</h2>
 
 <p>The <code>:name</code> option is used for name registration as described in the module
@@ -616,7 +621,7 @@ or <code>:ignore</code>, the process is terminated and the function returns
 <code>{:error, reason}</code> or <code>:ignore</code>, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f3f0ec09b73675d6d92590489c2f5df93bba6afd/lib/elixir/lib/gen_server.ex#L298" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/gen_server.ex#L303" class="view_source">Source</a>
   
 </div>
 

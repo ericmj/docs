@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Test.html">Test</a></div>
+      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Test.html">Test</a></div>
 
       <h1>
         Mix.Tasks.Test
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -110,10 +107,15 @@ tests and includes only the given ones:</p>
 <pre><code>mix test --include external --exclude test
 </code></pre>
 
-<p>When filtering tests by line number the following styles are equivalent:</p>
+<p>In case a single file is being tested, it is possible pass a specific
+line number:</p>
 
 <pre><code>mix test test/some/particular/file_test.exs:12
-mix test --only line:12 test/some/particular/file_test.exs
+</code></pre>
+
+<p>Which is equivalent to:</p>
+
+<pre><code>mix test --only line:12 test/some/particular/file_test.exs
 </code></pre>
 
 <h2>Configuration</h2>
@@ -149,9 +151,7 @@ test suite is done or nil.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/test.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/test.ex#L1" class="view_source">Source</a>
       
 
       
@@ -186,7 +186,7 @@ test suite is done or nil.</p>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix/tasks/test.ex#L123" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/test.ex#L127" class="view_source">Source</a>
   
 </div>
 

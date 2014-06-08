@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a></div>
+      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a></div>
 
       <h1>
         Mix
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -58,9 +55,7 @@ in Elixir, such as the shell and the current project configuration.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L1" class="view_source">Source</a>
       
 
       
@@ -74,16 +69,30 @@ in Elixir, such as the shell and the current project configuration.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#shell/0">shell()</a></td>
+  <td class="summary_signature"><a href="#env/1">env(env)</a></td>
   
-    <td class="summary_synopsis"><p>The shell is a wrapper for doing IO</p>
+    <td class="summary_synopsis"><p>Changes the current mix env</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#env/1">env(env)</a></td>
+  <td class="summary_signature"><a href="#raise/1">raise(message)</a></td>
   
-    <td class="summary_synopsis"><p>Changes the current mix env</p>
+    <td class="summary_synopsis"><p>Raises a mix error that is nicely formatted</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#raise/2">raise(exception, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Raises a mix compatible exception</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#shell/0">shell()</a></td>
+  
+    <td class="summary_synopsis"><p>The shell is a wrapper for doing IO</p>
 </td>
   
 </tr>
@@ -116,7 +125,7 @@ in Elixir, such as the shell and the current project configuration.</p>
   <div class="docstring"><p>Returns the mix environment.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix.ex#L34" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L44" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -135,7 +144,43 @@ in Elixir, such as the shell and the current project configuration.</p>
 configuration won&#39;t be reloaded.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix.ex#L45" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L55" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="raise/1">
+    <span class="signature"><strong>raise(message)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#raise/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Raises a mix error that is nicely formatted.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L81" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="raise/2">
+    <span class="signature"><strong>raise(exception, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#raise/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Raises a mix compatible exception.</p>
+
+<p>A mix compatible exception has a <code>mix_error</code> field which mix
+uses to store the project or application name which is
+automatically by the formatting tools.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L92" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -156,7 +201,7 @@ allowing developers to use a test shell that simply sends the
 messages to the current process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix.ex#L57" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L67" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -172,7 +217,7 @@ messages to the current process.</p>
   <div class="docstring"><p>Sets the current shell.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/mix/lib/mix.ex#L64" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix.ex#L74" class="view_source">Source</a>
   
 </div>
 

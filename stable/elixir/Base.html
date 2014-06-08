@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Base.html">Base</a></div>
+      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Base.html">Base</a></div>
 
       <h1>
         Base
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -54,9 +51,7 @@ according to <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L1" class="view_source">Source</a>
       
 
       
@@ -91,6 +86,41 @@ according to <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>.</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#decode64!/1">decode64!(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Decodes a base 64 encoded string into a binary string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decode64/1">decode64(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Decodes a base 64 encoded string into a binary string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#encode16/1">encode16(data)</a></td>
+  
+    <td class="summary_synopsis"><p>Encodes a binary string into a base 16 encoded string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#encode32/1">encode32(data)</a></td>
+  
+    <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#encode64/1">encode64(data)</a></td>
+  
+    <td class="summary_synopsis"><p>Encodes a binary string into a base 64 encoded string</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#hex_decode32!/1">hex_decode32!(string)</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 32 encoded string with extended hexadecimal alphabet
@@ -107,16 +137,10 @@ into a binary string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#decode64!/1">decode64!(string)</a></td>
+  <td class="summary_signature"><a href="#hex_encode32/1">hex_encode32(data)</a></td>
   
-    <td class="summary_synopsis"><p>Decodes a base 64 encoded string into a binary string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#decode64/1">decode64(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Decodes a base 64 encoded string into a binary string</p>
+    <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string with an
+extended hexadecimal alphabet</p>
 </td>
   
 </tr>
@@ -137,39 +161,10 @@ into a binary string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#encode16/1">encode16(data)</a></td>
-  
-    <td class="summary_synopsis"><p>Encodes a binary string into a base 16 encoded string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#hex_encode32/1">hex_encode32(data)</a></td>
-  
-    <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string with an
-extended hexadecimal alphabet</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#encode32/1">encode32(data)</a></td>
-  
-    <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#url_encode64/1">url_encode64(data)</a></td>
   
     <td class="summary_synopsis"><p>Encodes a binary string into a base 64 encoded string with URL and filename
 safe alphabet</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#encode64/1">encode64(data)</a></td>
-  
-    <td class="summary_synopsis"><p>Encodes a binary string into a base 64 encoded string</p>
 </td>
   
 </tr>
@@ -264,7 +259,7 @@ safe alphabet</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L65" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L65" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -296,7 +291,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L84" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L84" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +426,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L269" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -463,7 +458,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L288" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L288" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -678,7 +673,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L134" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L134" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -712,7 +707,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L155" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L155" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -741,7 +736,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L42" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L42" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -770,7 +765,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L241" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L241" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -799,7 +794,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L98" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L98" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -935,7 +930,7 @@ into a binary string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L332" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L332" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -968,7 +963,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L352" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L352" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -998,7 +993,7 @@ extended hexadecimal alphabet.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L303" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L303" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1214,7 +1209,7 @@ into a binary string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L207" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L207" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1247,7 +1242,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L227" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L227" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1277,7 +1272,7 @@ safe alphabet.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/elixir/lib/base.ex#L170" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L170" class="view_source">Source</a>
   
 </div>
 

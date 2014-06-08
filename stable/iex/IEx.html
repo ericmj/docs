@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">IEx v0.13.3 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IEx.html">IEx</a></div>
+      <div class="breadcrumbs">IEx v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IEx.html">IEx</a></div>
 
       <h1>
         IEx
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -46,7 +43,7 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>Welcome to IEx.</p>
+          <p>Elixir&#39;s interactive shell.</p>
 
 <p>This module is the main entry point for Interactive Elixir and
 in this documentation we will talk a bit about how IEx works.</p>
@@ -276,18 +273,31 @@ pending expression and return to its normal state:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#width/0">width()</a></td>
+  <td class="summary_signature"><a href="#after_spawn/0">after_spawn()</a></td>
   
-    <td class="summary_synopsis"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars</p>
+    <td class="summary_synopsis"><p>Returns registered <code>after_spawn</code> callbacks</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#after_spawn/1">after_spawn(fun)</a></td>
+  
+    <td class="summary_synopsis"><p>Registers a function to be invoked after the IEx process is spawned</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#color/2">color(color_name, string)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns <code>string</code> escaped using the specified color.
+ANSI escapes in <code>string</code> are not processed in any way</p>
 </td>
   
 </tr>
@@ -295,20 +305,6 @@ pending expression and return to its normal state:</p>
   <td class="summary_signature"><a href="#configuration/0">configuration()</a></td>
   
     <td class="summary_synopsis"><p>Returns IEx configuration</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#started?/0">started?()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns <code>true</code> if IEx was properly started</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#after_spawn/0">after_spawn()</a></td>
-  
-    <td class="summary_synopsis"><p>Returns registered <code>after_spawn</code> callbacks</p>
 </td>
   
 </tr>
@@ -327,17 +323,16 @@ pending expression and return to its normal state:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#after_spawn/1">after_spawn(fun)</a></td>
+  <td class="summary_signature"><a href="#started?/0">started?()</a></td>
   
-    <td class="summary_synopsis"><p>Registers a function to be invoked after the IEx process is spawned</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if IEx was properly started</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#color/2">color(color_name, string)</a></td>
+  <td class="summary_signature"><a href="#width/0">width()</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>string</code> escaped using the specified color.
-ANSI escapes in <code>string</code> are not processed in any way</p>
+    <td class="summary_synopsis"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars</p>
 </td>
   
 </tr>
@@ -363,7 +358,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Returns registered <code>after_spawn</code> callbacks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L314" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L314" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -379,7 +374,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Registers a function to be invoked after the IEx process is spawned.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L307" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L307" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -396,7 +391,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
 ANSI escapes in <code>string</code> are not processed in any way.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L330" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L330" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -412,7 +407,7 @@ ANSI escapes in <code>string</code> are not processed in any way.</p>
   <div class="docstring"><p>Returns IEx configuration.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L300" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L300" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -495,7 +490,7 @@ when awaiting input.</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L275" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L275" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -511,7 +506,7 @@ when awaiting input.</p>
   <div class="docstring"><p>Returns <code>true</code> if IEx was properly started.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L322" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -527,7 +522,7 @@ when awaiting input.</p>
   <div class="docstring"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L340" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L340" class="view_source">Source</a>
   
 </div>
 
@@ -606,7 +601,7 @@ Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
 affect the caller the environment (hence it is called <code>pry</code>).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.13.3/lib/iex/lib/iex.ex#L403" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/iex/lib/iex.ex#L403" class="view_source">Source</a>
   
 </div>
 
