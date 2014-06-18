@@ -20,17 +20,16 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.TestTransactions.html">TestTransactions</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Adapter.html">Adapter</a> &rarr; <a href="Ecto.Adapter.TestTransactions.html">TestTransactions</a></div>
 
       <h1>
         Ecto.Adapter.TestTransactions
         
+          <small>behaviour</small>
+        
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
         
         
@@ -72,10 +71,10 @@ defmodule PostTest do
 
   setup do
     Postgres.begin_test_transaction(TestRepo)
-  end
 
-  teardown do
-    Postgres.rollback_test_transaction(TestRepo)
+    on_exit fn -&gt;
+      Postgres.rollback_test_transaction(TestRepo)
+    end
   end
 
   test &quot;create comment&quot; do
@@ -88,10 +87,8 @@ end
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/adapter/test_transactions.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/adapter/test_transactions.ex#L1" class="view_source">Source</a>
       
 
       
@@ -118,15 +115,15 @@ end
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>begin_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+        <li>begin_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
       
     </ul>
   
   <div class="docstring"><p>Starts a test transaction, see example above for usage.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/adapter/test_transactions.ex#L50" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/adapter/test_transactions.ex#L50" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -142,15 +139,15 @@ end
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>rollback_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+        <li>rollback_test_transaction(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
       
     </ul>
   
   <div class="docstring"><p>Ends a test transaction, see example above for usage.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/adapter/test_transactions.ex#L55" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/adapter/test_transactions.ex#L55" class="view_source">Source</a>
   
 </div>
 

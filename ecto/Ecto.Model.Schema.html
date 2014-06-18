@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a> &rarr; <a href="Ecto.Model.Schema.html">Schema</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a> &rarr; <a href="Ecto.Model.Schema.html">Schema</a></div>
 
       <h1>
         Ecto.Model.Schema
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -92,10 +89,10 @@ through your entire application.</p>
 
 <ul>
 <li><code>primary_key</code> - either <code>false</code>, or a <code>{field, type, opts}</code> tuple</li>
-<li><code>foreign_key_type</code> - sets the type for any belongs_to associations.
+<li><code>foreign_key_type</code> - sets the type for any belongs<em>to associations.
                    This can be overrided using the <code>:type</code> option
-                   to the <code>belongs_to</code> statement. Defaults to
-                   type <code>:integer</code></li>
+                   to the `belongs</em>to<code>statement. Defaults to
+                   type</code>:integer`</li>
 </ul>
 
 <h2>Example</h2>
@@ -180,27 +177,29 @@ runtime introspection of the schema.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#field/3">field(name, type \\ :string, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#belongs_to/3">belongs_to(name, queryable, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Defines a field on the model schema with given name and type, will also create
-a struct field. If the type is <code>:virtual</code> it wont be persisted</p>
+    <td class="summary_synopsis"><p>Indicates a one-to-one association with another model, the current model
+belongs to zero or one records of the other model. The other model
+often has a <code>has_one</code> or a <code>has_many</code> field with the reverse association.
+Compared to <code>has_one</code> this association should be used where you would place
+the foreign key on an SQL table</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#schema/3">schema(source, opts \\ [], list3)</a></td>
+  <td class="summary_signature"><a href="#field/3">field(name, type \\ :string, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Defines a schema with a source name and field definitions</p>
+    <td class="summary_synopsis"><p>Defines a field on the model schema with given name and type, will also create
+a struct field. If the type is <code>:virtual</code> it wont be persisted</p>
 </td>
   
 </tr>
@@ -214,22 +213,18 @@ has a <code>belongs_to</code> field with the reverse association</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#belongs_to/3">belongs_to(name, queryable, opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Indicates a one-to-one association with another model, the current model
-belongs to zero or one records of the other model. The other model
-often has a <code>has_one</code> or a <code>has_many</code> field with the reverse association.
-Compared to <code>has_one</code> this association should be used where you would place
-the foreign key on an SQL table</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#has_one/3">has_one(name, queryable, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Indicates a one-to-one association with another model, where the current model
 has zero or one records of the other model. The other model often has a
 <code>belongs_to</code> field with the reverse association</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#schema/3">schema(source, opts \\ [], list3)</a></td>
+  
+    <td class="summary_synopsis"><p>Defines a schema with a source name and field definitions</p>
 </td>
   
 </tr>
@@ -296,8 +291,8 @@ comment.post.get #=&gt; %Post{...}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L336" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L336" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -322,8 +317,8 @@ primary key have to be overridden by setting its name to <code>nil</code>;</li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L203" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L203" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -379,8 +374,8 @@ post.comments.all #=&gt; [ %Comment{...}, ... ]
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L249" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L249" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -432,8 +427,8 @@ post.permalink.get #=&gt; %Permalink{...}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L291" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L291" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -449,8 +444,8 @@ post.permalink.get #=&gt; %Permalink{...}
   <div class="docstring"><p>Defines a schema with a source name and field definitions.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model/schema.ex#L143" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model/schema.ex#L143" class="view_source">Source</a>
   
 </div>
 

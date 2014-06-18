@@ -20,17 +20,16 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Repo.html">Repo</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Repo.html">Repo</a></div>
 
       <h1>
         Ecto.Repo
         
+          <small>behaviour</small>
+        
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
         
         
@@ -91,10 +90,8 @@ project definition.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L1" class="view_source">Source</a>
       
 
       
@@ -139,8 +136,8 @@ project definition.</p>
   <div class="docstring"><p>Returns the adapter tied to the repository.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L340" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L340" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -156,7 +153,7 @@ project definition.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>all(<a href="Ecto.Query.html#t:t/0">Ecto.Query.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: [<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>] | no_return</li>
+        <li>all(<a href="Ecto.Query.html#t:t/0">Ecto.Query.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: [<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>] | no_return</li>
       
     </ul>
   
@@ -178,8 +175,8 @@ MyRepo.all(query)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L200" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L200" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -195,7 +192,7 @@ MyRepo.all(query)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>conf :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a></li>
+        <li>conf :: <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a></li>
       
     </ul>
   
@@ -204,8 +201,8 @@ used in conjunction with <code>parse_url/1</code>. This function must be impleme
 the user.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L153" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L153" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -221,7 +218,7 @@ the user.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+        <li>delete(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
       
     </ul>
   
@@ -241,8 +238,8 @@ MyRepo.delete(post)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L267" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L267" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -258,7 +255,7 @@ MyRepo.delete(post)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>delete_all(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: integer | no_return</li>
+        <li>delete_all(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: integer | no_return</li>
       
     </ul>
   
@@ -278,8 +275,8 @@ from(p in Post, where: p.id &lt; 10) |&gt; MyRepo.delete_all
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L283" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L283" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -295,7 +292,7 @@ from(p in Post, where: p.id &lt; 10) |&gt; MyRepo.delete_all
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | nil | no_return</li>
+        <li>get(<a href="Ecto.Queryable.html#t:t/0">Ecto.Queryable.t</a>, term, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | nil | no_return</li>
       
     </ul>
   
@@ -310,8 +307,8 @@ will be raised if there is an adapter error.</p>
                <code>:infinity</code> will wait indefinitely (default: 5000);</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L182" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L182" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -327,7 +324,7 @@ will be raised if there is an adapter error.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>insert(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | no_return</li>
+        <li>insert(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a> | no_return</li>
       
     </ul>
   
@@ -346,8 +343,8 @@ representation. May raise <code>Ecto.AdapterError</code> if there is an adapter 
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L215" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L215" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -382,8 +379,8 @@ def log(_arg, fun), do: fun.()
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L357" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L357" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -406,8 +403,8 @@ def log(_arg, fun), do: fun.()
   <div class="docstring"><p>Returns the supported query APIs. Should be overridden to customize.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L362" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L362" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -430,8 +427,8 @@ def log(_arg, fun), do: fun.()
   <div class="docstring"><p>Rolls back the current transaction. See <a href="#rollback/1"><code>rollback/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L329" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L329" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -455,8 +452,8 @@ def log(_arg, fun), do: fun.()
 given as <code>{:error, value}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L335" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -483,8 +480,8 @@ or just <code>:ok</code> if nothing needs to be done.</p>
 started or <code>{:error, term}</code> in case anything else goes wrong.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L163" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L163" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -507,8 +504,8 @@ started or <code>{:error, term}</code> in case anything else goes wrong.</p>
   <div class="docstring"><p>Stops any connection pooling or supervision started with <code>start_link/1</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L170" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L170" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -524,7 +521,7 @@ started or <code>{:error, term}</code> in case anything else goes wrong.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>transaction(<a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, any} | {:error, any}</li>
+        <li>transaction(<a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, any} | {:error, any}</li>
       
     </ul>
   
@@ -568,8 +565,8 @@ end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L324" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L324" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -585,7 +582,7 @@ end)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
+        <li>update(<a href="Ecto.Model.html#t:t/0">Ecto.Model.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: :ok | no_return</li>
       
     </ul>
   
@@ -606,8 +603,8 @@ MyRepo.update(post)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L232" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L232" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -639,8 +636,8 @@ from(p in Post, where: p.id &lt; 10)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/repo.ex#L251" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/repo.ex#L251" class="view_source">Source</a>
   
 </div>
 

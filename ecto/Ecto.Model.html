@@ -20,23 +20,22 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a></div>
 
       <h1>
         Ecto.Model
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
         
           <li><a href="#functions_details">Functions</a></li>
         
+        
+          <li><a href="#macros_details">Macros</a></li>
         
         
         
@@ -64,10 +63,8 @@ but you can cherry pick the ones you want to use.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model.ex#L1" class="view_source">Source</a>
       
 
       
@@ -84,6 +81,13 @@ but you can cherry pick the ones you want to use.</p>
   <td class="summary_signature"><a href="#put_primary_key/2">put_primary_key(model, id)</a></td>
   
     <td class="summary_synopsis"><p>Sets the model&#39;s primary key</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#scoped/2">scoped(field, opts)</a></td>
+  
+    <td class="summary_synopsis"><p>Scopes a query to the local model</p>
 </td>
   
 </tr>
@@ -129,8 +133,8 @@ but you can cherry pick the ones you want to use.</p>
 <p>Raises <a href="Ecto.NoPrimaryKey.html"><code>Ecto.NoPrimaryKey</code></a> if model has no primary key.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model.ex#L34" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model.ex#L34" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -155,14 +159,38 @@ but you can cherry pick the ones you want to use.</p>
 <p>Raises <a href="Ecto.NoPrimaryKey.html"><code>Ecto.NoPrimaryKey</code></a> if model has no primary key.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/model.ex#L48" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model.ex#L48" class="view_source">Source</a>
   
 </div>
 
         </div>
       
 
+      
+        <div id="macros_details" class="details_list">
+          <h2>Macros</h2>
+          <div class="detail">
+  <div class="detail_header" id="scoped/2">
+    <span class="signature"><strong>scoped(field, opts)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#scoped/2" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Scopes a query to the local model.</p>
+
+<p>Shorthand for <code>from(var in __MODULE__, ...)</code>.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/model.ex#L71" class="view_source">Source</a>
+  
+</div>
+
+        </div>
       
 
       

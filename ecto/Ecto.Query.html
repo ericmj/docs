@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a></div>
 
       <h1>
         Ecto.Query
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -173,16 +170,49 @@ in the keywords query and in the query expression formats.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
+  <td class="summary_signature"><a href="#distinct/3">distinct(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A distinct query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#from/2">from(expr, kw)</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a query</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#group_by/3">group_by(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A group by query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#having/3">having(query, binding, expr)</a></td>
+  
+    <td class="summary_synopsis"><p>A having query expression</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#join/5">join(query, qual, binding, expr, on \\ nil)</a></td>
+  
+    <td class="summary_synopsis"><p>A join query expression</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#limit/2">limit(query, expr)</a></td>
   
     <td class="summary_synopsis"><p>A limit query expression</p>
@@ -204,9 +234,9 @@ in the keywords query and in the query expression formats.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#from/2">from(expr, kw)</a></td>
+  <td class="summary_signature"><a href="#order_by/3">order_by(query, binding, expr)</a></td>
   
-    <td class="summary_synopsis"><p>Creates a query</p>
+    <td class="summary_synopsis"><p>An order by query expression</p>
 </td>
   
 </tr>
@@ -214,27 +244,6 @@ in the keywords query and in the query expression formats.</p>
   <td class="summary_signature"><a href="#preload/2">preload(query, expr)</a></td>
   
     <td class="summary_synopsis"><p>Mark associations to be pre-loaded</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#distinct/3">distinct(query, binding, expr)</a></td>
-  
-    <td class="summary_synopsis"><p>A distinct query expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#group_by/3">group_by(query, binding, expr)</a></td>
-  
-    <td class="summary_synopsis"><p>A group by query expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#having/3">having(query, binding, expr)</a></td>
-  
-    <td class="summary_synopsis"><p>A having query expression</p>
 </td>
   
 </tr>
@@ -249,20 +258,6 @@ in the keywords query and in the query expression formats.</p>
   <td class="summary_signature"><a href="#where/3">where(query, binding, expr)</a></td>
   
     <td class="summary_synopsis"><p>A where query expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#order_by/3">order_by(query, binding, expr)</a></td>
-  
-    <td class="summary_synopsis"><p>An order by query expression</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#join/5">join(query, qual, binding, expr, on \\ nil)</a></td>
-  
-    <td class="summary_synopsis"><p>A join query expression</p>
 </td>
   
 </tr>
@@ -327,8 +322,8 @@ from(p in Post,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L313" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L313" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -393,8 +388,8 @@ end
 as they have no importance in the query sent to the database.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L190" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L190" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -434,8 +429,8 @@ from(p in Post,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L453" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L453" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -474,8 +469,8 @@ from(p in Post,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L481" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L481" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -524,8 +519,8 @@ Post
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L233" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L233" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -556,8 +551,8 @@ have to evaluate to an integer value and it can&#39;t include any field.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L376" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L376" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -592,8 +587,8 @@ from(u in User) |&gt; where(u.id == current_user) |&gt; lock(&quot;FOR SHARE NOW
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L423" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L423" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -625,8 +620,8 @@ from(p in Post, limit: 10, offset: 30)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L398" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L398" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -658,8 +653,8 @@ from(c in City, order_by: [asc: c.name, desc: c.population])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L355" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L355" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -708,8 +703,8 @@ Post |&gt; preload([:user, {:comments, [:user]}]) |&gt; select([p], p)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L518" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L518" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -766,8 +761,8 @@ from(c in City) |&gt; select([c], {c.name, c.country})
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L281" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L281" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -797,8 +792,8 @@ where expression have to evaluate to a boolean value.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query.ex#L333" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query.ex#L333" class="view_source">Source</a>
   
 </div>
 

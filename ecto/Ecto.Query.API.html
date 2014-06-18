@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a> &rarr; <a href="Ecto.Query.API.html">API</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Query.html">Query</a> &rarr; <a href="Ecto.Query.API.html">API</a></div>
 
       <h1>
         Ecto.Query.API
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -55,33 +52,122 @@ functions outlined here.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#random/0">random()</a></td>
+  <td class="summary_signature"><a href="#!=/2">left != right</a></td>
   
-    <td class="summary_synopsis"><p>Random float number from 0.0 to 1.0 including</p>
+    <td class="summary_synopsis"><p>Inequality</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#now/0">now()</a></td>
+  <td class="summary_signature"><a href="#*/2">left * right</a></td>
   
-    <td class="summary_synopsis"><p>Returns the current date and time</p>
+    <td class="summary_synopsis"><p>Multiplication of numbers</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#localtimestamp/0">localtimestamp()</a></td>
+  <td class="summary_signature"><a href="#++/2">left ++ right</a></td>
   
-    <td class="summary_synopsis"><p>Returns the current local date and time</p>
+    <td class="summary_synopsis"><p>List concatenation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#+/1">+arg</a></td>
+  
+    <td class="summary_synopsis"><p>Positive number</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#+/2">left + right</a></td>
+  
+    <td class="summary_synopsis"><p>Addition of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#-/1">-arg</a></td>
+  
+    <td class="summary_synopsis"><p>Negate number</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#-/2">left - right</a></td>
+  
+    <td class="summary_synopsis"><p>Subtraction of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#../2">left .. right</a></td>
+  
+    <td class="summary_synopsis"><p>Range from left to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#//2">left / right</a></td>
+  
+    <td class="summary_synopsis"><p>Division of numbers</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;/2">left &lt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Left less than right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;=/2">left &lt;= right</a></td>
+  
+    <td class="summary_synopsis"><p>Left less than or equal to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&lt;&gt;/2">left &lt;&gt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Binary and string concatenation</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#==/2">left == right</a></td>
+  
+    <td class="summary_synopsis"><p>Equality</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;/2">left &gt; right</a></td>
+  
+    <td class="summary_synopsis"><p>Left greater than right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#&gt;=/2">left &gt;= right</a></td>
+  
+    <td class="summary_synopsis"><p>Left greater than or equal to right</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#and/2">left and right</a></td>
+  
+    <td class="summary_synopsis"><p>Boolean and</p>
 </td>
   
 </tr>
@@ -89,6 +175,14 @@ functions outlined here.</p>
   <td class="summary_signature"><a href="#avg/1">avg(numbers)</a></td>
   
     <td class="summary_synopsis"><p>Aggregate function, averages the given field over the current group</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#binary/1">binary(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Casts a binary literal to a binary type. By default a
+binary literal is of the string type</p>
 </td>
   
 </tr>
@@ -101,9 +195,67 @@ in the current group</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#sum/1">sum(numbers)</a></td>
+  <td class="summary_signature"><a href="#date/1">date(datetime)</a></td>
   
-    <td class="summary_synopsis"><p>Aggregate function, sums the given field over the current group</p>
+    <td class="summary_synopsis"><p>Extract date from datetime</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#datetime/2">datetime(date, time)</a></td>
+  
+    <td class="summary_synopsis"><p>Create a datetime from a date and a time</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#div/2">div(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Integer division</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#downcase/1">downcase(string)</a></td>
+  
+    <td class="summary_synopsis"><p>Downcase string</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#field/2">field(var, atom)</a></td>
+  
+    <td class="summary_synopsis"><p>References a field. This can be used when a field needs
+to be dynamically referenced</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#ilike/2">ilike(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Case-insensitive pattern match</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#in/2">left in right</a></td>
+  
+    <td class="summary_synopsis"><p>Return <code>true</code> if <code>left</code> is in <code>right</code> array, <code>false</code>
+otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#like/2">like(left, right)</a></td>
+  
+    <td class="summary_synopsis"><p>Case-sensitive pattern match</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#localtimestamp/0">localtimestamp()</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the current local date and time</p>
 </td>
   
 </tr>
@@ -131,91 +283,9 @@ group</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#binary/1">binary(string)</a></td>
+  <td class="summary_signature"><a href="#now/0">now()</a></td>
   
-    <td class="summary_synopsis"><p>Casts a binary literal to a binary type. By default a
-binary literal is of the string type</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#downcase/1">downcase(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Downcase string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#date/1">date(datetime)</a></td>
-  
-    <td class="summary_synopsis"><p>Extract date from datetime</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#time/1">time(datetime)</a></td>
-  
-    <td class="summary_synopsis"><p>Extract time from datetime</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#-/1">-arg</a></td>
-  
-    <td class="summary_synopsis"><p>Negate number</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#+/1">+arg</a></td>
-  
-    <td class="summary_synopsis"><p>Positive number</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#round/1">round(number)</a></td>
-  
-    <td class="summary_synopsis"><p>Round number to closest integer</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#upcase/1">upcase(string)</a></td>
-  
-    <td class="summary_synopsis"><p>Upcase string</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#round/2">round(x0, x1)</a></td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#time_add/2">time_add(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Addition of datetime&#39;s with interval&#39;s</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#+/2">left + right</a></td>
-  
-    <td class="summary_synopsis"><p>Addition of numbers</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#&lt;&gt;/2">left &lt;&gt; right</a></td>
-  
-    <td class="summary_synopsis"><p>Binary and string concatenation</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#and/2">left and right</a></td>
-  
-    <td class="summary_synopsis"><p>Boolean and</p>
+    <td class="summary_synopsis"><p>Returns the current date and time</p>
 </td>
   
 </tr>
@@ -227,51 +297,16 @@ binary literal is of the string type</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#ilike/2">ilike(left, right)</a></td>
+  <td class="summary_signature"><a href="#pow/2">pow(base, exp)</a></td>
   
-    <td class="summary_synopsis"><p>Case-insensitive pattern match</p>
+    <td class="summary_synopsis"><p>base to the power of exp</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#like/2">like(left, right)</a></td>
+  <td class="summary_signature"><a href="#random/0">random()</a></td>
   
-    <td class="summary_synopsis"><p>Case-sensitive pattern match</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#datetime/2">datetime(date, time)</a></td>
-  
-    <td class="summary_synopsis"><p>Create a datetime from a date and a time</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#//2">left / right</a></td>
-  
-    <td class="summary_synopsis"><p>Division of numbers</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#==/2">left == right</a></td>
-  
-    <td class="summary_synopsis"><p>Equality</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#!=/2">left != right</a></td>
-  
-    <td class="summary_synopsis"><p>Inequality</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#div/2">div(left, right)</a></td>
-  
-    <td class="summary_synopsis"><p>Integer division</p>
+    <td class="summary_synopsis"><p>Random float number from 0.0 to 1.0 including</p>
 </td>
   
 </tr>
@@ -283,67 +318,34 @@ binary literal is of the string type</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&gt;=/2">left &gt;= right</a></td>
+  <td class="summary_signature"><a href="#round/1">round(number)</a></td>
   
-    <td class="summary_synopsis"><p>Left greater than or equal to right</p>
+    <td class="summary_synopsis"><p>Round number to closest integer</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&gt;/2">left &gt; right</a></td>
+  <td class="summary_signature"><a href="#round/2">round(x0, x1)</a></td>
   
-    <td class="summary_synopsis"><p>Left greater than right</p>
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#sum/1">sum(numbers)</a></td>
+  
+    <td class="summary_synopsis"><p>Aggregate function, sums the given field over the current group</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&lt;=/2">left &lt;= right</a></td>
+  <td class="summary_signature"><a href="#time/1">time(datetime)</a></td>
   
-    <td class="summary_synopsis"><p>Left less than or equal to right</p>
+    <td class="summary_synopsis"><p>Extract time from datetime</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#&lt;/2">left &lt; right</a></td>
+  <td class="summary_signature"><a href="#time_add/2">time_add(left, right)</a></td>
   
-    <td class="summary_synopsis"><p>Left less than right</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#++/2">left ++ right</a></td>
-  
-    <td class="summary_synopsis"><p>List concatenation</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#*/2">left * right</a></td>
-  
-    <td class="summary_synopsis"><p>Multiplication of numbers</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#../2">left .. right</a></td>
-  
-    <td class="summary_synopsis"><p>Range from left to right</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#field/2">field(var, atom)</a></td>
-  
-    <td class="summary_synopsis"><p>References a field. This can be used when a field needs
-to be dynamically referenced</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#in/2">left in right</a></td>
-  
-    <td class="summary_synopsis"><p>Return <code>true</code> if <code>left</code> is in <code>right</code> array, <code>false</code>
-otherwise</p>
+    <td class="summary_synopsis"><p>Addition of datetime&#39;s with interval&#39;s</p>
 </td>
   
 </tr>
@@ -355,16 +357,9 @@ otherwise</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#-/2">left - right</a></td>
+  <td class="summary_signature"><a href="#upcase/1">upcase(string)</a></td>
   
-    <td class="summary_synopsis"><p>Subtraction of numbers</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#pow/2">pow(base, exp)</a></td>
-  
-    <td class="summary_synopsis"><p>base to the power of exp</p>
+    <td class="summary_synopsis"><p>Upcase string</p>
 </td>
   
 </tr>
@@ -390,8 +385,8 @@ otherwise</p>
   <div class="docstring"><p>Inequality.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L84" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L84" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -407,8 +402,8 @@ otherwise</p>
   <div class="docstring"><p>Multiplication of numbers.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L65" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L65" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -424,8 +419,8 @@ otherwise</p>
   <div class="docstring"><p>Positive number.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L33" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L33" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,8 +436,8 @@ otherwise</p>
   <div class="docstring"><p>Addition of numbers.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L49" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L49" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -458,8 +453,8 @@ otherwise</p>
   <div class="docstring"><p>List concatenation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L135" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L135" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -475,8 +470,8 @@ otherwise</p>
   <div class="docstring"><p>Negate number.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L39" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -492,8 +487,8 @@ otherwise</p>
   <div class="docstring"><p>Subtraction of numbers.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L57" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L57" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -509,8 +504,8 @@ otherwise</p>
   <div class="docstring"><p>Range from left to right.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L126" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L126" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -526,8 +521,8 @@ otherwise</p>
   <div class="docstring"><p>Division of numbers.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L73" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L73" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -543,8 +538,8 @@ otherwise</p>
   <div class="docstring"><p>Left less than right.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L101" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L101" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -560,8 +555,8 @@ otherwise</p>
   <div class="docstring"><p>Left less than or equal to right.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L91" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L91" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -577,8 +572,8 @@ otherwise</p>
   <div class="docstring"><p>Binary and string concatenation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L130" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L130" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -594,8 +589,8 @@ otherwise</p>
   <div class="docstring"><p>Equality.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L77" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L77" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -611,8 +606,8 @@ otherwise</p>
   <div class="docstring"><p>Left greater than right.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L106" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L106" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -628,8 +623,8 @@ otherwise</p>
   <div class="docstring"><p>Left greater than or equal to right.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L96" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L96" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -645,8 +640,8 @@ otherwise</p>
   <div class="docstring"><p>Boolean and.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L111" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L111" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -662,8 +657,8 @@ otherwise</p>
   <div class="docstring"><p>Aggregate function, averages the given field over the current group.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L241" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L241" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -680,8 +675,8 @@ otherwise</p>
 binary literal is of the string type.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L156" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L156" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -698,8 +693,8 @@ binary literal is of the string type.</p>
 in the current group.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L249" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L249" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -715,8 +710,8 @@ in the current group.</p>
   <div class="docstring"><p>Extract date from datetime.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L218" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L218" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -732,8 +727,8 @@ in the current group.</p>
   <div class="docstring"><p>Create a datetime from a date and a time</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L226" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L226" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -749,8 +744,8 @@ in the current group.</p>
   <div class="docstring"><p>Integer division.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L185" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L185" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -766,8 +761,8 @@ in the current group.</p>
   <div class="docstring"><p>Downcase string.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L202" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L202" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -790,8 +785,8 @@ from(p in Post, select: field(p, ^x))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L150" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L150" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -807,8 +802,8 @@ from(p in Post, select: field(p, ^x))
   <div class="docstring"><p>Case-insensitive pattern match.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L230" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -825,8 +820,8 @@ from(p in Post, select: field(p, ^x))
 otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L122" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L122" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -842,8 +837,8 @@ otherwise.</p>
   <div class="docstring"><p>Case-sensitive pattern match.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L234" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L234" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -859,8 +854,8 @@ otherwise.</p>
   <div class="docstring"><p>Returns the current local date and time.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L214" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L214" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -877,8 +872,8 @@ otherwise.</p>
 group.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L257" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L257" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -895,8 +890,8 @@ group.</p>
 group.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L269" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -912,8 +907,8 @@ group.</p>
   <div class="docstring"><p>Boolean not.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L45" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L45" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -929,8 +924,8 @@ group.</p>
   <div class="docstring"><p>Returns the current date and time.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L210" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L210" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -946,8 +941,8 @@ group.</p>
   <div class="docstring"><p>Boolean or.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L115" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L115" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -963,8 +958,8 @@ group.</p>
   <div class="docstring"><p>base to the power of exp.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L179" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L179" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -980,8 +975,8 @@ group.</p>
   <div class="docstring"><p>Random float number from 0.0 to 1.0 including.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L193" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L193" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -997,8 +992,8 @@ group.</p>
   <div class="docstring"><p>Integer remainder of division.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L189" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L189" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1014,8 +1009,8 @@ group.</p>
   <div class="docstring"><p>Round number to closest integer.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L197" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L197" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1030,8 +1025,8 @@ group.</p>
   
   <div class="docstring"></div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L2" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L2" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1047,8 +1042,8 @@ group.</p>
   <div class="docstring"><p>Aggregate function, sums the given field over the current group.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L278" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L278" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1064,8 +1059,8 @@ group.</p>
   <div class="docstring"><p>Extract time from datetime.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L222" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L222" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1081,8 +1076,8 @@ group.</p>
   <div class="docstring"><p>Addition of datetime&#39;s with interval&#39;s</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L159" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L159" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1098,8 +1093,8 @@ group.</p>
   <div class="docstring"><p>Subtraction of datetime&#39;s with interval&#39;s</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L169" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L169" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1115,8 +1110,8 @@ group.</p>
   <div class="docstring"><p>Upcase string.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/query/api.ex#L206" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/query/api.ex#L206" class="view_source">Source</a>
   
 </div>
 

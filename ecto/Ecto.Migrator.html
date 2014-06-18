@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Migrator.html">Migrator</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Migrator.html">Migrator</a></div>
 
       <h1>
         Ecto.Migrator
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -69,10 +66,8 @@ Ecto.Migrator.up(Repo, 20080906120000, MyApp.MigrationExample)
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/migrator.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/migrator.ex#L1" class="view_source">Source</a>
       
 
       
@@ -86,16 +81,16 @@ Ecto.Migrator.up(Repo, 20080906120000, MyApp.MigrationExample)
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#up/3">up(repo, version, module)</a></td>
+  <td class="summary_signature"><a href="#run/4">run(repo, directory, direction, opts)</a></td>
   
-    <td class="summary_synopsis"><p>Runs an up migration on the given repository</p>
+    <td class="summary_synopsis"><p>Apply migrations in a directory to a repository with given strategy</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#run/4">run(repo, directory, direction, opts)</a></td>
+  <td class="summary_signature"><a href="#up/3">up(repo, version, module)</a></td>
   
-    <td class="summary_synopsis"><p>Apply migrations in a directory to a repository with given strategy</p>
+    <td class="summary_synopsis"><p>Runs an up migration on the given repository</p>
 </td>
   
 </tr>
@@ -132,15 +127,15 @@ Ecto.Migrator.up(Repo, 20080906120000, MyApp.MigrationExample)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>down(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, <a href="http://elixir-lang.org/docs/master/Module.html#t:t/0">Module.t</a>) :: :ok | :missing_up | no_return</li>
+        <li>down(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, <a href="http://elixir-lang.org/docs/stable/elixir/Module.html#t:t/0">Module.t</a>) :: :ok | :missing_up | no_return</li>
       
     </ul>
   
   <div class="docstring"><p>Runs a down migration on the given repository.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/migrator.ex#L38" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/migrator.ex#L38" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -171,8 +166,8 @@ Ecto.Migrator.up(Repo, 20080906120000, MyApp.MigrationExample)
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/migrator.ex#L54" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/migrator.ex#L54" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -188,15 +183,15 @@ Ecto.Migrator.up(Repo, 20080906120000, MyApp.MigrationExample)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>up(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, <a href="http://elixir-lang.org/docs/master/Module.html#t:t/0">Module.t</a>) :: :ok | :already_up | no_return</li>
+        <li>up(<a href="Ecto.Repo.html#t:t/0">Ecto.Repo.t</a>, integer, <a href="http://elixir-lang.org/docs/stable/elixir/Module.html#t:t/0">Module.t</a>) :: :ok | :already_up | no_return</li>
       
     </ul>
   
   <div class="docstring"><p>Runs an up migration on the given repository.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/migrator.ex#L29" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/migrator.ex#L29" class="view_source">Source</a>
   
 </div>
 

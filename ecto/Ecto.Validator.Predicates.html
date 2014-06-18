@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.0 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Validator.html">Validator</a> &rarr; <a href="Ecto.Validator.Predicates.html">Predicates</a></div>
+      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Validator.html">Validator</a> &rarr; <a href="Ecto.Validator.Predicates.html">Predicates</a></div>
 
       <h1>
         Ecto.Validator.Predicates
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -56,10 +53,8 @@ model.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L1" target="_blank" class="view_source">Source</a>
-      
-
+        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L1" class="view_source">Source</a>
       
 
       
@@ -74,10 +69,26 @@ an empty list or an empty string)</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#present/3">present(attr, value, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#between/4">between(attr, value, arg3, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Validates the attribute is present (i.e. not nil,
-nor an empty list nor an empty string)</p>
+    <td class="summary_synopsis"><p>Validates the given number is between the value.
+Expects a range as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#greater_than/4">greater_than(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is greater than the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#greater_than_or_equal_to/4">greater_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is greater than or equal to the given value.
+Expects numbers as value, raises otherwise</p>
 </td>
   
 </tr>
@@ -99,6 +110,22 @@ function should not be used to validate binary fields</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#less_than/4">less_than(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is less than the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#less_than_or_equal_to/4">less_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
+  
+    <td class="summary_synopsis"><p>Validates the given number is less than or equal to the given value.
+Expects numbers as value, raises otherwise</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#member_of/4">member_of(attr, value, enum, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Validates the attribute is member of the given enumerable</p>
@@ -113,42 +140,10 @@ function should not be used to validate binary fields</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#between/4">between(attr, value, arg3, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#present/3">present(attr, value, opts \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Validates the given number is between the value.
-Expects a range as value, raises otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#greater_than_or_equal_to/4">greater_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Validates the given number is greater than or equal to the given value.
-Expects numbers as value, raises otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#greater_than/4">greater_than(attr, value, check, opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Validates the given number is greater than the given value.
-Expects numbers as value, raises otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#less_than_or_equal_to/4">less_than_or_equal_to(attr, value, check, opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Validates the given number is less than or equal to the given value.
-Expects numbers as value, raises otherwise</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="#less_than/4">less_than(attr, value, check, opts \\ [])</a></td>
-  
-    <td class="summary_synopsis"><p>Validates the given number is less than the given value.
-Expects numbers as value, raises otherwise</p>
+    <td class="summary_synopsis"><p>Validates the attribute is present (i.e. not nil,
+nor an empty list nor an empty string)</p>
 </td>
   
 </tr>
@@ -161,7 +156,7 @@ Expects numbers as value, raises otherwise</p>
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:maybe_error/0">
-    <a href="#t:maybe_error/0">maybe_error</a> :: nil | <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>
+    <a href="#t:maybe_error/0">maybe_error</a> :: nil | <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>
   </p>
   
 </div>
@@ -185,7 +180,7 @@ Expects numbers as value, raises otherwise</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>absent(atom, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>absent(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -205,8 +200,8 @@ an empty list or an empty string).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L53" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L53" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -235,8 +230,8 @@ Expects a range as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L255" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L255" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -265,8 +260,8 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L175" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L175" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -295,8 +290,8 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L195" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L195" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -312,7 +307,7 @@ Expects numbers as value, raises otherwise.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>has_format(atom, term, <a href="http://elixir-lang.org/docs/master/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>has_format(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -332,8 +327,8 @@ Nil values are not matched against (skipped).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L78" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L78" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -349,7 +344,7 @@ Nil values are not matched against (skipped).</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>has_length(atom, term, <a href="http://elixir-lang.org/docs/master/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>has_length(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Regex.html#t:t/0">Regex.t</a> | binary, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -387,8 +382,8 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L119" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L119" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -417,8 +412,8 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L215" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L215" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -447,8 +442,8 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L235" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L235" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -464,7 +459,7 @@ Expects numbers as value, raises otherwise.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>member_of(atom, term, <a href="http://elixir-lang.org/docs/master/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>member_of(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -491,8 +486,8 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L283" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L283" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -508,7 +503,7 @@ validate user,
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>not_member_of(atom, term, <a href="http://elixir-lang.org/docs/master/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>not_member_of(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Enumerable.html#t:t/0">Enumerable.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -536,8 +531,8 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L314" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L314" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -553,7 +548,7 @@ validate user,
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>present(atom, term, <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
+        <li>present(atom, term, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="#t:maybe_error/0">maybe_error</a></li>
       
     </ul>
   
@@ -573,8 +568,8 @@ nor an empty list nor an empty string).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/859010b80617afbcf06d358938e9d2ce7744a062
-/lib/ecto/validator/predicates.ex#L28" target="_blank" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+/lib/ecto/validator/predicates.ex#L28" class="view_source">Source</a>
   
 </div>
 
