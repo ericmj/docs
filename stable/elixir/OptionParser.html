@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="OptionParser.html">OptionParser</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="OptionParser.html">OptionParser</a></div>
 
       <h1>
         OptionParser
@@ -49,7 +49,7 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/option_parser.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/option_parser.ex#L1" class="view_source">Source</a>
       
 
       
@@ -139,16 +139,18 @@ as both functions are built on top of next. This function
 may return:</p>
 
 <ul>
-<li><p><code>{:ok, key, value, rest}</code> - the option <code>key</code> with <code>value</code> was successfully parsed</p></li>
+<li><p><code>{:ok, key, value, rest}</code> - the option <code>key</code> with <code>value</code> was
+successfully parsed</p></li>
 <li><p><code>{:invalid, key, value, rest}</code> - the option <code>key</code> is invalid with <code>value</code>
-(returned when the switch type does not match the one given via the command line)</p></li>
+(returned when the switch type does not match the one given via the
+command line)</p></li>
 <li><p><code>{:undefined, key, value, rest}</code> - the option <code>key</code> is undefined
 (returned on strict cases and the switch is unknown)</p></li>
 <li><p><code>{:error, rest}</code> - there are no switches at the top of the given argv</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/option_parser.ex#L196" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/option_parser.ex#L200" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -192,7 +194,9 @@ to the value, always as strings.</p>
 
 <p>Note Elixir also converts the switches to underscore atoms, as
 <code>--source-path</code> becomes <code>:source_path</code>, to better suit Elixir
-conventions.</p>
+conventions. This means that option names on the command line cannot contain
+underscores; such options will be reported as <code>:undefined</code> (in strict mode)
+or <code>:invalid</code> (in basic mode).</p>
 
 <h2>Switches</h2>
 
@@ -202,9 +206,9 @@ different options:</p>
 
 <ul>
 <li><p><code>:strict</code> - the switches are strict. Any switch that does not
-exist in the switch list is treated as an error;</p></li>
+exist in the switch list is treated as an error.</p></li>
 <li><p><code>:switches</code> - configure some switches. Switches that does not
-exist in the switch list are still attempted to be parsed;</p></li>
+exist in the switch list are still attempted to be parsed.</p></li>
 </ul>
 
 <p>Note only <code>:strict</code> or <code>:switches</code> may be given at once.</p>
@@ -212,12 +216,12 @@ exist in the switch list are still attempted to be parsed;</p></li>
 <p>For each switch, the following types are supported:</p>
 
 <ul>
-<li><code>:boolean</code> - Marks the given switch as a boolean. Boolean switches
-           never consume the following value unless it is
-           <code>true</code> or <code>false</code>;</li>
-<li><code>:integer</code> - Parses the switch as an integer;</li>
-<li><code>:float</code>   - Parses the switch as a float;</li>
-<li><code>:string</code>  - Returns the switch as a string;</li>
+<li><code>:boolean</code> - marks the given switch as a boolean. Boolean switches
+             never consume the following value unless it is <code>true</code> or
+             <code>false</code>.</li>
+<li><code>:integer</code> - parses the switch as an integer.</li>
+<li><code>:float</code>   - parses the switch as a float.</li>
+<li><code>:string</code>  - returns the switch as a string.</li>
 </ul>
 
 <p>If a switch can&#39;t be parsed or is not specfied in the strict case,
@@ -227,7 +231,7 @@ of the returned tuple).</p>
 <p>The following extra &quot;types&quot; are supported:</p>
 
 <ul>
-<li><code>:keep</code> - Keeps duplicated items in the list instead of overriding;</li>
+<li><code>:keep</code> - keeps duplicated items in the list instead of overriding</li>
 </ul>
 
 <p>Examples:</p>
@@ -278,7 +282,7 @@ false:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/option_parser.ex#L113" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/option_parser.ex#L115" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -313,7 +317,7 @@ iex&gt; OptionParser.parse_head([&quot;--verbose&quot;, &quot;--source&quot;, &q
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/option_parser.ex#L134" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/option_parser.ex#L136" class="view_source">Source</a>
   
 </div>
 

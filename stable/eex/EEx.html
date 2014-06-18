@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">EEx v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="EEx.html">EEx</a></div>
+      <div class="breadcrumbs">EEx v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="EEx.html">EEx</a></div>
 
       <h1>
         EEx
@@ -54,20 +54,20 @@ Elixir code inside a string in a robust way:</p>
 
 <p>This module provides 3 main APIs for you to use:</p>
 
-<p>1) Evaluate a string (<code>eval_string</code>) or a file (<code>eval_file</code>)
-   directly. This is the simplest API to use but also the
-   slowest, since the code is evaluated and not compiled before;</p>
-
-<p>2) Define a function from a string (<code>function_from_string</code>)
-   or a file (<code>function_from_file</code>). This allows you to embed
-   the template as a function inside a module which will then
-   be compiled. This is the preferred API if you have access
-   to the template at compilation time;</p>
-
-<p>3) Compile a string (<code>compile_string</code>) or a file (<code>compile_file</code>)
-   into Elixir syntax tree. This is the API used by both functions
-   above and is available to you if you want to provide your own
-   ways of handling the compiled template.</p>
+<ol>
+<li><p>Evaluate a string (<code>eval_string</code>) or a file (<code>eval_file</code>)
+ directly. This is the simplest API to use but also the
+ slowest, since the code is evaluated and not compiled before.</p></li>
+<li><p>Define a function from a string (<code>function_from_string</code>)
+ or a file (<code>function_from_file</code>). This allows you to embed
+ the template as a function inside a module which will then
+ be compiled. This is the preferred API if you have access
+ to the template at compilation time.</p></li>
+<li><p>Compile a string (<code>compile_string</code>) or a file (<code>compile_file</code>)
+ into Elixir syntax tree. This is the API used by both functions
+ above and is available to you if you want to provide your own
+ ways of handling the compiled template.</p></li>
+</ol>
 
 <h2>Options</h2>
 
@@ -75,11 +75,10 @@ Elixir code inside a string in a robust way:</p>
 They are:</p>
 
 <ul>
-<li><code>:line</code> - the line to be used as the template start.
-        Defaults to 1;</li>
-<li><code>:file</code> - the file to be used in the template.
-        Defaults to the given file the template is read from
-        or to &quot;nofile&quot; when compiling from a string;</li>
+<li><code>:line</code>   - the line to be used as the template start. Defaults to 1.</li>
+<li><code>:file</code>   - the file to be used in the template. Defaults to the given
+            file the template is read from or to &quot;nofile&quot; when compiling
+            from a string.</li>
 <li><code>:engine</code> - the EEx engine to be used for compilation.</li>
 </ul>
 
@@ -140,7 +139,7 @@ required by the template is not specified at compilation time.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L5" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L5" class="view_source">Source</a>
       
 
       
@@ -217,7 +216,7 @@ function name, its arguments and the compilation options</p>
 that can be evaluated by Elixir or compiled to a function.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L171" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L170" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -234,7 +233,7 @@ that can be evaluated by Elixir or compiled to a function.</p>
 that can be evaluated by Elixir or compiled to a function.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L163" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L162" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -259,7 +258,7 @@ EEx.eval_file &quot;sample.ex&quot;, [bar: &quot;baz&quot;] #=&gt; &quot;foo baz
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L202" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L201" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -281,7 +280,7 @@ EEx.eval_file &quot;sample.ex&quot;, [bar: &quot;baz&quot;] #=&gt; &quot;foo baz
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L185" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L184" class="view_source">Source</a>
   
 </div>
 
@@ -324,7 +323,7 @@ Sample.sample(1, 2) #=&gt; &quot;3&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L145" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L144" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -352,7 +351,7 @@ iex&gt; Sample.sample(1, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/eex/lib/eex.ex#L109" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L108" class="view_source">Source</a>
   
 </div>
 

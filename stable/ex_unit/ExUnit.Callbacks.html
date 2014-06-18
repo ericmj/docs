@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Callbacks.html">Callbacks</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Callbacks.html">Callbacks</a></div>
 
       <h1>
         ExUnit.Callbacks
@@ -66,7 +66,9 @@ all remaining setup callbacks from executing.</p>
 <p>Finally, <code>setup_all</code> callbacks run in the test case process, while all
 <code>setup</code> callbacks run in the same process as the test itself. <code>on_exit</code>
 callbacks always run in a separate process than the test case or the
-test itself.</p>
+test itself. Since the test process exits with reason <code>:shutdown</code>, most
+of times <code>on_exit/1</code> can be avoided as processes are going to clean
+up on their own.</p>
 
 <h2>Context</h2>
 
@@ -129,7 +131,7 @@ end
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/callbacks.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/callbacks.ex#L1" class="view_source">Source</a>
       
 
       
@@ -193,7 +195,7 @@ may also be called dynamically, where a reference can be used to
 guarantee the callback will be invoked only once.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/callbacks.ex#L163" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/callbacks.ex#L169" class="view_source">Source</a>
   
 </div>
 
@@ -216,7 +218,7 @@ guarantee the callback will be invoked only once.</p>
   <div class="docstring"><p>Defines a callback to be run before each test in a case.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/callbacks.ex#L110" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/callbacks.ex#L112" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -232,7 +234,7 @@ guarantee the callback will be invoked only once.</p>
   <div class="docstring"><p>Defines a callback to be run before all tests in a case.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/callbacks.ex#L121" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/callbacks.ex#L123" class="view_source">Source</a>
   
 </div>
 

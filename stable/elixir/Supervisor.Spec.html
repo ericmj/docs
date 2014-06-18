@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Supervisor.html">Supervisor</a> &rarr; <a href="Supervisor.Spec.html">Spec</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Supervisor.html">Supervisor</a> &rarr; <a href="Supervisor.Spec.html">Spec</a></div>
 
       <h1>
         Supervisor.Spec
@@ -86,13 +86,13 @@ end
 <p>Explicit supervisors as above are required when there is a need to:</p>
 
 <ol>
-<li><p>partialy change the supervision tree during hot-code swaps;</p></li>
-<li><p>define supervisors inside other supervisors;</p></li>
-<li><p>perform actions inside the supervision <code>init/1</code> callback.</p>
+<li><p>Partialy change the supervision tree during hot-code swaps.</p></li>
+<li><p>Define supervisors inside other supervisors.</p></li>
+<li><p>Perform actions inside the supervision <code>init/1</code> callback.</p>
 
 <p>For example, you may want to start an ETS table that is linked to
-the supervisor (i.e. if the supervision tree needs to be restarted,
-the ETS table must be restarted too);</p></li>
+ the supervisor (i.e. if the supervision tree needs to be restarted,
+ the ETS table must be restarted too).</p></li>
 </ol>
 
 <h2>Supervisor and worker options</h2>
@@ -102,15 +102,15 @@ and each accepts the following options:</p>
 
 <ul>
 <li><p><code>:id</code> - a name used to identify the child specification
-internally by the supervisor. Defaults to the given module
-name;</p></li>
-<li><p><code>:function</code> - the function to invoke on the child to start it;</p></li>
-<li><p><code>:restart</code> - defines when the child process should restart;</p></li>
-<li><p><code>:shutdown</code> - defines how a child process should be terminated;</p></li>
+internally by the supervisor; defaults to the given module
+name</p></li>
+<li><p><code>:function</code> - the function to invoke on the child to start it</p></li>
+<li><p><code>:restart</code> - defines when the child process should restart</p></li>
+<li><p><code>:shutdown</code> - defines how a child process should be terminated</p></li>
 <li><p><code>:modules</code> - it should be a list with one element <code>[module]</code>,
 where module is the name of the callback module only if the
-child process is a <a href="Supervisor.html"><code>Supervisor</code></a> or <a href="GenServer.html"><code>GenServer</code></a> If the child
-process is a <a href="GenEvent.html"><code>GenEvent</code></a>, modules should be <code>:dynamic</code>;</p></li>
+child process is a <a href="Supervisor.html"><code>Supervisor</code></a> or <a href="GenServer.html"><code>GenServer</code></a>; if the child
+process is a <a href="GenEvent.html"><code>GenEvent</code></a>, modules should be <code>:dynamic</code></p></li>
 </ul>
 
 <h3>Restart values</h3>
@@ -118,12 +118,12 @@ process is a <a href="GenEvent.html"><code>GenEvent</code></a>, modules should b
 <p>The following restart values are supported:</p>
 
 <ul>
-<li><p><code>:permanent</code> - the child process is always restarted;</p></li>
+<li><p><code>:permanent</code> - the child process is always restarted</p></li>
 <li><p><code>:temporary</code> - the child process is never restarted (not even
-when the supervisor&#39;s strategy is <code>:rest_for_one</code> or <code>:one_for_all</code>);</p></li>
+when the supervisor&#39;s strategy is <code>:rest_for_one</code> or <code>:one_for_all</code>)</p></li>
 <li><p><code>:transient</code> - the child process is restarted only if it
 terminates abnormally, i.e. with another exit reason than
-<code>:normal</code>, <code>:shutdown</code> or <code>{:shutdown, term}</code>;</p></li>
+<code>:normal</code>, <code>:shutdown</code> or <code>{:shutdown, term}</code></p></li>
 </ul>
 
 <h3>Shutdown values</h3>
@@ -132,22 +132,22 @@ terminates abnormally, i.e. with another exit reason than
 
 <ul>
 <li><p><code>:brutal_kill</code> - the child process is unconditionally terminated
-using <code>exit(child, :kill)</code>;</p></li>
+using <code>exit(child, :kill)</code>.</p></li>
 <li><p><code>:infinity</code> - if the child process is a supervisor, it is a mechanism
 to give the subtree enough time to shutdown. It can also be used with
-workers with care;</p></li>
+workers with care.</p></li>
 <li><p>Finally, it can also be any integer meaning that the supervisor tells
 the child process to terminate by calling <code>Process.exit(child, :shutdown)</code>
 and then waits for an exit signal back. If no exit signal is received
 within the specified time (in miliseconds), the child process is
-unconditionally terminated using <code>Process.exit(child, :kill)</code>;</p></li>
+unconditionally terminated using <code>Process.exit(child, :kill)</code>.</p></li>
 </ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/supervisor/spec.ex#L1" class="view_source">Source</a>
       
 
       
@@ -287,11 +287,11 @@ supervise and a set of options.</p>
 <li><p><code>:strategy</code> - the restart strategy option. It can be either
 <code>:one_for_one</code>, <code>:rest_for_one</code>, <code>:one_for_all</code>, or
 <code>:simple_one_for_one</code>. You can learn more about strategies
-in the <a href="Supervisor.html"><code>Supervisor</code></a> module docs;</p></li>
+in the <a href="Supervisor.html"><code>Supervisor</code></a> module docs.</p></li>
 <li><p><code>:max_restarts</code> - the maximum amount of restarts allowed in
-a time frame. Defaults to 5;</p></li>
+a time frame. Defaults to 5.</p></li>
 <li><p><code>:max_seconds</code> - the time frame in which <code>:max_restarts</code> applies.
-Defaults to 5;</p></li>
+Defaults to 5.</p></li>
 </ul>
 
 <p>The <code>:strategy</code> option is required and by default maximum 5 restarts
@@ -299,7 +299,7 @@ are allowed within 5 seconds. Please check the <a href="Supervisor.html"><code>S
 a complete description of the available strategies.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L160" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/supervisor/spec.ex#L160" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -339,7 +339,7 @@ module. Overall, the default values for the options are:</p>
 the options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L230" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/supervisor/spec.ex#L230" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -379,7 +379,7 @@ module. Overall, the default values for the options are:</p>
 the options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/supervisor/spec.ex#L206" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/supervisor/spec.ex#L206" class="view_source">Source</a>
   
 </div>
 

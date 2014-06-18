@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Regex.html">Regex</a></div>
+      <div class="breadcrumbs">Elixir v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Regex.html">Regex</a></div>
 
       <h1>
         Regex
@@ -67,19 +67,19 @@ or using the special form with <a href="Kernel.html#sigil_r/2"><code>~r</code></
 <p>The modifiers available when creating a Regex are:</p>
 
 <ul>
-<li><code>unicode</code> (u) - enables unicode specific patterns like \p. it expects valid unicode
-strings to be given on match</li>
-<li><code>caseless</code> (i) - add case insensitivity</li>
-<li><code>dotall</code> (s) - causes dot to match newlines and also set newline to anycrlf.
-The new line setting can be overridden by setting <code>(*CR)</code> or <code>(*LF)</code> or
-<code>(*CRLF)</code> or <code>(*ANY)</code> according to re documentation</li>
-<li><code>multiline</code> (m) - causes <code>^</code> and <code>$</code> to mark the beginning and end of each line.
-Use <code>\A</code> and <code>\z</code> to match the end or beginning of the string</li>
-<li><code>extended</code> (x) - whitespace characters are ignored except when escaped and
-allow <code>#</code> to delimit comments</li>
-<li><code>firstline</code> (f) - forces the unanchored pattern to match before or at the first
-newline, though the matched text may continue over the newline</li>
-<li><code>ungreedy</code> (r) - inverts the &quot;greediness&quot; of the regexp</li>
+<li><p><code>unicode</code> (u) - enables unicode specific patterns like <code>\p</code>; it expects
+valid unicode strings to be given on match</p></li>
+<li><p><code>caseless</code> (i) - add case insensitivity</p></li>
+<li><p><code>dotall</code> (s) - causes dot to match newlines and also set newline to
+anycrlf; the new line setting can be overridden by setting <code>(*CR)</code> or
+<code>(*LF)</code> or <code>(*CRLF)</code> or <code>(*ANY)</code> according to re documentation</p></li>
+<li><p><code>multiline</code> (m) - causes <code>^</code> and <code>$</code> to mark the beginning and end of
+each line; use <code>\A</code> and <code>\z</code> to match the end or beginning of the string</p></li>
+<li><p><code>extended</code> (x) - whitespace characters are ignored except when escaped
+and allow <code>#</code> to delimit comments</p></li>
+<li><p><code>firstline</code> (f) - forces the unanchored pattern to match before or at the
+first newline, though the matched text may continue over the newline</p></li>
+<li><p><code>ungreedy</code> (r) - inverts the &quot;greediness&quot; of the regexp</p></li>
 </ul>
 
 <p>The options not available are:</p>
@@ -88,8 +88,9 @@ newline, though the matched text may continue over the newline</li>
 <li><code>anchored</code> - not available, use <code>^</code> or <code>\A</code> instead</li>
 <li><code>dollar_endonly</code> - not available, use <code>\z</code> instead</li>
 <li><code>no_auto_capture</code> - not available, use <code>?:</code> instead</li>
-<li><code>newline</code> - not available, use <code>(*CR)</code> or <code>(*LF)</code> or <code>(*CRLF)</code> or <code>(*ANYCRLF)</code>
-or <code>(*ANY)</code> at the beginning of the regexp according to the re documentation</li>
+<li><code>newline</code> - not available, use <code>(*CR)</code> or <code>(*LF)</code> or <code>(*CRLF)</code> or
+<code>(*ANYCRLF)</code> or <code>(*ANY)</code> at the beginning of the regexp according to the
+re documentation</li>
 </ul>
 
 <h2>Captures</h2>
@@ -98,24 +99,24 @@ or <code>(*ANY)</code> at the beginning of the regexp according to the re docume
 match via the <code>:capture</code> option. The supported values are:</p>
 
 <ul>
-<li><p><code>:all</code> - all captured subpatterns including the complete matching string.
-       This is the default;</p></li>
-<li><p><code>:first</code> - only the first captured subpattern, which is always the complete
-         matching part of the string. All explicitly captured subpatterns are
-         discarded;</p></li>
-<li><p><code>:all_but_first</code>- all but the first matching subpattern, i.e. all explicitly
-                captured subpatterns, but not the complete matching part of
-                the string;</p></li>
-<li><p><code>:none</code> - do not return matching subpatterns at all;</p></li>
-<li><p><code>:all_names</code> - captures all names in the Regex;</p></li>
-<li><p><code>list(binary)</code> - a list of named captures to capture;</p></li>
+<li><p><code>:all</code> - all captured subpatterns including the complete matching string
+(this is the default)</p></li>
+<li><p><code>:first</code> - only the first captured subpattern, which is always the
+complete matching part of the string; all explicitly captured subpatterns
+are discarded</p></li>
+<li><p><code>:all_but_first</code>- all but the first matching subpattern, i.e. all
+explicitly captured subpatterns, but not the complete matching part of
+the string</p></li>
+<li><p><code>:none</code> - do not return matching subpatterns at all</p></li>
+<li><p><code>:all_names</code> - captures all names in the Regex</p></li>
+<li><p><code>list(binary)</code> - a list of named captures to capture</p></li>
 </ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L1" class="view_source">Source</a>
       
 
       
@@ -283,7 +284,7 @@ iex&gt; Regex.compile(&quot;*foo&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L97" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L104" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -300,7 +301,7 @@ iex&gt; Regex.compile(&quot;*foo&quot;)
 Fails with <a href="Regex.CompileError.html"><code>Regex.CompileError</code></a> if the regex cannot be compiled.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L126" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L133" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -332,7 +333,7 @@ iex&gt; Regex.escape(&quot;\\what if&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L538" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L544" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -357,7 +358,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L145" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L152" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -387,7 +388,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L216" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L223" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -409,7 +410,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L265" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L272" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +432,7 @@ nil
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L252" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L259" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -447,7 +448,7 @@ nil
   <div class="docstring"><p>Returns the underlying <code>re_pattern</code> in the regular expression.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L226" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L233" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -472,7 +473,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L161" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L168" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -524,7 +525,7 @@ iex&gt; Regex.replace(~r/a(b|d)c/, &quot;abcadc&quot;, fn _, x -&gt; &quot;[#{x}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L394" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L400" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -543,9 +544,9 @@ It returns a list with all captures or <code>nil</code> if no match occurred.</p
 <h2>Options</h2>
 
 <ul>
-<li><code>:return</code> - Set to <code>:index</code> to return indexes. Defaults to <code>:binary</code>;</li>
-<li><code>:capture</code> - What to capture in the result. Check the moduledoc for Regex
-           to see the possible capture values;</li>
+<li><code>:return</code>  - set to <code>:index</code> to return indexes. Defaults to <code>:binary</code>.</li>
+<li><code>:capture</code> - what to capture in the result. Check the moduledoc for <a href="Regex.html"><code>Regex</code></a>
+             to see the possible capture values.</li>
 </ul>
 
 <h2>Examples</h2>
@@ -561,7 +562,7 @@ iex&gt; Regex.run(~r/c(d)/, &quot;abcd&quot;, return: :index)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L186" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L193" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -582,9 +583,9 @@ entry in the secondary list represents the captured contents.</p>
 <h2>Options</h2>
 
 <ul>
-<li><code>:return</code> - Set to <code>:index</code> to return indexes. Defaults to <code>:binary</code>;</li>
-<li><code>:capture</code> - What to capture in the result. Check the moduledoc for Regex
-           to see the possible capture values;</li>
+<li><code>:return</code>  - set to <code>:index</code> to return indexes. Defaults to <code>:binary</code>.</li>
+<li><code>:capture</code> - what to capture in the result. Check the moduledoc for <a href="Regex.html"><code>Regex</code></a>
+             to see the possible capture values.</li>
 </ul>
 
 <h2>Examples</h2>
@@ -600,7 +601,7 @@ iex&gt; Regex.scan(~r/e/, &quot;abcd&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L294" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L301" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -622,7 +623,7 @@ iex&gt; Regex.scan(~r/e/, &quot;abcd&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L239" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L246" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -640,12 +641,11 @@ iex&gt; Regex.scan(~r/e/, &quot;abcd&quot;)
 <h2>Options</h2>
 
 <ul>
-<li><p><code>:parts</code> - when specified, splits the string into the
-         given number of parts. If not specified, <code>:parts</code>
-         is defaulted to <code>:infinity</code>, which will split the
-         string into the maximum number of parts possible
-         based on the given pattern.</p></li>
-<li><p><code>:trim</code> - when true, remove blank strings from the result;</p></li>
+<li><p><code>:parts</code> - when specified, splits the string into the given number of
+parts. If not specified, <code>:parts</code> is defaulted to <code>:infinity</code>, which will
+split the string into the maximum number of parts possible based on the
+given pattern.</p></li>
+<li><p><code>:trim</code> - when true, remove blank strings from the result.</p></li>
 </ul>
 
 <h2>Examples</h2>
@@ -667,7 +667,7 @@ iex&gt; Regex.split(~r//, &quot;abc&quot;, trim: true)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/regex.ex#L340" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/regex.ex#L346" class="view_source">Source</a>
   
 </div>
 

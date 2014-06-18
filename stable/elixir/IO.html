@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IO.html">IO</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IO.html">IO</a></div>
 
       <h1>
         IO
@@ -75,7 +75,7 @@ it is treated as a shortcut for <code>Process.group_leader</code></p></li>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L1" class="view_source">Source</a>
       
 
       
@@ -253,15 +253,15 @@ the end of the line if <code>:line</code> is given. It returns:</p>
 the end of the line if <code>:line</code> is given. It returns:</p>
 
 <ul>
-<li><p><code>data</code> - The input characters.</p></li>
-<li><p><code>:eof</code> - End of file was encountered.</p></li>
-<li><p><code>{:error, reason}</code> - Other (rare) error condition,
-for instance <code>{:error, :estale}</code> if reading from an
-NFS file system.</p></li>
+<li><p><code>data</code> - the input characters</p></li>
+<li><p><code>:eof</code> - end of file was encountered</p></li>
+<li><p><code>{:error, reason}</code> - other (rare) error condition;
+for instance, <code>{:error, :estale}</code> if reading from an
+NFS volume</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L81" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L81" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -294,7 +294,7 @@ This reads the IO device as a raw binary.</p>
 you go over the stream you may get different results.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L269" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -320,7 +320,7 @@ as a binary, no unicode conversion happens.</p>
 <p>Check <a href="#write/2"><code>write/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L124" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L124" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -356,7 +356,7 @@ iex&gt; IO.chardata_to_string([0x0061, &quot;bc&quot;])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L291" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L291" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -385,15 +385,15 @@ Otherwise, <code>count</code> is the number of raw bytes to be retrieved.
 It returns:</p>
 
 <ul>
-<li><p><code>data</code> - The input characters.</p></li>
-<li><p><code>:eof</code> - End of file was encountered.</p></li>
-<li><p><code>{:error, reason}</code> - Other (rare) error condition,
-for instance <code>{:error, :estale}</code> if reading from an
-NFS file system.</p></li>
+<li><p><code>data</code> - the input characters</p></li>
+<li><p><code>:eof</code> - end of file was encountered</p></li>
+<li><p><code>{:error, reason}</code> - other (rare) error condition;
+for instance, <code>{:error, :estale}</code> if reading from an
+NFS volume</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L187" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L187" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -419,7 +419,7 @@ the number of unicode codepoints to be retrieved.
 Otherwise, <code>count</code> is the number of raw bytes to be retrieved.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L204" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L204" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -442,16 +442,16 @@ Otherwise, <code>count</code> is the number of raw bytes to be retrieved.</p>
   <div class="docstring"><p>Reads a line from the IO device. It returns:</p>
 
 <ul>
-<li><p><code>data</code> - The characters in the line terminated
-by a LF (or end of file).</p></li>
-<li><p><code>:eof</code> - End of file was encountered.</p></li>
-<li><p><code>{:error, reason}</code> - Other (rare) error condition,
-for instance <code>{:error, :estale}</code> if reading from an
-NFS file system.</p></li>
+<li><p><code>data</code> - the characters in the line terminated
+by a LF (or end of file)</p></li>
+<li><p><code>:eof</code> - end of file was encountered</p></li>
+<li><p><code>{:error, reason}</code> - other (rare) error condition;
+for instance, <code>{:error, :estale}</code> if reading from an
+NFS volume</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L221" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L221" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -487,7 +487,7 @@ explicitly by passing the <code>:width</code> option.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L156" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L156" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -510,7 +510,7 @@ explicitly by passing the <code>:width</code> option.</p>
   <div class="docstring"><p>Inspects the item with options using the given device.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L164" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L164" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -541,7 +541,7 @@ explicitly by passing the <code>:width</code> option.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L351" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L351" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -587,7 +587,7 @@ iex&gt; IO.iodata_to_binary(bin)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L335" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -612,7 +612,7 @@ but adds a newline at the end. The argument is expected
 to be a chardata.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L134" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L134" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -636,15 +636,15 @@ to be a chardata.</p>
 the end of the line if <code>:line</code> is given. It returns:</p>
 
 <ul>
-<li><p><code>data</code> - The input characters.</p></li>
-<li><p><code>:eof</code> - End of file was encountered.</p></li>
-<li><p><code>{:error, reason}</code> - Other (rare) error condition,
-for instance <code>{:error, :estale}</code> if reading from an
-NFS file system.</p></li>
+<li><p><code>data</code> - the input characters</p></li>
+<li><p><code>:eof</code> - end of file was encountered</p></li>
+<li><p><code>{:error, reason}</code> - other (rare) error condition;
+for instance, <code>{:error, :estale}</code> if reading from an
+NFS volume</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L58" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -688,7 +688,7 @@ from the command line:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L250" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L250" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -723,7 +723,7 @@ IO.write :stderr, &quot;error&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/io.ex#L113" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/io.ex#L113" class="view_source">Source</a>
   
 </div>
 

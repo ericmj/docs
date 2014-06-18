@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Path.html">Path</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Path.html">Path</a></div>
 
       <h1>
         Path
@@ -52,13 +52,13 @@ and will always return a string (encoded in UTF-8).</p>
 
 <p>The majority of the functions in this module do not
 interact with the file system, except for a few functions
-that require it (like <a href="#wildcard/1"><code>wildcard/1</code></a> and <a href="#expand/1"><code>expand/1</code></a>).</p>
+that require it (like <code>wildcard/1</code> and <a href="#expand/1"><code>expand/1</code></a>).</p>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L1" class="view_source">Source</a>
       
 
       
@@ -197,7 +197,7 @@ If an empty string is given, returns the root path</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#wildcard/1">wildcard(glob)</a></td>
+  <td class="summary_signature"><a href="#wildcard/2">wildcard(glob, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Traverses paths according to the given <code>glob</code> expression</p>
 </td>
@@ -261,7 +261,7 @@ Path.absname(&quot;../x&quot;).
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L39" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -297,7 +297,7 @@ iex&gt; Path.absname(&quot;../x&quot;, &quot;bar&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L60" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L60" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -333,7 +333,7 @@ iex&gt; Path.basename(&quot;/&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L298" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L298" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -370,7 +370,7 @@ iex&gt; Path.basename(&quot;~/foo/bar.old.ex&quot;, &quot;.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L320" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L320" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -401,7 +401,7 @@ Path.dirname(&quot;/foo/bar/baz.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L336" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L336" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -431,7 +431,7 @@ any <code>.</code> and <code>..</code> characters and a leading <code>~</code>.<
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L108" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -473,7 +473,7 @@ Path.expand(&quot;/foo/bar/../bar&quot;, &quot;/baz&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L135" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L135" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -505,7 +505,7 @@ iex&gt; Path.extname(&quot;~/foo/bar&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L353" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L353" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -543,7 +543,7 @@ iex&gt; Path.join([&quot;/&quot;, &quot;foo&quot;, &quot;bar/&quot;])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L411" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L411" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -572,7 +572,7 @@ iex&gt; Path.join([&quot;/&quot;, &quot;foo&quot;, &quot;bar/&quot;])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L426" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L426" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -610,7 +610,7 @@ Path.relative(&quot;/bar/foo.ex&quot;)      #=&gt; &quot;bar/foo.ex&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L184" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L184" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -652,7 +652,7 @@ iex&gt; Path.relative_to(&quot;/usr/local/foo&quot;, &quot;/etc&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L251" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L251" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -677,7 +677,7 @@ directory. If, for some reason, the current working directory
 cannot be retrieved, returns the full path.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L274" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L274" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -709,7 +709,7 @@ iex&gt; Path.rootname(&quot;/foo/bar.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L370" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L370" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -742,7 +742,7 @@ iex&gt; Path.rootname(&quot;/foo/bar.erl&quot;, &quot;.ex&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L388" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L388" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -778,7 +778,7 @@ If an empty string is given, returns the root path.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L480" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L480" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -818,25 +818,18 @@ Path.type(&quot;/bar/foo.ex&quot;)      #=&gt; :volumerelative
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L159" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L159" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="wildcard/1">
-    <span class="signature"><strong>wildcard(glob)</strong></span>
+  <div class="detail_header" id="wildcard/2">
+    <span class="signature"><strong>wildcard(glob, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#wildcard/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#wildcard/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>wildcard(<a href="#t:t/0">t</a>) :: [binary]</li>
-      
-    </ul>
   
   <div class="docstring"><p>Traverses paths according to the given <code>glob</code> expression.</p>
 
@@ -845,19 +838,22 @@ Path.type(&quot;/bar/foo.ex&quot;)      #=&gt; :volumerelative
 following characters are special:</p>
 
 <ul>
-<li><code>?</code> - Matches one character.</li>
-<li><code>*</code> - Matches any number of characters up to the end of
-    the filename, the next dot, or the next slash.</li>
-<li><code>**</code> - Two adjacent <c>*</c>&#39;s used as a single pattern will
-     match all files and zero or more directories and subdirectories.</li>
-<li><code>[char1,char2,...]</code> - Matches any of the characters listed. Two characters
-                    separated by a hyphen will match a range of characters.</li>
-<li><code>{item1,item2,...}</code> - Matches one of the alternatives.</li>
+<li><p><code>?</code> - matches one character</p></li>
+<li><p><code>*</code> - matches any number of characters up to the end of the filename, the
+next dot, or the next slash</p></li>
+<li><p><code>**</code> - two adjacent <c>*</c>&#39;s used as a single pattern will match all
+files and zero or more directories and subdirectories</p></li>
+<li><p><code>[char1,char2,...]</code> - matches any of the characters listed; two
+characters separated by a hyphen will match a range of characters</p></li>
+<li><p><code>{item1,item2,...}</code> - matches one of the alternatives</p></li>
 </ul>
 
 <p>Other characters represent themselves. Only paths that have
 exactly the same character in the same position will match. Note
 that matching is case-sensitive; i.e. &quot;a&quot; will not match &quot;A&quot;.</p>
+
+<p>By default, the patterns <code>*</code> and <code>?</code> do not match files starting
+with a dot <code>.</code> unless <code>match_dot: true</code> is given.</p>
 
 <h2>Examples</h2>
 
@@ -874,7 +870,7 @@ inside the <code>ebin</code> directory of each project as follows:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/path.ex#L520" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/path.ex#L553" class="view_source">Source</a>
   
 </div>
 

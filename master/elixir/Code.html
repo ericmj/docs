@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Code.html">Code</a></div>
+      <div class="breadcrumbs">Elixir v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Code.html">Code</a></div>
 
       <h1>
         Code
@@ -50,7 +50,7 @@ to add behaviour which is specific to Elixir.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L1" class="view_source">Source</a>
       
 
       
@@ -234,7 +234,7 @@ to add behaviour which is specific to Elixir.</p>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being appended.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L32" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L32" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -252,7 +252,7 @@ to add behaviour which is specific to Elixir.</p>
 <p>See <a href="Code.html#compiler_options/1"><code>Code.compiler_options/1</code></a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L316" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L319" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -271,7 +271,7 @@ to add behaviour which is specific to Elixir.</p>
 the second one is its byte code (as a binary).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L367" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L371" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -292,7 +292,7 @@ and the second one is its byte code (as a binary).</p>
 <p>For compiling many files at once, check <a href="Kernel.ParallelCompiler.html#files/2"><code>Kernel.ParallelCompiler.files/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L357" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L361" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -310,7 +310,7 @@ and the second one is its byte code (as a binary).</p>
 <p>Check <a href="#compiler_options/1"><code>compiler_options/1</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L307" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L310" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -331,17 +331,18 @@ and the second one is its byte code (as a binary).</p>
 
 <ul>
 <li><p><code>:docs</code> - when <code>true</code>, retain documentation in the compiled module,
-<code>true</code> by default;</p></li>
-<li><p><code>:debug_info</code> - when <code>true</code>, retain debug information in the compiled module.
-This allows a developer to reconstruct the original source
-code, <code>false</code> by default;</p></li>
-<li><p><code>:ignore_module_conflict</code> - when <code>true</code>, override modules that were already defined
-without raising errors, <code>false</code> by default;</p></li>
-<li><p><code>:warnings_as_errors</code> - cause compilation to fail when warnings are generated;</p></li>
+<code>true</code> by default</p></li>
+<li><p><code>:debug_info</code> - when <code>true</code>, retain debug information in the compiled
+module; this allows a developer to reconstruct the original source
+code, <code>false</code> by default</p></li>
+<li><p><code>:ignore_module_conflict</code> - when <code>true</code>, override modules that were
+already defined without raising errors, <code>false</code> by default</p></li>
+<li><p><code>:warnings_as_errors</code> - cause compilation to fail when warnings are
+generated</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L340" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L344" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -359,7 +360,7 @@ without raising errors, <code>false</code> by default;</p></li>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being deleted.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L50" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L50" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -385,7 +386,7 @@ If not, returns <code>{:error, reason}</code> with the error reason.</p>
 and when to use <a href="#ensure_loaded/1"><code>ensure_loaded/1</code></a> or <a href="#ensure_compiled/1"><code>ensure_compiled/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L437" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L441" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -405,7 +406,7 @@ is already loaded or was successfully loaded and compiled.
 Returns <code>false</code> otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L461" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L465" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -456,7 +457,7 @@ must be used in rare cases, usually involving macros that need to
 invoke a module for callback information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L409" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L413" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -476,7 +477,7 @@ is already loaded or was successfully loaded. Returns <code>false</code>
 otherwise.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L420" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L424" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -498,7 +499,7 @@ byte code, <code>eval_file</code> simply evalutes the file contents and returns 
 evaluation result and its bindings.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L246" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L249" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -531,7 +532,7 @@ iex&gt; Code.eval_quoted(contents, [a: 1, b: 2], __ENV__)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L143" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L146" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -552,23 +553,23 @@ The <code>opts</code> argument is a keyword list of environment options.</p>
 <p>Those options can be:</p>
 
 <ul>
-<li><code>:file</code> - the file to be considered in the evaluation</li>
-<li><code>:line</code> - the line on which the script starts</li>
+<li><code>:file</code>               - the file to be considered in the evaluation</li>
+<li><code>:line</code>               - the line on which the script starts</li>
 <li><code>:delegate_locals_to</code> - delegate local calls to the given module,
-the default is to not delegate</li>
+                        the default is to not delegate</li>
 </ul>
 
 <p>Additionally, the following scope values can be configured:</p>
 
 <ul>
-<li><code>:aliases</code> - a list of tuples with the alias and its target</li>
-<li><code>:requires</code> - a list of modules required</li>
-<li><code>:functions</code> - a list of tuples where the first element is a module
-and the second a list of imported function names and arity. The list
-of function names and arity must be sorted</li>
-<li><code>:macros</code> - a list of tuples where the first element is a module
-and the second a list of imported macro names and arity. The list
-of function names and arity must be sorted</li>
+<li><p><code>:aliases</code> - a list of tuples with the alias and its target</p></li>
+<li><p><code>:requires</code> - a list of modules required</p></li>
+<li><p><code>:functions</code> - a list of tuples where the first element is a module
+and the second a list of imported function names and arity; the list
+of function names and arity must be sorted</p></li>
+<li><p><code>:macros</code> - a list of tuples where the first element is a module
+and the second a list of imported macro names and arity; the list
+of function names and arity must be sorted</p></li>
 </ul>
 
 <p>Notice that setting any of the values above overrides Elixir&#39;s default
@@ -606,7 +607,7 @@ will be automatically carried over:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L111" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L114" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -638,7 +639,7 @@ attached to the module using the <code>@moduledoc</code> attribute</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L485" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L489" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -664,7 +665,7 @@ the target file will be loaded concurrently many times. Check <a href="#require_
 if you don&#39;t want a file to be loaded concurrently.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L264" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L267" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -680,7 +681,7 @@ if you don&#39;t want a file to be loaded concurrently.</p>
   <div class="docstring"><p>List all loaded files.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L12" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L12" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -698,7 +699,7 @@ if you don&#39;t want a file to be loaded concurrently.</p>
 <p>The path is expanded with <a href="Path.html#expand/1"><code>Path.expand/1</code></a> before being prepended.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L41" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L41" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -726,7 +727,7 @@ call <code>require_file</code> will get the list of loaded modules, others will 
 <p>Check <a href="#load_file/2"><code>load_file/2</code></a> if you want a file to be loaded multiple times.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L287" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L290" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -747,11 +748,11 @@ if it succeeds, <code>{:error, {line, error, token}}</code> otherwise.</p>
 <h2>Options</h2>
 
 <ul>
-<li><p><code>:file</code> - The filename to be used in stacktraces
-and the file reported in the <code>__ENV__</code> variable.</p></li>
-<li><p><code>:line</code> - The line reported in the <code>__ENV__</code> variable.</p></li>
-<li><p><code>:existing_atoms_only</code> - When <code>true</code>, raises an error
-when non-existing atoms are found by the tokenizer.</p></li>
+<li><p><code>:file</code> - the filename to be used in stacktraces
+and the file reported in the <code>__ENV__</code> variable</p></li>
+<li><p><code>:line</code> - the line reported in the <code>__ENV__</code> variable</p></li>
+<li><p><code>:existing_atoms_only</code> - when <code>true</code>, raises an error
+when non-existing atoms are found by the tokenizer</p></li>
 </ul>
 
 <h2>Macro.to_string/2</h2>
@@ -761,7 +762,7 @@ when non-existing atoms are found by the tokenizer.</p></li>
 representation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L215" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L218" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -784,7 +785,7 @@ in case a token is missing (usually because the expression is incomplete),
 <p>Check <a href="#string_to_quoted/2"><code>string_to_quoted/2</code></a> for options information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L231" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L234" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -804,7 +805,7 @@ calling this function only removes them from the list,
 allowing them to be required again.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/code.ex#L23" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/code.ex#L23" class="view_source">Source</a>
   
 </div>
 

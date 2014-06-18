@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Process.html">Process</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Process.html">Process</a></div>
 
       <h1>
         Process
@@ -61,7 +61,7 @@ available through the functions:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L1" class="view_source">Source</a>
       
 
       
@@ -318,7 +318,7 @@ is not exiting and has not exited. Otherwise, returns false.</p>
 <p><code>pid</code> must refer to a process at the local node.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L24" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L24" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -341,7 +341,7 @@ is not exiting and has not exited. Otherwise, returns false.</p>
   <div class="docstring"><p>Deletes the given key from the dictionary.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L70" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L70" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -370,7 +370,7 @@ If the monitoring is already turned off, nothing happens.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L221" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L221" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -394,18 +394,17 @@ If the monitoring is already turned off, nothing happens.</p>
 
 <p>The following behaviour applies if reason is any term except <code>:normal</code> or <code>:kill</code>:</p>
 
-<p>1) If pid is not trapping exits, pid will exit with the given reason;</p>
-
-<p>2) If pid is trapping exits, the exit signal is transformed into a message
-   {:EXIT, from, reason} and delivered to the message queue of pid;</p>
-
-<p>3) If reason is the atom <code>:normal</code>, pid will not exit. If it is trapping exits,
-   the exit signal is transformed into a message {:EXIT, from, :normal} and
-   delivered to its message queue;</p>
-
-<p>4) If reason is the atom <code>:kill</code>, that is if <code>exit(pid, :kill)</code> is called, an
-   untrappable exit signal is sent to pid which will unconditionally exit with
-   exit reason <code>:killed</code>.</p>
+<ol>
+<li><p>If pid is not trapping exits, pid will exit with the given reason.</p></li>
+<li><p>If pid is trapping exits, the exit signal is transformed into a message
+ {:EXIT, from, reason} and delivered to the message queue of pid.</p></li>
+<li><p>If reason is the atom <code>:normal</code>, pid will not exit. If it is trapping
+ exits, the exit signal is transformed into a message {:EXIT, from,
+ :normal} and delivered to its message queue.</p></li>
+<li><p>If reason is the atom <code>:kill</code>, that is if <code>exit(pid, :kill)</code> is called,
+ an untrappable exit signal is sent to pid which will unconditionally
+ exit with exit reason <code>:killed</code>.</p></li>
+</ol>
 
 <p>Inlined by the compiler.</p>
 
@@ -415,7 +414,7 @@ If the monitoring is already turned off, nothing happens.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -441,7 +440,7 @@ Returns the old value of the flag.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#process_flag-2">http://www.erlang.org/doc/man/erlang.html#process_flag-2</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L337" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L337" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -468,7 +467,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#process_flag-3">http://www.erlang.org/doc/man/erlang.html#process_flag-3</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L349" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L349" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -491,7 +490,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
   <div class="docstring"><p>Returns all key-values in the dictionary.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L32" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L32" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -514,7 +513,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
   <div class="docstring"><p>Returns the value for the given key.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L41" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L41" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -537,7 +536,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
   <div class="docstring"><p>Returns all keys that have the given <code>value</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L54" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L54" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -560,7 +559,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
   <div class="docstring"><p>Returns the pid of the group leader for the process which evaluates the function.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L306" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L306" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -584,7 +583,7 @@ only a subset of those allowed in flag/2, namely: save_calls.</p>
 started from a certain shell should have another group leader than <code>:init</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L315" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L315" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -611,7 +610,7 @@ Use this only for debugging information.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#process_info-1">http://www.erlang.org/doc/man/erlang.html#process_info-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L361" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L361" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -627,7 +626,7 @@ Use this only for debugging information.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>info(pid, atom) :: {atom, term}</li>
+        <li>info(pid, atom) :: {atom, term} | nil</li>
       
     </ul>
   
@@ -637,7 +636,7 @@ or nil if the process is not alive.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#process_info-2">http://www.erlang.org/doc/man/erlang.html#process_info-2</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L372" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L372" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -665,7 +664,7 @@ or nil if the process is not alive.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L249" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L249" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -695,7 +694,7 @@ but its process identifier will be part of the result returned.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#processes-0">http://www.erlang.org/doc/man/erlang.html#processes-0</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L236" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L236" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -723,7 +722,7 @@ It returns the monitor reference.</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L206" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L206" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -746,7 +745,7 @@ It returns the monitor reference.</p>
   <div class="docstring"><p>Stores the given key-value in the process dictionary.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L62" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L62" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -775,7 +774,7 @@ is no longer alive, (check with <a href="#alive?/1"><code>alive?/1</code></a>) o
 already registered (check with <code>registered?/1</code>).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L277" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L277" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -798,7 +797,7 @@ already registered (check with <code>registered?/1</code>).</p>
   <div class="docstring"><p>Returns a list of names which have been registered using register/2.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L323" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L323" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -836,7 +835,7 @@ sender to be suspended the message is not sent and <code>:nosuspend</code> is re
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L127" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L127" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -873,7 +872,7 @@ automatically canceled when <code>dest</code> is an atom (as the atom resolution
 on delivery).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L149" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L149" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -907,7 +906,7 @@ check <a href="http://www.erlang.org/doc/man/erlang.html#spawn_opt-4">http://www
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L174" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L174" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -941,7 +940,7 @@ check <a href="http://www.erlang.org/doc/man/erlang.html#spawn_opt-4">http://www
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L193" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L193" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -970,7 +969,7 @@ fail, even if there is no link or <code>id</code> does not exist</p>
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L263" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L263" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -995,7 +994,7 @@ fail, even if there is no link or <code>id</code> does not exist</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#unregister-1">http://www.erlang.org/doc/man/erlang.html#unregister-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L287" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L287" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1021,7 +1020,7 @@ Returns nil if the name is not registered.</p>
 <p>See <a href="http://www.erlang.org/doc/man/erlang.html#whereis-1">http://www.erlang.org/doc/man/erlang.html#whereis-1</a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/process.ex#L298" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/process.ex#L298" class="view_source">Source</a>
   
 </div>
 

@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Base.html">Base</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Base.html">Base</a></div>
 
       <h1>
         Base
@@ -44,42 +44,128 @@
           <p>This module provides data encoding and decoding functions
 according to <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>.</p>
 
-<p>This document defines the commonly used base 64, base 32, and base
- 16 encoding schemes.</p>
+<p>This document defines the commonly used base 16, base 32, and base
+64 encoding schemes.</p>
+
+<h2>Base 16 alphabet</h2>
+
+<pre><code>| Value | Encoding | Value | Encoding | Value | Encoding | Value | Encoding |
+|------:|---------:|------:|---------:|------:|---------:|------:|---------:|
+|      0|         0|      4|         4|      8|         8|     12|         C|
+|      1|         1|      5|         5|      9|         9|     13|         D|
+|      2|         2|      6|         6|     10|         A|     14|         E|
+|      3|         3|      7|         7|     11|         B|     15|         F|
+</code></pre>
+
+<h2>Base 32 alphabet</h2>
+
+<pre><code>| Value | Encoding | Value | Encoding | Value | Encoding | Value | Encoding |
+|------:|---------:|------:|---------:|------:|---------:|------:|---------:|
+|      0|         A|      9|         J|     18|         S|     27|         3|
+|      1|         B|     10|         K|     19|         T|     28|         4|
+|      2|         C|     11|         L|     20|         U|     29|         5|
+|      3|         D|     12|         M|     21|         V|     30|         6|
+|      4|         E|     13|         N|     22|         W|     31|         7|
+|      5|         F|     14|         O|     23|         X|       |          |
+|      6|         G|     15|         P|     24|         Y|  (pad)|         =|
+|      7|         H|     16|         Q|     25|         Z|       |          |
+|      8|         I|     17|         R|     26|         2|       |          |
+</code></pre>
+
+<h2>Base 32 (extended hex) alphabet</h2>
+
+<pre><code>| Value | Encoding | Value | Encoding | Value | Encoding | Value | Encoding |
+|------:|---------:|------:|---------:|------:|---------:|------:|---------:|
+|      0|         0|      9|         9|     18|         I|     27|         R|
+|      1|         1|     10|         A|     19|         J|     28|         S|
+|      2|         2|     11|         B|     20|         K|     29|         T|
+|      3|         3|     12|         C|     21|         L|     30|         U|
+|      4|         4|     13|         D|     22|         M|     31|         V|
+|      5|         5|     14|         E|     23|         N|       |          |
+|      6|         6|     15|         F|     24|         O|  (pad)|         =|
+|      7|         7|     16|         G|     25|         P|       |          |
+|      8|         8|     17|         H|     26|         Q|       |          |
+</code></pre>
+
+<h2>Base 64 alphabet</h2>
+
+<pre><code>| Value | Encoding | Value | Encoding | Value | Encoding | Value | Encoding |
+|------:|---------:|------:|---------:|------:|---------:|------:|---------:|
+|      0|         A|     17|         R|     34|         i|     51|         z|
+|      1|         B|     18|         S|     35|         j|     52|         0|
+|      2|         C|     19|         T|     36|         k|     53|         1|
+|      3|         D|     20|         U|     37|         l|     54|         2|
+|      4|         E|     21|         V|     38|         m|     55|         3|
+|      5|         F|     22|         W|     39|         n|     56|         4|
+|      6|         G|     23|         X|     40|         o|     57|         5|
+|      7|         H|     24|         Y|     41|         p|     58|         6|
+|      8|         I|     25|         Z|     42|         q|     59|         7|
+|      9|         J|     26|         a|     43|         r|     60|         8|
+|     10|         K|     27|         b|     44|         s|     61|         9|
+|     11|         L|     28|         c|     45|         t|     62|         +|
+|     12|         M|     29|         d|     46|         u|     63|         /|
+|     13|         N|     30|         e|     47|         v|       |          |
+|     14|         O|     31|         f|     48|         w|  (pad)|         =|
+|     15|         P|     32|         g|     49|         x|       |          |
+|     16|         Q|     33|         h|     50|         y|       |          |
+</code></pre>
+
+<h2>Base 64 (URL and filename safe) alphabet</h2>
+
+<pre><code>| Value | Encoding | Value | Encoding | Value | Encoding | Value | Encoding |
+|------:|---------:|------:|---------:|------:|---------:|------:|---------:|
+|      0|         A|     17|         R|     34|         i|     51|         z|
+|      1|         B|     18|         S|     35|         j|     52|         0|
+|      2|         C|     19|         T|     36|         k|     53|         1|
+|      3|         D|     20|         U|     37|         l|     54|         2|
+|      4|         E|     21|         V|     38|         m|     55|         3|
+|      5|         F|     22|         W|     39|         n|     56|         4|
+|      6|         G|     23|         X|     40|         o|     57|         5|
+|      7|         H|     24|         Y|     41|         p|     58|         6|
+|      8|         I|     25|         Z|     42|         q|     59|         7|
+|      9|         J|     26|         a|     43|         r|     60|         8|
+|     10|         K|     27|         b|     44|         s|     61|         9|
+|     11|         L|     28|         c|     45|         t|     62|         -|
+|     12|         M|     29|         d|     46|         u|     63|         _|
+|     13|         N|     30|         e|     47|         v|       |          |
+|     14|         O|     31|         f|     48|         w|  (pad)|         =|
+|     15|         P|     32|         g|     49|         x|       |          |
+|     16|         Q|     33|         h|     50|         y|       |          |
+</code></pre>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#decode16!/1">decode16!(string)</a></td>
+  <td class="summary_signature"><a href="#decode16!/2">decode16!(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 16 encoded string into a binary string</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#decode16/1">decode16(string)</a></td>
+  <td class="summary_signature"><a href="#decode16/2">decode16(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 16 encoded string into a binary string</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#decode32!/1">decode32!(string)</a></td>
+  <td class="summary_signature"><a href="#decode32!/2">decode32!(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 32 encoded string into a binary string</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#decode32/1">decode32(string)</a></td>
+  <td class="summary_signature"><a href="#decode32/2">decode32(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 32 encoded string into a binary string</p>
 </td>
@@ -100,14 +186,14 @@ according to <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#encode16/1">encode16(data)</a></td>
+  <td class="summary_signature"><a href="#encode16/2">encode16(data, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Encodes a binary string into a base 16 encoded string</p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#encode32/1">encode32(data)</a></td>
+  <td class="summary_signature"><a href="#encode32/2">encode32(data, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string</p>
 </td>
@@ -121,7 +207,7 @@ according to <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#hex_decode32!/1">hex_decode32!(string)</a></td>
+  <td class="summary_signature"><a href="#hex_decode32!/2">hex_decode32!(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 32 encoded string with extended hexadecimal alphabet
 into a binary string</p>
@@ -129,7 +215,7 @@ into a binary string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#hex_decode32/1">hex_decode32(string)</a></td>
+  <td class="summary_signature"><a href="#hex_decode32/2">hex_decode32(string, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Decodes a base 32 encoded string with extended hexadecimal alphabet
 into a binary string</p>
@@ -137,7 +223,7 @@ into a binary string</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#hex_encode32/1">hex_encode32(data)</a></td>
+  <td class="summary_signature"><a href="#hex_encode32/2">hex_encode32(data, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Encodes a binary string into a base 32 encoded string with an
 extended hexadecimal alphabet</p>
@@ -178,11 +264,11 @@ safe alphabet</p>
         <div id="functions_details" class="details_list">
           <h2>Functions</h2>
           <div class="detail">
-  <div class="detail_header" id="decode16/1">
-    <span class="signature"><strong>decode16(string)</strong></span>
+  <div class="detail_header" id="decode16/2">
+    <span class="signature"><strong>decode16(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#decode16/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#decode16/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -190,84 +276,38 @@ safe alphabet</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>decode16(binary) :: {:ok, binary} | :error</li>
+        <li>decode16(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, binary} | :error</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 16 encoded string into a binary string.</p>
 
-<p>The following alphabet is used both for encoding and decoding:</p>
-
-<table><thead>
-<tr>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">4</td>
-<td align="right">4</td>
-<td align="right">8</td>
-<td align="right">8</td>
-<td align="right">12</td>
-<td align="right">C</td>
-</tr>
-<tr>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">9</td>
-<td align="right">9</td>
-<td align="right">13</td>
-<td align="right">D</td>
-</tr>
-<tr>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">6</td>
-<td align="right">6</td>
-<td align="right">10</td>
-<td align="right">A</td>
-<td align="right">14</td>
-<td align="right">E</td>
-</tr>
-<tr>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">7</td>
-<td align="right">7</td>
-<td align="right">11</td>
-<td align="right">B</td>
-<td align="right">15</td>
-<td align="right">F</td>
-</tr>
-</tbody></table>
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.decode16(&quot;666F6F626172&quot;)
 {:ok, &quot;foobar&quot;}
+
+iex&gt; Base.decode16(&quot;666f6f626172&quot;, case: :lower)
+{:ok, &quot;foobar&quot;}
+
+iex&gt; Base.decode16(&quot;666f6F626172&quot;, case: :mixed)
+{:ok, &quot;foobar&quot;}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L65" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L188" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="decode16!/1">
-    <span class="signature"><strong>decode16!(string)</strong></span>
+  <div class="detail_header" id="decode16!/2">
+    <span class="signature"><strong>decode16!(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#decode16!/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#decode16!/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -275,11 +315,15 @@ safe alphabet</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>decode16!(binary) :: binary</li>
+        <li>decode16!(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 16 encoded string into a binary string.</p>
+
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <p>An <a href="ArgumentError.html"><code>ArgumentError</code></a> exception is raised if the padding is incorrect or
 a non-alphabet character is present in the string.</p>
@@ -288,18 +332,24 @@ a non-alphabet character is present in the string.</p>
 
 <pre><code>iex&gt; Base.decode16!(&quot;666F6F626172&quot;)
 &quot;foobar&quot;
+
+iex&gt; Base.decode16!(&quot;666f6f626172&quot;, case: :lower)
+&quot;foobar&quot;
+
+iex&gt; Base.decode16!(&quot;666f6F626172&quot;, case: :mixed)
+&quot;foobar&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L84" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L219" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="decode32/1">
-    <span class="signature"><strong>decode32(string)</strong></span>
+  <div class="detail_header" id="decode32/2">
+    <span class="signature"><strong>decode32(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#decode32/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#decode32/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -307,134 +357,38 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>decode32(binary) :: {:ok, binary} | :error</li>
+        <li>decode32(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, binary} | :error</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 32 encoded string into a binary string.</p>
 
-<p>The following alphabet is used both for encoding and decoding:</p>
-
-<table><thead>
-<tr>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="right">0</td>
-<td align="right">A</td>
-<td align="right">9</td>
-<td align="right">J</td>
-<td align="right">18</td>
-<td align="right">S</td>
-<td align="right">27</td>
-<td align="right">3</td>
-</tr>
-<tr>
-<td align="right">1</td>
-<td align="right">B</td>
-<td align="right">10</td>
-<td align="right">K</td>
-<td align="right">19</td>
-<td align="right">T</td>
-<td align="right">28</td>
-<td align="right">4</td>
-</tr>
-<tr>
-<td align="right">2</td>
-<td align="right">C</td>
-<td align="right">11</td>
-<td align="right">L</td>
-<td align="right">20</td>
-<td align="right">U</td>
-<td align="right">29</td>
-<td align="right">5</td>
-</tr>
-<tr>
-<td align="right">3</td>
-<td align="right">D</td>
-<td align="right">12</td>
-<td align="right">M</td>
-<td align="right">21</td>
-<td align="right">V</td>
-<td align="right">30</td>
-<td align="right">6</td>
-</tr>
-<tr>
-<td align="right">4</td>
-<td align="right">E</td>
-<td align="right">13</td>
-<td align="right">N</td>
-<td align="right">22</td>
-<td align="right">W</td>
-<td align="right">31</td>
-<td align="right">7</td>
-</tr>
-<tr>
-<td align="right">5</td>
-<td align="right">F</td>
-<td align="right">14</td>
-<td align="right">O</td>
-<td align="right">23</td>
-<td align="right">X</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">6</td>
-<td align="right">G</td>
-<td align="right">15</td>
-<td align="right">P</td>
-<td align="right">24</td>
-<td align="right">Y</td>
-<td align="right">(pad)</td>
-<td align="right">=</td>
-</tr>
-<tr>
-<td align="right">7</td>
-<td align="right">H</td>
-<td align="right">16</td>
-<td align="right">Q</td>
-<td align="right">25</td>
-<td align="right">Z</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">8</td>
-<td align="right">I</td>
-<td align="right">17</td>
-<td align="right">R</td>
-<td align="right">26</td>
-<td align="right">2</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.decode32(&quot;MZXW6YTBOI======&quot;)
 {:ok, &quot;foobar&quot;}
+
+iex&gt; Base.decode32(&quot;mzxw6ytboi======&quot;, case: :lower)
+{:ok, &quot;foobar&quot;}
+
+iex&gt; Base.decode32(&quot;mzXW6ytBOi======&quot;, case: :mixed)
+{:ok, &quot;foobar&quot;}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L269" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L366" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="decode32!/1">
-    <span class="signature"><strong>decode32!(string)</strong></span>
+  <div class="detail_header" id="decode32!/2">
+    <span class="signature"><strong>decode32!(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#decode32!/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#decode32!/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -442,11 +396,15 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>decode32!(binary) :: binary</li>
+        <li>decode32!(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 32 encoded string into a binary string.</p>
+
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <p>An <a href="ArgumentError.html"><code>ArgumentError</code></a> exception is raised if the padding is incorrect or
 a non-alphabet character is present in the string.</p>
@@ -455,10 +413,16 @@ a non-alphabet character is present in the string.</p>
 
 <pre><code>iex&gt; Base.decode32!(&quot;MZXW6YTBOI======&quot;)
 &quot;foobar&quot;
+
+iex&gt; Base.decode32!(&quot;mzxw6ytboi======&quot;, case: :lower)
+&quot;foobar&quot;
+
+iex&gt; Base.decode32!(&quot;mzXW6ytBOi======&quot;, case: :mixed)
+&quot;foobar&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L288" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L397" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -480,192 +444,6 @@ a non-alphabet character is present in the string.</p>
   
   <div class="docstring"><p>Decodes a base 64 encoded string into a binary string.</p>
 
-<p>The following alphabet is used both for encoding and decoding:</p>
-
-<table><thead>
-<tr>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="right">0</td>
-<td align="right">A</td>
-<td align="right">17</td>
-<td align="right">R</td>
-<td align="right">34</td>
-<td align="right">i</td>
-<td align="right">51</td>
-<td align="right">z</td>
-</tr>
-<tr>
-<td align="right">1</td>
-<td align="right">B</td>
-<td align="right">18</td>
-<td align="right">S</td>
-<td align="right">35</td>
-<td align="right">j</td>
-<td align="right">52</td>
-<td align="right">0</td>
-</tr>
-<tr>
-<td align="right">2</td>
-<td align="right">C</td>
-<td align="right">19</td>
-<td align="right">T</td>
-<td align="right">36</td>
-<td align="right">k</td>
-<td align="right">53</td>
-<td align="right">1</td>
-</tr>
-<tr>
-<td align="right">3</td>
-<td align="right">D</td>
-<td align="right">20</td>
-<td align="right">U</td>
-<td align="right">37</td>
-<td align="right">l</td>
-<td align="right">54</td>
-<td align="right">2</td>
-</tr>
-<tr>
-<td align="right">4</td>
-<td align="right">E</td>
-<td align="right">21</td>
-<td align="right">V</td>
-<td align="right">38</td>
-<td align="right">m</td>
-<td align="right">55</td>
-<td align="right">3</td>
-</tr>
-<tr>
-<td align="right">5</td>
-<td align="right">F</td>
-<td align="right">22</td>
-<td align="right">W</td>
-<td align="right">39</td>
-<td align="right">n</td>
-<td align="right">56</td>
-<td align="right">4</td>
-</tr>
-<tr>
-<td align="right">6</td>
-<td align="right">G</td>
-<td align="right">23</td>
-<td align="right">X</td>
-<td align="right">40</td>
-<td align="right">o</td>
-<td align="right">57</td>
-<td align="right">5</td>
-</tr>
-<tr>
-<td align="right">7</td>
-<td align="right">H</td>
-<td align="right">24</td>
-<td align="right">Y</td>
-<td align="right">41</td>
-<td align="right">p</td>
-<td align="right">58</td>
-<td align="right">6</td>
-</tr>
-<tr>
-<td align="right">8</td>
-<td align="right">I</td>
-<td align="right">25</td>
-<td align="right">Z</td>
-<td align="right">42</td>
-<td align="right">q</td>
-<td align="right">59</td>
-<td align="right">7</td>
-</tr>
-<tr>
-<td align="right">9</td>
-<td align="right">J</td>
-<td align="right">26</td>
-<td align="right">a</td>
-<td align="right">43</td>
-<td align="right">r</td>
-<td align="right">60</td>
-<td align="right">8</td>
-</tr>
-<tr>
-<td align="right">10</td>
-<td align="right">K</td>
-<td align="right">27</td>
-<td align="right">b</td>
-<td align="right">44</td>
-<td align="right">s</td>
-<td align="right">61</td>
-<td align="right">9</td>
-</tr>
-<tr>
-<td align="right">11</td>
-<td align="right">L</td>
-<td align="right">28</td>
-<td align="right">c</td>
-<td align="right">45</td>
-<td align="right">t</td>
-<td align="right">62</td>
-<td align="right">+</td>
-</tr>
-<tr>
-<td align="right">12</td>
-<td align="right">M</td>
-<td align="right">29</td>
-<td align="right">d</td>
-<td align="right">46</td>
-<td align="right">u</td>
-<td align="right">63</td>
-<td align="right">/</td>
-</tr>
-<tr>
-<td align="right">13</td>
-<td align="right">N</td>
-<td align="right">30</td>
-<td align="right">e</td>
-<td align="right">47</td>
-<td align="right">v</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">14</td>
-<td align="right">O</td>
-<td align="right">31</td>
-<td align="right">f</td>
-<td align="right">48</td>
-<td align="right">w</td>
-<td align="right">(pad)</td>
-<td align="right">=</td>
-</tr>
-<tr>
-<td align="right">15</td>
-<td align="right">P</td>
-<td align="right">32</td>
-<td align="right">g</td>
-<td align="right">49</td>
-<td align="right">x</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">16</td>
-<td align="right">Q</td>
-<td align="right">33</td>
-<td align="right">h</td>
-<td align="right">50</td>
-<td align="right">y</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
-
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.decode64(&quot;Zm9vYmFy&quot;)
@@ -673,7 +451,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L134" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L248" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -707,15 +485,15 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L155" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L269" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="encode16/1">
-    <span class="signature"><strong>encode16(data)</strong></span>
+  <div class="detail_header" id="encode16/2">
+    <span class="signature"><strong>encode16(data, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#encode16/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#encode16/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -723,28 +501,34 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>encode16(binary) :: binary</li>
+        <li>encode16(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Encodes a binary string into a base 16 encoded string.</p>
 
+<p>Accepts an atom <code>:upper</code> (default) for encoding to upper case characters or
+<code>:lower</code> for lower case characters.</p>
+
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.encode16(&quot;foobar&quot;)
 &quot;666F6F626172&quot;
+
+iex&gt; Base.encode16(&quot;foobar&quot;, case: :lower)
+&quot;666f6f626172&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L42" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L161" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="encode32/1">
-    <span class="signature"><strong>encode32(data)</strong></span>
+  <div class="detail_header" id="encode32/2">
+    <span class="signature"><strong>encode32(data, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#encode32/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#encode32/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -752,20 +536,26 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>encode32(binary) :: binary</li>
+        <li>encode32(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Encodes a binary string into a base 32 encoded string.</p>
 
+<p>Accepts an atom <code>:upper</code> (default) for encoding to upper case characters or
+<code>:lower</code> for lower case characters.</p>
+
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.encode32(&quot;foobar&quot;)
 &quot;MZXW6YTBOI======&quot;
+
+iex&gt; Base.encode32(&quot;foobar&quot;, case: :lower)
+&quot;mzxw6ytboi======&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L241" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L340" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -794,15 +584,15 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L98" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L234" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="hex_decode32/1">
-    <span class="signature"><strong>hex_decode32(string)</strong></span>
+  <div class="detail_header" id="hex_decode32/2">
+    <span class="signature"><strong>hex_decode32(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#hex_decode32/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#hex_decode32/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -810,135 +600,39 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>hex_decode32(binary) :: {:ok, binary} | :error</li>
+        <li>hex_decode32(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, binary} | :error</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 32 encoded string with extended hexadecimal alphabet
 into a binary string.</p>
 
-<p>The following alphabet is used both for encoding and decoding:</p>
-
-<table><thead>
-<tr>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">9</td>
-<td align="right">9</td>
-<td align="right">18</td>
-<td align="right">I</td>
-<td align="right">27</td>
-<td align="right">R</td>
-</tr>
-<tr>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">10</td>
-<td align="right">A</td>
-<td align="right">19</td>
-<td align="right">J</td>
-<td align="right">28</td>
-<td align="right">S</td>
-</tr>
-<tr>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">11</td>
-<td align="right">B</td>
-<td align="right">20</td>
-<td align="right">K</td>
-<td align="right">29</td>
-<td align="right">T</td>
-</tr>
-<tr>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">12</td>
-<td align="right">C</td>
-<td align="right">21</td>
-<td align="right">L</td>
-<td align="right">30</td>
-<td align="right">U</td>
-</tr>
-<tr>
-<td align="right">4</td>
-<td align="right">4</td>
-<td align="right">13</td>
-<td align="right">D</td>
-<td align="right">22</td>
-<td align="right">M</td>
-<td align="right">31</td>
-<td align="right">V</td>
-</tr>
-<tr>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">14</td>
-<td align="right">E</td>
-<td align="right">23</td>
-<td align="right">N</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">6</td>
-<td align="right">6</td>
-<td align="right">15</td>
-<td align="right">F</td>
-<td align="right">24</td>
-<td align="right">O</td>
-<td align="right">(pad)</td>
-<td align="right">=</td>
-</tr>
-<tr>
-<td align="right">7</td>
-<td align="right">7</td>
-<td align="right">16</td>
-<td align="right">G</td>
-<td align="right">25</td>
-<td align="right">P</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">8</td>
-<td align="right">8</td>
-<td align="right">17</td>
-<td align="right">H</td>
-<td align="right">26</td>
-<td align="right">Q</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.hex_decode32(&quot;CPNMUOJ1E8======&quot;)
 {:ok, &quot;foobar&quot;}
+
+iex&gt; Base.hex_decode32(&quot;cpnmuoj1e8======&quot;, case: :lower)
+{:ok, &quot;foobar&quot;}
+
+iex&gt; Base.hex_decode32(&quot;cpnMuOJ1E8======&quot;, case: :mixed)
+{:ok, &quot;foobar&quot;}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L332" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L447" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="hex_decode32!/1">
-    <span class="signature"><strong>hex_decode32!(string)</strong></span>
+  <div class="detail_header" id="hex_decode32!/2">
+    <span class="signature"><strong>hex_decode32!(string, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#hex_decode32!/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#hex_decode32!/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -946,12 +640,16 @@ into a binary string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>hex_decode32!(binary) :: binary</li>
+        <li>hex_decode32!(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Decodes a base 32 encoded string with extended hexadecimal alphabet
 into a binary string.</p>
+
+<p>Accepts an atom <code>:upper</code> (default) for decoding from upper case characters or
+<code>:lower</code> for lower case characters. <code>:mixed</code> can be given for mixed case
+characters.</p>
 
 <p>An <a href="ArgumentError.html"><code>ArgumentError</code></a> exception is raised if the padding is incorrect or
 a non-alphabet character is present in the string.</p>
@@ -960,18 +658,24 @@ a non-alphabet character is present in the string.</p>
 
 <pre><code>iex&gt; Base.hex_decode32!(&quot;CPNMUOJ1E8======&quot;)
 &quot;foobar&quot;
+
+iex&gt; Base.hex_decode32!(&quot;cpnmuoj1e8======&quot;, case: :lower)
+&quot;foobar&quot;
+
+iex&gt; Base.hex_decode32!(&quot;cpnMuOJ1E8======&quot;, case: :mixed)
+&quot;foobar&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L352" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L479" class="view_source">Source</a>
   
 </div>
 <div class="detail">
-  <div class="detail_header" id="hex_encode32/1">
-    <span class="signature"><strong>hex_encode32(data)</strong></span>
+  <div class="detail_header" id="hex_encode32/2">
+    <span class="signature"><strong>hex_encode32(data, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#hex_encode32/1" class="detail_link" title="Link to this function">#</a>
+      <a href="#hex_encode32/2" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -979,21 +683,27 @@ a non-alphabet character is present in the string.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>hex_encode32(binary) :: binary</li>
+        <li>hex_encode32(binary, <a href="Keyword.html#t:t/0">Keyword.t</a>) :: binary</li>
       
     </ul>
   
   <div class="docstring"><p>Encodes a binary string into a base 32 encoded string with an
 extended hexadecimal alphabet.</p>
 
+<p>Accepts an atom <code>:upper</code> (default) for encoding to upper case characters or
+<code>:lower</code> for lower case characters.</p>
+
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.hex_encode32(&quot;foobar&quot;)
 &quot;CPNMUOJ1E8======&quot;
+
+iex&gt; Base.hex_encode32(&quot;foobar&quot;, case: :lower)
+&quot;cpnmuoj1e8======&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L303" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1016,192 +726,6 @@ extended hexadecimal alphabet.</p>
   <div class="docstring"><p>Decodes a base 64 encoded string with URL and filename safe alphabet
 into a binary string.</p>
 
-<p>The following alphabet is used both for encoding and decoding:</p>
-
-<table><thead>
-<tr>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-<th align="right">Value</th>
-<th align="right">Encoding</th>
-</tr>
-</thead><tbody>
-<tr>
-<td align="right">0</td>
-<td align="right">A</td>
-<td align="right">17</td>
-<td align="right">R</td>
-<td align="right">34</td>
-<td align="right">i</td>
-<td align="right">51</td>
-<td align="right">z</td>
-</tr>
-<tr>
-<td align="right">1</td>
-<td align="right">B</td>
-<td align="right">18</td>
-<td align="right">S</td>
-<td align="right">35</td>
-<td align="right">j</td>
-<td align="right">52</td>
-<td align="right">0</td>
-</tr>
-<tr>
-<td align="right">2</td>
-<td align="right">C</td>
-<td align="right">19</td>
-<td align="right">T</td>
-<td align="right">36</td>
-<td align="right">k</td>
-<td align="right">53</td>
-<td align="right">1</td>
-</tr>
-<tr>
-<td align="right">3</td>
-<td align="right">D</td>
-<td align="right">20</td>
-<td align="right">U</td>
-<td align="right">37</td>
-<td align="right">l</td>
-<td align="right">54</td>
-<td align="right">2</td>
-</tr>
-<tr>
-<td align="right">4</td>
-<td align="right">E</td>
-<td align="right">21</td>
-<td align="right">V</td>
-<td align="right">38</td>
-<td align="right">m</td>
-<td align="right">55</td>
-<td align="right">3</td>
-</tr>
-<tr>
-<td align="right">5</td>
-<td align="right">F</td>
-<td align="right">22</td>
-<td align="right">W</td>
-<td align="right">39</td>
-<td align="right">n</td>
-<td align="right">56</td>
-<td align="right">4</td>
-</tr>
-<tr>
-<td align="right">6</td>
-<td align="right">G</td>
-<td align="right">23</td>
-<td align="right">X</td>
-<td align="right">40</td>
-<td align="right">o</td>
-<td align="right">57</td>
-<td align="right">5</td>
-</tr>
-<tr>
-<td align="right">7</td>
-<td align="right">H</td>
-<td align="right">24</td>
-<td align="right">Y</td>
-<td align="right">41</td>
-<td align="right">p</td>
-<td align="right">58</td>
-<td align="right">6</td>
-</tr>
-<tr>
-<td align="right">8</td>
-<td align="right">I</td>
-<td align="right">25</td>
-<td align="right">Z</td>
-<td align="right">42</td>
-<td align="right">q</td>
-<td align="right">59</td>
-<td align="right">7</td>
-</tr>
-<tr>
-<td align="right">9</td>
-<td align="right">J</td>
-<td align="right">26</td>
-<td align="right">a</td>
-<td align="right">43</td>
-<td align="right">r</td>
-<td align="right">60</td>
-<td align="right">8</td>
-</tr>
-<tr>
-<td align="right">10</td>
-<td align="right">K</td>
-<td align="right">27</td>
-<td align="right">b</td>
-<td align="right">44</td>
-<td align="right">s</td>
-<td align="right">61</td>
-<td align="right">9</td>
-</tr>
-<tr>
-<td align="right">11</td>
-<td align="right">L</td>
-<td align="right">28</td>
-<td align="right">c</td>
-<td align="right">45</td>
-<td align="right">t</td>
-<td align="right">62</td>
-<td align="right">-</td>
-</tr>
-<tr>
-<td align="right">12</td>
-<td align="right">M</td>
-<td align="right">29</td>
-<td align="right">d</td>
-<td align="right">46</td>
-<td align="right">u</td>
-<td align="right">63</td>
-<td align="right">_</td>
-</tr>
-<tr>
-<td align="right">13</td>
-<td align="right">N</td>
-<td align="right">30</td>
-<td align="right">e</td>
-<td align="right">47</td>
-<td align="right">v</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">14</td>
-<td align="right">O</td>
-<td align="right">31</td>
-<td align="right">f</td>
-<td align="right">48</td>
-<td align="right">w</td>
-<td align="right">(pad)</td>
-<td align="right">=</td>
-</tr>
-<tr>
-<td align="right">15</td>
-<td align="right">P</td>
-<td align="right">32</td>
-<td align="right">g</td>
-<td align="right">49</td>
-<td align="right">x</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="right">16</td>
-<td align="right">Q</td>
-<td align="right">33</td>
-<td align="right">h</td>
-<td align="right">50</td>
-<td align="right">y</td>
-<td align="right"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
-
 <h2>Examples</h2>
 
 <pre><code>iex&gt; Base.url_decode64(&quot;_3_-_A==&quot;)
@@ -1209,7 +733,7 @@ into a binary string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L207" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L299" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1242,7 +766,7 @@ a non-alphabet character is present in the string.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L227" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L319" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1272,7 +796,7 @@ safe alphabet.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/base.ex#L170" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/base.ex#L284" class="view_source">Source</a>
   
 </div>
 

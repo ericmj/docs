@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; <a href="Mix.Shell.html">Shell</a> &rarr; <a href="Mix.Shell.Process.html">Process</a></div>
+      <div class="breadcrumbs">Mix v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; <a href="Mix.Shell.html">Shell</a> &rarr; <a href="Mix.Shell.Process.html">Process</a></div>
 
       <h1>
         Mix.Shell.Process
@@ -60,7 +60,7 @@ is also a <a href="#flush/1"><code>flush/1</code></a> function responsible for f
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L1" class="view_source">Source</a>
       
 
       
@@ -93,6 +93,14 @@ If a callback is given, it is invoked for each received message</p>
   <td class="summary_signature"><a href="#info/1">info(message)</a></td>
   
     <td class="summary_synopsis"><p>Forwards the message to the current process</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print_app/0">print_app()</a></td>
+  
+    <td class="summary_synopsis"><p>Prints the currently running application if it
+was not printed yet</p>
 </td>
   
 </tr>
@@ -135,7 +143,7 @@ It also checks the inbox for an input message matching:</p>
 the current process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L46" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L56" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -151,7 +159,7 @@ the current process.</p>
   <div class="docstring"><p>Forwards the message to the current process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L64" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L73" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -173,7 +181,7 @@ If a callback is given, it is invoked for each received message.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L29" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L29" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -189,7 +197,24 @@ If a callback is given, it is invoked for each received message.</p>
   <div class="docstring"><p>Forwards the message to the current process.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L56" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L65" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="print_app/0">
+    <span class="signature"><strong>print_app()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print_app/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Prints the currently running application if it
+was not printed yet.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L46" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -212,7 +237,7 @@ It also checks the inbox for an input message matching:</p>
 process inputs given. Value must be a string.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L78" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L87" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -235,7 +260,7 @@ It also checks the inbox for an input message matching:</p>
 process inputs given. Value must be <code>true</code> or <code>false</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/shell/process.ex#L98" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/shell/process.ex#L107" class="view_source">Source</a>
   
 </div>
 

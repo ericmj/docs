@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; <a href="Mix.Shell.html">Shell</a> &rarr; <a href="Mix.Shell.IO.html">IO</a></div>
+      <div class="breadcrumbs">Mix v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; <a href="Mix.Shell.html">Shell</a> &rarr; <a href="Mix.Shell.IO.html">IO</a></div>
 
       <h1>
         Mix.Shell.IO
@@ -48,7 +48,7 @@ It simply prints messages to stdio and stderr.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L1" class="view_source">Source</a>
       
 
       
@@ -73,6 +73,14 @@ to stdout as it comes</p>
   <td class="summary_signature"><a href="#info/1">info(message)</a></td>
   
     <td class="summary_synopsis"><p>Writes a message to the shell followed by new line</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print_app/0">print_app()</a></td>
+  
+    <td class="summary_synopsis"><p>Prints the currently running application if it
+was not printed yet</p>
 </td>
   
 </tr>
@@ -116,7 +124,7 @@ regex <code>~r/^Y(es)?$/i</code></p>
 to stdout as it comes.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L13" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L23" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -132,7 +140,7 @@ to stdout as it comes.</p>
   <div class="docstring"><p>Writes an error message to the shell followed by new line.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L29" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L38" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -148,7 +156,24 @@ to stdout as it comes.</p>
   <div class="docstring"><p>Writes a message to the shell followed by new line.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L21" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L30" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="print_app/0">
+    <span class="signature"><strong>print_app()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print_app/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Prints the currently running application if it
+was not printed yet.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L13" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -165,7 +190,7 @@ to stdout as it comes.</p>
 input. Input will be consumed until enter is pressed.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L38" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L47" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -183,7 +208,7 @@ He must press enter or type anything that matches the a &quot;yes&quot;
 regex <code>~r/^Y(es)?$/i</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/shell/io.ex#L48" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/shell/io.ex#L57" class="view_source">Source</a>
   
 </div>
 

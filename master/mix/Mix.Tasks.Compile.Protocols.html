@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Protocols.html">Protocols</a></div>
+      <div class="breadcrumbs">Mix v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Compile.html">Compile</a> &rarr; <a href="Mix.Tasks.Compile.Protocols.html">Protocols</a></div>
 
       <h1>
         Mix.Tasks.Compile.Protocols
@@ -48,23 +48,26 @@ and output the new binary files to the given directory
 (defaults to &quot;consolidated&quot;).</p>
 
 <p>A new directory will be created with the consolidated
-protocol versions. Simply add it to your codepath to
-make use of it:</p>
+protocol versions in the build directory for the given
+environment. Simply add it to your loadpath to make use
+of it:</p>
 
-<pre><code>mix run -pa _build/dev/consolidated
+<pre><code>$ elixir -pa _build/dev/consolidated -S mix run
 </code></pre>
 
 <p>You can verify a protocol is consolidated by checking
 its attributes:</p>
 
-<pre><code>elixir -pa _build/dev/consolidated -S       mix run -e &quot;IO.puts Protocol.consolidated?(Enumerable)&quot;
+<pre><code>$ iex -pa _build/dev/consolidated -S mix run
+iex&gt; Protocol.consolidated?(Enumerable)
+true
 </code></pre>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.protocols.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/compile.protocols.ex#L1" class="view_source">Source</a>
       
 
       
@@ -99,7 +102,7 @@ its attributes:</p>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/compile.protocols.ex#L27" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/compile.protocols.ex#L31" class="view_source">Source</a>
   
 </div>
 

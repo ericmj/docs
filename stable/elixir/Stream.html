@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Stream.html">Stream</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Stream.html">Stream</a></div>
 
       <h1>
         Stream
@@ -124,8 +124,8 @@ are performed only when you call a function from the <a href="Enum.html"><code>E
 streams, some examples are:</p>
 
 <ul>
-<li><a href="IO.html#stream/2"><code>IO.stream/2</code></a> - Streams input lines, one by one;</li>
-<li><a href="URI.html#query_decoder/1"><code>URI.query_decoder/1</code></a> - Decodes a query string, pair by pair;</li>
+<li><a href="IO.html#stream/2"><code>IO.stream/2</code></a>         - streams input lines, one by one</li>
+<li><a href="URI.html#query_decoder/1"><code>URI.query_decoder/1</code></a> - decodes a query string, pair by pair</li>
 </ul>
 
 <p>This module also provides many convenience functions for creating streams,
@@ -141,7 +141,7 @@ returns an anonymous function may return a struct in future releases.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L1" class="view_source">Source</a>
       
 
       
@@ -432,7 +432,7 @@ be wrapped in a tuple alongside its index</p>
   <div class="docstring"><p>Shortcut to <code>chunk(enum, n, n)</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L123" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L123" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -480,7 +480,7 @@ iex&gt; Stream.chunk([1, 2, 3, 4, 5, 6], 3, 3, []) |&gt; Enum.to_list
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L155" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L155" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -512,7 +512,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L184" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L184" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -542,7 +542,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L731" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L731" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -578,7 +578,7 @@ iex&gt; Enum.take(stream, 6)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L752" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L752" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -609,7 +609,7 @@ iex&gt; Enum.take(stream, 5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L843" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L843" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -648,7 +648,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L218" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L218" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -679,7 +679,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L258" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L258" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -716,7 +716,7 @@ iex&gt; receive do: (x when is_integer(x) -&gt; x)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L280" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L280" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -747,7 +747,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L317" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L317" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -780,7 +780,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L335" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L335" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -811,7 +811,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L301" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L301" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -830,7 +830,7 @@ iex&gt; Enum.to_list(stream)
 is delayed until the stream is executed. See <a href="#run/1"><code>run/1</code></a> for an example.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L346" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L346" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -860,7 +860,7 @@ values are generated by calling <code>next_fun</code> on the previous value.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L891" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L891" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -891,7 +891,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L389" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L389" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -922,7 +922,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L405" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L405" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -951,7 +951,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L911" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L911" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -998,7 +998,7 @@ resources.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L955" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L955" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1038,7 +1038,7 @@ without loading the whole file in memory:</p>
 or <a href="Stream.html#run/1"><code>Stream.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L429" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L429" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1070,7 +1070,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L447" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L447" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1102,7 +1102,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L464" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L464" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1147,7 +1147,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L494" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L494" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1179,7 +1179,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L542" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L542" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1210,7 +1210,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L560" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L560" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1257,7 +1257,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L594" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L594" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1290,7 +1290,7 @@ accumulator. The enumeration finishes if it returns <code>nil</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L1002" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L1002" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1327,7 +1327,7 @@ iex&gt; Stream.uniq([{1, :x}, {2, :y}, {1, :z}], fn {x, _} -&gt; x end) |&gt; En
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L698" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L698" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1358,7 +1358,7 @@ iex&gt; Enum.to_list(stream)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L714" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L714" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1391,7 +1391,7 @@ iex&gt; Stream.zip(concat, cycle) |&gt; Enum.to_list
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/stream.ex#L770" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/stream.ex#L770" class="view_source">Source</a>
   
 </div>
 

@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Inspect.html">Inspect</a> &rarr; <a href="Inspect.Opts.html">Opts</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Inspect.html">Inspect</a> &rarr; <a href="Inspect.Opts.html">Opts</a></div>
 
       <h1>
         Inspect.Opts
@@ -44,29 +44,34 @@
 <p>The following fields are available:</p>
 
 <ul>
-<li><p><code>:structs</code> - when false, structs are not formatted by the inspect protocol,
-           they are instead printed as maps, defaults to true;</p></li>
+<li><p><code>:structs</code> - when false, structs are not formatted by the inspect
+protocol, they are instead printed as maps, defaults to true.</p></li>
 <li><p><code>:binaries</code> - when <code>:as_strings</code> all binaries will be printed as strings,
-            non-printable bytes will be escaped; when <code>:as_binaries</code> all
-            binaries will be printed in bit syntax; when the default
-            <code>:infer</code>, the binary will be printed as a string if it is
-            printable, otherwise in bit syntax;</p></li>
-<li><p><code>:char_lists</code> - when <code>:as_char_lists</code> all lists will be printed as char lists,
-              non-printable elements will be escaped; when <code>:as_lists</code> all
-              lists will be printed as lists; when the default <code>:infer</code>, the
-              list will be printed as a char list if it is printable,
-              otherwise as list;</p></li>
-<li><p><code>:limit</code> - limits the number of items that are printed for tuples, bitstrings,
-         and lists, does not apply to strings nor char lists, defaults to 50;</p></li>
-<li><p><code>:pretty</code> - if set to true enables pretty printing, defaults to false;</p></li>
-<li><p><code>:width</code> - defaults to the 80 characters;</p></li>
+non-printable bytes will be escaped.</p>
+
+<p>When <code>:as_binaries</code> all binaries will be printed in bit syntax.</p>
+
+<p>When the default <code>:infer</code>, the binary will be printed as a string if it
+is printable, otherwise in bit syntax.</p></li>
+<li><p><code>:char_lists</code> - when <code>:as_char_lists</code> all lists will be printed as char
+lists, non-printable elements will be escaped.</p>
+
+<p>When <code>:as_lists</code> all lists will be printed as lists.</p>
+
+<p>When the default <code>:infer</code>, the list will be printed as a char list if it
+is printable, otherwise as list.</p></li>
+<li><p><code>:limit</code> - limits the number of items that are printed for tuples,
+bitstrings, and lists, does not apply to strings nor char lists, defaults
+to 50.</p></li>
+<li><p><code>:pretty</code> - if set to true enables pretty printing, defaults to false.</p></li>
+<li><p><code>:width</code> - defaults to the 80 characters.</p></li>
 </ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/inspect/algebra.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/inspect/algebra.ex#L1" class="view_source">Source</a>
       
 
       

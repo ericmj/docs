@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Case.html">Case</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Case.html">Case</a></div>
 
       <h1>
         ExUnit.Case
@@ -49,9 +49,9 @@ and prepare them for testing.</p>
 <p>When used, it accepts the following options:</p>
 
 <ul>
-<li>:async - configure Elixir to run that specific test case
-       in parallel with others. Must be used for performance
-       when your test cases do not change any global state;</li>
+<li>:async - configure Elixir to run that specific test case in parallel with
+others. Must be used for performance when your test cases do not change
+any global state.</li>
 </ul>
 
 <p>This module automatically includes all callbacks defined in
@@ -119,17 +119,10 @@ example:</p>
     if cd = context[:cd] do
       prev_cd = File.cwd!
       File.cd!(cd)
-      {:ok, [prev_cd: prev_cd]}
-    else
-      :ok
+      on_exit fn -&gt; File.cd!(prev_cd) end
     end
-  end
 
-  teardown context do
-    # Revert to the previous working directory
-    if cd = context[:prev_cd] do
-      File.cd!(cd)
-    end
+    :ok
   end
 
   @tag cd: &quot;fixtures&quot;
@@ -140,10 +133,8 @@ end
 </code></pre>
 
 <p>In the example above, we have defined a tag called <code>:cd</code> that is
-read in the setup callback to configure the working directory the test is
-going to run on. We then use the same context to store the
-previous working directory that is reverted to after the test
-in the teardown callback.</p>
+read in the setup callback to configure the working directory the
+test is going to run on.</p>
 
 <p>Tags are also very effective when used with case templates
 (<a href="ExUnit.CaseTemplate.html"><code>ExUnit.CaseTemplate</code></a>) allowing callbacks in the case template
@@ -213,7 +204,7 @@ excluded first, the <code>include</code> option has no effect.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/case.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/case.ex#L1" class="view_source">Source</a>
       
 
       
@@ -264,7 +255,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/case.ex#L207" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/case.ex#L198" class="view_source">Source</a>
   
 </div>
 

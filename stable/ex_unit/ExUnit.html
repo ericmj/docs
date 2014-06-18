@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a></div>
 
       <h1>
         ExUnit
@@ -106,7 +106,7 @@ files. See <code>Mix.Tasks.Test</code> for more information.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit.ex#L1" class="view_source">Source</a>
       
 
       
@@ -161,7 +161,7 @@ VM terminates. It accepts a set of options to configure <a href="ExUnit.html"><c
 </div>
 <div class="type_detail">
   <p class="typespec" id="t:failed/0">
-    <a href="#t:failed/0">failed</a> :: {<a href="http://elixir-lang.org/docs/master/Exception.html#t:kind/0">Exception.kind</a>, reason :: term, stacktrace :: [tuple]}
+    <a href="#t:failed/0">failed</a> :: {<a href="http://elixir-lang.org/docs/stable/elixir/Exception.html#t:kind/0">Exception.kind</a>, reason :: term, stacktrace :: [tuple]}
   </p>
   
 </div>
@@ -185,7 +185,7 @@ VM terminates. It accepts a set of options to configure <a href="ExUnit.html"><c
   <div class="docstring"><p>Returns ExUnit configuration.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit.ex#L179" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit.ex#L181" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -205,22 +205,24 @@ VM terminates. It accepts a set of options to configure <a href="ExUnit.html"><c
 <p>ExUnit supports the following options:</p>
 
 <ul>
-<li><p><code>:color</code> - When color should be used by specific formatters.
-         Defaults to the result of <code>IO.ANSI.terminal?/1</code>;</p></li>
-<li><p><code>:formatters</code> - The formatters that will print results.
-              Defaults to <code>[ExUnit.CLIFormatter]</code>;</p></li>
-<li><p><code>:max_cases</code> - Maximum number of cases to run in parallel.
-             Defaults to <code>:erlang.system_info(:schedulers_online)</code>;</p></li>
-<li><p><code>:trace</code> - Set ExUnit into trace mode, this sets <code>:max_cases</code> to <code>1</code>
-         and prints each test case and test while running;</p></li>
-<li><p><code>:autorun</code> - If ExUnit should run by default on exit, defaults to <code>true</code>;</p></li>
-<li><p><code>:include</code> - Specify which tests are run by skipping tests that do not match the filter</p></li>
-<li><p><code>:exclude</code> - Specify which tests are run by skipping tests that match the filter</p></li>
-<li><p><code>:seed</code> - An integer seed value to randomize the test suite</p></li>
+<li><p><code>:color</code> - when color should be used by specific formatters;
+defaults to the result of <code>IO.ANSI.terminal?/1</code></p></li>
+<li><p><code>:formatters</code> - the formatters that will print results;
+defaults to <code>[ExUnit.CLIFormatter]</code></p></li>
+<li><p><code>:max_cases</code> - maximum number of cases to run in parallel;
+defaults to <code>:erlang.system_info(:schedulers_online)</code></p></li>
+<li><p><code>:trace</code> - set ExUnit into trace mode, this sets <code>:max_cases</code> to <code>1</code> and
+prints each test case and test while running</p></li>
+<li><p><code>:autorun</code> - if ExUnit should run by default on exit; defaults to <code>true</code></p></li>
+<li><p><code>:include</code> - specify which tests are run by skipping tests that do not
+match the filter</p></li>
+<li><p><code>:exclude</code> - specify which tests are run by skipping tests that match the
+filter</p></li>
+<li><p><code>:seed</code> - an integer seed value to randomize the test suite</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit.ex#L170" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit.ex#L172" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -240,7 +242,7 @@ if ExUnit is started via <a href="ExUnit.html#start/1"><code>ExUnit.start/1</cod
 of failures.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit.ex#L190" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit.ex#L192" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -260,7 +262,7 @@ VM terminates. It accepts a set of options to configure <a href="ExUnit.html"><c
 <p>If you want to run tests manually, you can set <code>:autorun</code> to <code>false</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit.ex#L122" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit.ex#L122" class="view_source">Source</a>
   
 </div>
 

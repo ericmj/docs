@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="File.html">File</a> &rarr; <a href="File.Stat.html">Stat</a></div>
+      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="File.html">File</a> &rarr; <a href="File.Stat.html">Stat</a></div>
 
       <h1>
         File.Stat
@@ -52,28 +52,29 @@ in between the Erlang record and the Elixir struct.</p>
 <p>Its fields are:</p>
 
 <ul>
-<li><code>size</code> - Size of file in bytes.</li>
-<li><code>type</code> - <code>:device</code>, <code>:directory</code>, <code>:regular</code>, <code>:other</code>. The type of the file.</li>
-<li><code>access</code> - <code>:read</code>, <code>:write</code>, <code>:read_write</code>, <code>:none</code>. The current system access to
-          the file.</li>
-<li><code>atime</code> - The last time the file was read.</li>
-<li><code>mtime</code> - The last time the file was written.</li>
-<li><code>ctime</code> - The interpretation of this time field depends on the operating
-        system. On Unix, it is the last time the file or the inode was
-        changed. In Windows, it is the create time.</li>
-<li><code>mode</code> - The file permissions.</li>
-<li><code>links</code> - The number of links to this file. This is always 1 for file
-        systems which have no concept of links.</li>
-<li><code>major_device</code> - Identifies the file system where the file is located.
-               In windows, the number indicates a drive as follows:
-               0 means A:, 1 means B:, and so on.</li>
-<li><code>minor_device</code> - Only valid for character devices on Unix. In all other
-               cases, this field is zero.</li>
-<li><code>inode</code> - Gives the inode number. On non-Unix file systems, this field
-        will be zero.</li>
-<li><code>uid</code> - Indicates the owner of the file.</li>
-<li><code>gid</code> - Gives the group that the owner of the file belongs to. Will be
-      zero for non-Unix file systems.</li>
+<li><p><code>size</code> - size of file in bytes.</p></li>
+<li><p><code>type</code> - <code>:device | :directory | :regular | :other</code>; the type of the
+file.</p></li>
+<li><p><code>access</code> - <code>:read | :write | :read_write | :none</code>; the current system
+access to the file.</p></li>
+<li><p><code>atime</code> - the last time the file was read.</p></li>
+<li><p><code>mtime</code> - the last time the file was written.</p></li>
+<li><p><code>ctime</code> - the interpretation of this time field depends on the operating
+system. On Unix, it is the last time the file or the inode was changed.
+In Windows, it is the time of creation.</p></li>
+<li><p><code>mode</code> - the file permissions.</p></li>
+<li><p><code>links</code> - the number of links to this file. This is always 1 for file
+systems which have no concept of links.</p></li>
+<li><p><code>major_device</code> - identifies the file system where the file is located.
+In windows, the number indicates a drive as follows: 0 means A:, 1 means
+B:, and so on.</p></li>
+<li><p><code>minor_device</code> - only valid for character devices on Unix. In all other
+cases, this field is zero.</p></li>
+<li><p><code>inode</code> - gives the inode number. On non-Unix file systems, this field
+will be zero.</p></li>
+<li><p><code>uid</code> - indicates the owner of the file.</p></li>
+<li><p><code>gid</code> - gives the group that the owner of the file belongs to. Will be
+zero for non-Unix file systems.</p></li>
 </ul>
 
 <p>The time type returned in <code>atime</code>, <code>mtime</code>, and <code>ctime</code> is dependent on the
@@ -84,7 +85,7 @@ time type set in options. <code>{:time, type}</code> where type can be <code>:lo
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/file.ex#L3" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/file.ex#L3" class="view_source">Source</a>
       
 
       
@@ -137,7 +138,7 @@ time type set in options. <code>{:time, type}</code> where type can be <code>:lo
   <div class="docstring"><p>Converts a <code>:file_info</code> record into a <a href="File.Stat.html"><code>File.Stat</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/file.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/file.ex#L71" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -153,7 +154,7 @@ time type set in options. <code>{:time, type}</code> where type can be <code>:lo
   <div class="docstring"><p>Converts a <a href="File.Stat.html"><code>File.Stat</code></a> struct to a <code>:file_info</code> record.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/elixir/lib/file.ex#L51" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/file.ex#L64" class="view_source">Source</a>
   
 </div>
 

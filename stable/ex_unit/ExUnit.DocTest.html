@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.DocTest.html">DocTest</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.DocTest.html">DocTest</a></div>
 
       <h1>
         ExUnit.DocTest
@@ -116,8 +116,8 @@ iex&gt; a + 1  # will fail with a &quot;function a/0 undefined&quot; error
 <p>This is useful in two use cases:</p>
 
 <ul>
-<li>Being able to refer to specific numbered scenarios</li>
-<li>Copy-pasting examples from an actual iex session</li>
+<li>being able to refer to specific numbered scenarios</li>
+<li>copy-pasting examples from an actual iex session</li>
 </ul>
 
 <p>We also allow you to select or skip some functions when calling
@@ -166,7 +166,7 @@ suite run.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/doc_test.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/doc_test.ex#L1" class="view_source">Source</a>
       
 
       
@@ -209,14 +209,13 @@ in the module <code>Module</code></p>
 
 <ul>
 <li><p><code>:except</code> — generate tests for all functions except those listed
-          (list of <code>{function, arity}</code> tuples)</p></li>
-<li><p><code>:only</code>   — generate tests only for functions listed
-          (list of <code>{function, arity}</code> tuples)</p></li>
+(list of <code>{function, arity}</code> tuples).</p></li>
+<li><p><code>:only</code> — generate tests only for functions listed
+(list of <code>{function, arity}</code> tuples).</p></li>
 <li><p><code>:import</code> — when true, one can test a function defined in the module
-          without referring to the module name. However, this is not
-          feasible when there is a clash with a module like
-          Kernel. In these cases, <code>import</code> should be set to <code>false</code>
-          and a full <code>M.f</code> construct should be used.</p></li>
+without referring to the module name. However, this is not feasible when
+there is a clash with a module like Kernel. In these cases, <code>import</code>
+should be set to <code>false</code> and a full <code>M.f</code> construct should be used.</p></li>
 </ul>
 
 <h2>Examples</h2>
@@ -227,7 +226,7 @@ in the module <code>Module</code></p>
 <p>This macro is auto-imported with every <a href="ExUnit.Case.html"><code>ExUnit.Case</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/ex_unit/lib/ex_unit/doc_test.ex#L145" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/ex_unit/lib/ex_unit/doc_test.ex#L144" class="view_source">Source</a>
   
 </div>
 

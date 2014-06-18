@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Escriptize.html">Escriptize</a></div>
+      <div class="breadcrumbs">Mix v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Escriptize.html">Escriptize</a></div>
 
       <h1>
         Mix.Tasks.Escriptize
@@ -46,48 +46,65 @@
 <h2>Command line options</h2>
 
 <ul>
-<li><p><code>--force</code> - forces compilation regardless of modification times</p></li>
-<li><p><code>--no-compile</code> - skips compilation to .beam files</p></li>
+<li><code>--force</code>      - forces compilation regardless of modification times</li>
+<li><code>--no-compile</code> - skips compilation to .beam files</li>
 </ul>
 
 <h2>Configuration</h2>
 
-<p>The following option must be specified in your <code>mix.exs</code>:</p>
+<p>The following option must be specified in your <code>mix.exs</code> under <code>:escript</code>
+key:</p>
 
 <ul>
-<li><code>:escript_main_module</code> - the module to be invoked once the escript starts.
+<li><code>:main_module</code> - the module to be invoked once the escript starts.
 The module must contain a function named <code>main/1</code> that will receive the
-command line arguments as binaries;</li>
+command line arguments as binaries.</li>
 </ul>
 
 <p>The remaining options can be specified to further customize the escript:</p>
 
 <ul>
-<li><p><code>:escript_name</code> - the name of the generated escript.
-Defaults to app name;</p></li>
-<li><p><code>:escript_path</code> - the path to write the escript to.
-Defaults to app name;</p></li>
-<li><p><code>:escript_app</code> - the app to start with the escript.
+<li><p><code>:name</code> - the name of the generated escript.
+Defaults to app name.</p></li>
+<li><p><code>:path</code> - the path to write the escript to.
+Defaults to app name.</p></li>
+<li><p><code>:app</code> - the app to start with the escript.
 Defaults to app name. Set it to <code>nil</code> if no application should
 be started.</p></li>
-<li><p><code>:escript_embed_elixir</code> - if <code>true</code> embed elixir in the escript file.
+<li><p><code>:embed_elixir</code> - if <code>true</code> embed elixir in the escript file.
 Defaults to <code>true</code>.</p></li>
-<li><p><code>:escript_embed_extra_apps</code> - embed additional Elixir applications.
-if <code>:escript_embed_elixir</code> is <code>true</code>.
+<li><p><code>:embed_extra_apps</code> - embed additional Elixir applications.
+if <code>:embed_elixir</code> is <code>true</code>.
 Defaults to <code>[]</code>.</p></li>
-<li><p><code>:escript_shebang</code> - shebang interpreter directive used to execute the escript.
+<li><p><code>:shebang</code> - shebang interpreter directive used to execute the escript.
 Defaults to &quot;#! /usr/bin/env escript\n&quot;.</p></li>
-<li><p><code>:escript_comment</code> - comment line to follow shebang directive in the escript.
-Defaults to &quot;%%\n&quot;</p></li>
-<li><p><code>:escript_emu_args</code> - emulator arguments to embed in the escript file.
+<li><p><code>:comment</code> - comment line to follow shebang directive in the escript.
+Defaults to &quot;%%\n&quot;.</p></li>
+<li><p><code>:emu_args</code> - emulator arguments to embed in the escript file.
 Defaults to &quot;%%!\n&quot;.</p></li>
 </ul>
+
+<h2>Example</h2>
+
+<pre><code>defmodule MyApp.Mixfile do
+  def project do
+    [ app: :myapp,
+      version: &quot;0.0.1&quot;,
+      escript: escript ]
+  end
+
+  def escript do
+    [ main_module: MyApp.CLI,
+      embed_extra_apps: [:mix] ]
+  end
+end
+</code></pre>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/escriptize.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/escriptize.ex#L1" class="view_source">Source</a>
       
 
       
@@ -122,7 +139,7 @@ Defaults to &quot;%%!\n&quot;.</p></li>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/mix/lib/mix/tasks/escriptize.ex#L54" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/escriptize.ex#L69" class="view_source">Source</a>
   
 </div>
 

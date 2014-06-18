@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Access.html">Access</a></div>
+      <div class="breadcrumbs">Elixir v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Access.html">Access</a></div>
 
       <h1>
         Access
@@ -49,8 +49,9 @@
 empowers the nested update functions in Kernel.</p>
 
 <p>For instance, <code>foo[bar]</code> translates <code>Access.get(foo, bar)</code>.
-<a href="Kernel.html#get_in/2"><code>Kernel.get_in/2</code></a>, <a href="Kernel.html#put_in/3"><code>Kernel.put_in/3</code></a> and <a href="Kernel.html#update_in/3"><code>Kernel.update_in/3</code></a>
-are also all powered by the Access protocol.</p>
+<a href="Kernel.html#get_in/2"><code>Kernel.get_in/2</code></a>, Kernel.put_in/3<code>, [</code>Kernel.update<em>in/3`](Kernel.html#update</em>in/3) and
+<a href="Kernel.html#get_and_update_in/3"><code>Kernel.get_and_update_in/3</code></a> are also all powered by the Access
+protocol.</p>
 
 <p>This protocol is implemented by default for keywords, maps
 and dictionary like types:</p>
@@ -68,13 +69,13 @@ iex&gt; star_ratings[1.5]
 &quot;★☆&quot;
 </code></pre>
 
-<p>The key access must be implemented using the <code>===</code> operator.</p>
+<p>The key comparison must be implemented using the <code>===</code> operator.</p>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/access.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/access.ex#L1" class="view_source">Source</a>
       
 
       
@@ -90,7 +91,7 @@ iex&gt; star_ratings[1.5]
 <tr>
   <td class="summary_signature"><a href="#get_and_update/3">get_and_update(container, key, fun)</a></td>
   
-    <td class="summary_synopsis"><p>Gets a value and updates the given key in one pass</p>
+    <td class="summary_synopsis"><p>Gets a value and updates the given <code>key</code> in one pass</p>
 </td>
   
 </tr>
@@ -124,10 +125,17 @@ iex&gt; star_ratings[1.5]
     </div>
   </div>
   
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>get(<a href="#t:t/0">t</a>, term) :: <a href="#t:t/0">t</a></li>
+      
+    </ul>
+  
   <div class="docstring"><p>Accesses the given key in the container.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/access.ex#L31" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/access.ex#L33" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -140,12 +148,22 @@ iex&gt; star_ratings[1.5]
     </div>
   </div>
   
-  <div class="docstring"><p>Gets a value and updates the given key in one pass.</p>
+    <p>Specs:</p>
+    <ul class="spec">
+      
+        <li>(get_and_update(<a href="#t:t/0">t</a>, term, (term -> {get, term})) :: {get, <a href="#t:t/0">t</a>}) when get: var</li>
+      
+    </ul>
+  
+  <div class="docstring"><p>Gets a value and updates the given <code>key</code> in one pass.</p>
 
-<p>In case the key is not set, invokes the function passing nil.</p>
+<p>The function must receive the value for the given <code>key</code>
+(or <code>nil</code> if the key doesn&#39;t exist in <code>container</code>) and
+the function must return a tuple containing the <code>get</code>
+value and the new value to be stored in the <code>container</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/elixir/lib/access.ex#L38" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/elixir/lib/access.ex#L44" class="view_source">Source</a>
   
 </div>
 

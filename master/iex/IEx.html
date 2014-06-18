@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">IEx v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IEx.html">IEx</a></div>
+      <div class="breadcrumbs">IEx v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="IEx.html">IEx</a></div>
 
       <h1>
         IEx
@@ -273,7 +273,7 @@ pending expression and return to its normal state:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L1" class="view_source">Source</a>
       
 
       
@@ -358,7 +358,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Returns registered <code>after_spawn</code> callbacks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L314" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L314" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -374,7 +374,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Registers a function to be invoked after the IEx process is spawned.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L307" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L307" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -391,7 +391,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
 ANSI escapes in <code>string</code> are not processed in any way.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L330" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L330" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -407,7 +407,7 @@ ANSI escapes in <code>string</code> are not processed in any way.</p>
   <div class="docstring"><p>Returns IEx configuration.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L300" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L300" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -490,7 +490,7 @@ when awaiting input.</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L275" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L275" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -506,7 +506,7 @@ when awaiting input.</p>
   <div class="docstring"><p>Returns <code>true</code> if IEx was properly started.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L322" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -522,7 +522,7 @@ when awaiting input.</p>
   <div class="docstring"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L340" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L340" class="view_source">Source</a>
   
 </div>
 
@@ -568,19 +568,22 @@ the function, IEx will allow you to access its binding
 the process information. Let&#39;s see an example:</p>
 
 <pre><code>import Enum, only: [map: 2]
+require IEx
 
-def add(a, b) do
-  c = a + b
-  IEx.pry
+defmodule Adder do
+  def add(a, b) do
+    c = a + b
+    IEx.pry
+  end
 end
 </code></pre>
 
-<p>When invoking <code>add(1, 2)</code>, you will receive a message in
+<p>When invoking <code>Adder.add(1, 2)</code>, you will receive a message in
 your shell to pry the given environment. By allowing it,
 the shell will be reset and you gain access to all variables
 and the lexical scope from above:</p>
 
-<pre><code>iex(1)&gt; map([a,b,c], &amp;IO.inspect(&amp;1))
+<pre><code>pry(1)&gt; map([a,b,c], &amp;IO.inspect(&amp;1))
 1
 2
 3
@@ -591,7 +594,7 @@ blocking the caller during the evaluation cycle. The caller
 process can be freed by calling <code>respawn</code>, which starts a
 new IEx evaluation cycle, letting this one go:</p>
 
-<pre><code>iex(2)&gt; respawn
+<pre><code>pry(2)&gt; respawn
 true
 
 Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
@@ -601,7 +604,7 @@ Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
 affect the caller the environment (hence it is called <code>pry</code>).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/iex/lib/iex.ex#L403" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L406" class="view_source">Source</a>
   
 </div>
 

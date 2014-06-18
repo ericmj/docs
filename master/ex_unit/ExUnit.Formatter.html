@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">ExUnit v0.14.1-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Formatter.html">Formatter</a></div>
+      <div class="breadcrumbs">ExUnit v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="ExUnit.html">ExUnit</a> &rarr; <a href="ExUnit.Formatter.html">Formatter</a></div>
 
       <h1>
         ExUnit.Formatter
@@ -52,26 +52,26 @@ will be send events by the runner.</p>
 <p>The following events are possible:</p>
 
 <ul>
-<li><code>{:suite_started, opts}</code> - The suite has started with the specified
-                           options to the runner.</li>
-<li><code>{:suite_finished, run_us, load_us}</code> - The suite has finished. <code>run_us</code> and
-                                       <code>load_us</code> are the run and load
-                                       times in microseconds respectively.</li>
-<li><code>{:case_started, test_case}</code> - A test case has started. See
-                               <a href="ExUnit.TestCase.html"><code>ExUnit.TestCase</code></a> for details.</li>
-<li><code>{:case_finished, test_case}</code> - A test case has finished. See
-                                <a href="ExUnit.TestCase.html"><code>ExUnit.TestCase</code></a> for details.</li>
-<li><code>{:test_started, test_case}</code> - A test case has started. See
-                               <a href="ExUnit.Test.html"><code>ExUnit.Test</code></a> for details.</li>
-<li><code>{:test_finished, test_case}</code> - A test case has finished. See
-                               <a href="ExUnit.Test.html"><code>ExUnit.Test</code></a> for details.</li>
+<li><p><code>{:suite_started, opts}</code> -
+    the suite has started with the specified options to the runner.</p></li>
+<li><p><code>{:suite_finished, run_us, load_us}</code> -
+    the suite has finished. <code>run_us</code> and <code>load_us</code> are the run and load
+    times in microseconds respectively.</p></li>
+<li><p><code>{:case_started, test_case}</code> -
+    a test case has started. See <a href="ExUnit.TestCase.html"><code>ExUnit.TestCase</code></a> for details.</p></li>
+<li><p><code>{:case_finished, test_case}</code> -
+    a test case has finished. See <a href="ExUnit.TestCase.html"><code>ExUnit.TestCase</code></a> for details.</p></li>
+<li><p><code>{:test_started, test_case}</code> -
+    a test case has started. See <a href="ExUnit.Test.html"><code>ExUnit.Test</code></a> for details.</p></li>
+<li><p><code>{:test_finished, test_case}</code> -
+    a test case has finished. See <a href="ExUnit.Test.html"><code>ExUnit.Test</code></a> for details.</p></li>
 </ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/ex_unit/lib/ex_unit/formatter.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/ex_unit/lib/ex_unit/formatter.ex#L1" class="view_source">Source</a>
       
 
       
@@ -162,7 +162,7 @@ will be send events by the runner.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>format_filters(<a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, atom) :: <a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a></li>
+        <li>format_filters(<a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>, atom) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
       
     </ul>
   
@@ -174,7 +174,7 @@ will be send events by the runner.</p>
   &quot;Including tags: [run: true, slow: false]&quot;</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/ex_unit/lib/ex_unit/formatter.ex#L93" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/ex_unit/lib/ex_unit/formatter.ex#L98" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -190,7 +190,7 @@ will be send events by the runner.</p>
   <div class="docstring"><p>Receives a test case and formats its failure.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/ex_unit/lib/ex_unit/formatter.ex#L114" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/ex_unit/lib/ex_unit/formatter.ex#L119" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -206,7 +206,7 @@ will be send events by the runner.</p>
   <div class="docstring"><p>Receives a test and formats its failure.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/ex_unit/lib/ex_unit/formatter.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/ex_unit/lib/ex_unit/formatter.ex#L108" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -222,7 +222,7 @@ will be send events by the runner.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>format_time(<a href="#t:run_us/0">run_us</a>, <a href="#t:load_us/0">load_us</a>) :: <a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a></li>
+        <li>format_time(<a href="#t:run_us/0">run_us</a>, <a href="#t:load_us/0">load_us</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
       
     </ul>
   
@@ -244,7 +244,7 @@ iex&gt; format_time(10000, 200000)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/815772811f59b6a53a8482dab1d3b5e543c6e910/lib/ex_unit/lib/ex_unit/formatter.ex#L58" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/ex_unit/lib/ex_unit/formatter.ex#L63" class="view_source">Source</a>
   
 </div>
 

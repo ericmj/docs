@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Deps.html">Deps</a></div>
+      <div class="breadcrumbs">Mix v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Deps.html">Deps</a></div>
 
       <h1>
         Mix.Tasks.Deps
@@ -71,12 +71,17 @@ suitable to your project).</p>
 <p>Mix also supports git and path dependencies:</p>
 
 <pre><code>{:foobar, git: &quot;https://github.com/elixir-lang/foobar.git&quot;, tag: &quot;0.1&quot;}
+{:foobar, path: &quot;path/to/foobar&quot;}
 </code></pre>
 
-<p>And also umbrella applications:</p>
+<p>And also in umbrella dependencies:</p>
 
 <pre><code>{:myapp, in_umbrella: true}
 </code></pre>
+
+<p>Path and in umbrella dependencies are automatically recompiled by
+the parent project whenever they change. While fetchable dependencies
+like git are recompiled only when fetched/updated.</p>
 
 <p>The dependencies versions are expected to follow Semantic Versioning
 and the requirements must be specified as defined in the <code>Version</code>
@@ -87,45 +92,46 @@ module.</p>
 <h2>Mix options</h2>
 
 <ul>
-<li><code>:app</code> - When set to false, does not read the app file for this dependency</li>
-<li><code>:env</code> - The environment to run the dependency on, defaults to :prod</li>
-<li><code>:compile</code> - A command to compile the dependency, defaults to a mix,
-           rebar or make command</li>
-<li><code>:optional</code> - The dependency is optional and used only to specify requirements</li>
-<li><code>:only</code> - The dependency will belongs only to the given environments, useful
-        when declaring dev- or test-only dependencies</li>
-<li><code>:override</code> - If set to true the dependency will override any other
-            definitions of itself by other dependencies</li>
+<li><p><code>:app</code> - when set to false, does not read the app file for this
+dependency</p></li>
+<li><p><code>:env</code> - the environment to run the dependency on, defaults to :prod</p></li>
+<li><p><code>:compile</code> - a command to compile the dependency, defaults to a mix,
+rebar or make command</p></li>
+<li><p><code>:optional</code> - the dependency is optional and used only to specify
+requirements</p></li>
+<li><p><code>:only</code> - the dependency will belong only to the given environments,
+useful when declaring dev- or test-only dependencies</p></li>
+<li><p><code>:override</code> - if set to true the dependency will override any other
+definitions of itself by other dependencies</p></li>
 </ul>
 
 <h2>Git options (<code>:git</code>)</h2>
 
 <ul>
-<li><code>:git</code>        - The git repository URI</li>
-<li><code>:github</code>     - A shortcut for specifying git repos from github, uses <code>git:</code></li>
-<li><code>:ref</code>        - The reference to checkout (may be a branch, a commit sha or a tag)</li>
-<li><code>:branch</code>     - The git branch to checkout</li>
-<li><code>:tag</code>        - The git tag to checkout</li>
-<li><code>:submodules</code> - When true, initialize submodules for the repo</li>
+<li><code>:git</code>        - the git repository URI</li>
+<li><code>:github</code>     - a shortcut for specifying git repos from github, uses <code>git:</code></li>
+<li><code>:ref</code>        - the reference to checkout (may be a branch, a commit sha or a tag)</li>
+<li><code>:branch</code>     - the git branch to checkout</li>
+<li><code>:tag</code>        - the git tag to checkout</li>
+<li><code>:submodules</code> - when true, initialize submodules for the repo</li>
 </ul>
 
 <h2>Path options (<code>:path</code>)</h2>
 
 <ul>
-<li><code>:path</code> - The path for the dependency</li>
-<li><code>:in_umbrella</code> - When true, sets a path dependency pointing to &quot;../#{app}&quot;,
-               sharing the same environment as the current application</li>
+<li><code>:path</code>        - the path for the dependency</li>
+<li><code>:in_umbrella</code> - when true, sets a path dependency pointing to
+&quot;../#{app}&quot;, sharing the same environment as the current application</li>
 </ul>
 
 <h2>mix deps task</h2>
 
 <p>This task lists all dependencies in the following format:</p>
 
-<ul>
-<li>APP VERSION (SCM)
+<pre><code>APP VERSION (SCM)
 [locked at REF]
-STATUS</li>
-</ul>
+STATUS
+</code></pre>
 
 <p>It supports the following options:</p>
 
@@ -137,7 +143,7 @@ STATUS</li>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/deps.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/tasks/deps.ex#L1" class="view_source">Source</a>
       
 
       
@@ -172,7 +178,7 @@ STATUS</li>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/deps.ex#L86" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/tasks/deps.ex#L98" class="view_source">Source</a>
   
 </div>
 

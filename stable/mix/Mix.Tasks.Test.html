@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Test.html">Test</a></div>
+      <div class="breadcrumbs">Mix v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Test.html">Test</a></div>
 
       <h1>
         Mix.Tasks.Test
@@ -56,17 +56,17 @@ the files to compile:</p>
 <h2>Command line options</h2>
 
 <ul>
-<li><code>--trace</code> - run tests with detailed reporting. Automatically sets <code>--max-cases</code> to 1</li>
-<li><code>--max-cases</code> - set the maximum number of cases running async</li>
-<li><code>--cover</code> - the directory to include coverage results</li>
-<li><code>--force</code> - forces compilation regardless of modification times</li>
+<li><code>--trace</code>      - run tests with detailed reporting; automatically sets <code>--max-cases</code> to 1</li>
+<li><code>--max-cases</code>  - set the maximum number of cases running async</li>
+<li><code>--cover</code>      - the directory to include coverage results</li>
+<li><code>--force</code>      - forces compilation regardless of modification times</li>
 <li><code>--no-compile</code> - do not compile, even if files require compilation</li>
-<li><code>--no-start</code> - do not start applications after compilation</li>
-<li><code>--no-color</code> - disable color in the output</li>
-<li><code>--include</code> - include tests that match the filter</li>
-<li><code>--exclude</code> - exclude tests that match the filter</li>
-<li><code>--only</code> - run only tests that match the filter</li>
-<li><code>--seed</code> - seeds the random number generator used to randomize tests order</li>
+<li><code>--no-start</code>   - do not start applications after compilation</li>
+<li><code>--no-color</code>   - disable color in the output</li>
+<li><code>--include</code>    - include tests that match the filter</li>
+<li><code>--exclude</code>    - exclude tests that match the filter</li>
+<li><code>--only</code>       - run only tests that match the filter</li>
+<li><code>--seed</code>       - seeds the random number generator used to randomize tests order</li>
 </ul>
 
 <h2>Filters</h2>
@@ -121,10 +121,12 @@ line number:</p>
 <h2>Configuration</h2>
 
 <ul>
-<li><p><code>:test_paths</code> - list of paths containing test files, defaults to <code>[&quot;test&quot;]</code>.
-              it is expected all test paths to contain a <code>test_helper.exs</code> file</p></li>
-<li><p><code>:test_pattern</code> - a pattern to load test files, defaults to <code>*_test.exs</code></p></li>
-<li><p><code>:test_coverage</code> - a set of options to be passed down to the coverage mechanism</p></li>
+<li><p><code>:test_paths</code> - list of paths containing test files, defaults to
+<code>[&quot;test&quot;]</code>. It is expected all test paths to contain a <code>test_helper.exs</code>
+file.</p></li>
+<li><p><code>:test_pattern</code> - a pattern to load test files, defaults to <code>*_test.exs</code>.</p></li>
+<li><p><code>:test_coverage</code> - a set of options to be passed down to the coverage
+mechanism.</p></li>
 </ul>
 
 <h2>Coverage</h2>
@@ -151,7 +153,7 @@ test suite is done or nil.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/test.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/tasks/test.ex#L1" class="view_source">Source</a>
       
 
       
@@ -186,7 +188,7 @@ test suite is done or nil.</p>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.0/lib/mix/lib/mix/tasks/test.ex#L127" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/mix/lib/mix/tasks/test.ex#L129" class="view_source">Source</a>
   
 </div>
 
