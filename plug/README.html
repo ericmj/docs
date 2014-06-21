@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="readme.html">README</a></div>
+      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="readme.html">README</a></div>
       <h1>Plug</h1>
 
 <p><a href="https://travis-ci.org/elixir-lang/plug"><img src="https://travis-ci.org/elixir-lang/plug.png?branch=master" alt="Build Status"></a></p>
@@ -65,23 +65,25 @@ Plug.Adapters.Cowboy.http MyPlug, []
 
 <h2>Installation</h2>
 
-<p>In practice, you want to use plugs in your existing projects. You can do that in two steps:</p>
+<p>You can use plug in your projects in two steps:</p>
 
 <ol>
 <li><p>Add plug and your webserver of choice (currently cowboy) to your <code>mix.exs</code> dependencies:</p>
 
 <pre><code class="elixir">def deps do
-  [ {:cowboy, github: &quot;extend/cowboy&quot;},
-    {:plug, PLUG_VERSION, github: &quot;elixir-lang/plug&quot;} ]
+  [{:cowboy, github: &quot;extend/cowboy&quot;},
+   {:plug, &quot;~&gt; 0.4.2&quot;}]
 end
 </code></pre></li>
 <li><p>List both <code>:cowboy</code> and <code>:plug</code> as your application dependencies:</p>
 
 <pre><code class="elixir">def application do
-  [ applications: [:cowboy, :plug] ]
+  [applications: [:cowboy, :plug]]
 end
 </code></pre></li>
 </ol>
+
+<p>Note: if you are using Elixir master, please use Plug master (from git) as well.</p>
 
 <h2>The Plug.Conn</h2>
 

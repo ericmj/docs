@@ -20,17 +20,16 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Parsers.html">Parsers</a></div>
+      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Parsers.html">Parsers</a></div>
 
       <h1>
         Plug.Parsers
         
+          <small>behaviour</small>
+        
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -51,12 +50,13 @@
 <h2>Options</h2>
 
 <ul>
-<li><p><code>:parsers</code> - a set of modules to be invoked for parsing.
+<li><code>:parsers</code> - a set of modules to be invoked for parsing.
            These modules need to implement the behaviour
-           outlined in this module.</p></li>
-<li><p><code>:limit</code> - the request size limit we accept to parse.
-         Defaults to 8,000,000 bytes.</p></li>
+           outlined in this module.</li>
 </ul>
+
+<p>All options supported by <a href="Plug.Conn.html#read_body/2"><code>Plug.Conn.read_body/2</code></a> are also
+supported here.</p>
 
 <h2>Examples</h2>
 
@@ -91,8 +91,6 @@ struct with information about the file and its content type.</p>
 environment variable in your system.</p>
 
         </div>
-      
-
       
 
       
@@ -173,7 +171,7 @@ environment variable in your system.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>parse(<a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>, type :: binary, subtype :: binary, headers :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, opts :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:too_large, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:skip, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>}</li>
+        <li>parse(<a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>, type :: binary, subtype :: binary, headers :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, opts :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:error, :too_large, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>} | {:skip, <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a>}</li>
       
     </ul>
   

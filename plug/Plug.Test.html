@@ -20,17 +20,14 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.4.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Test.html">Test</a></div>
+      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Test.html">Test</a></div>
 
       <h1>
         Plug.Test
         
       </h1>
 
-      
-
       <ul class="summary_links">
-        
         
           <li><a href="#summary">Summary</a></li>
         
@@ -62,8 +59,6 @@ use Plug.Test
 </code></pre>
 
         </div>
-      
-
       
 
       
@@ -129,11 +124,30 @@ Previous entries of the same headers are removed</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>conn(<a href="http://elixir-lang.org/docs/master/String.Chars.html#t:t/0">String.Chars.t</a>, binary, binary | [], <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a></li>
+        <li>conn(<a href="http://elixir-lang.org/docs/master/String.Chars.html#t:t/0">String.Chars.t</a>, binary, binary | [] | %{} | nil, [{:headers, <a href="Plug.Conn.html#t:headers/0">Plug.Conn.headers</a>}]) :: <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a></li>
       
     </ul>
   
   <div class="docstring"><p>Creates a test connection.</p>
+
+<p>The request <code>method</code> and <code>path</code> must be given as required
+arguments. <code>method</code> may be any value that implements <code>to_string/1</code>
+and it will properly converted and normalized.</p>
+
+<p>The <code>params_or_body</code> field must be one of:</p>
+
+<ul>
+<li><code>nil</code> - meaning there is no body;</li>
+<li>a binary - containing a request body. For such cases, <code>:headers</code>
+must be given as option with a content-type;</li>
+<li>a map or list - containing the parameters which will automatically
+set the content-type to multipart. The map or list may be contain
+other lists or maps and all entries keywords and maps will be
+normalized to string keys;</li>
+</ul>
+
+<p>The only option supported so far is <code>:headers</code> which expects a
+list of headers.</p>
 </div>
   
 </div>
