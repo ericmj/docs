@@ -46,26 +46,27 @@
 <p>By default, compile all dependencies. A list of dependencies can
 be given to force the compilation of specific dependencies.</p>
 
-<p>By default, attempt to detect if the project contains one of
-the following files:</p>
+<p>This task attempts to detect if the project contains one of
+the following files and act accordingly:</p>
 
 <ul>
-<li><code>mix.exs</code>      - if so, invokes <code>mix compile</code></li>
-<li><code>rebar.config</code> - if so, invokes <code>rebar compile</code></li>
-<li><code>Makefile</code>     - if so, invokes <code>make</code></li>
+<li><code>mix.exs</code>      - invokes <code>mix compile</code></li>
+<li><code>rebar.config</code> - invokes <code>rebar compile</code></li>
+<li><code>Makefile.win</code> - invokes <code>nmake /F Makefile.win</code> (only on Windows)</li>
+<li><code>Makefile</code>     - invokes <code>make</code> (except on Windows)</li>
 </ul>
 
 <p>The compilation can be customized by passing a <code>compile</code> option
 in the dependency:</p>
 
-<pre><code>{:some_dependency, &quot;0.1.0&quot;, git: &quot;...&quot;, compile: &quot;command to compile&quot;}
+<pre><code>{:some_dependency, &quot;0.1.0&quot;, compile: &quot;command to compile&quot;}
 </code></pre>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/deps.compile.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/mix/lib/mix/tasks/deps.compile.ex#L1" class="view_source">Source</a>
       
 
       
@@ -100,7 +101,7 @@ in the dependency:</p>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/mix/lib/mix/tasks/deps.compile.ex#L29" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/mix/lib/mix/tasks/deps.compile.ex#L30" class="view_source">Source</a>
   
 </div>
 

@@ -273,7 +273,7 @@ pending expression and return to its normal state:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L1" class="view_source">Source</a>
       
 
       
@@ -294,10 +294,9 @@ pending expression and return to its normal state:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#color/2">color(color_name, string)</a></td>
+  <td class="summary_signature"><a href="#color/2">color(color, string)</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>string</code> escaped using the specified color.
-ANSI escapes in <code>string</code> are not processed in any way</p>
+    <td class="summary_synopsis"><p>Returns <code>string</code> escaped using the specified <code>color</code></p>
 </td>
   
 </tr>
@@ -316,6 +315,13 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   
 </tr>
 <tr>
+  <td class="summary_signature"><a href="#inspect_opts/0">inspect_opts()</a></td>
+  
+    <td class="summary_synopsis"><p>Gets the options used for inspecting</p>
+</td>
+  
+</tr>
+<tr>
   <td class="summary_signature"><a href="#pry/1">pry(timeout \\ 1000)</a></td>
   
     <td class="summary_synopsis"><p>Pries into the process environment</p>
@@ -325,14 +331,14 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
 <tr>
   <td class="summary_signature"><a href="#started?/0">started?()</a></td>
   
-    <td class="summary_synopsis"><p>Returns <code>true</code> if IEx was properly started</p>
+    <td class="summary_synopsis"><p>Returns <code>true</code> if IEx was started</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#width/0">width()</a></td>
   
-    <td class="summary_synopsis"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars</p>
+    <td class="summary_synopsis"><p>Gets the IEx width for printing</p>
 </td>
   
 </tr>
@@ -358,7 +364,7 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Returns registered <code>after_spawn</code> callbacks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L314" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L314" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -374,12 +380,12 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
   <div class="docstring"><p>Registers a function to be invoked after the IEx process is spawned.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L307" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L307" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="color/2">
-    <span class="signature"><strong>color(color_name, string)</strong></span>
+    <span class="signature"><strong>color(color, string)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#color/2" class="detail_link" title="Link to this function">#</a>
@@ -387,11 +393,12 @@ ANSI escapes in <code>string</code> are not processed in any way</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Returns <code>string</code> escaped using the specified color.
-ANSI escapes in <code>string</code> are not processed in any way.</p>
+  <div class="docstring"><p>Returns <code>string</code> escaped using the specified <code>color</code>.</p>
+
+<p>ANSI escapes in <code>string</code> are not processed in any way.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L330" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L331" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -407,7 +414,7 @@ ANSI escapes in <code>string</code> are not processed in any way.</p>
   <div class="docstring"><p>Returns IEx configuration.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L300" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L300" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -490,7 +497,23 @@ when awaiting input.</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L275" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L275" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="inspect_opts/0">
+    <span class="signature"><strong>inspect_opts()</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#inspect_opts/0" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Gets the options used for inspecting.</p>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L358" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -503,10 +526,10 @@ when awaiting input.</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Returns <code>true</code> if IEx was properly started.</p>
+  <div class="docstring"><p>Returns <code>true</code> if IEx was started.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L322" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -519,10 +542,12 @@ when awaiting input.</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Get the width to be used on helpers with a maximum (and default) of 80 chars.</p>
+  <div class="docstring"><p>Gets the IEx width for printing.</p>
+
+<p>Used by helpers and it has a maximum cap of 80 chars.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L340" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L348" class="view_source">Source</a>
   
 </div>
 
@@ -556,8 +581,6 @@ the pried one.</p>
 such, it is evaluated and cannot access private functions
 of the module being pried. Module functions still need to be
 accessed via <code>Mod.fun(args)</code>.</p>
-
-<p>Status: This feature is experimental.</p>
 
 <h2>Examples</h2>
 
@@ -604,7 +627,7 @@ Interactive Elixir - press Ctrl+C to exit (type h() ENTER for help)
 affect the caller the environment (hence it is called <code>pry</code>).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/29f9a4fd675779ac55545151c624fd03f4dd2e2b/lib/iex/lib/iex.ex#L406" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/iex/lib/iex.ex#L420" class="view_source">Source</a>
   
 </div>
 
