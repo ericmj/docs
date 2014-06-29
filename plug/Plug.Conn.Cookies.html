@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Cookies.html">Cookies</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Cookies.html">Cookies</a></div>
 
       <h1>
         Plug.Conn.Cookies
@@ -85,15 +85,10 @@
   </div>
   
   <div class="docstring"><p>Decodes the given cookies as given in a request header.</p>
-
-<p>If a cookie is invalid, it is automatically
-discarded from the result.</p>
-
-<h2>Examples</h2>
-
+<p>If a cookie is invalid, it is automatically discarded from the result.</p>
+<h2 id="examples">Examples</h2>
 <pre><code>iex&gt; decode(&quot;key1=value1, key2=value2&quot;)
-%{&quot;key1&quot; =&gt; &quot;value1&quot;, &quot;key2&quot; =&gt; &quot;value2&quot;}
-</code></pre>
+%{&quot;key1&quot; =&gt; &quot;value1&quot;, &quot;key2&quot; =&gt; &quot;value2&quot;}</code></pre>
 </div>
   
 </div>

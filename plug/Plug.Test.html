@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Test.html">Test</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Test.html">Test</a></div>
 
       <h1>
         Plug.Test
@@ -42,21 +42,14 @@
       
         <div id="moduledoc" class="docstring">
           <p>Conveniences for testing plugs</p>
-
-<h2>Examples</h2>
-
+<h2 id="examples">Examples</h2>
 <p>This module can be used in your test cases:</p>
-
 <pre><code>use ExUnit.Case, async: true
-use Plug.Test
-</code></pre>
-
+use Plug.Test</code></pre>
 <p>and it will:</p>
-
 <pre><code>* import all functions from this module
 * import all functions from [`Plug.Conn`](Plug.Conn.html)
-* alias [`Plug.Conn`](Plug.Conn.html) to `Conn`
-</code></pre>
+* alias [`Plug.Conn`](Plug.Conn.html) to `Conn`</code></pre>
 
         </div>
       
@@ -97,8 +90,7 @@ use Plug.Test
 <tr>
   <td class="summary_signature"><a href="#put_req_header/3">put_req_header(conn, key, value)</a></td>
   
-    <td class="summary_synopsis"><p>Puts a new request header.
-Previous entries of the same headers are removed</p>
+    <td class="summary_synopsis"><p>Puts a new request header. Previous entries of the same headers are removed</p>
 </td>
   
 </tr>
@@ -124,30 +116,19 @@ Previous entries of the same headers are removed</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>conn(<a href="http://elixir-lang.org/docs/master/String.Chars.html#t:t/0">String.Chars.t</a>, binary, binary | [] | %{} | nil, [{:headers, <a href="Plug.Conn.html#t:headers/0">Plug.Conn.headers</a>}]) :: <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a></li>
+        <li>conn(<a href="http://elixir-lang.org/docs/stable/elixir/String.Chars.html#t:t/0">String.Chars.t</a>, binary, binary | [] | %{} | nil, [{:headers, <a href="Plug.Conn.html#t:headers/0">Plug.Conn.headers</a>}]) :: <a href="Plug.Conn.html#t:t/0">Plug.Conn.t</a></li>
       
     </ul>
   
   <div class="docstring"><p>Creates a test connection.</p>
-
-<p>The request <code>method</code> and <code>path</code> must be given as required
-arguments. <code>method</code> may be any value that implements <code>to_string/1</code>
-and it will properly converted and normalized.</p>
-
+<p>The request <code>method</code> and <code>path</code> must be given as required arguments. <code>method</code> may be any value that implements <code>to_string/1</code> and it will properly converted and normalized.</p>
 <p>The <code>params_or_body</code> field must be one of:</p>
-
 <ul>
 <li><code>nil</code> - meaning there is no body;</li>
-<li>a binary - containing a request body. For such cases, <code>:headers</code>
-must be given as option with a content-type;</li>
-<li>a map or list - containing the parameters which will automatically
-set the content-type to multipart. The map or list may be contain
-other lists or maps and all entries keywords and maps will be
-normalized to string keys;</li>
+<li>a binary - containing a request body. For such cases, <code>:headers</code> must be given as option with a content-type;</li>
+<li>a map or list - containing the parameters which will automatically set the content-type to multipart. The map or list may be contain other lists or maps and all entries keywords and maps will be normalized to string keys;</li>
 </ul>
-
-<p>The only option supported so far is <code>:headers</code> which expects a
-list of headers.</p>
+<p>The only option supported so far is <code>:headers</code> which expects a list of headers.</p>
 </div>
   
 </div>
@@ -231,8 +212,7 @@ list of headers.</p>
       
     </ul>
   
-  <div class="docstring"><p>Puts a new request header.
-Previous entries of the same headers are removed.</p>
+  <div class="docstring"><p>Puts a new request header. Previous entries of the same headers are removed.</p>
 </div>
   
 </div>

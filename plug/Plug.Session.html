@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a></div>
 
       <h1>
         Plug.Session
@@ -42,24 +42,14 @@
       
         <div id="moduledoc" class="docstring">
           <p>A plug to handle session cookies and session stores.</p>
-
-<p>The session is accessed via functions on <a href="Plug.Conn.html"><code>Plug.Conn</code></a>. Cookies and
-session have to be fetched with <a href="Plug.Conn.html#fetch_session/1"><code>Plug.Conn.fetch_session/1</code></a> before the
-session can be accessed.</p>
-
-<h2>Session stores</h2>
-
-<p>See <a href="Plug.Session.Store.html"><code>Plug.Session.Store</code></a> for the specification session stores are required to
-implement.</p>
-
+<p>The session is accessed via functions on <a href="Plug.Conn.html"><code>Plug.Conn</code></a>. Cookies and session have to be fetched with <a href="Plug.Conn.html#fetch_session/1"><code>Plug.Conn.fetch_session/1</code></a> before the session can be accessed.</p>
+<h2 id="session-stores">Session stores</h2>
+<p>See <a href="Plug.Session.Store.html"><code>Plug.Session.Store</code></a> for the specification session stores are required to implement.</p>
 <p>Plug ships with the following session stores:</p>
-
 <ul>
 <li><a href="Plug.Session.ETS.html"><code>Plug.Session.ETS</code></a></li>
 </ul>
-
-<h2>Options</h2>
-
+<h2 id="options">Options</h2>
 <ul>
 <li><code>:store</code> - session store module (required);</li>
 <li><code>:key</code> - session cookie key (required);</li>
@@ -68,14 +58,9 @@ implement.</p>
 <li><code>:path</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
 <li><code>:secure</code> - see <code>Plug.Conn.put_resp_cookies/4</code>;</li>
 </ul>
-
-<p>Additional options can be given to the session store, see the store&#39;s
-documentation for the options it accepts.</p>
-
-<h2>Examples</h2>
-
-<pre><code>plug Plug.Session, store: :ets, key: &quot;sid&quot;, secure: true, table: :session
-</code></pre>
+<p>Additional options can be given to the session store, see the store's documentation for the options it accepts.</p>
+<h2 id="examples">Examples</h2>
+<pre><code>plug Plug.Session, store: :ets, key: &quot;_my_app_session&quot;, secure: true, table: :session</code></pre>
 
         </div>
       

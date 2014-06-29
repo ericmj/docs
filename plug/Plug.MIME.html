@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.MIME.html">MIME</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.MIME.html">MIME</a></div>
 
       <h1>
         Plug.MIME
@@ -61,7 +61,7 @@
 <tr>
   <td class="summary_signature"><a href="#path/1">path(path)</a></td>
   
-    <td class="summary_synopsis"><p>Guesses the MIME type based on the path&#39;s extension</p>
+    <td class="summary_synopsis"><p>Guesses the MIME type based on the path's extension</p>
 </td>
   
 </tr>
@@ -101,15 +101,13 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>extensions(<a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a>) :: [<a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a>]</li>
+        <li>extensions(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: [<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>]</li>
       
     </ul>
   
   <div class="docstring"><p>Returns the extensions associated with a MIME type.</p>
-
 <pre><code>iex&gt; Plug.MIME.extensions(&quot;text/html&quot;)
-[&quot;html&quot;, &quot;htm&quot;]
-</code></pre>
+[&quot;html&quot;, &quot;htm&quot;]</code></pre>
 </div>
   
 </div>
@@ -126,15 +124,13 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>path(<a href="http://elixir-lang.org/docs/master/Path.html#t:r/0">Path.r</a>) :: <a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a></li>
+        <li>path(<a href="http://elixir-lang.org/docs/stable/elixir/Path.html#t:r/0">Path.r</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
       
     </ul>
   
-  <div class="docstring"><p>Guesses the MIME type based on the path&#39;s extension.</p>
-
+  <div class="docstring"><p>Guesses the MIME type based on the path's extension.</p>
 <pre><code>iex&gt; Plug.MIME.path(&quot;index.html&quot;)
-&quot;text/html&quot;
-</code></pre>
+&quot;text/html&quot;</code></pre>
 </div>
   
 </div>
@@ -151,15 +147,13 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>type(<a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a></li>
+        <li>type(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></li>
       
     </ul>
   
   <div class="docstring"><p>Returns the MIME type associated with a file extension.</p>
-
 <pre><code>iex&gt; Plug.MIME.type(&quot;txt&quot;)
-&quot;text/plain&quot;
-</code></pre>
+&quot;text/plain&quot;</code></pre>
 </div>
   
 </div>
@@ -176,15 +170,13 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>valid?(<a href="http://elixir-lang.org/docs/master/String.html#t:t/0">String.t</a>) :: boolean</li>
+        <li>valid?(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: boolean</li>
       
     </ul>
   
   <div class="docstring"><p>Returns whether a MIME type is registered.</p>
-
 <pre><code>iex&gt; Plug.MIME.valid?(&quot;text/plain&quot;)
-true
-</code></pre>
+true</code></pre>
 </div>
   
 </div>

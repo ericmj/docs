@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a> &rarr; <a href="Plug.Session.Store.html">Store</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a> &rarr; <a href="Plug.Session.Store.html">Store</a></div>
 
       <h1>
         Plug.Session.Store
@@ -57,7 +57,19 @@
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:sid/0">
-    <a href="#t:sid/0">sid</a> :: binary
+    <a href="#t:sid/0">sid</a> :: term | nil
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:cookie/0">
+    <a href="#t:cookie/0">cookie</a> :: binary
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:session/0">
+    <a href="#t:session/0">session</a> :: %{}
   </p>
   
 </div>
@@ -105,7 +117,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get(<a href="#t:sid/0">sid</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: {<a href="#t:sid/0">sid</a>, any}</li>
+        <li>get(<a href="#t:cookie/0">cookie</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: {<a href="#t:sid/0">sid</a>, <a href="#t:session/0">session</a>}</li>
       
     </ul>
   
@@ -145,7 +157,7 @@
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>put(<a href="#t:sid/0">sid</a> | nil, any, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: <a href="#t:sid/0">sid</a></li>
+        <li>put(<a href="#t:sid/0">sid</a>, any, <a href="Plug.html#t:opts/0">Plug.opts</a>) :: <a href="#t:cookie/0">cookie</a></li>
       
     </ul>
   

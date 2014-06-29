@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Utils.html">Utils</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Utils.html">Utils</a></div>
 
       <h1>
         Plug.Conn.Utils
@@ -77,9 +77,7 @@
 <tr>
   <td class="summary_signature"><a href="#token/1">token(token)</a></td>
   
-    <td class="summary_synopsis"><p>Parses a value as defined in <a href="1">RFC-1341</a>.
-For convenience, trims whitespace at the end of the token.
-Returns false is the token is invalid</p>
+    <td class="summary_synopsis"><p>Parses a value as defined in <a href="1">RFC-1341</a>. For convenience, trims whitespace at the end of the token. Returns false is the token is invalid</p>
 </td>
   
 </tr>
@@ -121,13 +119,8 @@ Returns false is the token is invalid</p>
     </ul>
   
   <div class="docstring"><p>Parses the request content type header.</p>
-
-<p>Type and subtype are case insensitive while the
-sensitiveness of params depends on its key and
-therefore are not handled by this parser.</p>
-
-<h2>Examples</h2>
-
+<p>Type and subtype are case insensitive while the sensitiveness of params depends on its key and therefore are not handled by this parser.</p>
+<h2 id="examples">Examples</h2>
 <pre><code>iex&gt; content_type &quot;text/plain&quot;
 {:ok, &quot;text&quot;, &quot;plain&quot;, %{}}
 
@@ -140,6 +133,9 @@ iex&gt; content_type &quot;x-sample/json; charset=utf-8&quot;
 iex&gt; content_type &quot;x-sample/json  ; charset=utf-8  ; foo=bar&quot;
 {:ok, &quot;x-sample&quot;, &quot;json&quot;, %{&quot;charset&quot; =&gt; &quot;utf-8&quot;, &quot;foo&quot; =&gt; &quot;bar&quot;}}
 
+iex&gt; content_type &quot;\r\n text/plain;\r\n charset=utf-8\r\n&quot;
+{:ok, &quot;text&quot;, &quot;plain&quot;, %{&quot;charset&quot; =&gt; &quot;utf-8&quot;}}
+
 iex&gt; content_type &quot;x y&quot;
 :error
 
@@ -147,8 +143,7 @@ iex&gt; content_type &quot;/&quot;
 :error
 
 iex&gt; content_type &quot;x/y z&quot;
-:error
-</code></pre>
+:error</code></pre>
 </div>
   
 </div>
@@ -170,9 +165,7 @@ iex&gt; content_type &quot;x/y z&quot;
     </ul>
   
   <div class="docstring"><p>Parses a comma-separated header list.</p>
-
-<h2>Examples</h2>
-
+<h2 id="examples">Examples</h2>
 <pre><code>iex&gt; list(&quot;foo, bar&quot;)
 [&quot;foo&quot;, &quot;bar&quot;]
 
@@ -183,8 +176,7 @@ iex&gt; list(&quot;&quot;)
 []
 
 iex&gt; list(&quot;empties, , are,, filtered&quot;)
-[&quot;empties&quot;, &quot;are&quot;, &quot;filtered&quot;]
-</code></pre>
+[&quot;empties&quot;, &quot;are&quot;, &quot;filtered&quot;]</code></pre>
 </div>
   
 </div>
@@ -206,12 +198,8 @@ iex&gt; list(&quot;empties, , are,, filtered&quot;)
     </ul>
   
   <div class="docstring"><p>Parses headers parameters.</p>
-
-<p>Keys are case insensitive and downcased,
-invalid key-value pairs are discarded.</p>
-
-<h2>Examples</h2>
-
+<p>Keys are case insensitive and downcased, invalid key-value pairs are discarded.</p>
+<h2 id="examples">Examples</h2>
 <pre><code>iex&gt; params(&quot;foo=bar&quot;)
 %{&quot;foo&quot; =&gt; &quot;bar&quot;}
 
@@ -225,8 +213,7 @@ iex&gt; params(&quot;foo=BAR ; wat&quot;)
 %{&quot;foo&quot; =&gt; &quot;BAR&quot;}
 
 iex&gt; params(&quot;=&quot;)
-%{}
-</code></pre>
+%{}</code></pre>
 </div>
   
 </div>
@@ -247,12 +234,8 @@ iex&gt; params(&quot;=&quot;)
       
     </ul>
   
-  <div class="docstring"><p>Parses a value as defined in <a href="1">RFC-1341</a>.
-For convenience, trims whitespace at the end of the token.
-Returns false is the token is invalid.</p>
-
-<h2>Examples</h2>
-
+  <div class="docstring"><p>Parses a value as defined in <a href="1">RFC-1341</a>. For convenience, trims whitespace at the end of the token. Returns false is the token is invalid.</p>
+<h2 id="examples">Examples</h2>
 <pre><code>iex&gt; token(&quot;foo&quot;)
 &quot;foo&quot;
 
@@ -272,8 +255,7 @@ iex&gt; token(&quot;foo  &quot;)
 &quot;foo&quot;
 
 iex&gt; token(&quot;foo bar&quot;)
-false
-</code></pre>
+false</code></pre>
 </div>
   
 </div>

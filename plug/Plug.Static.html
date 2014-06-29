@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Static.html">Static</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Static.html">Static</a></div>
 
       <h1>
         Plug.Static
@@ -42,29 +42,15 @@
       
         <div id="moduledoc" class="docstring">
           <p>A plug for serving static assets.</p>
-
 <p>It expects two options on initialization:</p>
-
 <ul>
-<li><p><code>:at</code> - the request path to reach for static assets.
-      It must be a binary.</p></li>
-<li><p><code>:from</code> - the filesystem path to read static assets from.
-        It must be a binary, containing a file system path,
-        or an atom representing the application name,
-        where assets will be served from the priv/static.</p></li>
+<li><p><code>:at</code> - the request path to reach for static assets. It must be a binary.</p></li>
+<li><p><code>:from</code> - the filesystem path to read static assets from. It must be a binary, containing a file system path, or an atom representing the application name, where assets will be served from the priv/static.</p></li>
 </ul>
-
-<p>The preferred form is to use <code>:from</code> with an atom, since
-it will make your application independent from the starting
-directory.</p>
-
-<p>If a static asset cannot be found, it simply forwards
-the connection to the rest of the stack.</p>
-
-<h2>Examples</h2>
-
+<p>The preferred form is to use <code>:from</code> with an atom, since it will make your application independent from the starting directory.</p>
+<p>If a static asset cannot be found, it simply forwards the connection to the rest of the stack.</p>
+<h2 id="examples">Examples</h2>
 <p>This filter can be mounted in a Plug.Builder as follow:</p>
-
 <pre><code>defmodule MyPlug do
   use Plug.Builder
 
@@ -74,8 +60,7 @@ the connection to the rest of the stack.</p>
   def not_found(conn, _) do
     Plug.Conn.send(conn, 404, &quot;not found&quot;)
   end
-end
-</code></pre>
+end</code></pre>
 
         </div>
       

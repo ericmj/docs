@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Builder.html">Builder</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Builder.html">Builder</a></div>
 
       <h1>
         Plug.Builder
@@ -46,10 +46,7 @@
       
         <div id="moduledoc" class="docstring">
           <p>Conveniences for building plugs.</p>
-
-<p>This module can be used into a module in order to build
-a plug stack:</p>
-
+<p>This module can be used into a module in order to build a plug stack:</p>
 <pre><code>defmodule MyApp do
   use Plug.Builder
 
@@ -59,16 +56,9 @@ a plug stack:</p>
     body = if opts[:upper], do: &quot;WORLD&quot;, else: &quot;world&quot;
     send_resp(conn, 200, body)
   end
-end
-</code></pre>
-
-<p><a href="Plug.Builder.html"><code>Plug.Builder</code></a> will define a <code>init/1</code> function (which is overridable)
-and a <code>call/2</code> function with the compiled stack. By implementing the
-Plug API, <a href="Plug.Builder.html"><code>Plug.Builder</code></a> guarantees this module can be handed to a web
-server or used as part of another stack.</p>
-
-<p>Note this module also exports a <a href="#compile/1"><code>compile/1</code></a> function for those willing
-to collect and compile their plugs manually.</p>
+end</code></pre>
+<p><a href="Plug.Builder.html"><code>Plug.Builder</code></a> will define a <code>init/1</code> function (which is overridable) and a <code>call/2</code> function with the compiled stack. By implementing the Plug API, <a href="Plug.Builder.html"><code>Plug.Builder</code></a> guarantees this module can be handed to a web server or used as part of another stack.</p>
+<p>Note this module also exports a <a href="#compile/1"><code>compile/1</code></a> function for those willing to collect and compile their plugs manually.</p>
 
         </div>
       
@@ -125,15 +115,12 @@ to collect and compile their plugs manually.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>compile([{<a href="#t:plug/0">plug</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>}]) :: {<a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>, <a href="http://elixir-lang.org/docs/master/Macro.html#t:t/0">Macro.t</a>}</li>
+        <li>compile([{<a href="#t:plug/0">plug</a>, <a href="Plug.html#t:opts/0">Plug.opts</a>}]) :: {<a href="http://elixir-lang.org/docs/stable/elixir/Macro.html#t:t/0">Macro.t</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Macro.html#t:t/0">Macro.t</a>}</li>
       
     </ul>
   
   <div class="docstring"><p>Compiles a plug stack.</p>
-
-<p>It expects a reversed stack (with the last plug coming first)
-and returns a tuple containing the reference to the connection
-as first argument and the compiled quote stack.</p>
+<p>It expects a reversed stack (with the last plug coming first) and returns a tuple containing the reference to the connection as first argument and the compiled quote stack.</p>
 </div>
   
 </div>

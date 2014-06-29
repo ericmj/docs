@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Adapter.html">Adapter</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Adapter.html">Adapter</a></div>
 
       <h1>
         Plug.Conn.Adapter
@@ -77,14 +77,8 @@
     </ul>
   
   <div class="docstring"><p>Sends a chunk in the chunked response.</p>
-
-<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should
-not send the response to the client.</p>
-
-<p>Webservers are advised to return <code>:ok</code> and not modify
-any further state for each chunk. However, the test
-implementation returns the actual body and payload so
-it can be used during testing.</p>
+<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should not send the response to the client.</p>
+<p>Webservers are advised to return <code>:ok</code> and not modify any further state for each chunk. However, the test implementation returns the actual body and payload so it can be used during testing.</p>
 </div>
   
 </div>
@@ -101,28 +95,18 @@ it can be used during testing.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>parse_req_multipart(payload, options :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, payload} | {:more, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, payload}</li>
+        <li>parse_req_multipart(payload, options :: <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>, (... -> any)) :: {:ok, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, payload} | {:more, <a href="Plug.Conn.html#t:params/0">Plug.Conn.params</a>, payload}</li>
       
     </ul>
   
   <div class="docstring"><p>Parses a multipart request.</p>
-
-<p>This function receives the payload, the body limit and a callback.
-When parsing each multipart segment, the parser should invoke the
-given fallback passing the headers for that segment, before consuming
-the body. The callback will return one of the following values:</p>
-
+<p>This function receives the payload, the body limit and a callback. When parsing each multipart segment, the parser should invoke the given fallback passing the headers for that segment, before consuming the body. The callback will return one of the following values:</p>
 <ul>
-<li><code>{:binary, name}</code> - the current segment must be treated as a regular
-                    binary value with the given <code>name</code></li>
-<li><code>{:file, name, file, upload} - the current segment is a file upload with</code>name<code>
-                               and contents should be written to the given</code>file`</li>
+<li><code>{:binary, name}</code> - the current segment must be treated as a regular binary value with the given <code>name</code></li>
+<li><code>{:file, name, file, upload} - the current segment is a file upload with</code>name<code>and contents should be written to the given</code>file`</li>
 <li><code>:skip</code> - this multipart segment should be skipped</li>
 </ul>
-
-<p>This function may return a <code>:ok</code> or <code>:more</code> tuple. The first one is
-returned when there is no more multipart data to be processed.</p>
-
+<p>This function may return a <code>:ok</code> or <code>:more</code> tuple. The first one is returned when there is no more multipart data to be processed.</p>
 <p>For the supported options, please read <a href="Plug.Conn.html#read_body/2"><code>Plug.Conn.read_body/2</code></a> docs.</p>
 </div>
   
@@ -140,14 +124,12 @@ returned when there is no more multipart data to be processed.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>read_req_body(payload, options :: <a href="http://elixir-lang.org/docs/master/Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, data :: binary, payload} | {:more, data :: binary, payload} | {:error, term}</li>
+        <li>read_req_body(payload, options :: <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: {:ok, data :: binary, payload} | {:more, data :: binary, payload} | {:error, term}</li>
       
     </ul>
   
   <div class="docstring"><p>Reads the request body.</p>
-
-<p>Read the docs in <a href="Plug.Conn.html#read_body/2"><code>Plug.Conn.read_body/2</code></a> for the supported
-options and expected behaviour.</p>
+<p>Read the docs in <a href="Plug.Conn.html#read_body/2"><code>Plug.Conn.read_body/2</code></a> for the supported options and expected behaviour.</p>
 </div>
   
 </div>
@@ -168,13 +150,8 @@ options and expected behaviour.</p>
       
     </ul>
   
-  <div class="docstring"><p>Sends the given status, headers as the beginning of
-a chunked response to the client.</p>
-
-<p>Webservers are advised to return <code>nil</code> as the sent_body,
-as the body can no longer be manipulated. However, the
-test implementation returns the actual body so it can
-be used during testing.</p>
+  <div class="docstring"><p>Sends the given status, headers as the beginning of a chunked response to the client.</p>
+<p>Webservers are advised to return <code>nil</code> as the sent_body, as the body can no longer be manipulated. However, the test implementation returns the actual body so it can be used during testing.</p>
 </div>
   
 </div>
@@ -195,16 +172,9 @@ be used during testing.</p>
       
     </ul>
   
-  <div class="docstring"><p>Sends the given status, headers and file as a response
-back to the client.</p>
-
-<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should
-not send the response to the client.</p>
-
-<p>Webservers are advised to return <code>nil</code> as the sent_body,
-as the body can no longer be manipulated. However, the
-test implementation returns the actual body so it can
-be used during testing.</p>
+  <div class="docstring"><p>Sends the given status, headers and file as a response back to the client.</p>
+<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should not send the response to the client.</p>
+<p>Webservers are advised to return <code>nil</code> as the sent_body, as the body can no longer be manipulated. However, the test implementation returns the actual body so it can be used during testing.</p>
 </div>
   
 </div>
@@ -225,16 +195,9 @@ be used during testing.</p>
       
     </ul>
   
-  <div class="docstring"><p>Sends the given status, headers and body as a response
-back to the client.</p>
-
-<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should
-not send the response to the client.</p>
-
-<p>Webservers are advised to return <code>nil</code> as the sent_body,
-as the body can no longer be manipulated. However, the
-test implementation returns the actual body so it can
-be used during testing.</p>
+  <div class="docstring"><p>Sends the given status, headers and body as a response back to the client.</p>
+<p>If the request has method <code>&quot;HEAD&quot;</code>, the adapter should not send the response to the client.</p>
+<p>Webservers are advised to return <code>nil</code> as the sent_body, as the body can no longer be manipulated. However, the test implementation returns the actual body so it can be used during testing.</p>
 </div>
   
 </div>

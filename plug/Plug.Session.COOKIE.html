@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Plug.Session.ETS</title>
+    <title>Plug.Session.COOKIE</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -20,10 +20,10 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a> &rarr; <a href="Plug.Session.ETS.html">ETS</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Session.html">Session</a> &rarr; <a href="Plug.Session.COOKIE.html">COOKIE</a></div>
 
       <h1>
-        Plug.Session.ETS
+        Plug.Session.COOKIE
         
       </h1>
 
@@ -41,20 +41,16 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>Stores the session in an in-memory ETS table.</p>
-<p>A created ETS table is required for this store to work.</p>
-<p>This store does not create the ETS table, it is expected that an existing named table is given as argument with public properties.</p>
+          <p>Stores the session in a cookie.</p>
+<p>Implements a cookie store. This cookie store is based on <a href="Plug.MessageVerifier.html"><code>Plug.MessageVerifier</code></a> which signs each cookie to ensure they won't be tampered with.</p>
+<p>Notice the cookie contents are still visible and therefore private data should never be put into such store.</p>
 <h2 id="options">Options</h2>
 <ul>
-<li><code>:table</code> - ETS table name (required);</li>
+<li><code>:secret</code> - secret token used to sign the cookie;</li>
 </ul>
 <h2 id="examples">Examples</h2>
-<pre><code># Create table during application start
-:ets.new(:session, [:named_table, :public, read_concurrency: true])
-
-# Use the session plug with the table name
-plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pre>
-<p>http://www.erlang.org/doc/man/ets.html</p>
+<pre><code># Use the session plug with the table name
+plug Plug.Session, store: :cookie, key: &quot;_my_app_session&quot;, secret: &quot;a4f8d34f9&quot;</code></pre>
 
         </div>
       
@@ -65,14 +61,14 @@ plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pr
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#delete/2">delete(sid, table)</a></td>
+  <td class="summary_signature"><a href="#delete/2">delete(sid, opts)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.Session.Store.html#delete/2"><code>Plug.Session.Store.delete/2</code></a></p>
 </td>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#get/2">get(sid, table)</a></td>
+  <td class="summary_signature"><a href="#get/2">get(cookie, opts)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.Session.Store.html#get/2"><code>Plug.Session.Store.get/2</code></a></p>
 </td>
@@ -86,7 +82,7 @@ plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pr
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#put/3">put(sid, data, table)</a></td>
+  <td class="summary_signature"><a href="#put/3">put(sid, term, opts)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation of <a href="Plug.Session.Store.html#put/3"><code>Plug.Session.Store.put/3</code></a></p>
 </td>
@@ -103,7 +99,7 @@ plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pr
           <h2>Functions</h2>
           <div class="detail">
   <div class="detail_header" id="delete/2">
-    <span class="signature"><strong>delete(sid, table)</strong></span>
+    <span class="signature"><strong>delete(sid, opts)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#delete/2" class="detail_link" title="Link to this function">#</a>
@@ -117,7 +113,7 @@ plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pr
 </div>
 <div class="detail">
   <div class="detail_header" id="get/2">
-    <span class="signature"><strong>get(sid, table)</strong></span>
+    <span class="signature"><strong>get(cookie, opts)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#get/2" class="detail_link" title="Link to this function">#</a>
@@ -145,7 +141,7 @@ plug Plug.Session, store: :ets, key: &quot;sid&quot;, table: :session</code></pr
 </div>
 <div class="detail">
   <div class="detail_header" id="put/3">
-    <span class="signature"><strong>put(sid, data, table)</strong></span>
+    <span class="signature"><strong>put(sid, term, opts)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#put/3" class="detail_link" title="Link to this function">#</a>

@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.MethodOverride.html">MethodOverride</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.MethodOverride.html">MethodOverride</a></div>
 
       <h1>
         Plug.MethodOverride
@@ -41,17 +41,10 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>A plug to overwrite &quot;POST&quot; method with the one defined in _method parameter
-or x-http-method-override header.</p>
-
-<p>This plug expects the parameters to be already parsed and fetched. Parameters
-are fetched with <a href="Plug.Conn.html#fetch_params/1"><code>Plug.Conn.fetch_params/1</code></a> and parsed with
-<a href="Plug.Parsers.html"><code>Plug.Parsers</code></a>.</p>
-
-<h2> Examples</h2>
-
-<pre><code>Plug.MethodOverride.call(conn, [])
-</code></pre>
+          <p>A plug to overwrite &quot;POST&quot; method with the one defined in _method parameter or x-http-method-override header.</p>
+<p>This plug expects the parameters to be already parsed and fetched. Parameters are fetched with <a href="Plug.Conn.html#fetch_params/1"><code>Plug.Conn.fetch_params/1</code></a> and parsed with <a href="Plug.Parsers.html"><code>Plug.Parsers</code></a>.</p>
+<h2 id="examples"> Examples</h2>
+<pre><code>Plug.MethodOverride.call(conn, [])</code></pre>
 
         </div>
       

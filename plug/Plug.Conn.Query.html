@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">plug v0.5.0 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Query.html">Query</a></div>
+      <div class="breadcrumbs">plug v0.5.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Plug.html">Plug</a> &rarr; <a href="Plug.Conn.html">Conn</a> &rarr; <a href="Plug.Conn.Query.html">Query</a></div>
 
       <h1>
         Plug.Conn.Query
@@ -42,33 +42,33 @@
       
         <div id="moduledoc" class="docstring">
           <p>Conveniences for decoding and encoding url encoded queries</p>
-
-<p>Plug allows a developer to build query strings
-that maps to Elixir structures in order to make
-manipulation of such structures easier on the server
-side. Here are some examples:</p>
-
+<p>Plug allows a developer to build query strings that maps to Elixir structures in order to make manipulation of such structures easier on the server side. Here are some examples:</p>
 <pre><code>iex&gt; decode(&quot;foo=bar&quot;)[&quot;foo&quot;]
-&quot;bar&quot;
-</code></pre>
-
+&quot;bar&quot;</code></pre>
 <p>If a value is given more than once, the last value wins:</p>
-
 <pre><code>iex&gt; decode(&quot;foo=bar&amp;foo=baz&quot;)[&quot;foo&quot;]
-&quot;baz&quot;
-</code></pre>
-
+&quot;baz&quot;</code></pre>
 <p>Nested structures can be created via <code>[key]</code>:</p>
-
 <pre><code>iex&gt; decode(&quot;foo[bar]=baz&quot;)[&quot;foo&quot;][&quot;bar&quot;]
-&quot;baz&quot;
-</code></pre>
-
+&quot;baz&quot;</code></pre>
 <p>Lists are created with <code>[]</code>:</p>
-
 <pre><code>iex&gt; decode(&quot;foo[]=bar&amp;foo[]=baz&quot;)[&quot;foo&quot;]
-[&quot;bar&quot;, &quot;baz&quot;]
-</code></pre>
+[&quot;bar&quot;, &quot;baz&quot;]</code></pre>
+<p>Encoding Dicts:</p>
+<pre><code>iex&gt; encode(%{foo: &quot;bar&quot;, baz: &quot;bat&quot;})
+&quot;baz=bat&amp;foo=bar&quot;</code></pre>
+<p>Encoding keyword lists preserves field order:</p>
+<pre><code>iex&gt; encode([foo: &quot;bar&quot;, baz: &quot;bat&quot;])
+&quot;foo=bar&amp;baz=bat&quot;</code></pre>
+<p>Encoding keyword lists with duplicate keys, first one wins:</p>
+<pre><code>iex&gt; encode([foo: &quot;bar&quot;, foo: &quot;bat&quot;])
+&quot;foo=bar&quot;</code></pre>
+<p>Encoding named lists:</p>
+<pre><code>iex&gt; encode(%{foo: [&quot;bar&quot;, &quot;baz&quot;]})
+&quot;foo[]=bar&amp;foo[]=baz&quot;</code></pre>
+<p>Encoding nested structures:</p>
+<pre><code>iex&gt; encode(%{foo: %{bar: &quot;baz&quot;}})
+&quot;foo[bar]=baz&quot;</code></pre>
 
         </div>
       
@@ -88,9 +88,14 @@ side. Here are some examples:</p>
 <tr>
   <td class="summary_signature"><a href="#decode_pair/2">decode_pair(arg1, acc)</a></td>
   
-    <td class="summary_synopsis"><p>Decodes the given tuple and store it in the accumulator.
-It parses the key and stores the value into te current
-accumulator</p>
+    <td class="summary_synopsis"><p>Decodes the given tuple and store it in the accumulator. It parses the key and stores the value into te current accumulator</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#encode/1">encode(dict)</a></td>
+  
+    <td class="summary_synopsis"><p>Encodes the given dict</p>
 </td>
   
 </tr>
@@ -127,12 +132,22 @@ accumulator</p>
     </div>
   </div>
   
-  <div class="docstring"><p>Decodes the given tuple and store it in the accumulator.
-It parses the key and stores the value into te current
-accumulator.</p>
-
-<p>Parameters lists are added to the accumulator in reverse
-order, so be sure to pass the parameters in reverse order.</p>
+  <div class="docstring"><p>Decodes the given tuple and store it in the accumulator. It parses the key and stores the value into te current accumulator.</p>
+<p>Parameters lists are added to the accumulator in reverse order, so be sure to pass the parameters in reverse order.</p>
+</div>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="encode/1">
+    <span class="signature"><strong>encode(dict)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#encode/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Encodes the given dict.</p>
 </div>
   
 </div>
