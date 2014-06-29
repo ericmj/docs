@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Task.html">Task</a></div>
+      <div class="breadcrumbs">Elixir v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Task.html">Task</a></div>
 
       <h1>
         Task
@@ -55,12 +55,12 @@ res  = do_some_other_work()
 res + Task.await(task)
 </code></pre>
 
-<p>Tasks spawned with async can be awaited on by its caller
+<p>Tasks spawned with <code>async</code> can be awaited on by its caller
 process (and only its caller) as shown in the example above.
 They are implemented by spawning a process that sends a message
 to the caller once the given computation is performed.</p>
 
-<p>Besides <a href="#async/1"><code>async/1</code></a> and <code>await/1</code>, tasks can also be used be
+<p>Besides <a href="#async/1"><code>async/1</code></a> and <a href="#await/2"><code>await/2</code></a>, tasks can also be 
 started as part of supervision trees and dynamically spawned
 in remote nodes. We will explore all three scenarios next.</p>
 
@@ -69,11 +69,11 @@ in remote nodes. We will explore all three scenarios next.</p>
 <p>The most common way to spawn a task is with <a href="Task.html#async/1"><code>Task.async/1</code></a>. A new
 process will be created, linked and monitored by the caller. Once
 the task action finishes, a message will be sent to the caller
-with its result.</p>
+with the result.</p>
 
-<p><code>Task.await/1</code> is used to read the message sent by the task. On
-await, Elixir will also setup a monitor to verify if the process
-exited with any abnormal reason (or in case exits are being
+<p><a href="Task.html#await/2"><code>Task.await/2</code></a> is used to read the message sent by the task. On
+<code>await</code>, Elixir will also setup a monitor to verify if the process
+exited for any abnormal reason (or in case exits are being
 trapped by the caller).</p>
 
 <h2>Supervised tasks</h2>
@@ -84,7 +84,7 @@ with <a href="#start_link/1"><code>start_link/1</code></a> and <a href="#start_l
 <pre><code>Task.start_link(fn -&gt; IO.puts &quot;ok&quot; end)
 </code></pre>
 
-<p>Such can be mounted in your supervision tree as:</p>
+<p>Such tasks can be mounted in your supervision tree as:</p>
 
 <pre><code>import Supervisor.Spec
 
@@ -93,9 +93,9 @@ children = [
 ]
 </code></pre>
 
-<p>Since such tasks are supervised and not directly linked to
+<p>Since these tasks are supervised and not directly linked to
 the caller, they cannot be awaited on. Note <a href="#start_link/1"><code>start_link/1</code></a>,
-differently from <a href="#async/1"><code>async/1</code></a>, returns <code>{:ok, pid}</code> (which is
+unlike <a href="#async/1"><code>async/1</code></a>, returns <code>{:ok, pid}</code> (which is
 the result expected by supervision trees).</p>
 
 <h2>Supervision trees</h2>
@@ -132,7 +132,7 @@ children = [
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L1" class="view_source">Source</a>
       
 
       
@@ -230,13 +230,13 @@ a task that matches the given message</p>
 <p>It contains two fields:</p>
 
 <ul>
-<li><p><code>:pid</code> - the proces reference of the task process; it may be a pid
+<li><p><code>:pid</code> - the process reference of the task process; it may be a pid
 or a tuple containing the process and node names</p></li>
 <li><p><code>:ref</code> - the task monitor reference</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L94" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L94" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -258,17 +258,17 @@ or a tuple containing the process and node names</p></li>
   
   <div class="docstring"><p>Starts a task that can be awaited on.</p>
 
-<p>This function spawns a process that is linked and monitored
-to the caller process. A <a href="Task.html"><code>Task</code></a> struct is returned containing
+<p>This function spawns a process that is linked to and monitored
+by the caller process. A <a href="Task.html"><code>Task</code></a> struct is returned containing
 the relevant information.</p>
 
 <h2>Task&#39;s message format</h2>
 
 <p>The reply sent by the task will be in the format <code>{ref, msg}</code>,
-where <code>ref</code> is the monitoring reference hold by the task.</p>
+where <code>ref</code> is the monitoring reference held by the task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L125" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L125" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -294,7 +294,7 @@ where <code>ref</code> is the monitoring reference hold by the task.</p>
 module, function and arguments.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L136" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L136" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -316,12 +316,12 @@ module, function and arguments.</p>
   
   <div class="docstring"><p>Awaits for a task reply.</p>
 
-<p>A timeout, in miliseconds, can be given with default value
+<p>A timeout, in milliseconds, can be given with default value
 of <code>5000</code>. In case the task process dies, this function will
 exit with the same reason as the task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L157" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L160" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -347,16 +347,16 @@ a task that matches the given message.</p>
 <p>This function returns a tuple with the task and the
 returned value in case the message matches a task that
 exited with success, it raises in case the found task
-failed or nil if no task was found.</p>
+failed or <code>nil</code> if no task was found.</p>
 
 <p>This function is useful in situations where multiple
-tasks are spawned and their results are collected just
-later on. For example, a GenServer can spawn tasks,
+tasks are spawned and their results are collected
+later on. For example, a <a href="GenServer.html"><code>GenServer</code></a> can spawn tasks,
 store the tasks in a list and later use <a href="Task.html#find/2"><code>Task.find/2</code></a>
-to see if upcoming messages are from any of the tasks.</p>
+to see if incoming messages are from any of the tasks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L190" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L193" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -379,7 +379,7 @@ to see if upcoming messages are from any of the tasks.</p>
   <div class="docstring"><p>Starts a task as part of a supervision tree.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L100" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -402,7 +402,7 @@ to see if upcoming messages are from any of the tasks.</p>
   <div class="docstring"><p>Starts a task as part of a supervision tree.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/task.ex#L108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L108" class="view_source">Source</a>
   
 </div>
 

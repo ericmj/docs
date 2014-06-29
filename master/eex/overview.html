@@ -20,9 +20,9 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">EEx v0.14.2-dev &rarr; <a href="overview.html">Overview</a></div>
+      <div class="breadcrumbs">EEx v0.14.3-dev &rarr; <a href="overview.html">Overview</a></div>
 
-      <h1>EEx v0.14.2-dev</h1>
+      <h1>EEx v0.14.3-dev</h1>
 
       <ul class="summary_links">
         
@@ -46,39 +46,16 @@ Elixir code inside a string in a robust way:</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="EEx.AssignsEngine.html">EEx.AssignsEngine</a></td>
-  
-    <td class="summary_synopsis"><p>An abstract engine that, when used with the
-<code>TransformerEngine</code>, allows a developer to access
-assigns using <code>@</code> as syntax</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="EEx.Engine.html">EEx.Engine</a></td>
   
-    <td class="summary_synopsis"><p>This is the basic EEx engine that ships with Elixir.
-An engine needs to implement three functions:</p>
+    <td class="summary_synopsis"><p>Basic EEx engine that ships with Elixir</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="EEx.SmartEngine.html">EEx.SmartEngine</a></td>
   
-    <td class="summary_synopsis"><p>An engine meant for end-user usage that includes
-<a href="EEx.AssignsEngine.html"><code>EEx.AssignsEngine</code></a> and other conveniences. Read
-<a href="EEx.AssignsEngine.html"><code>EEx.AssignsEngine</code></a> for examples</p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="EEx.TransformerEngine.html">EEx.TransformerEngine</a></td>
-  
-    <td class="summary_synopsis"><p>An abstract engine that is meant to be used and
-built upon in other modules. This engine implements
-the <a href="EEx.Engine.html"><code>EEx.Engine</code></a> behaviour and provides a <code>transform</code>
-overridable directive that allows a developer to
-customize the expression returned by the engine</p>
+    <td class="summary_synopsis"><p>The default engine used by EEx</p>
 </td>
   
 </tr>

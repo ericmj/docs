@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Module.html">Module</a></div>
+      <div class="breadcrumbs">Elixir v0.14.2 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Module.html">Module</a></div>
 
       <h1>
         Module
@@ -290,6 +290,16 @@ loading of the module will be aborted.</p>
     @vsn &quot;1.0&quot;
   end
 </code></pre></li>
+<li><p><code>@external_resource</code></p>
+
+<p>Specify an external resource to the current module.</p>
+
+<p>Many times a module embeds information from an external file. This
+attribute allows the module to annotate which external resources
+have been used.</p>
+
+<p>Tools like Mix may use this information to ensure the module is
+recompiled in case any of the external resources change.</p></li>
 </ul>
 
 <p>The following attributes are part of typespecs and are also reserved by
@@ -324,7 +334,7 @@ macros it defines, extract its docstrings, etc. See <a href="#__info__/1"><code>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L1" class="view_source">Source</a>
       
 
       
@@ -365,11 +375,10 @@ be either a binary or a boolean</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#create/3">create(module, quoted, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#create/3">create(module, quoted, opts)</a></td>
   
     <td class="summary_synopsis"><p>Creates a module with the given name and defined by
-the given quoted expressions. The line where the module
-is defined and its file can be passed as options</p>
+the given quoted expressions</p>
 </td>
   
 </tr>
@@ -550,7 +559,7 @@ module. See <a href="http://erlang.org/doc/reference_manual/modules.html#id69430
 more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L294" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L305" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -579,7 +588,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L492" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L508" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -611,7 +620,7 @@ Foo.Bar
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L402" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L418" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -643,12 +652,12 @@ Foo.Bar
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L419" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L435" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="create/3">
-    <span class="signature"><strong>create(module, quoted, opts \\ [])</strong></span>
+    <span class="signature"><strong>create(module, quoted, opts)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#create/3" class="detail_link" title="Link to this function">#</a>
@@ -657,8 +666,10 @@ Foo.Bar
   </div>
   
   <div class="docstring"><p>Creates a module with the given name and defined by
-the given quoted expressions. The line where the module
-is defined and its file can be passed as options.</p>
+the given quoted expressions.</p>
+
+<p>The line where the module is defined and its file <strong>must</strong>
+be passed as options.</p>
 
 <h2>Examples</h2>
 
@@ -686,7 +697,7 @@ when defining the module, while <code>defmodule</code> automatically
 shares the same environment.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L379" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L392" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -712,7 +723,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L607" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L623" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -739,7 +750,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L627" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L643" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -763,7 +774,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L647" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L663" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -789,7 +800,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L666" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L682" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -813,7 +824,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L819" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L835" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -855,7 +866,7 @@ Foo.sum(1, 2) #=&gt; 3
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L332" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L343" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -877,7 +888,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L472" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L488" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -931,7 +942,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L776" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L792" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -950,7 +961,7 @@ developer to customize it. See <a href="Kernel.html#defoverridable/1"><code>Kern
 more information and documentation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L678" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L694" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -967,7 +978,7 @@ more information and documentation.</p>
 and its attributes and functions can be modified.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L300" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L311" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -983,7 +994,7 @@ and its attributes and functions can be modified.</p>
   <div class="docstring"><p>Returns <code>true</code> if <code>tuple</code> in <code>module</code> is marked as overridable.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L708" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L724" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1008,7 +1019,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L724" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L740" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1053,7 +1064,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L856" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L872" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1088,7 +1099,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L439" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L455" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1123,7 +1134,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L459" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L475" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1145,7 +1156,7 @@ List.Chars
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/elixir/lib/module.ex#L880" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/elixir/lib/module.ex#L896" class="view_source">Source</a>
   
 </div>
 

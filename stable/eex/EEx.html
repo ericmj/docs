@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">EEx v0.14.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="EEx.html">EEx</a></div>
+      <div class="breadcrumbs">EEx v0.14.2 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="EEx.html">EEx</a></div>
 
       <h1>
         EEx
@@ -127,7 +127,7 @@ in a template:</p>
 &quot;1&quot;
 </code></pre>
 
-<p>In other words, &lt;%= @foo %&gt; is simply translated to:</p>
+<p>In other words, <code>&lt;%= @foo %&gt;</code> is simply translated to:</p>
 
 <pre><code>&lt;%= Dict.get assigns, :foo %&gt;
 </code></pre>
@@ -139,7 +139,7 @@ required by the template is not specified at compilation time.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L5" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L5" class="view_source">Source</a>
       
 
       
@@ -178,18 +178,14 @@ that can be evaluated by Elixir or compiled to a function</p>
 <tr>
   <td class="summary_signature"><a href="#function_from_file/5">function_from_file(kind, name, file, args \\ [], options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Generates a function definition from the file contents.
-The kind (<code>:def</code> or <code>:defp</code>) must be given, the
-function name, its arguments and the compilation options</p>
+    <td class="summary_synopsis"><p>Generates a function definition from the file contents</p>
 </td>
   
 </tr>
 <tr>
   <td class="summary_signature"><a href="#function_from_string/5">function_from_string(kind, name, source, args \\ [], options \\ [])</a></td>
   
-    <td class="summary_synopsis"><p>Generates a function definition from the string.
-The kind (<code>:def</code> or <code>:defp</code>) must be given, the
-function name, its arguments and the compilation options</p>
+    <td class="summary_synopsis"><p>Generates a function definition from the string</p>
 </td>
   
 </tr>
@@ -216,7 +212,7 @@ function name, its arguments and the compilation options</p>
 that can be evaluated by Elixir or compiled to a function.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L170" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L173" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -233,7 +229,7 @@ that can be evaluated by Elixir or compiled to a function.</p>
 that can be evaluated by Elixir or compiled to a function.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L162" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L165" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -258,7 +254,7 @@ EEx.eval_file &quot;sample.ex&quot;, [bar: &quot;baz&quot;] #=&gt; &quot;foo baz
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L201" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L204" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -280,7 +276,7 @@ EEx.eval_file &quot;sample.ex&quot;, [bar: &quot;baz&quot;] #=&gt; &quot;foo baz
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L184" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L187" class="view_source">Source</a>
   
 </div>
 
@@ -300,8 +296,9 @@ EEx.eval_file &quot;sample.ex&quot;, [bar: &quot;baz&quot;] #=&gt; &quot;foo baz
     </div>
   </div>
   
-  <div class="docstring"><p>Generates a function definition from the file contents.
-The kind (<code>:def</code> or <code>:defp</code>) must be given, the
+  <div class="docstring"><p>Generates a function definition from the file contents.</p>
+
+<p>The kind (<code>:def</code> or <code>:defp</code>) must be given, the
 function name, its arguments and the compilation options.</p>
 
 <p>This function is useful in case you have templates but
@@ -323,7 +320,7 @@ Sample.sample(1, 2) #=&gt; &quot;3&quot;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L144" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L146" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -336,8 +333,9 @@ Sample.sample(1, 2) #=&gt; &quot;3&quot;
     </div>
   </div>
   
-  <div class="docstring"><p>Generates a function definition from the string.
-The kind (<code>:def</code> or <code>:defp</code>) must be given, the
+  <div class="docstring"><p>Generates a function definition from the string.</p>
+
+<p>The kind (<code>:def</code> or <code>:defp</code>) must be given, the
 function name, its arguments and the compilation options.</p>
 
 <h2>Examples</h2>
@@ -351,7 +349,7 @@ iex&gt; Sample.sample(1, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.1/lib/eex/lib/eex.ex#L108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/v0.14.2/lib/eex/lib/eex.ex#L109" class="view_source">Source</a>
   
 </div>
 

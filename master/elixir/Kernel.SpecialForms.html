@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Elixir v0.14.2-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a> &rarr; <a href="Kernel.SpecialForms.html">SpecialForms</a></div>
+      <div class="breadcrumbs">Elixir v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Kernel.html">Kernel</a> &rarr; <a href="Kernel.SpecialForms.html">SpecialForms</a></div>
 
       <h1>
         Kernel.SpecialForms
@@ -63,7 +63,7 @@ in Elixir&#39;s constructs.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
       
 
       
@@ -161,9 +161,17 @@ in Elixir&#39;s constructs.</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#case/2">case(condition, blocks)</a></td>
+  <td class="summary_signature"><a href="#case/2">case(condition, clauses)</a></td>
   
     <td class="summary_synopsis"><p>Matches the given expression against the given clauses</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#cond/1">cond(clauses)</a></td>
+  
+    <td class="summary_synopsis"><p>Evaluates the expression corresponding to the first clause that
+evaluates to truth value</p>
 </td>
   
 </tr>
@@ -289,27 +297,27 @@ end
 </code></pre>
 
 <p>In practice though, structs are usually defined with the
-<code>Kernel.defstruct/2</code> macro:</p>
+<a href="Kernel.html#defstruct/1"><code>Kernel.defstruct/1</code></a> macro:</p>
 
 <pre><code>defmodule User do
   defstruct name: &quot;josé&quot;, age: 27
 end
 </code></pre>
 
-<p>Now a struct can be created as follow:</p>
+<p>Now a struct can be created as follows:</p>
 
 <pre><code>%User{}
 </code></pre>
 
 <p>Underneath a struct is just a map with a <code>__struct__</code> field
-pointing to the User module:</p>
+pointing to the <code>User</code> module:</p>
 
 <pre><code>%User{} == %{__struct__: User, name: &quot;josé&quot;, age: 27}
 </code></pre>
 
-<p>A struct also validates the given keys are part of the defined
+<p>A struct also validates that the given keys are part of the defined
 struct. The example below will fail because there is no key
-<code>:full_name</code> in the user struct:</p>
+<code>:full_name</code> in the <code>User</code> struct:</p>
 
 <pre><code>%User{full_name: &quot;José Valim&quot;}
 </code></pre>
@@ -331,7 +339,7 @@ Map.put(user, :a_non_struct_key, :value)
 compilation time and it will guarantee at runtime the given
 argument is a struct, failing with <a href="BadStructError.html"><code>BadStructError</code></a> otherwise.</p>
 
-<p>Alhought structs are maps, by default structs do not implement
+<p>Although structs are maps, by default structs do not implement
 any of the protocols implemented for maps. Check
 <a href="Kernel.html#defprotocol/2"><code>Kernel.defprotocol/2</code></a> for more information on how structs
 can be used with protocols for polymorphic dispatch. Also
@@ -339,7 +347,7 @@ see <a href="Kernel.html#struct/2"><code>Kernel.struct/2</code></a> for examples
 structs dynamically.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L165" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L165" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -415,7 +423,7 @@ for simplicity:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -501,7 +509,7 @@ least one placeholder must be present, i.e. it must contain at least
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1308" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1308" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -640,7 +648,7 @@ iex&gt; quote do: Module.concat(String, unquote(x))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L420" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -802,7 +810,7 @@ binaries, it is 8.</p>
 to binary32 and binary64, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L302" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L302" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -846,7 +854,7 @@ iex&gt; x
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L652" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L652" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -865,7 +873,7 @@ iex&gt; x
 set up aliases, the function and others.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L621" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L621" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -884,7 +892,7 @@ set up aliases, the function and others.</p>
 this macro is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L613" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L613" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -903,7 +911,7 @@ this macro is a convenient shortcut.</p>
 line numbers, set up aliases, the current function and others.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L597" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L597" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -922,7 +930,7 @@ line numbers, set up aliases, the current function and others.</p>
 is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L605" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L605" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -974,7 +982,7 @@ in the list is an atom.</p>
 </ol>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1347" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1347" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -998,7 +1006,7 @@ and should not be invoked directly:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1239" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1239" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1063,12 +1071,12 @@ was not explicitly defined.</p>
 setting the <code>:warn</code> option to true or false.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L470" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L470" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="case/2">
-    <span class="signature"><strong>case(condition, blocks)</strong></span>
+    <span class="signature"><strong>case(condition, clauses)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(macro)</span>
       <a href="#case/2" class="detail_link" title="Link to this macro">#</a>
@@ -1124,7 +1132,38 @@ case, clauses that do not explicitly bind a value have the variable
 bound to nil.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1400" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1400" class="view_source">Source</a>
+  
+</div>
+<div class="detail">
+  <div class="detail_header" id="cond/1">
+    <span class="signature"><strong>cond(clauses)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(macro)</span>
+      <a href="#cond/1" class="detail_link" title="Link to this macro">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <div class="docstring"><p>Evaluates the expression corresponding to the first clause that
+evaluates to truth value.</p>
+
+<p>Raises an error if all conditions evaluate to to nil or false.</p>
+
+<h2>Examples</h2>
+
+<pre><code>cond do
+  1 + 1 == 1 -&gt;
+    &quot;This will never match&quot;
+  2 * 2 != 4 -&gt;
+    &quot;Nor this&quot;
+  true -&gt;
+    &quot;This will&quot;
+end
+</code></pre>
+</div>
+  
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1149,7 +1188,7 @@ iex&gt; add.(1, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1226" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1226" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1234,7 +1273,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1214" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1214" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1342,7 +1381,7 @@ if an ambiguous call to <code>foo/1</code> is actually made; that is, the
 errors are emitted lazily, not eagerly.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L589" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L589" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1838,7 +1877,7 @@ end
 one desires to inject a value into the quote.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1108" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1901,7 +1940,7 @@ will occur immediately</p></li>
 special macro. For more information, check the docs for <a href="#case/2"><code>case/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1670" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1690" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1940,7 +1979,7 @@ end
 up an alias. Please check <code>alias</code> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L498" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L498" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1957,7 +1996,7 @@ up an alias. Please check <code>alias</code> for more information.</p>
 See <code>Kernel.defoverridable</code> for more information and documentation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1353" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1353" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2200,7 +2239,7 @@ is to return the variables defined inside <code>try</code>:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1621" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1641" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2238,7 +2277,7 @@ quote do: sum(1, unquote(value), 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1133" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1133" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2262,7 +2301,7 @@ quote do: sum(1, unquote_splicing(values), 5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L1146" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1146" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2296,7 +2335,7 @@ iex&gt; quote do: {1, 2, 3}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/f21a998f8182653a58f3fcc06ef9b95bec59bbe9/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
   
 </div>
 
