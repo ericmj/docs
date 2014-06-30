@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Validator.html">Validator</a> &rarr; <a href="Ecto.Validator.Predicates.html">Predicates</a></div>
+      <div class="breadcrumbs">Ecto v0.2.2 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Validator.html">Validator</a> &rarr; <a href="Ecto.Validator.Predicates.html">Predicates</a></div>
 
       <h1>
         Ecto.Validator.Predicates
@@ -53,7 +53,7 @@ model.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+        <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L1" class="view_source">Source</a>
       
 
@@ -69,7 +69,7 @@ an empty list or an empty string)</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#between/4">between(attr, value, arg3, opts \\ [])</a></td>
+  <td class="summary_signature"><a href="#between/4">between(attr, value, range, opts \\ [])</a></td>
   
     <td class="summary_synopsis"><p>Validates the given number is between the value.
 Expects a range as value, raises otherwise</p>
@@ -200,13 +200,13 @@ an empty list or an empty string).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L53" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="between/4">
-    <span class="signature"><strong>between(attr, value, arg3, opts \\ [])</strong></span>
+    <span class="signature"><strong>between(attr, value, range, opts \\ [])</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#between/4" class="detail_link" title="Link to this function">#</a>
@@ -230,7 +230,7 @@ Expects a range as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L255" class="view_source">Source</a>
   
 </div>
@@ -260,7 +260,7 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L175" class="view_source">Source</a>
   
 </div>
@@ -290,7 +290,7 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L195" class="view_source">Source</a>
   
 </div>
@@ -327,7 +327,7 @@ Nil values are not matched against (skipped).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L78" class="view_source">Source</a>
   
 </div>
@@ -382,7 +382,7 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L119" class="view_source">Source</a>
   
 </div>
@@ -412,7 +412,7 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L215" class="view_source">Source</a>
   
 </div>
@@ -442,7 +442,7 @@ Expects numbers as value, raises otherwise.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L235" class="view_source">Source</a>
   
 </div>
@@ -486,7 +486,7 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L283" class="view_source">Source</a>
   
 </div>
@@ -531,7 +531,7 @@ validate user,
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L314" class="view_source">Source</a>
   
 </div>
@@ -568,7 +568,7 @@ nor an empty list nor an empty string).</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/validator/predicates.ex#L28" class="view_source">Source</a>
   
 </div>

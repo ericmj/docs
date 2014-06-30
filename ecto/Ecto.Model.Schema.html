@@ -20,7 +20,7 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Ecto v0.2.1 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a> &rarr; <a href="Ecto.Model.Schema.html">Schema</a></div>
+      <div class="breadcrumbs">Ecto v0.2.2 &rarr; <a href="overview.html">Overview</a> &rarr; Ecto &rarr; <a href="Ecto.Model.html">Model</a> &rarr; <a href="Ecto.Model.Schema.html">Schema</a></div>
 
       <h1>
         Ecto.Model.Schema
@@ -177,7 +177,7 @@ runtime introspection of the schema.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+        <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L1" class="view_source">Source</a>
       
 
@@ -222,7 +222,7 @@ has zero or one records of the other model. The other model often has a
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#schema/3">schema(source, opts \\ [], list3)</a></td>
+  <td class="summary_signature"><a href="#schema/3">schema(source, opts \\ [], block)</a></td>
   
     <td class="summary_synopsis"><p>Defines a schema with a source name and field definitions</p>
 </td>
@@ -291,7 +291,7 @@ comment.post.get #=&gt; %Post{...}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L336" class="view_source">Source</a>
   
 </div>
@@ -317,7 +317,7 @@ primary key have to be overridden by setting its name to <code>nil</code>;</li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L203" class="view_source">Source</a>
   
 </div>
@@ -374,7 +374,7 @@ post.comments.all #=&gt; [ %Comment{...}, ... ]
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L249" class="view_source">Source</a>
   
 </div>
@@ -427,13 +427,13 @@ post.permalink.get #=&gt; %Permalink{...}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L291" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="schema/3">
-    <span class="signature"><strong>schema(source, opts \\ [], list3)</strong></span>
+    <span class="signature"><strong>schema(source, opts \\ [], block)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(macro)</span>
       <a href="#schema/3" class="detail_link" title="Link to this macro">#</a>
@@ -444,7 +444,7 @@ post.permalink.get #=&gt; %Permalink{...}
   <div class="docstring"><p>Defines a schema with a source name and field definitions.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/ecto/blob/70f43d61afe963ffbab63b7ba366e35128e2a19d
+    <a href="https://github.com/elixir-lang/ecto/blob/53a5258b3c445a004d3cc956746684430132718e
 /lib/ecto/model/schema.ex#L143" class="view_source">Source</a>
   
 </div>
