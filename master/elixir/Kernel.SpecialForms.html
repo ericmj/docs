@@ -63,7 +63,7 @@ in Elixir&#39;s constructs.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1" class="view_source">Source</a>
       
 
       
@@ -347,7 +347,7 @@ see <a href="Kernel.html#struct/2"><code>Kernel.struct/2</code></a> for examples
 structs dynamically.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L165" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L165" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -423,7 +423,7 @@ for simplicity:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L103" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -509,7 +509,7 @@ least one placeholder must be present, i.e. it must contain at least
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1308" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1308" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -648,7 +648,7 @@ iex&gt; quote do: Module.concat(String, unquote(x))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L420" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -716,7 +716,7 @@ IEEE 754 binary32 or binary64 floating point number. A bitstring
 is an arbitrary series of bits. A binary is a special case of
 bitstring that has a total size divisible by 8.</p>
 
-<p>The utf8, utf16, and utf32 types are for UTF code points. They
+<p>The utf8, utf16, and utf32 types are for unicode codepoints. They
 can also be applied to literal strings and char lists:</p>
 
 <pre><code>iex&gt; &lt;&lt;&quot;foo&quot; :: utf16&gt;&gt;
@@ -727,8 +727,8 @@ can also be applied to literal strings and char lists:</p>
 alias for binary.</p>
 
 <p>The signedness can also be given as signed or unsigned. The
-signedness only matters for matching. If unspecified, it
-defaults to unsigned. Example:</p>
+signedness only matters for matching and relevant only for
+integers. If unspecified, it defaults to unsigned. Example:</p>
 
 <pre><code>iex&gt; &lt;&lt;-100 :: signed, _rest :: binary&gt;&gt; = &lt;&lt;-100, &quot;foo&quot;&gt;&gt;
 &lt;&lt;156,102,111,111&gt;&gt;
@@ -747,18 +747,16 @@ iex&gt; val
 
 <p>Here, <code>val</code> is interpreted as unsigned.</p>
 
-<p>Signedness is only relevant on integers.</p>
-
 <p>The endianness of a segment can be big, little or native (the
-latter meaning it will be resolved at VM load time). Passing
-many options can be done by giving a list:</p>
+latter meaning it will be resolved at VM load time). Many options
+can be given by using <code>-</code> as separator:</p>
 
-<pre><code>&lt;&lt;102 :: [integer, native], rest :: binary&gt;&gt;
+<pre><code>&lt;&lt;102 :: integer-native, rest :: binary&gt;&gt;
 </code></pre>
 
 <p>Or:</p>
 
-<pre><code>&lt;&lt;102 :: [unsigned, big, integer], rest :: binary&gt;&gt;
+<pre><code>&lt;&lt;102 :: unsigned-big-integer, rest :: binary&gt;&gt;
 </code></pre>
 
 <p>And so on.</p>
@@ -768,49 +766,53 @@ point types (utf16 and utf32).</p>
 
 <p>Finally, we can also specify size and unit for each segment. The
 unit is multiplied by the size to give the effective size of
-the segment:</p>
+the segment in bits. The default unit for integers, floats,
+and bitstrings is 1. For binaries, it is 8.</p>
 
-<pre><code>iex&gt; &lt;&lt;102, _rest :: [size(2), unit(8)]&gt;&gt; = &quot;foo&quot;
+<p>Since integers are default, the default unit is 1. The example below
+matches because the string &quot;foo&quot; takes 24 bits and we match it
+against a segment of 24 bits, 8 of which are taken by the integer
+102 and the remaining 16 bits are specified on the rest.</p>
+
+<pre><code>iex&gt; &lt;&lt;102, _rest :: size(16)&gt;&gt; = &quot;foo&quot;
 &quot;foo&quot;
-
-iex&gt; &lt;&lt;102, _rest :: size(16)&gt;&gt; = &quot;foo&quot;
-&quot;foo&quot;
-
-iex&gt; &lt;&lt;102, _rest :: size(32)&gt;&gt; = &quot;foo&quot;
-** (MatchError) no match of right hand side value: &quot;foo&quot;
 </code></pre>
 
-<p>In the example above, the first two expressions matches
-because the string &quot;foo&quot; takes 24 bits and we are matching
-against a segment of 24 bits as well, 8 of which are taken by
-the integer 102 and the remaining 16 bits are specified on
-the rest. On the last example, we expect a rest with size 32,
-which won&#39;t match.</p>
+<p>We can also match by specifying size and unit explicitly:</p>
+
+<pre><code>iex&gt; &lt;&lt;102, _rest :: size(2)-unit(8)&gt;&gt; = &quot;foo&quot;
+&quot;foo&quot;
+</code></pre>
+
+<p>However, if we expect a size of 32, it won&#39;t match:</p>
+
+<pre><code>iex&gt; &lt;&lt;102, _rest :: size(32)&gt;&gt; = &quot;foo&quot;
+** (MatchError) no match of right hand side value: &quot;foo&quot;
+</code></pre>
 
 <p>Size and unit are not applicable to utf8, utf16, and utf32.</p>
 
 <p>The default size for integers is 8. For floats, it is 64. For
 binaries, it is the size of the binary. Only the last binary
 in a binary match can use the default size (all others must
-have their size specified explicitly). Bitstrings do not have
-a default size.</p>
+have their size specified explicitly).</p>
 
-<p>Size can also be specified using a syntax shortcut. Instead of
-writing <code>size(8)</code>, one can write just <code>8</code> and it will be interpreted
-as <code>size(8)</code></p>
+<p>Size and unit can also be specified using a syntax shortcut
+when passing integer values:</p>
 
-<pre><code>iex&gt; &lt;&lt; 1 :: 3 &gt;&gt; == &lt;&lt; 1 :: size(3) &gt;&gt;
-true
+<pre><code>&lt;&lt; x :: 8 &gt;&gt; == &lt;&lt; x :: size(8) &gt;&gt;
+&lt;&lt; x :: 8 * 4 &gt;&gt; == &lt;&lt; x :: size(8)-unit(4) &gt;&gt;
+&lt;&lt; x :: _ * 4 &gt;&gt; == &lt;&lt; x :: unit(4) &gt;&gt;
 </code></pre>
 
-<p>The default unit for integers, floats, and bitstrings is 1. For
-binaries, it is 8.</p>
+<p>This syntax reflects the fact the effective size is given by
+multiplying the size by the unit.</p>
 
-<p>For floats, unit * size must result in 32 or 64, corresponding
+<p>For floats, <code>size * unit</code> must result in 32 or 64, corresponding
 to binary32 and binary64, respectively.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L302" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L302" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -854,7 +856,7 @@ iex&gt; x
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L652" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L652" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -873,7 +875,7 @@ iex&gt; x
 set up aliases, the function and others.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L621" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L621" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -892,7 +894,7 @@ set up aliases, the function and others.</p>
 this macro is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L613" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L613" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -911,7 +913,7 @@ this macro is a convenient shortcut.</p>
 line numbers, set up aliases, the current function and others.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L597" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L597" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -930,7 +932,7 @@ line numbers, set up aliases, the current function and others.</p>
 is a convenient shortcut.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L605" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L605" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -982,7 +984,7 @@ in the list is an atom.</p>
 </ol>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1347" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1347" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1006,7 +1008,7 @@ and should not be invoked directly:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1239" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1239" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1071,7 +1073,7 @@ was not explicitly defined.</p>
 setting the <code>:warn</code> option to true or false.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L470" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L470" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1132,7 +1134,7 @@ case, clauses that do not explicitly bind a value have the variable
 bound to nil.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1400" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1400" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1163,7 +1165,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1420" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1188,7 +1190,7 @@ iex&gt; add.(1, 2)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1226" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1226" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1273,7 +1275,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1214" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1214" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1381,7 +1383,7 @@ if an ambiguous call to <code>foo/1</code> is actually made; that is, the
 errors are emitted lazily, not eagerly.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L589" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L589" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1877,7 +1879,7 @@ end
 one desires to inject a value into the quote.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1108" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1940,7 +1942,7 @@ will occur immediately</p></li>
 special macro. For more information, check the docs for <a href="#case/2"><code>case/2</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1690" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1690" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1979,7 +1981,7 @@ end
 up an alias. Please check <code>alias</code> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L498" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L498" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1996,7 +1998,7 @@ up an alias. Please check <code>alias</code> for more information.</p>
 See <code>Kernel.defoverridable</code> for more information and documentation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1353" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1353" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2110,9 +2112,9 @@ end
 <p>The catch clause can be used to catch throws values and exits.</p>
 
 <pre><code>try do
-  exit(1)
+  exit(:shutdown)
 catch
-  :exit, 1 -&gt; IO.puts &quot;Exited with 1&quot;
+  :exit, :shutdown -&gt; IO.puts &quot;Exited with shutdown reason&quot;
 end
 
 try do
@@ -2239,7 +2241,7 @@ is to return the variables defined inside <code>try</code>:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1641" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1641" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2277,7 +2279,7 @@ quote do: sum(1, unquote(value), 3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1133" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1133" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2301,7 +2303,7 @@ quote do: sum(1, unquote_splicing(values), 5)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L1146" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L1146" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2335,7 +2337,7 @@ iex&gt; quote do: {1, 2, 3}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel/special_forms.ex#L43" class="view_source">Source</a>
   
 </div>
 

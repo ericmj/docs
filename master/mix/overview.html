@@ -92,8 +92,7 @@ behaviour required by any SCM used by mix</p>
 <tr>
   <td class="summary_signature"><a href="Mix.Shell.IO.html">Mix.Shell.IO</a></td>
   
-    <td class="summary_synopsis"><p>This is Mix&#39;s default shell.
-It simply prints messages to stdio and stderr</p>
+    <td class="summary_synopsis"><p>This is Mix&#39;s default shell</p>
 </td>
   
 </tr>
@@ -124,9 +123,29 @@ it starts the current application</p>
 <tr>
   <td class="summary_signature"><a href="Mix.Tasks.Archive.html">Mix.Tasks.Archive</a></td>
   
-    <td class="summary_synopsis"><p>Packages the current project (though not its dependencies) into a
-zip file according to the specification of the
+    <td class="summary_synopsis"><p>Lists all installed archives</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Mix.Tasks.Archive.Build.html">Mix.Tasks.Archive.Build</a></td>
+  
+    <td class="summary_synopsis"><p>Builds an archive according to the specification of the
 <a href="http://www.erlang.org/doc/man/code.html">Erlang Archive Format</a></p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Mix.Tasks.Archive.Install.html">Mix.Tasks.Archive.Install</a></td>
+  
+    <td class="summary_synopsis"><p>Install an archive locally</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Mix.Tasks.Archive.Uninstall.html">Mix.Tasks.Archive.Uninstall</a></td>
+  
+    <td class="summary_synopsis"><p>Uninstall local archives:</p>
 </td>
   
 </tr>
@@ -231,15 +250,6 @@ that are not available or have an invalid lock</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="Mix.Tasks.Deps.Loadpaths.html">Mix.Tasks.Deps.Loadpaths</a></td>
-  
-    <td class="summary_synopsis"><p>Loads all dependencies for the current build.
-This is invoked directly by <code>loadpaths</code> when
-the CLI boots</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="Mix.Tasks.Deps.Unlock.html">Mix.Tasks.Deps.Unlock</a></td>
   
     <td class="summary_synopsis"><p>Unlock the given dependencies</p>
@@ -261,10 +271,14 @@ the CLI boots</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="Mix.Tasks.Escriptize.html">Mix.Tasks.Escriptize</a></td>
+  <td class="summary_signature"><a href="Mix.Tasks.Escript.Build.html">Mix.Tasks.Escript.Build</a></td>
   
-    <td class="summary_synopsis"><p>Generates an escript for the project</p>
+    <td class="summary_synopsis"><p>Builds an escript for the project</p>
 </td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="Mix.Tasks.Escriptize.html">Mix.Tasks.Escriptize</a></td>
   
 </tr>
 <tr>
@@ -310,25 +324,11 @@ the CLI boots</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="Mix.Tasks.Local.Install.html">Mix.Tasks.Local.Install</a></td>
-  
-    <td class="summary_synopsis"><p>Install an archive locally</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="Mix.Tasks.Local.Rebar.html">Mix.Tasks.Local.Rebar</a></td>
   
     <td class="summary_synopsis"><p>Fetch a copy of rebar from the given path or url. It defaults to a
 rebar copy that ships with Elixir source if available or fetches it
 from <a href="http://s3.hex.pm/rebar">http://s3.hex.pm/rebar</a></p>
-</td>
-  
-</tr>
-<tr>
-  <td class="summary_signature"><a href="Mix.Tasks.Local.Uninstall.html">Mix.Tasks.Local.Uninstall</a></td>
-  
-    <td class="summary_synopsis"><p>Uninstall local tasks:</p>
 </td>
   
 </tr>

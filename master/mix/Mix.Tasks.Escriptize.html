@@ -40,71 +40,9 @@
       </ul>
 
       
-        <div id="moduledoc" class="docstring">
-          <p>Generates an escript for the project.</p>
-
-<h2>Command line options</h2>
-
-<ul>
-<li><code>--force</code>      - forces compilation regardless of modification times</li>
-<li><code>--no-compile</code> - skips compilation to .beam files</li>
-</ul>
-
-<h2>Configuration</h2>
-
-<p>The following option must be specified in your <code>mix.exs</code> under <code>:escript</code>
-key:</p>
-
-<ul>
-<li><code>:main_module</code> - the module to be invoked once the escript starts.
-The module must contain a function named <code>main/1</code> that will receive the
-command line arguments as binaries.</li>
-</ul>
-
-<p>The remaining options can be specified to further customize the escript:</p>
-
-<ul>
-<li><p><code>:name</code> - the name of the generated escript.
-Defaults to app name.</p></li>
-<li><p><code>:path</code> - the path to write the escript to.
-Defaults to app name.</p></li>
-<li><p><code>:app</code> - the app to start with the escript.
-Defaults to app name. Set it to <code>nil</code> if no application should
-be started.</p></li>
-<li><p><code>:embed_elixir</code> - if <code>true</code> embed elixir in the escript file.
-Defaults to <code>true</code>.</p></li>
-<li><p><code>:embed_extra_apps</code> - embed additional Elixir applications.
-if <code>:embed_elixir</code> is <code>true</code>.
-Defaults to <code>[]</code>.</p></li>
-<li><p><code>:shebang</code> - shebang interpreter directive used to execute the escript.
-Defaults to <code>&quot;#! /usr/bin/env escript\n&quot;</code>.</p></li>
-<li><p><code>:comment</code> - comment line to follow shebang directive in the escript.
-Defaults to <code>&quot;&quot;</code>.</p></li>
-<li><p><code>:emu_args</code> - emulator arguments to embed in the escript file.
-Defaults to <code>&quot;&quot;</code>.</p></li>
-</ul>
-
-<h2>Example</h2>
-
-<pre><code>defmodule MyApp.Mixfile do
-  def project do
-    [ app: :myapp,
-      version: &quot;0.0.1&quot;,
-      escript: escript ]
-  end
-
-  def escript do
-    [ main_module: MyApp.CLI,
-      embed_extra_apps: [:mix] ]
-  end
-end
-</code></pre>
-
-        </div>
-      
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/escriptize.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/escriptize.ex#L1" class="view_source">Source</a>
       
 
       
@@ -139,7 +77,7 @@ end
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/escriptize.ex#L69" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/escriptize.ex#L4" class="view_source">Source</a>
   
 </div>
 

@@ -104,7 +104,7 @@ be expressed as:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/version.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/version.ex#L1" class="view_source">Source</a>
       
 
       
@@ -148,12 +148,6 @@ is returned</p>
         <div id="types_details" class="details_list">
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
-  <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: %Version{major: term, minor: term, patch: term, pre: term, build: term}
-  </p>
-  
-</div>
-<div class="type_detail">
   <p class="typespec" id="t:version/0">
     <a href="#t:version/0">version</a> :: <a href="String.html#t:t/0">String.t</a> | <a href="#t:t/0">t</a>
   </p>
@@ -166,8 +160,44 @@ is returned</p>
   
 </div>
 <div class="type_detail">
+  <p class="typespec" id="t:major/0">
+    <a href="#t:major/0">major</a> :: <a href="String.html#t:t/0">String.t</a> | non_neg_integer
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:minor/0">
+    <a href="#t:minor/0">minor</a> :: non_neg_integer | nil
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:patch/0">
+    <a href="#t:patch/0">patch</a> :: non_neg_integer | nil
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:pre/0">
+    <a href="#t:pre/0">pre</a> :: [<a href="String.html#t:t/0">String.t</a>]
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:build/0">
+    <a href="#t:build/0">build</a> :: <a href="String.html#t:t/0">String.t</a> | nil
+  </p>
+  
+</div>
+<div class="type_detail">
   <p class="typespec" id="t:matchable/0">
-    <a href="#t:matchable/0">matchable</a> :: {major :: <a href="String.html#t:t/0">String.t</a> | non_neg_integer, minor :: non_neg_integer | nil, patch :: non_neg_integer | nil, pre :: [<a href="String.html#t:t/0">String.t</a>]}
+    <a href="#t:matchable/0">matchable</a> :: {major :: <a href="#t:major/0">major</a>, minor :: <a href="#t:minor/0">minor</a>, patch :: <a href="#t:patch/0">patch</a>, pre :: <a href="#t:pre/0">pre</a>}
+  </p>
+  
+</div>
+<div class="type_detail">
+  <p class="typespec" id="t:t/0">
+    <a href="#t:t/0">t</a> :: %Version{major: <a href="#t:major/0">major</a>, minor: <a href="#t:minor/0">minor</a>, patch: <a href="#t:patch/0">patch</a>, pre: <a href="#t:pre/0">pre</a>, build: <a href="#t:build/0">build</a>}
   </p>
   
 </div>
@@ -215,7 +245,7 @@ iex&gt; Version.compare(&quot;invalid&quot;, &quot;2.0.1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/version.ex#L139" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/version.ex#L151" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -259,7 +289,7 @@ iex&gt; Version.match?(&quot;2.0.0&quot;, &quot;== ==1.0.0&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/version.ex#L104" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/version.ex#L116" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -283,7 +313,8 @@ iex&gt; Version.match?(&quot;2.0.0&quot;, &quot;== ==1.0.0&quot;)
 
 <h2>Examples</h2>
 
-<pre><code>iex&gt; Version.parse(&quot;2.0.1-alpha1&quot;) |&gt; elem(1)
+<pre><code>iex&gt; {:ok, version} = Version.parse(&quot;2.0.1-alpha1&quot;)
+iex&gt; version
 #Version&lt;2.0.1-alpha1&gt;
 
 iex&gt; Version.parse(&quot;2.0-alpha1&quot;)
@@ -291,7 +322,7 @@ iex&gt; Version.parse(&quot;2.0-alpha1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/version.ex#L168" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/version.ex#L181" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -315,7 +346,8 @@ iex&gt; Version.parse(&quot;2.0-alpha1&quot;)
 
 <h2>Examples</h2>
 
-<pre><code>iex&gt; Version.parse_requirement(&quot;== 2.0.1&quot;) |&gt; elem(1)
+<pre><code>iex&gt; {:ok, req} = Version.parse_requirement(&quot;== 2.0.1&quot;)
+iex&gt; req
 #Version.Requirement&lt;== 2.0.1&gt;
 
 iex&gt; Version.parse_requirement(&quot;== == 2.0.1&quot;)
@@ -323,7 +355,7 @@ iex&gt; Version.parse_requirement(&quot;== == 2.0.1&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/version.ex#L192" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/version.ex#L206" class="view_source">Source</a>
   
 </div>
 

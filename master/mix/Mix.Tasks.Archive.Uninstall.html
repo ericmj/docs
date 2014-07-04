@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mix.Tasks.Local.Install</title>
+    <title>Mix.Tasks.Archive.Uninstall</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -20,10 +20,10 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Local.html">Local</a> &rarr; <a href="Mix.Tasks.Local.Install.html">Install</a></div>
+      <div class="breadcrumbs">Mix v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Archive.html">Archive</a> &rarr; <a href="Mix.Tasks.Archive.Uninstall.html">Uninstall</a></div>
 
       <h1>
-        Mix.Tasks.Local.Install
+        Mix.Tasks.Archive.Uninstall
         
       </h1>
 
@@ -41,37 +41,16 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>Install an archive locally.</p>
+          <p>Uninstall local archives:</p>
 
-<p>If no argument is supplied but there is an archive in the root
-(created with mix archive), then the archive will be installed
-locally. For example:</p>
-
-<pre><code>mix do archive, local.install
+<pre><code>mix archive.uninstall archive.ez
 </code></pre>
-
-<p>The argument can be an archive located at some URL:</p>
-
-<pre><code>mix local.install http://example.com/foo.ez
-</code></pre>
-
-<p>After installed, the tasks in the archive are available locally:</p>
-
-<pre><code>mix some_task
-</code></pre>
-
-<h2>Command line options</h2>
-
-<ul>
-<li><code>--force</code> - forces installation without a shell prompt; primarily
-intended for automation in build systems like make</li>
-</ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/local.install.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/archive.uninstall.ex#L1" class="view_source">Source</a>
       
 
       
@@ -106,7 +85,7 @@ intended for automation in build systems like make</li>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/local.install.ex#L32" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/archive.uninstall.ex#L13" class="view_source">Source</a>
   
 </div>
 

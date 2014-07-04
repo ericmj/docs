@@ -206,7 +206,7 @@ in Erlang can also provide extra insight.</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L1" class="view_source">Source</a>
       
 
       
@@ -356,8 +356,17 @@ in Erlang can also provide extra insight.</p>
   
 </div>
 <div class="type_detail">
+  <p class="typespec" id="t:mode/0">
+    <a href="#t:mode/0">mode</a> :: :sync | :async
+  </p>
+  
+      <div class="typespec_doc"><p>The subscription mode</p>
+</div>
+  
+</div>
+<div class="type_detail">
   <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: %GenEvent{manager: term, id: term, timeout: term, duration: term, mode: term}
+    <a href="#t:t/0">t</a> :: %GenEvent{manager: <a href="#t:manager/0">manager</a>, id: term, timeout: timeout, duration: timeout, mode: <a href="#t:mode/0">mode</a>}
   </p>
   
 </div>
@@ -381,7 +390,7 @@ in Erlang can also provide extra insight.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>__struct__ :: <a href="#t:t/0">t</a></li>
+        <li>__struct__ :: %GenEvent{duration: term, id: term, manager: term, mode: term, timeout: term}</li>
       
     </ul>
   
@@ -399,7 +408,7 @@ contains the following fields:</p>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L179" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L189" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -454,7 +463,7 @@ depends on the error</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L329" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L339" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -485,7 +494,7 @@ If the specified event handler is not installed, the function returns
 <code>{:error, :bad_module}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L371" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L381" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -512,7 +521,7 @@ when the stream is created via <a href="#stream/2"><code>stream/2</code></a>. Pa
 an id leads to an argument error.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L383" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L393" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -541,7 +550,7 @@ sent. <code>notify</code> will not fail even if the specified event manager does
 unless it is specified as <code>name</code> (atom).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L346" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L356" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -568,7 +577,7 @@ and return the callback value. If the specified event handler is not
 installed, the function returns <code>{:error, :module_not_found}</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L406" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L416" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -593,7 +602,7 @@ installed, the function returns <code>{:error, :module_not_found}</code>.</p>
 <p>See <a href="#start_link/1"><code>start_link/1</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L249" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L259" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -630,7 +639,7 @@ parent process and will exit not only on crashes but also if the parent
 process exits with <code>:normal</code> reason.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L239" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L249" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -656,7 +665,7 @@ process exits with <code>:normal</code> reason.</p>
 for each installed event handler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L452" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L462" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -686,7 +695,7 @@ before moving on to the next event handler.</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L283" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L293" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -727,7 +736,7 @@ giving <code>link: true</code> as option. See <a href="#add_handler/4"><code>add
 returns <code>:ok</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L432" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L442" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -755,7 +764,7 @@ invokes the <code>handle_event/2</code> on each installed event handler.</p>
 <p>See <a href="#notify/2"><code>notify/2</code></a> for more info.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L357" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L367" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -778,7 +787,7 @@ invokes the <code>handle_event/2</code> on each installed event handler.</p>
   <div class="docstring"><p>Returns a list of all event handlers installed in the <code>manager</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/gen_event.ex#L443" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/gen_event.ex#L453" class="view_source">Source</a>
   
 </div>
 

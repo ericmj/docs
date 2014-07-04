@@ -49,16 +49,16 @@
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/ex_unit/lib/ex_unit/filters.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/ex_unit/lib/ex_unit/filters.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#eval/3">eval(include, exclude, tags)</a></td>
+  <td class="summary_signature"><a href="#eval/4">eval(include, exclude, tags, collection)</a></td>
   
-    <td class="summary_synopsis"><p>Evaluates the include and exclude filters against the given tags</p>
+    <td class="summary_synopsis"><p>Evaluates the <code>include</code> and <code>exclude</code> filters against the given <code>tags</code></p>
 </td>
   
 </tr>
@@ -93,7 +93,7 @@ and keep precedence</p>
           <h2>Types <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></h2>
           <div class="type_detail">
   <p class="typespec" id="t:t/0">
-    <a href="#t:t/0">t</a> :: [{atom, any} | atom]
+    <a href="#t:t/0">t</a> :: [{atom, <a href="http://elixir-lang.org/docs/stable/elixir/Regex.html#t:t/0">Regex.t</a> | <a href="http://elixir-lang.org/docs/stable/elixir/String.Chars.html#t:t/0">String.Chars.t</a>} | atom]
   </p>
   
 </div>
@@ -105,11 +105,11 @@ and keep precedence</p>
         <div id="functions_details" class="details_list">
           <h2>Functions</h2>
           <div class="detail">
-  <div class="detail_header" id="eval/3">
-    <span class="signature"><strong>eval(include, exclude, tags)</strong></span>
+  <div class="detail_header" id="eval/4">
+    <span class="signature"><strong>eval(include, exclude, tags, collection)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
-      <a href="#eval/3" class="detail_link" title="Link to this function">#</a>
+      <a href="#eval/4" class="detail_link" title="Link to this function">#</a>
       <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
     </div>
   </div>
@@ -117,26 +117,30 @@ and keep precedence</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>eval(<a href="#t:t/0">t</a>, <a href="#t:t/0">t</a>, %{}) :: :ok | {:error, atom}</li>
+        <li>eval(<a href="#t:t/0">t</a>, <a href="#t:t/0">t</a>, %{}, [<a href="ExUnit.Test.html#t:t/0">ExUnit.Test.t</a>]) :: :ok | {:error, atom}</li>
       
     </ul>
   
-  <div class="docstring"><p>Evaluates the include and exclude filters against the given tags.</p>
+  <div class="docstring"><p>Evaluates the <code>include</code> and <code>exclude</code> filters against the given <code>tags</code>.</p>
 
-<p>Expects filters to be normalized into a keyword
-list where each key is an atom and the value is a list.</p>
+<p>Some filters, like <code>:line</code>, may require the whole test collection to
+find the closest line, that&#39;s why it must also be passed as argument.</p>
+
+<p>Filters can either be a regular expression or any data structure
+that implements to <code>String.Chars</code>, which is invoked before comparing
+the filter with the tag value.</p>
 
 <h2>Examples</h2>
 
-<pre><code>iex&gt; ExUnit.Filters.eval([foo: &quot;bar&quot;], [:foo], %{foo: &quot;bar&quot;})
+<pre><code>iex&gt; ExUnit.Filters.eval([foo: &quot;bar&quot;], [:foo], %{foo: &quot;bar&quot;}, [])
 :ok
 
-iex&gt; ExUnit.Filters.eval([foo: &quot;bar&quot;], [:foo], %{foo: &quot;baz&quot;})
+iex&gt; ExUnit.Filters.eval([foo: &quot;bar&quot;], [:foo], %{foo: &quot;baz&quot;}, [])
 {:error, :foo}
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/ex_unit/lib/ex_unit/filters.ex#L80" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/ex_unit/lib/ex_unit/filters.ex#L84" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -169,7 +173,7 @@ iex&gt; ExUnit.Filters.normalize([:foo, :bar, :bar], [:foo, :baz])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/ex_unit/lib/ex_unit/filters.ex#L39" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/ex_unit/lib/ex_unit/filters.ex#L39" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -198,7 +202,7 @@ iex&gt; ExUnit.Filters.normalize([:foo, :bar, :bar], [:foo, :baz])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/ex_unit/lib/ex_unit/filters.ex#L55" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/ex_unit/lib/ex_unit/filters.ex#L55" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -225,7 +229,7 @@ on the command line) includes a line number filter, and if so returns the
 appropriate ExUnit configuration options.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/ex_unit/lib/ex_unit/filters.ex#L16" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/ex_unit/lib/ex_unit/filters.ex#L16" class="view_source">Source</a>
   
 </div>
 

@@ -60,7 +60,7 @@ process (and only its caller) as shown in the example above.
 They are implemented by spawning a process that sends a message
 to the caller once the given computation is performed.</p>
 
-<p>Besides <a href="#async/1"><code>async/1</code></a> and <a href="#await/2"><code>await/2</code></a>, tasks can also be 
+<p>Besides <a href="#async/1"><code>async/1</code></a> and <a href="#await/2"><code>await/2</code></a>, tasks can also be
 started as part of supervision trees and dynamically spawned
 in remote nodes. We will explore all three scenarios next.</p>
 
@@ -132,7 +132,7 @@ children = [
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L1" class="view_source">Source</a>
       
 
       
@@ -221,7 +221,7 @@ a task that matches the given message</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>__struct__ :: <a href="#t:t/0">t</a></li>
+        <li>__struct__ :: %Task{pid: term, ref: term}</li>
       
     </ul>
   
@@ -236,7 +236,7 @@ or a tuple containing the process and node names</p></li>
 </ul>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L94" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L94" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -268,7 +268,7 @@ the relevant information.</p>
 where <code>ref</code> is the monitoring reference held by the task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L125" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L127" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -294,7 +294,7 @@ where <code>ref</code> is the monitoring reference held by the task.</p>
 module, function and arguments.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L136" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L138" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -321,7 +321,7 @@ of <code>5000</code>. In case the task process dies, this function will
 exit with the same reason as the task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L160" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L162" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -356,7 +356,7 @@ store the tasks in a list and later use <a href="Task.html#find/2"><code>Task.fi
 to see if incoming messages are from any of the tasks.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L193" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L195" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -379,7 +379,7 @@ to see if incoming messages are from any of the tasks.</p>
   <div class="docstring"><p>Starts a task as part of a supervision tree.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L100" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L102" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -402,7 +402,7 @@ to see if incoming messages are from any of the tasks.</p>
   <div class="docstring"><p>Starts a task as part of a supervision tree.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/task.ex#L108" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/task.ex#L110" class="view_source">Source</a>
   
 </div>
 

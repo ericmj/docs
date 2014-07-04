@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mix.Tasks.Deps.Loadpaths</title>
+    <title>Mix.Tasks.Archive.Install</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
 
@@ -20,10 +20,10 @@
     </script>
 
     <div id="content">
-      <div class="breadcrumbs">Mix v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Deps.html">Deps</a> &rarr; <a href="Mix.Tasks.Deps.Loadpaths.html">Loadpaths</a></div>
+      <div class="breadcrumbs">Mix v0.14.3-dev &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Mix.html">Mix</a> &rarr; Tasks &rarr; <a href="Mix.Tasks.Archive.html">Archive</a> &rarr; <a href="Mix.Tasks.Archive.Install.html">Install</a></div>
 
       <h1>
-        Mix.Tasks.Deps.Loadpaths
+        Mix.Tasks.Archive.Install
         
       </h1>
 
@@ -41,28 +41,44 @@
 
       
         <div id="moduledoc" class="docstring">
-          <p>Loads all dependencies for the current build.
-This is invoked directly by <code>loadpaths</code> when
-the CLI boots.</p>
+          <p>Install an archive locally.</p>
+
+<p>If no argument is supplied but there is an archive in the root
+(created with mix archive), then the archive will be installed
+locally. For example:</p>
+
+<pre><code>mix do archive.build, archive.install
+</code></pre>
+
+<p>The argument can be an archive located at some URL:</p>
+
+<pre><code>mix archive.install http://example.com/foo.ez
+</code></pre>
+
+<p>After installed, the tasks in the archive are available locally:</p>
+
+<pre><code>mix some_task
+</code></pre>
 
 <h2>Command line options</h2>
 
 <ul>
-<li><code>--no-deps-check</code> - skip dependency check</li>
+<li><code>--force</code> - forces installation without a shell prompt; primarily
+intended for automation in build systems like make</li>
 </ul>
 
         </div>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/deps.loadpaths.ex#L1" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/archive.install.ex#L1" class="view_source">Source</a>
       
 
       
         <h2 id="summary">Summary<div class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></div></h2>
         <table class="summary">
           <tr>
-  <td class="summary_signature"><a href="#run/1">run(args)</a></td>
+  <td class="summary_signature"><a href="#run/1">run(argv)</a></td>
   
     <td class="summary_synopsis"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a></p>
 </td>
@@ -79,7 +95,7 @@ the CLI boots.</p>
           <h2>Functions</h2>
           <div class="detail">
   <div class="detail_header" id="run/1">
-    <span class="signature"><strong>run(args)</strong></span>
+    <span class="signature"><strong>run(argv)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#run/1" class="detail_link" title="Link to this function">#</a>
@@ -90,7 +106,7 @@ the CLI boots.</p>
   <div class="docstring"><p>Callback implementation of <a href="Mix.Task.html#run/1"><code>Mix.Task.run/1</code></a>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/mix/lib/mix/tasks/deps.loadpaths.ex#L13" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/mix/lib/mix/tasks/archive.install.ex#L32" class="view_source">Source</a>
   
 </div>
 

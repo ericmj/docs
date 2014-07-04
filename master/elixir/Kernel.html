@@ -76,7 +76,7 @@ the function:</p>
       
 
       
-        <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L8" class="view_source">Source</a>
+        <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L8" class="view_source">Source</a>
       
 
       
@@ -326,7 +326,7 @@ is the value</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#byte_size/1">byte_size(bitstring)</a></td>
+  <td class="summary_signature"><a href="#byte_size/1">byte_size(binary)</a></td>
   
     <td class="summary_synopsis"><p>Returns the number of bytes needed to contain <code>bitstring</code></p>
 </td>
@@ -412,7 +412,7 @@ only accessible from within the module in which they are defined</p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#defstruct/1">defstruct(kv)</a></td>
+  <td class="summary_signature"><a href="#defstruct/1">defstruct(fields)</a></td>
   
     <td class="summary_synopsis"><p>Defines a struct for the current module</p>
 </td>
@@ -990,14 +990,6 @@ unquoted or in standard tuple form <code>{name, meta, context}</code></p>
   
 </tr>
 <tr>
-  <td class="summary_signature"><a href="#xor/2">left xor right</a></td>
-  
-    <td class="summary_synopsis"><p>Boolean exclusive-or. Arguments must be booleans.
-Returns <code>true</code> if and only if both arguments are different</p>
-</td>
-  
-</tr>
-<tr>
   <td class="summary_signature"><a href="#|&gt;/2">left |&gt; right</a></td>
   
     <td class="summary_synopsis"><p><code>|&gt;</code> is the pipe operator</p>
@@ -1058,7 +1050,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L998" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L978" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1094,7 +1086,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1044" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1024" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1125,7 +1117,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L781" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L776" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1156,7 +1148,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L749" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L744" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1187,7 +1179,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L717" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L712" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1203,7 +1195,7 @@ true
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>[] ++ term :: maybe_improper_list</li>
+        <li>list ++ term :: maybe_improper_list</li>
       
     </ul>
   
@@ -1221,7 +1213,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L822" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L817" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1252,7 +1244,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L765" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L760" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1283,7 +1275,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L733" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L728" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1299,7 +1291,7 @@ iex&gt; &#39;foo&#39; ++ &#39;bar&#39;
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>[] -- [] :: []</li>
+        <li>list -- list :: list</li>
       
     </ul>
   
@@ -1318,7 +1310,7 @@ iex&gt; [1, 2, 3, 2, 1] -- [1, 2, 2]
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L842" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L837" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1355,7 +1347,7 @@ iex&gt; 2 / 1
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L803" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L798" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1388,7 +1380,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L896" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L876" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1421,7 +1413,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L932" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L912" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1460,7 +1452,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L974" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L954" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1500,7 +1492,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1023" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1003" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1533,7 +1525,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1368" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1348" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1566,7 +1558,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L914" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L894" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1599,7 +1591,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L950" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L930" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1633,7 +1625,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L55" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L55" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1664,7 +1656,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L71" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L71" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1695,7 +1687,7 @@ iex&gt; abs(-3)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L87" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L87" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1736,7 +1728,7 @@ Binaries are zero-indexed.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L112" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L112" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1770,12 +1762,12 @@ iex&gt; bit_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L131" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L131" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="byte_size/1">
-    <span class="signature"><strong>byte_size(bitstring)</strong></span>
+    <span class="signature"><strong>byte_size(binary)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(function)</span>
       <a href="#byte_size/1" class="detail_link" title="Link to this function">#</a>
@@ -1786,7 +1778,7 @@ iex&gt; bit_size(&lt;&lt;1, 2, 3&gt;&gt;)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>byte_size(bitstring) :: non_neg_integer</li>
+        <li>byte_size(binary) :: non_neg_integer</li>
       
     </ul>
   
@@ -1808,7 +1800,7 @@ iex&gt; byte_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L154" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L154" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1841,7 +1833,7 @@ iex&gt; byte_size(&lt;&lt;1, 2, 3&gt;&gt;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L172" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L172" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1873,7 +1865,7 @@ iex&gt; elem(tuple, 1)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1061" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1041" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1907,7 +1899,7 @@ exit(:seems_bad)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L191" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L191" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1935,7 +1927,7 @@ it is not loaded. Check <a href="Code.html#ensure_loaded/1"><code>Code.ensure_lo
 information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2333" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2363" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1951,15 +1943,26 @@ information.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>(get_and_update_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), (term -> {get, term})) :: {get, <a href="Access.html#t:t/0">Access.t</a>}) when get: var</li>
+        <li>get_and_update_in(<a href="Access.html#t:t/0">Access.t</a>, [term, ...], (term -> {get, term})) :: {get, <a href="Access.html#t:t/0">Access.t</a>} when get: var</li>
       
     </ul>
   
   <div class="docstring"><p>Gets a value and updates a nested structure.</p>
 
-<p>It expects a tuple to be returned, containing the value retrieved
-and the update one. Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the
-structures according to the given <code>keys</code>.</p>
+<p>It expects a tuple to be returned, containing the value
+retrieved and the update one.</p>
+
+<p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
+according to the given <code>keys</code>, unless the <code>key</code> is a
+function.</p>
+
+<p>If a key is a function, the function will be invoked
+passing three arguments, the operation (<code>:get_and_update</code>),
+the data to be accessed, and a function to be invoked next.</p>
+
+<p>This means <a href="#get_and_update_in/3"><code>get_and_update_in/3</code></a> can be extended to provide
+custom lookups. The downside is that functions cannot be stored
+as keys in the accessed data structures.</p>
 
 <h2>Examples</h2>
 
@@ -1973,16 +1976,24 @@ iex&gt; get_and_update_in(users, [&quot;josé&quot;, :age], &amp;{&amp;1, &amp;1
 {27, %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}}
 </code></pre>
 
-<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
-created:</p>
+<p>When one of the keys is a function, the function is invoked.
+In the example below, we use a function to get and increment all
+ages inside a list:</p>
 
-<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
-iex&gt; get_and_update_in(users, [&quot;dave&quot;, :age], &amp;{&amp;1, 13})
-{nil, %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 13}}}
+<pre><code>iex&gt; users = [%{name: &quot;josé&quot;, age: 27}, %{name: &quot;eric&quot;, age: 23}]
+iex&gt; all = fn :get_and_update, data, next -&gt;
+...&gt;   Enum.map(data, next) |&gt; List.unzip() |&gt; List.to_tuple()
+...&gt; end
+iex&gt; get_and_update_in(users, [all, :age], &amp;{&amp;1, &amp;1 + 1})
+{[27, 23], [%{name: &quot;josé&quot;, age: 28}, %{name: &quot;eric&quot;, age: 24}]}
 </code></pre>
+
+<p>If the previous value before invoking the function is nil,
+the function <em>will</em> receive <code>nil</code> as a value and must handle it
+accordingly (be it by failing or providing a sane default).</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1576" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1601" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -1998,14 +2009,23 @@ iex&gt; get_and_update_in(users, [&quot;dave&quot;, :age], &amp;{&amp;1, 13})
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>get_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term)) :: term</li>
+        <li>get_in(<a href="Access.html#t:t/0">Access.t</a>, [term, ...]) :: term</li>
       
     </ul>
   
   <div class="docstring"><p>Gets a value from a nested structure.</p>
 
 <p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
-according to the given <code>keys</code>.</p>
+according to the given <code>keys</code>, unless the <code>key</code> is a
+function.</p>
+
+<p>If a key is a function, the function will be invoked
+passing three arguments, the operation (<code>:get</code>), the
+data to be accessed, and a function to be invoked next.</p>
+
+<p>This means <a href="#get_in/2"><code>get_in/2</code></a> can be extended to provide
+custom lookups. The downside is that functions cannot be
+stored as keys in the accessed data structures.</p>
 
 <h2>Examples</h2>
 
@@ -2021,9 +2041,23 @@ as per the Access protocol:</p>
 iex&gt; get_in(users, [&quot;unknown&quot;, :age])
 nil
 </code></pre>
+
+<p>When one of the keys is a function, the function is invoked.
+In the example below, we use a function to get all the maps
+inside a list:</p>
+
+<pre><code>iex&gt; users = [%{name: &quot;josé&quot;, age: 27}, %{name: &quot;eric&quot;, age: 23}]
+iex&gt; all = fn :get, data, next -&gt; Enum.map(data, next) end
+iex&gt; get_in(users, [all, :age])
+[27, 23]
+</code></pre>
+
+<p>If the previous value before invoking the function is nil,
+the function <em>will</em> receive nil as a value and must handle it
+accordingly.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1493" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1494" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2039,7 +2073,7 @@ nil
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>hd([]) :: term</li>
+        <li>hd(list) :: term</li>
       
     </ul>
   
@@ -2048,7 +2082,7 @@ nil
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L201" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L201" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2105,7 +2139,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1413" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1393" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2130,7 +2164,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L211" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L211" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2157,7 +2191,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L223" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L223" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2182,7 +2216,7 @@ must start with <code>#</code>. For example, inspecting a function will return:<
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L233" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L233" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2208,7 +2242,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L244" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L244" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2233,7 +2267,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L254" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L254" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2258,7 +2292,7 @@ otherwise returns false.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L264" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L264" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2284,7 +2318,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L275" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L275" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2309,7 +2343,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L285" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L285" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2334,7 +2368,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L295" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L295" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2359,7 +2393,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L356" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L356" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2385,7 +2419,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L306" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L306" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2410,7 +2444,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L316" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L316" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2435,7 +2469,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L326" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L326" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2460,7 +2494,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L336" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L336" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2485,7 +2519,7 @@ otherwise returns <code>false</code>.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L346" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L346" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2501,7 +2535,7 @@ otherwise returns <code>false</code>.</p>
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>length([]) :: non_neg_integer</li>
+        <li>length(list) :: non_neg_integer</li>
       
     </ul>
   
@@ -2516,7 +2550,7 @@ otherwise returns <code>false</code>.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L372" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L372" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2544,7 +2578,7 @@ it is not loaded. Check <a href="Code.html#ensure_loaded/1"><code>Code.ensure_lo
 information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2346" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2376" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2577,7 +2611,7 @@ therefore it is unique enough for practical purposes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L390" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L390" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2604,7 +2638,7 @@ therefore it is unique enough for practical purposes.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L402" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L402" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2637,7 +2671,7 @@ first one is returned.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L420" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L420" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2670,7 +2704,7 @@ first one is returned.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L438" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L438" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2696,7 +2730,7 @@ If the node is not alive, <code>:nonode@nohost</code> is returned instead.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L449" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L449" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2723,7 +2757,7 @@ If the local node is not alive, <code>nonode@nohost</code> is returned.</p>
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L461" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L461" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2754,7 +2788,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L878" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L858" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2786,7 +2820,7 @@ iex&gt; put_elem(tuple, 0, :baz)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1078" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1058" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2802,14 +2836,16 @@ iex&gt; put_elem(tuple, 0, :baz)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>put_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), term) :: <a href="Access.html#t:t/0">Access.t</a></li>
+        <li>put_in(<a href="Access.html#t:t/0">Access.t</a>, [term, ...], term) :: <a href="Access.html#t:t/0">Access.t</a></li>
       
     </ul>
   
   <div class="docstring"><p>Puts a value in a nested structure.</p>
 
 <p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
-according to the given <code>keys</code>.</p>
+according to the given <code>keys</code>, unless the <code>key</code> is a
+function. If the key is a function, it will be invoked
+as specified in <a href="#get_and_update_in/3"><code>get_and_update_in/3</code></a>.</p>
 
 <h2>Examples</h2>
 
@@ -2818,16 +2854,11 @@ iex&gt; put_in(users, [&quot;josé&quot;, :age], 28)
 %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
 </code></pre>
 
-<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
-created:</p>
-
-<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
-iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
-%{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 13}}
-</code></pre>
+<p>In case any of entries in the middle returns <code>nil</code>,
+an error will be raised when trying to access it next.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1519" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1529" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2860,7 +2891,7 @@ iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L479" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L479" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2891,7 +2922,7 @@ iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L495" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L495" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2916,7 +2947,7 @@ iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
 <p>Allowed in guard clauses. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L525" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L525" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2932,7 +2963,7 @@ iex&gt; put_in(users, [&quot;dave&quot;, :age], 13)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>(send(dest :: pid | port | atom | {atom, node}, msg) :: msg) when msg: any</li>
+        <li>send(dest :: pid | port | atom | {atom, node}, msg) :: msg when msg: any</li>
       
     </ul>
   
@@ -2951,7 +2982,7 @@ name at another node.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L515" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L515" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -2989,7 +3020,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L553" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L548" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3005,7 +3036,7 @@ end
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>spawn(module, atom, []) :: pid</li>
+        <li>spawn(module, atom, list) :: pid</li>
       
     </ul>
   
@@ -3023,7 +3054,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L572" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L567" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3061,7 +3092,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L595" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L590" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3077,7 +3108,7 @@ end
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>spawn_link(module, atom, []) :: pid</li>
+        <li>spawn_link(module, atom, list) :: pid</li>
       
     </ul>
   
@@ -3095,7 +3126,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L614" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L609" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3130,7 +3161,7 @@ spawn_monitor(fn -&gt; send current, {Kernel.self, 1 + 2} end)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L634" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L629" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3146,7 +3177,7 @@ spawn_monitor(fn -&gt; send current, {Kernel.self, 1 + 2} end)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>spawn_monitor(module, atom, []) :: {pid, reference}</li>
+        <li>spawn_monitor(module, atom, list) :: {pid, reference}</li>
       
     </ul>
   
@@ -3164,7 +3195,7 @@ to handle processes, including spawning functions in nodes.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L653" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L648" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3214,7 +3245,7 @@ struct(user, unknown: &quot;value&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1453" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1433" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3239,7 +3270,7 @@ struct(user, unknown: &quot;value&quot;)
 <p>Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L663" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L658" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3264,7 +3295,7 @@ struct(user, unknown: &quot;value&quot;)
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L673" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L668" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3295,7 +3326,7 @@ struct(user, unknown: &quot;value&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L689" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L684" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3322,7 +3353,7 @@ struct(user, unknown: &quot;value&quot;)
 <p>Allowed in guard tests. Inlined by the compiler.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L701" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L696" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3338,14 +3369,16 @@ struct(user, unknown: &quot;value&quot;)
     <p>Specs:</p>
     <ul class="spec">
       
-        <li>update_in(<a href="Access.html#t:t/0">Access.t</a>, nonempty_list(term), (term -> term)) :: <a href="Access.html#t:t/0">Access.t</a></li>
+        <li>update_in(<a href="Access.html#t:t/0">Access.t</a>, [term, ...], (term -> term)) :: <a href="Access.html#t:t/0">Access.t</a></li>
       
     </ul>
   
   <div class="docstring"><p>Updates a key in a nested structure.</p>
 
 <p>Uses the <a href="Access.html"><code>Access</code></a> protocol to traverse the structures
-according to the given <code>keys</code>.</p>
+according to the given <code>keys</code>, unless the <code>key</code> is a
+function. If the key is a function, it will be invoked
+as specified in <a href="#get_and_update_in/3"><code>get_and_update_in/3</code></a>.</p>
 
 <h2>Examples</h2>
 
@@ -3354,51 +3387,11 @@ iex&gt; update_in(users, [&quot;josé&quot;, :age], &amp;(&amp;1 + 1))
 %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}
 </code></pre>
 
-<p>In case any of entries in the middle returns <code>nil</code>, a map is dynamically
-created:</p>
-
-<pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
-iex&gt; update_in(users, [&quot;dave&quot;, :age], &amp;((&amp;1 || 0) + 1))
-%{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}, &quot;dave&quot; =&gt; %{age: 1}}
-</code></pre>
+<p>In case any of entries in the middle returns <code>nil</code>,
+an error will be raised when trying to access it next.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1544" class="view_source">Source</a>
-  
-</div>
-<div class="detail">
-  <div class="detail_header" id="xor/2">
-    <span class="signature"><strong>left xor right</strong></span>
-    <div class="detail_header_links">
-      <span class="detail_type">(function)</span>
-      <a href="#xor/2" class="detail_link" title="Link to this function">#</a>
-      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
-    </div>
-  </div>
-  
-    <p>Specs:</p>
-    <ul class="spec">
-      
-        <li>boolean xor boolean :: boolean</li>
-      
-    </ul>
-  
-  <div class="docstring"><p>Boolean exclusive-or. Arguments must be booleans.
-Returns <code>true</code> if and only if both arguments are different.</p>
-
-<p>Allowed in guard tests. Inlined by the compiler.</p>
-
-<h2>Examples</h2>
-
-<pre><code>iex&gt; true xor false
-true
-
-iex&gt; true xor true
-false
-</code></pre>
-</div>
-  
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L862" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1551" class="view_source">Source</a>
   
 </div>
 
@@ -3432,7 +3425,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1130" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1110" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3470,7 +3463,7 @@ this operator accepts any expression as an argument,
 not only booleans, however it is not allowed in guards.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2227" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2256" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3502,7 +3495,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2199" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2228" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3532,7 +3525,7 @@ iex&gt; x
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1166" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1146" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3589,7 +3582,7 @@ time and not at runtime. Check the module <a href="Module.html"><code>Module</co
 to manipulate module attributes.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1904" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1933" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3609,7 +3602,7 @@ the macro is expanded.</p>
 <p>Check <a href="Kernel.SpecialForms.html#quote/2"><code>Kernel.SpecialForms.quote/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2505" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2535" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3634,7 +3627,7 @@ false
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1112" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1092" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3661,7 +3654,7 @@ iex&gt; binding()
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2000" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2029" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3689,7 +3682,7 @@ iex&gt; binding([:x, :y])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2019" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2048" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3720,7 +3713,7 @@ iex&gt; binding([:x, :y], :foo)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2045" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2074" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3757,7 +3750,7 @@ end
 two arguments and sums them.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2703" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2733" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3813,7 +3806,7 @@ MyList.other_reverse([1, 2, 3])
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3299" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3328" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3879,7 +3872,7 @@ raise MyAppError, value
 exception messages.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2982" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3011" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3899,7 +3892,7 @@ exception messages.</p>
 via <code>@protocol</code> and the current target as <code>@for</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3169" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3198" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3931,7 +3924,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2749" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2779" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -3950,7 +3943,7 @@ only accessible from the same module in which they are defined.</p>
 <p>Check <a href="#defmacro/2"><code>defmacro/2</code></a> for more information</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2759" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2789" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4012,7 +4005,7 @@ won&#39;t nest the name under the current module nor automatically
 set up an alias.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2565" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2595" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4055,7 +4048,7 @@ end
 implementation.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3204" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3233" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4088,7 +4081,7 @@ end
 through <code>Foo.sum</code> will raise an error.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2726" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2756" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4256,12 +4249,12 @@ a given project, please check the functions in the <a href="Protocol.html"><code
 module or the <code>mix compile.protocols</code> task.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3158" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3187" class="view_source">Source</a>
   
 </div>
 <div class="detail">
   <div class="detail_header" id="defstruct/1">
-    <span class="signature"><strong>defstruct(kv)</strong></span>
+    <span class="signature"><strong>defstruct(fields)</strong></span>
     <div class="detail_header_links">
       <span class="detail_type">(macro)</span>
       <a href="#defstruct/1" class="detail_link" title="Link to this macro">#</a>
@@ -4332,24 +4325,28 @@ one is automatically derived.</p>
 
 <h2>Types</h2>
 
-<p><code>defstruct</code> automatically generates a type <code>t</code> unless one exists.
-The following definition:</p>
+<p>It is recommended to define types for structs, by convention this type
+is called <code>t</code>. To define a struct in a type the struct literal syntax
+is used:</p>
 
 <pre><code>defmodule User do
-  defstruct name: &quot;José&quot; :: String.t,
-            age: 25 :: integer
+  defstruct name: &quot;José&quot;, age: 25
+  @type t :: %User{name: String.t, age: integer}
 end
 </code></pre>
 
-<p>Generates a type as follows:</p>
+<p>It is recommended to only use the struct syntax when defining the struct&#39;s
+type. When referring to another struct use <code>User.t</code>, not <code>%User{}</code>. Fields
+in the struct not included in the type defaults to <code>term</code>.</p>
 
-<pre><code>@type t :: %User{name: String.t, age: integer}
-</code></pre>
-
-<p>In case a struct does not declare a field type, it defaults to <code>term</code>.</p>
+<p>Private structs that are not used outside its module should use the private
+type attribute <code>@typep</code>. Public structs whose internal structure is private
+to the local module (you are not allowed to pattern match it or directly
+access fields) should use the <code>@opaque</code> attribute. Structs whose internal
+structure is public should use <code>@type</code>.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2855" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2890" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4396,7 +4393,7 @@ the first value from the right side. Otherwise,
 it will raise a CaseClauseError.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2165" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2194" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4428,7 +4425,7 @@ be visible by this macro. See the Paths section below.</p>
 <h2>Examples</h2>
 
 <pre><code>iex&gt; users = %{&quot;josé&quot; =&gt; %{age: 27}, &quot;eric&quot; =&gt; %{age: 23}}
-iex&gt; get_and_update_in(users[&quot;josé&quot;][:age], &amp;{&amp;1, &amp;1 + 1})
+iex&gt; get_and_update_in(users[&quot;josé&quot;].age, &amp;{&amp;1, &amp;1 + 1})
 {27, %{&quot;josé&quot; =&gt; %{age: 28}, &quot;eric&quot; =&gt; %{age: 23}}}
 </code></pre>
 
@@ -4462,7 +4459,7 @@ users
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1698" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1727" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4515,7 +4512,7 @@ end
 macro.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2099" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2128" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4568,7 +4565,7 @@ operator to a valid guard expression. For example:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2402" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2432" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4619,7 +4616,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1845" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1874" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4645,7 +4642,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1806" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1835" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4670,7 +4667,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1096" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1076" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4712,7 +4709,7 @@ iex&gt; put_in(users[&quot;josé&quot;].age, 28)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1611" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1640" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4748,7 +4745,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1212" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1192" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4777,7 +4774,7 @@ implements <code>exception(attrs)</code> callback expected by <a href="#raise/2"
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1263" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1243" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4815,7 +4812,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1293" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1273" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4846,7 +4843,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1342" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1322" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4872,7 +4869,7 @@ iex&gt; ~C(f#{o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3378" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3407" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4895,7 +4892,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3437" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3466" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4921,7 +4918,7 @@ iex&gt; ~S(f#{o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3344" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3373" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4952,7 +4949,7 @@ without escaping nor interpreting interpolations.</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3489" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3518" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -4978,7 +4975,7 @@ iex&gt; ~c(f#{:o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3398" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3427" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5000,7 +4997,7 @@ true
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3416" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3445" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5026,7 +5023,7 @@ iex&gt; ~s(f#{:o}o)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3361" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3390" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5062,7 +5059,7 @@ iex&gt; ~w(foo bar baz)a
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3464" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3493" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5084,7 +5081,7 @@ iex&gt; ~w(foo bar baz)a
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1789" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1818" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5109,7 +5106,7 @@ iex&gt; ~w(foo bar baz)a
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1774" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1803" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5137,7 +5134,7 @@ iex&gt; unless(Enum.empty?([1,2,3]), do: &quot;Hello&quot;)
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2126" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2155" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5179,7 +5176,7 @@ iex&gt; update_in(users[&quot;josé&quot;].age, &amp;(&amp;1 + 1))
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L1644" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L1673" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5225,7 +5222,7 @@ end
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L3242" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L3271" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5245,7 +5242,7 @@ unquoted or in standard tuple form <code>{name, meta, context}</code>.</p>
 <p>Check <a href="Kernel.SpecialForms.html#quote/2"><code>Kernel.SpecialForms.quote/2</code></a> for more information.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2475" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2505" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5312,7 +5309,7 @@ for binaries. Adding explicit parenthesis resolves the ambiguity:</p>
 </code></pre>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2320" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2349" class="view_source">Source</a>
   
 </div>
 <div class="detail">
@@ -5349,7 +5346,7 @@ this operator accepts any expression as an argument,
 not only booleans, however it is not allowed in guards.</p>
 </div>
   
-    <a href="https://github.com/elixir-lang/elixir/blob/ef23a3fe395059f0d835d9fef8c3bc4dab5ccb68/lib/elixir/lib/kernel.ex#L2261" class="view_source">Source</a>
+    <a href="https://github.com/elixir-lang/elixir/blob/0d2332fe5e8ca9370e5593188f1ff1a79c08540c/lib/elixir/lib/kernel.ex#L2290" class="view_source">Source</a>
   
 </div>
 
